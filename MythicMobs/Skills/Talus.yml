@@ -1,0 +1,19 @@
+Recall:
+    Skills:
+    - totem{oS=RecallS;oT=RecallT;i=1;d=200}
+    - delay 200
+    - command{c="back";ac=true} @self
+    - effect:particlesphere{p=flame;amount=200;radius=2;speed=1} @self
+    
+RecallT:
+    Skills:
+    - effect:particlering{particle=flame;radius=1;points=16;amount=1;hS=0.25;vS=0.3;y=-0.5} 
+    - effect:particlering{particle=flame;radius=0.75;points=16;amount=1;hS=0.1;vS=0;y=-0.5} 
+    - effect:particlering{particle=flame;radius=0.5;points=16;amount=1;hS=0.1;vS=0;y=-0.5} 
+    - effect:particlering{particle=flame;radius=0.25;points=16;amount=1;hS=0.1;vS=0;y=-0.5}
+    - effect:particlering{particle=flame;radius=0;points=16;amount=1;hS=0.1;vS=0;y=-0.5}
+    - effect:particleline{particle=flame;amount=10;fromOrigin=true;yt=5;syo=-1;} 
+
+RecallS:
+    Skills:
+    - command{c="tp <caster.name>";ac=true} @self

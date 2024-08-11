@@ -1,0 +1,1941 @@
+SHARP_SPEAR:
+  base:
+    material: TRIDENT
+    name: §7Sharp Spear
+    lore:
+    - §7A spear made for close combat.
+    critical-strike-chance:
+      base: 6.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    critical-strike-power:
+      base: 15.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    required-level: 5.0
+    tier: UNCOMMON
+    attack-damage:
+      base: 9.0
+      scale: 0.1
+      spread: 0.05
+      max-spread: 0.1
+    attack-speed: 1.7
+    ability:
+      ability1:
+        type: WEAKEN_TARGET
+        mode: ATTACK
+        duration: 2.0
+        cooldown: 0.5
+        extra-damage: 25.0
+    gem-sockets:
+    - Uncolored
+    upgrade:
+      reference: universal
+      workbench: true
+      template: weapon-default
+    stamina-cost: 4.0
+WARRIOR_SPEAR:
+  base:
+    material: TRIDENT
+    required-level: 20.0
+    tier: EPIC
+    projectile-damage: 1000.0
+    attack-damage: 2.0
+    attack-speed: 1.5
+    critical-strike-chance:
+      base: 5.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    critical-strike-power:
+      base: 20.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    lore:
+    - §7Deals §cvery high damage§7 when thrown!
+    enchants:
+      loyalty: 3.0
+    unbreakable: true
+    gem-sockets:
+    - Red
+    - Red
+    movement-speed: -0.02
+    name: §6§lWarrior's Spear
+CLASH_SPEAR:
+  base:
+    material: TRIDENT
+    name: §b§nClash Spear
+    displayed-type: §7Retide Trident
+    enchants:
+      loyalty: 1.0
+    attack-damage: 4.0
+    attack-speed: 1.4
+    mana-cost: 5.0
+STAFF_OF_HOMA:
+  base:
+    material: GOLDEN_SHOVEL
+    name: §6§lStaff of Homa
+    lore:
+    - §8A “firewood staff” that was once used
+    - §8in ancient and long-lost rituals.
+    - §8Made specifically for the 78th director
+    - §8of the Wangsheng Funeral Parlor,
+    - §7Kyarameru.
+    attack-damage: 7.0
+    attack-speed: 1.5
+    critical-strike-chance: 35.0
+    critical-strike-power: 50.0
+    unbreakable: true
+    tier: ENDGAME
+    max-health: 4.0
+    element:
+      fire:
+        damage: 33.0
+ENGULFING_LIGHTNING:
+  base:
+    material: IRON_SHOVEL
+    name: §d§lEngulfing Lightning
+    lore:
+    - §dStrike your enemies with fear
+    item-particles:
+      type: OFFSET
+      particle: DRAGON_BREATH
+    ability:
+      ability1:
+        type: SLASH
+        mode: LEFT_CLICK
+        cooldown: 0.2
+      ability2:
+        type: BLINK
+        cooldown: 5.0
+        mode: RIGHT_CLICK
+    unbreakable: true
+    attack-damage: 9.0
+    attack-speed: 2.0
+    dodge-rating: 20.0
+    critical-strike-chance: 15.0
+    tier: EPIC
+    two-handed: true
+    element:
+      thunder:
+        damage: 100.0
+
+SILENT_BREEZE:
+  base:
+    material: IRON_HOE
+    name: §2§l§oSilent Breeze
+    lore:
+    - §f§oEven the silentest of winds can bring disorder.
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    unbreakable: true
+    item-particles:
+      particle: TOTEM
+      type: VORTEX
+      amount: 2.0
+    tier: VERY_RARE
+    movement-speed: -0.03
+    hide-enchants: true
+    ability:
+      ability1:
+        type: HOLY_MISSILE
+        mode: LEFT_CLICK
+        cooldown: 5.0
+        damage: 12.0
+        duration: 2.0
+      ability3:
+        type: MAGICAL_PATH
+        mode: SHIFT_LEFT_CLICK
+        duration: 3.0
+      ability2:
+        type: BLACK_HOLE
+        duration: 4.0
+        mode: RIGHT_CLICK
+        cooldown: 30.0
+        radius: 5.0
+    attack-damage: 10.0
+    range: 15.0
+    disable-interaction: true
+    attack-speed: 2.0
+    staff-spirit: MANA_SPIRIT
+ELDRITCH_UPBRINGING:
+  base:
+    material: NETHERITE_HOE
+    staff-spirit: VOID_SPIRIT
+    name: §5Eldritch Upbringing
+    ability:
+      ability1:
+        type: MAGICAL_PATH
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+        duration: 10.0
+      ability2:
+        type: ARCANE_HAIL
+        mode: SHIFT_LEFT_CLICK
+        radius: 8.0
+        damage: 5.0
+    attack-damage: 9.0
+    attack-speed: 1.8
+    unbreakable: true
+TEMP_MAGELLAN:
+  base:
+    material: WOODEN_HOE
+    displayed-type: Staff (Temp.)
+    name: §2Magellan
+    attack-damage: 5.0
+    attack-speed: 1.3
+    ability:
+      ability1:
+        type: GRAND_HEAL
+        mana: 8.0
+        cooldown: 15.0
+        mode: SHIFT_RIGHT_CLICK
+        heal: 7.0
+      ability2:
+        type: SWIFTNESS
+        duration: 6.0
+        mana: 10.0
+        mode: SHIFT_LEFT_CLICK
+    mana-regeneration: 0.6
+    disable-interaction: true
+TEMP_HEARTFUL_TROVE:
+  base:
+    material: DIAMOND_HOE
+    name: §2Heartful Trove
+    displayed-type: Staff (Temp.)
+    attack-damage: 4.0
+    critical-strike-chance: 5.0
+    attack-speed: 1.35
+    mana-regeneration: 0.8
+    ability:
+      ability1:
+        type: GRAND_HEAL
+        mana: 7.0
+        mode: SHIFT_RIGHT_CLICK
+        heal: 8.0
+        radius: 6.0
+      ability2:
+        type: SWIFTNESS
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 8.0
+        mana: 8.0
+    staff-spirit: MANA_SPIRIT
+    unbreakable: true
+MEGUMINSTAFF:
+  base:
+    material: STICK
+    custom-model-data: 123464.0
+    name: §4§lMegumin Staff
+    lore:
+    - §4So you spent your skill-points on explosions...
+    tier: LEGENDARY
+    ability:
+      ability1:
+        type: NGMEGUMINBLAST
+        mode: LEFT_CLICK
+        cooldown: 10.0
+    two-handed: true
+    disable-attack-passive: true
+    unbreakable: true
+    element:
+      fire:
+        damage: 100.0
+SPELLSTAFF1:
+  base:
+    material: STICK
+    displayed-type: Staff
+    name: §6§lSoul of Ivory
+    custom-model-data: 123475.0
+    disable-crafting: true
+    tier: RARE
+    ability:
+      ability1:
+        type: ROCKCANNON
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+      ability2:
+        type: EARTHBULLET
+        mode: LEFT_CLICK
+        cooldown: 1.5
+      ability3:
+        type: RIFT
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 5.0
+      ability4:
+        type: EARTHPILLAR
+        mode: RIGHT_CLICK
+        cooldown: 5.0
+    unstackable: true
+STAFF2:
+  base:
+    material: STICK
+    custom-model-data: 123477.0
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    ability:
+      ability1:
+        type: CRYOLIGHTATTACK
+        mode: LEFT_CLICK
+        cooldown: 0.5
+      ability2:
+        type: CRYOSTANCES
+        mode: RIGHT_CLICK
+        cooldown: 0.0
+      ability3:
+        type: CRYOMEDIUMATTACK
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 5.0
+      ability4:
+        type: CRYOHEAVYATTACK
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+    name: §9§lWater§b§lweaver
+    displayed-type: Staff
+    unbreakable: true
+    two-handed: true
+    tier: RARE
+    unstackable: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v white_concrete - 1.0..|v ice - 1.0..|v nether_star - 1.0..
+          - v AIR 0 1..|v stick - 1.0..|v ice - 1.0..
+          - v stick - 1.0..|v AIR 0 1..|v white_concrete - 1.0..
+    perm-effects:
+      WEAKNESS: 254.0
+REDSTONEROCKET:
+  base:
+    material: STICK
+    custom-model-data: 123485.0
+    name: §c§lRedstone Rocket Launcher
+    displayed-type: Rocket Launcher
+    ability:
+      ability1:
+        type: REDSTONEMISSILE
+        mode: LEFT_CLICK
+        damage: 40.0
+        velocity: 24.0
+        radius: 5.0
+        cooldown: 3.0
+    perm-effects:
+      WEAKNESS: 254.0
+'123457':
+  base:
+    material: STICK
+    custom-model-data: 123472.0
+    name: §f§lKill Gun
+    ability:
+      ability1:
+        type: KILLBEAM
+        mode: LEFT_CLICK
+      ability2:
+        type: KILLBEAM
+        mode: SHIFT_LEFT_CLICK
+      ability3:
+        type: SCOPE
+        mode: RIGHT_CLICK
+      ability4:
+        type: SCOPE
+        mode: SHIFT_RIGHT_CLICK
+    crafting:
+      supershaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v spyglass - 1.0..|v AIR 0 1..
+          - v black_concrete - 1.0..|v gold_block - 1.0..|v gold_block - 1.0..|v nether_star
+            - 1.0..|v white_concrete - 1.0..
+          - v AIR 0 1..|v AIR 0 1..|v black_concrete - 1.0..|v gold_block - 1.0..|v
+            white_concrete - 1.0..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          amount: 1
+          output:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|m Spear 123457 1.0..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+GWENDOLIN_GUN:
+  base:
+    material: IRON_HORSE_ARMOR
+    name: Gwendolin Gun
+    disable-interaction: true
+    ability:
+      ability1:
+        type: GWENDOLINATTACK
+        mode: RIGHT_CLICK
+        damage: 1.0
+        cooldown: 0.5
+        range: 15.0
+        spread: 0.5
+STRIKER_GUN:
+  base:
+    material: GOLDEN_HORSE_ARMOR
+    name: Striker Gun
+    ability:
+      ability1:
+        type: STRIKERATTACK
+        mode: RIGHT_CLICK
+        damage: 1.0
+        size: 2.0
+        cooldown: 1.2
+        range: 20.0
+        pierce: 15.0
+OBYN_THING:
+  base:
+    material: OAK_SAPLING
+    name: Obyn Greenfoot
+    ability:
+      ability1:
+        type: OBYNATTACK
+        damage: 2.0
+        cooldown: 1.35
+        duration: 100.0
+        range: 20.0
+        mode: RIGHT_CLICK
+        pierce: 4.0
+    disable-interaction: true
+SHADOW_STAFF:
+  base:
+    material: STICK
+    custom-model-data: 123465.0
+    ability:
+      ability1:
+        type: SHADOWREALM
+        mode: LEFT_CLICK
+    disable-interaction: true
+    name: §5§lShadow Staff
+BANGUN:
+  base:
+    material: STICK
+    custom-model-data: 123459.0
+    name: §f§lBan Stick
+    ability:
+      ability1:
+        type: BANBEAM
+        mode: LEFT_CLICK
+CHURCHILL_GUN:
+  base:
+    material: DIAMOND_HORSE_ARMOR
+    disable-interaction: true
+    ability:
+      ability1:
+        type: CHURCHILLATTACK
+        damage: 1.0
+        size: 1.0
+        cooldown: 0.7
+        range: 30.0
+        mode: RIGHT_CLICK
+        pierce: 12.0
+    name: Churchill Gun
+RADIANTGREATCROSS:
+  base:
+    material: STICK
+    custom-model-data: 123491.0
+    name: §f§lRadiant §e§lGreatcross
+    ability:
+      ability1:
+        type: SWAPSTANCE
+        mode: LEFT_CLICK
+        cooldown: 1.0
+      ability2:
+        type: HOLYBULLET
+        mode: RIGHT_CLICK
+        cooldown: 0.5
+      ability3:
+        type: HOLYBEAM
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+      ability4:
+        type: HOLYGRENADE
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 10.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v smooth_stone - 1.0..|v AIR 0 1..
+          - v smooth_stone - 1.0..|v nether_star - 1.0..|v smooth_stone - 1.0..
+          - v AIR 0 1..|v smooth_stone - 1.0..|v AIR 0 1..
+MAGE_STAFF:
+  base:
+    material: STICK
+    custom-model-data: 123497.0
+    ability:
+      ability1:
+        type: MAGICMISSILE
+        mode: LEFT_CLICK
+        cooldown: 0.3
+        mana: 7.5
+      ability2:
+        type: ARCANESHIELD
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+        mana: 30.0
+      ability4:
+        type: MAGICHOLE
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 5.0
+        mana: 30.0
+      ability3:
+        type: METEORSTORM
+        mode: RIGHT_CLICK
+        cooldown: 5.0
+        mana: 50.0
+    name: §x§b§0§4§5§e§6Tetraelemental Staff
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v white_stained_glass_pane - 1.0..|v AIR 0 1..
+          - v dirt - 1.0..|v water_bucket - 1.0..|v magma_block - 1.0..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+SORCERERSCEPTER:
+  base:
+    material: STICK
+    custom-model-data: 123456.0
+    name: §c§lScepter of Fulmination
+    unbreakable: true
+    ability:
+      ability1:
+        type: SORCERERAURA
+        mode: LEFT_CLICK
+        cooldown: 1.0
+        mana: 7.5
+      ability2:
+        type: SUMMONTOTEM
+        cooldown: 0.2
+        mode: RIGHT_CLICK
+        mana: 20.0
+      ability3:
+        type: SORCERERNET
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 7.0
+        mana: 15.0
+      ability4:
+        type: SORCERERDETONATE
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 5.0
+        mana: 50.0
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v stone - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v crying_obsidian - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+SCYTHE:
+  base:
+    material: STICK
+    custom-model-data: 123502.0
+    ability:
+      ability1:
+        type: SEELESLASH
+        mode: LEFT_CLICK
+        cooldown: 0.5
+      ability2:
+        type: SEELEBLINK
+        mode: RIGHT_CLICK
+        cooldown: 4.0
+      ability3:
+        type: SEELESPIKE
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 2.0
+      ability4:
+        type: SEELECHAINATTACK
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+    name: §x§6§4§5§f§f§aMaker Of Misery
+    perm-effects:
+      WEAKNESS: 254.0
+TESTSKILL:
+  base:
+    material: STICK
+    commands:
+      cmd0:
+        format: mm test cast ClimacticRush
+        delay: 0.0
+        op: true
+PYROMANCER:
+  base:
+    material: STICK
+    name: §c§lSolarflare
+    ability:
+      ability3:
+        type: FIRECLAP
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 12.0
+      ability4:
+        type: FIRESURGE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+      ability1:
+        type: FLAMEBURST
+        cooldown: 4.0
+        mode: LEFT_CLICK
+      ability2:
+        type: FLAMETHROWERSHOOT
+        cooldown: 0.95
+        mode: RIGHT_CLICK
+    custom-model-data: 123507.0
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v flint_and_steel - 1.0..|v iron_ingot - 1.0..|v magma_block - 1.0..
+          - v AIR 0 1..|v AIR 0 1..|v iron_ingot - 1.0..
+BRONYAGUN:
+  base:
+    material: STICK
+    custom-model-data: 123504.0
+    name: §x§a§e§f§c§f§cCrystal-Infused Rifle
+    ability:
+      ability4:
+        type: RIFLEBURST
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+      ability1:
+        type: BAYONET
+        mode: LEFT_CLICK
+        cooldown: 1.5
+      ability2:
+        type: RIFLESHOOT
+        mode: RIGHT_CLICK
+        cooldown: 0.3
+      ability3:
+        type: RIFLESNIPE
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 10.0
+    attack-damage: 4.0
+    attack-speed: 1.0
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v diamond - 1.0..|v gunpowder - 1.0..
+          - v diamond - 1.0..|v iron_block - 1.0..|v iron_block - 1.0..
+          - v AIR 0 1..|v AIR 0 1..|v iron_ingot - 1.0..
+GRAPPLING_HOOK_1:
+  base:
+    material: DIAMOND_HOE
+    name: §1Grappling Hook
+    unbreakable: true
+    ability:
+      ability1:
+        type: GRAPPLINGHOOK
+        mode: LEFT_CLICK
+        cooldown: 1.0
+GRAPPLING_HOOK_2:
+  base:
+    material: DIAMOND_HOE
+    name: §1Grappling Hook
+    ability:
+      ability1:
+        type: GRAPPLINGHOOKTWO
+        mode: LEFT_CLICK
+        cooldown: 1.0
+GRAPPLING_HOOK_3:
+  base:
+    material: DIAMOND_HOE
+    name: §1Grappling Hook
+    unbreakable: true
+    ability:
+      ability1:
+        type: GRAPPLINGHOOKTHREE
+        mode: LEFT_CLICK
+        cooldown: 1.0
+SCYTHEFUN:
+  base:
+    material: STICK
+    custom-model-data: 123502.0
+    disable-interaction: true
+    ability:
+      ability1:
+        type: SEELESLASH
+        mode: LEFT_CLICK
+        cooldown: 0.3
+      ability2:
+        type: SEELEBLINK
+        mode: RIGHT_CLICK
+        cooldown: 4.0
+      ability3:
+        type: SEELESPIKE
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 1.0
+      ability4:
+        type: SEELECHAINATTACK
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+    name: §9Maker of Misery
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v crying_obsidian - 1.0..|v diamond - 1.0..|v AIR 0 1..
+          - v stick - 1.0..|v AIR 0 1..|v diamond - 1.0..
+          - v stick - 1.0..|v AIR 0 1..|v AIR 0 1..
+NTOFO:
+  base:
+    material: STICK
+    custom-model-data: 123506.0
+    name: §6§lGilded Ntofo
+    ability:
+      ability1:
+        type: NTOFOAREAATTACK
+        cooldown: 1.0
+        mode: LEFT_CLICK
+      ability3:
+        type: NTOFOSTRIKES
+        mode: RIGHT_CLICK
+        cooldown: 1.5
+      ability4:
+        type: ALLOUT
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 30.0
+      ability2:
+        type: PATHMAKER
+        cooldown: 5.0
+        mode: SHIFT_RIGHT_CLICK
+    revision-id: 1
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v cobbled_deepslate - 1.0..|v gold_nugget - 1.0..
+          - v AIR 0 1..|v cobbled_deepslate - 1.0..|v gold_nugget - 1.0..
+          - v stick - 1.0..|v cobbled_deepslate - 1.0..|v gold_nugget - 1.0..
+MAEVEDAGGER:
+  base:
+    material: STICK
+    ability:
+      ability1:
+        type: MAEVEDAGGERTHROW
+        mode: LEFT_CLICK
+      ability2:
+        type: MAEVEDASH
+        mode: RIGHT_CLICK
+      ability3:
+        type: MAEVEPROWL
+        mode: SHIFT_RIGHT_CLICK
+      ability4:
+        type: MIDNIGHT
+        mode: SHIFT_LEFT_CLICK
+      ability5:
+        type: DOUBLEJUMP
+        mode: SNEAK
+      ability6:
+        type: MAEVEABILITYRESET
+        mode: KILL_ENTITY
+    name: §DThrowing Dagger
+    custom-model-data: 123511.0
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v iron_ingot - 1.0..|v AIR 0 1..
+          - v pink_dye - 1.0..|v purple_dye - 1.0..|v light_blue_dye - 1.0..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+MELODIA:
+  base:
+    material: STICK
+    ability:
+      ability1:
+        type: LOUDNOTE
+        mode: LEFT_CLICK
+        cooldown: 0.5
+      ability2:
+        type: BARDICTUNE
+        mode: RIGHT_CLICK
+        cooldown: 12.0
+      ability3:
+        type: SOUNDBURST
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 7.0
+      ability4:
+        type: CHORDPROGRESSION
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 0.1
+    name: §x§f§7§7§e§e§3Melodia
+    displayed-type: §7Guitar
+    disable-interaction: true
+    disable-attack-passive: true
+    custom-model-data: 123510.0
+    disable-crafting: true
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v spruce_planks - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v spruce_planks - 1.0..|v AIR 0 1..
+          - v spruce_planks - 1.0..|v string - 1.0..|v spruce_planks - 1.0..
+BLACK:
+  base:
+    material: STICK
+    custom-model-data: 123465.0
+    ability:
+      ability1:
+        type: BLACKSCREEN
+        mode: LEFT_CLICK
+    disable-interaction: true
+    name: §5§lShadow Staff
+INVISIBLE_HAND:
+  base:
+    material: STICK
+    name: Invisible Hand
+    custom-model-data: 123513.0
+    attack-damage: 7.27272727E8
+    attack-speed: 7.27272727E8
+AMONGUSKEY:
+  base:
+    material: STICK
+    custom-model-data: 123505.0
+    name: Key
+    ability:
+      ability1:
+        type: VENT
+        mode: LEFT_CLICK
+      ability2:
+        type: VENTLOCATION
+        mode: RIGHT_CLICK
+      ability3:
+        type: SCP_KILL
+        mode: KILL_ENTITY
+    attack-damage: 9.0
+    perm-effects:
+      SPEED: 2.0
+    knockback-resistance: 1.0
+    damage-reduction: 100.0
+BAGGYBLIND:
+  base:
+    material: STICK
+    name: BaggyBlind
+    attack-damage: 9.0
+    ability:
+      ability1:
+        type: BAGGYBLIND
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 60.0
+      ability2:
+        type: SCP_KILL
+        mode: KILL_ENTITY
+    perm-effects:
+      SPEED: 2.0
+    knockback-resistance: 1.0
+    damage-reduction: 100.0
+ALL_SEEING_SKULL:
+  base:
+    material: SKELETON_SKULL
+    attack-damage: 9.0
+    skull-texture:
+      value: skeleton
+      uuid: 7626be3b-1c10-426e-993b-7ad4c818d782
+    name: All-Seeing Skull
+    ability:
+      ability1:
+        type: SKULLREVEAL
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 30.0
+      ability2:
+        type: SCP_KILL
+        mode: KILL_ENTITY
+    perm-effects:
+      SPEED: 2.0
+    damage-reduction: 100.0
+    knockback-resistance: 1.0
+CHEESE:
+  base:
+    material: RAW_GOLD
+    name: Cheese
+    attack-damage: 9.0
+    ability:
+      ability1:
+        type: CHEESEROLL
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 60.0
+      ability2:
+        type: SCP_KILL
+        mode: KILL_ENTITY
+    perm-effects:
+      SPEED: 2.0
+    damage-reduction: 100.0
+    knockback-resistance: 1.0
+JAYCEGUN:
+  base:
+    material: STICK
+    custom-model-data: 123508.0
+    name: '&#df8gaeLol'
+    ability:
+      ability1:
+        type: JAYCESHOOT
+        mode: RIGHT_CLICK
+        cooldown: 0.7
+      ability2:
+        type: JAYCESHOOTBURST
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 6.0
+      ability3:
+        type: JAYCESPEED
+        mode: LEFT_CLICK
+        cooldown: 5.0
+      ability4:
+        type: JAYCESHOOTHEAVY
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 10.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v stick - 1.0..|v copper_ingot - 1.0..|v lightning_rod - 1.0..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+JAYCEHAMMER:
+  base:
+    material: STICK
+    custom-model-data: 123509.0
+    name: §lJayce Hammer
+    ability:
+      ability1:
+        type: JAYCEHAMMERATTACK
+        mode: LEFT_CLICK
+        cooldown: 0.7
+        damage: 0.0
+      ability2:
+        type: JAYCEE
+        mode: RIGHT_CLICK
+        cooldown: 5.0
+      ability3:
+        type: JAYCEW
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 12.0
+      ability4:
+        type: JAYCEQ
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 15.0
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v copper_block - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v copper_ingot - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+FLAIL:
+  base:
+    material: STICK
+    name: §lFlail
+    ability:
+      ability1:
+        type: FLAILATTACK
+        mode: LEFT_CLICK
+        cooldown: 1.0
+      ability2:
+        type: JUGGERNAUTHEADBUTT
+        mode: RIGHT_CLICK
+        cooldown: 8.0
+      ability3:
+        type: FLAILLASSO
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 5.0
+      ability4:
+        type: FLAILSHIELD
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+    custom-model-data: 123515.0
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v iron_block - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v chain - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+STEAMPUNKERSHOTGUN:
+  base:
+    material: STICK
+    name: §f§lGauss Shotgun
+    ability:
+      ability1:
+        type: GAUSSSHOTGUN
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+      ability2:
+        type: STEAMPOWEREDLANDMINE
+        mode: LEFT_CLICK
+        cooldown: 5.0
+      ability3:
+        type: STEAMROCKET
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 15.0
+      ability4:
+        type: STEAMSMOKEBOMB
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+      ability5:
+        type: STEAMBOOTS
+        mode: SNEAK
+        cooldown: 5.0
+    custom-model-data: 123516.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v tnt - 1.0..|v AIR 0 1..
+          - v copper_ingot - 1.0..|v gunpowder - 1.0..|v spruce_planks - 1.0..
+          - v firework_rocket - 1.0..|v copper_ingot - 1.0..|v spruce_planks - 1.0..
+SNIPER:
+  base:
+    material: SPYGLASS
+    name: Sniper
+    ability:
+      ability1:
+        type: RIFLESNIPE
+        mode: SNEAK
+        damage: 0.0
+        cooldown: 4.0
+      ability2:
+        type: RIFLESHOOT
+        mode: LEFT_CLICK
+        cooldown: 0.1
+      ability3:
+        type: EBLINK
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 20.0
+      ability4:
+        type: SEELEBLINK
+        cooldown: 20.0
+        mode: SHIFT_LEFT_CLICK
+      ability5:
+        type: SHADOW_VEIL
+        duration: 10.0
+        cooldown: 20.0
+        deception: 100.0
+        mode: SHIFT_LEFT_CLICK
+HUNTINGRIFLE:
+  base:
+    material: STICK
+    name: §lHunting Rifle
+    ability:
+      ability1:
+        type: HUNTINGRIFLESHOOT
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+      ability2:
+        type: FLAREGUN
+        mode: LEFT_CLICK
+        cooldown: 15.0
+      ability4:
+        type: HUNTERSTEALTH
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 15.0
+      ability3:
+        type: HUNTINGRIFLESHOOTPIERCE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+    custom-model-data: 123517.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v glowstone_dust - 1.0..|v AIR 0 1..
+          - v iron_ingot - 1.0..|v iron_ingot - 1.0..|v iron_ingot - 1.0..
+          - v AIR 0 1..|v AIR 0 1..|v lever - 1.0..
+MONKSTAFF:
+  base:
+    material: STICK
+    custom-model-data: 123514.0
+    name: §lBo Staff
+    ability:
+      ability1:
+        type: MONKBASH
+        mode: LEFT_CLICK
+        cooldown: 0.4
+      ability2:
+        type: CHIBLAST
+        mode: RIGHT_CLICK
+        cooldown: 2.5
+      ability3:
+        type: STAFFSMASH
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 10.0
+      ability4:
+        type: MEDITATE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v lantern - 1.0..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+          - v grass_block - 1.0..|v AIR 0 1..|v AIR 0 1..
+GROHK:
+  base:
+    material: STICK
+    name: §lLightning Staff
+    ability:
+      ability1:
+        type: LIGHTNINGBEAM
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+      ability2:
+        type: HEALINGTOTEM
+        mode: LEFT_CLICK
+        cooldown: 10.0
+      ability3:
+        type: CHAINLIGHTNING
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 10.0
+      ability4:
+        type: RIDETHELIGHTNING
+        cooldown: 35.0
+        mode: SHIFT_RIGHT_CLICK
+    perm-effects:
+      WEAKNESS: 254.0
+    disable-interaction: true
+    custom-model-data: 0.0
+DRUID_STAFF:
+  base:
+    material: STICK
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    unstackable: true
+    ability:
+      ability1:
+        type: DRUIDTHORNS
+        mode: LEFT_CLICK
+        cooldown: 0.8
+      ability2:
+        type: DRUIDROOTS
+        mode: RIGHT_CLICK
+        cooldown: 5.0
+      ability3:
+        type: DRUIDVINES
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 8.0
+      ability4:
+        type: DRUIDRUPTURE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+    perm-effects:
+      WEAKNESS: 1.0
+    name: §x§9§f§c§9§8§fPerennial Rose
+    custom-model-data: 123519.0
+CAVELIERLANCE:
+  base:
+    material: STICK
+    name: §eIsthmus Dunehead
+    ability:
+      ability1:
+        type: CAVELIERTHRUST
+        mode: LEFT_CLICK
+        cooldown: 1.0
+      ability2:
+        type: CAVELIERCAMELCHARGE
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+      ability4:
+        type: SANDSTORM
+        cooldown: 15.0
+        mode: SHIFT_RIGHT_CLICK
+      ability3:
+        type: CAMELSUMMON
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 45.0
+    custom-model-data: 123518.0
+REDSTONEROCKETLAUNCHER:
+  base:
+    material: STICK
+    item-damage: 0.0
+    custom-model-data: 123485.0
+    name: §lRedstone Rocket Launcher
+    ability:
+      ability1:
+        type: BOUNCINGFIREBALL
+        mode: LEFT_CLICK
+        cooldown: 1.0
+      ability3:
+        type: CLUSTERBOMB
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 15.0
+      ability4:
+        type: THEBIGONE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+      ability2:
+        type: SATCHEL
+        cooldown: 7.0
+        mode: RIGHT_CLICK
+    perm-effects:
+      WEAKNESS: 254.0
+RAUMMINIGUN:
+  base:
+    material: STICK
+    name: §lRaum Minigun
+    ability:
+      ability1:
+        type: RAUMMINIGUN
+        mode: RIGHT_CLICK
+        cooldown: 1.99
+      ability2:
+        type: FURY
+        mode: LEFT_CLICK
+        cooldown: 7.0
+      ability3:
+        type: CONSUMESOULS
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+      ability4:
+        type: CATACLYSM
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 20.0
+    custom-model-data: 123521.0
+    perm-effects:
+      WEAKNESS: 254.0
+AATROXSWORD:
+  base:
+    material: STICK
+    custom-model-data: 123520.0
+    ability:
+      ability1:
+        type: DARKINSLASH
+        mode: LEFT_CLICK
+        cooldown: 1.2
+      ability2:
+        type: DARKINHEAVYSLASHES
+        mode: RIGHT_CLICK
+        cooldown: 10.0
+      ability3:
+        type: DARKINTRAVELLINGSLASH
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 8.0
+      ability4:
+        type: HELLDOMAIN
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 60.0
+      ability5:
+        type: ABSORBSOUL
+        mode: KILL_ENTITY
+        cooldown: 2.0
+    perm-effects:
+      WEAKNESS: 254.0
+HOTSHOT:
+  base:
+    material: STICK
+    custom-model-data: 123503.0
+    name: §x§e§a§3§f§5§cHotshot
+    displayed-type: §7Gauntlet
+    unbreakable: true
+    ability:
+      ability1:
+        type: BRAWLERLIGHT
+        mode: LEFT_CLICK
+        cooldown: 0.35
+      ability2:
+        type: BRAWLERHEAVY
+        mode: RIGHT_CLICK
+        cooldown: 2.5
+      ability3:
+        type: BRAWLERGRAB
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 2.5
+      ability4:
+        type: BRAWLERHANDBLAST
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 4.0
+    unstackable: true
+    disable-attack-passive: true
+    perm-effects:
+      WEAKNESS: 1.0
+CANDYCANEDAGGER:
+  base:
+    material: STICK
+    custom-model-data: 123522.0
+    name: §f§lCandy §c§lCane §a§lSlasher
+    ability:
+      ability1:
+        type: CANDYCANESLASH
+        mode: LEFT_CLICK
+        cooldown: 0.5
+      ability2:
+        type: SUGARRUSH
+        mode: RIGHT_CLICK
+        cooldown: 3.0
+      ability3:
+        type: WHITEELEPHANT
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 10.0
+      ability4:
+        type: WREATHSHIELD
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+AMOGUSKEY:
+  base:
+    material: STICK
+    custom-model-data: 123505.0
+    name: §lKey
+    ability:
+      ability1:
+        type: VENT
+        mode: LEFT_CLICK
+      ability2:
+        type: VENTLOCATION
+        mode: RIGHT_CLICK
+    perm-effects:
+      SPEED: 4.0
+ASDF:
+  base:
+    material: TRIDENT
+JESTER_CARD:
+  base:
+    material: PAPER
+    name: Player's Card
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unstackable: true
+    ability:
+      ability1:
+        type: JESTERAUTO
+        mode: LEFT_CLICK
+        cooldown: 0.8
+      ability2:
+        type: JESTERSWAP
+        cooldown: 5.0
+        mode: RIGHT_CLICK
+      ability3:
+        type: JESTERLEAP
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 4.0
+      ability4:
+        type: JESTERDODGE
+        cooldown: 15.0
+        mode: SHIFT_RIGHT_CLICK
+    perm-effects:
+      WEAKNESS: 2.0
+LUXWAND:
+  base:
+    material: STICK
+    name: §LScepter of Light
+    disable-interaction: true
+    ability:
+      ability1:
+        type: ILLUMINATION
+        mode: LEFT_CLICK
+        cooldown: 0.6
+      ability3:
+        type: LIGHTBINDING
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 2.0
+      ability4:
+        type: FINALSPARK
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 5.0
+      ability2:
+        type: PRISMATICBARRIER
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+    perm-effects:
+      WEAKNESS: 255.0
+    custom-model-data: 123525.0
+TEEMOGUN:
+  base:
+    material: STICK
+    name: §a§lPoisonous Blow Gun
+    disable-interaction: true
+    ability:
+      ability1:
+        type: POISONDART
+        mode: RIGHT_CLICK
+        cooldown: 0.39
+      ability2:
+        type: NOXIOUSGAS
+        mode: LEFT_CLICK
+        cooldown: 15.0
+      ability3:
+        type: CAMOFLAUGE
+        cooldown: 15.0
+        mode: SHIFT_LEFT_CLICK
+      ability4:
+        type: INSANITYPOTION
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+    perm-effects:
+      WEAKNESS: 255.0
+    custom-model-data: 123526.0
+NEURIS:
+  base:
+    material: STICK
+    custom-model-data: 123523.0
+    name: §x§b§4§9§c§d§bNeuris
+    displayed-type: §7Staff
+    ability:
+      ability1:
+        type: PSYCHICBLAZE
+        mode: LEFT_CLICK
+        cooldown: 1.0
+      ability2:
+        type: PSIONICFLOAT
+        mode: RIGHT_CLICK
+        cooldown: 0.0
+      ability3:
+        type: PSYARTS
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 8.0
+      ability4:
+        type: MAGICOGNITION
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 0.8
+      ability5:
+        type: ESPERMP
+        mode: DAMAGED
+        cooldown: 0.5
+    perm-effects:
+      WEAKNESS: 2.0
+IRELIABLADE:
+  base:
+    material: DIAMOND_SWORD
+    disable-interaction: true
+    disable-attack-passive: true
+    perm-effects:
+      WEAKNESS: 255.0
+    ability:
+      ability1:
+        type: FLOWINGBLADES
+        mode: LEFT_CLICK
+        cooldown: 0.7
+      ability2:
+        type: BLADESURGE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 7.0
+      ability3:
+        type: BLADEDANCE
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 15.0
+      ability4:
+        type: CAPTURE
+        cooldown: 5.0
+        mode: RIGHT_CLICK
+    name: §x§2§e§c§9§e§8Sagesword
+    displayed-type: §7Sword
+HAILMAKER_PISTOL:
+  base:
+    material: STICK
+    name: §x§4§7§9§5§c§1Hailmaker Pistol
+    displayed-type: §7Pistol
+    ability:
+      ability1:
+        type: PISTOL_SHOT
+        mode: LEFT_CLICK
+        cooldown: 0.3
+      ability2:
+        type: PISTOLWHIP
+        mode: RIGHT_CLICK
+        cooldown: 2.0
+      ability3:
+        type: TRIGGER_MANIA
+        cooldown: 12.0
+        mode: SHIFT_RIGHT_CLICK
+      ability4:
+        type: LOCKLOAD
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 0.1
+    disable-attack-passive: true
+    perm-effects:
+      WEAKNESS: 3.0
+    custom-model-data: 123527.0
+SPIRUTALIST:
+  base:
+    material: STICK
+    custom-model-data: 123466.0
+    ability:
+      ability1:
+        type: SPIRITUALIST_AUTO
+        mode: LEFT_CLICK
+      ability2:
+        type: SPIRITUALIST_MOVEMENT
+        cooldown: 5.0
+        mode: RIGHT_CLICK
+      ability3:
+        type: SPIRITUALIST_TRANSITION
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 5.0
+      ability4:
+        type: SPIRITUALIST_ULTIMATE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+      ability5:
+        type: ADAPTIVE_ARMOR
+        mode: TIMER
+        timer: 1.9
+        cooldown: 1.8
+    disable-interaction: true
+    name: §lSpirit Tamer
+    perm-effects:
+      WEAKNESS: 255.0
+    crafting:
+      megashaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+      smoker:
+        '1':
+          input: []
+          time: 100.0
+          item: m material steel_ingot 1.0..
+JOKERWAND:
+  base:
+    material: STICK
+    name: §lJoker Wand
+    disable-interaction: true
+    perm-effects:
+      WEAKNESS: 5.0
+    ability:
+      ability1:
+        type: JOKER_L
+        mode: LEFT_CLICK
+        cooldown: 0.7
+      ability2:
+        type: JOKER_R
+        mode: RIGHT_CLICK
+      ability3:
+        type: JOKER_SL
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 12.0
+      ability4:
+        type: JOKER_SR
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 3.0
+TELETUBBY:
+  base:
+    material: RAIL
+    attack-speed: 1000.0
+    attack-damage: 8.0
+    perm-effects:
+      SPEED: 2.0
+    ability:
+      ability1:
+        type: SCP_DISGUISE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 60.0
+      ability2:
+        type: SCP_KILL
+        mode: KILL_ENTITY
+    disable-interaction: true
+LASERSWORD:
+  base:
+    material: STICK
+    name: §b§lLaser Sword
+    ability:
+      ability1:
+        type: LASER_SWORD
+        mode: LEFT_CLICK
+      ability2:
+        type: WHIRLWIND
+        mode: RIGHT_CLICK
+      ability4:
+        type: SLICING_WINDS
+        mode: SHIFT_LEFT_CLICK
+      ability3:
+        type: FOCUSED_ASSAULT
+        mode: SHIFT_RIGHT_CLICK
+    disable-interaction: true
+    custom-model-data: 123530.0
+GEM_SPEAR:
+  base:
+    material: TRIDENT
+    gem-sockets:
+    - Green
+SHARPENED_STICK:
+  base:
+    material: STICK
+    name: Sharpened Stick
+    will-break: true
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v stick - 1.0..
+          - v flint - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+    unstackable: true
+    tier: TRASH
+    unbreakable: true
+    ability:
+      ability1:
+        type: SWING_STICK
+        mode: LEFT_CLICK
+        cooldown: 1.0
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+SRT_FROSTBITTENBLADE:
+  base:
+    material: STICK
+    disable-crafting: true
+    disable-interaction: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    name: §b§lFrost§f§lbitten Blade
+    lore:
+    - §f§oForged from a forgotten technique, this katana's true power
+    - §f§ois proportional to how well the user synchronizes with the blade's
+    - §f§o§lown movements
+    ability: {}
+    unbreakable: true
+    gem-sockets:
+    - Swordsman L
+    - Swordsman R
+    - Swordsman SL
+    - Swordsman SR
+    - Stat
+    custom-model-data: 123530.0
+    disable-death-drop: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1.0..|m material spirit_of_sword 1.0..|m material lightweight_blade
+            1.0..
+          - v iron_sword - 1.0..|m material lightweight_blade 1.0..|m material spirit_of_sword
+            1.0..
+          - v stick - 1.0..|v iron_sword - 1.0..|v AIR 0 1.0..
+GOJOS_HAND:
+  base:
+    material: STICK
+    name: §lGojo's Hand
+    custom-model-data: 123529.0
+    gem-sockets:
+    - Gojo L
+    - Gojo R
+    - Gojo SL
+    - Gojo SR
+    - Stat
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    ability: {}
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material spirit_of_strongest 1.0..|v dried_kelp - 1.0..|m material spirit_of_strongest
+            1.0..
+          - v dried_kelp - 1.0..|m material brawler_claw 1.0..|v dried_kelp - 1.0..
+          - m material spirit_of_strongest 1.0..|v dried_kelp - 1.0..|m material spirit_of_strongest
+            1.0..
+NEALWEAPON:
+  base:
+    material: STICK
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    name: §a§lUnhesitating Blade
+    ability: {}
+    gem-sockets:
+    - Rogue L
+    - Rogue R
+    - Rogue SL
+    - Rogue SR
+    - Stat
+    custom-model-data: 123528.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|m material wind_essence 1.0..|m material spirit_of_cunning
+            1.0..
+          - m material wind_essence 1.0..|m material spirit_of_cunning 1.0..|m material
+            moonstone_shard 1.0..
+          - v stick - 1.0..|m material moonstone_shard 1.0..|v AIR 0 1..
+    lore:
+    - §8§oFrom the depths of VALORANT, forged from
+    - §8§o3000 Riot Points and your mom's credit card,
+    - §8§othe Sovereign Sword.
+DYECRAFT_PAINTBRUSH:
+  base:
+    material: STICK
+    name: <gradient:#ecc4f5:#ffffff>Dyecr</gradient><gradient:#ffffff:#9ee6d1>aft
+      B</gradient><gradient:#9ee6d1:#9ea7e6>rush</gradient>
+    displayed-type: §7Brush
+    gem-sockets:
+    - Paletteer L
+    - Paletteer R
+    - Paletteer SL
+    - Paletteer SR
+    - Stat
+    ability: {}
+    custom-model-data: 123531.0
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-repairing: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|m material solidified_droplet 1.0..|m material twirly_tentashell
+            1.0..
+          - m material spirit_of_artistry 1.0..|v stick - 1.0..|m material solidified_droplet
+            1.0..
+          - v stick - 1.0..|m material spirit_of_artistry 1.0..|v AIR 0 1..
+SHARKWHISTLE:
+  base:
+    material: STICK
+    name: §9§lShark Whistle
+    ability:
+      ability1:
+        type: SHARK_WHISTLE
+        mode: RIGHT_CLICK
+    unbreakable: true
+DEER_CRACKERS:
+  base:
+    material: STICK
+    name: §2§lDeer Whistle
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    ability:
+      ability1:
+        type: RETRIEVE_DEER
+        mode: RIGHT_CLICK
+SCRAP_CANNON:
+  base:
+    material: STICK
+    name: §5Scrap Cannon MK1
+    gem-sockets:
+    - Artificer L
+    - Artificer R
+    - Artificer SL
+    - Artificer SR
+    - Stat
+    disable-smithing: true
+    unbreakable: true
+    disable-interaction: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material spirit_of_ingenuity 1.0..|v iron_ingot - 1.0..|m material magical_twig
+            1.0..
+          - v iron_ingot - 1.0..|m material sticky_web 1.0..|v iron_ingot - 1.0..
+          - v iron_ingot - 1.0..|v iron_ingot - 1.0..|m material spirit_of_ingenuity
+            1.0..
+    custom-model-data: 123534.0
+HEAVYMINIGUN:
+  base:
+    material: STICK
+    name: §7§lHeavy Minigun Mk1
+    custom-model-data: 123532.0
+    ability:
+      ability1:
+        type: MINIGUN_MK1
+    gem-sockets:
+    - Mecha L
+    - Mecha R
+    - Mecha SL
+    - Mecha SR
+    - Stat
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v redstone - 1.0..|m material spirit_of_mecha 1.0..|m material spirit_of_mecha
+            1.0..
+          - m material razor_sharp_leaf 1.0..|v iron_ingot - 1.0..|v iron_ingot -
+            1.0..
+          - m material razor_sharp_leaf 1.0..|v iron_ingot - 1.0..|v iron_ingot -
+            1.0..
+SLIMEGEL:
+  base:
+    material: STICK
+    name: §f§lSlime Whistle
+    ability:
+      ability1:
+        type: SLIME_WHISTLE
+        mode: RIGHT_CLICK
+GOLF_CLUB:
+  base:
+    material: STICK
+    name: §lGolf Club
+    lore:
+    - you are tiger woods i think
+    ability:
+      ability1:
+        type: PUTT_GOLF_BALL
+        mode: LEFT_CLICK
+      ability2:
+        type: INCREASE_GOLF_POWER
+        mode: RIGHT_CLICK
+      ability3:
+        type: DECREASE_GOLF_POWER
+        mode: SHIFT_RIGHT_CLICK
+      ability4:
+        type: TELEPORT_TO_LAST_STROKE
+        mode: SHIFT_LEFT_CLICK
+TRACKING_GOLF_CLUB:
+  base:
+    material: STICK
+    name: §lTracking Golf Club
+    lore:
+    - you are tiger woods i think
+    ability:
+      ability2:
+        type: INCREASE_GOLF_POWER
+        mode: RIGHT_CLICK
+      ability3:
+        type: DECREASE_GOLF_POWER
+        mode: SHIFT_RIGHT_CLICK
+      ability4:
+        type: TELEPORT_TO_LAST_STROKE
+        mode: SHIFT_LEFT_CLICK
+      ability1:
+        type: PUTT_TRACKING_GOLF_BALL
+        mode: LEFT_CLICK
+GLOCL:
+  base:
+    material: STICK
+    name: §2§lGlock
+    custom-model-data: 123489.0
+    ability:
+      ability1:
+        type: GLOCK_SHOOT
+        mode: RIGHT_CLICK
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - m material beating_barkheart 1.0..|v iron_ingot - 1.0..|v iron_ingot -
+            1.0..
+          - v iron_ingot - 1.0..|v lever - 1.0..|v AIR 0 1..
+    disable-crafting: true
+WATERBOLT:
+  base:
+    material: BOOK
+    name: §9§lWaterbolt
+    ability:
+      ability1:
+        type: WATER_BOLT
+        mode: LEFT_CLICK
+    disable-crafting: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v paper - 1.0..|v AIR 0 1..
+          - v paper - 1.0..|m material cone_of_the_sea 1.0..|v paper - 1.0..
+          - v AIR 0 1..|v leather - 1.0..|v AIR 0 1..
+QUARTZ_CUTTER:
+  base:
+    material: STICK
+    custom-model-data: 123478.0
+    name: §f§lQuartz Cutter
+    ability:
+      ability1:
+        type: QUARTZ_SLASH
+        mode: LEFT_CLICK
+    disable-crafting: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v quartz - 1.0..|v quartz - 1.0..
+          - v AIR 0 1..|m material lightweight_blade 1.0..|v quartz - 1.0..
+          - v stick - 1.0..|v AIR 0 1..|v AIR 0 1..
+DIRT_STAFF:
+  base:
+    material: STICK
+    custom-model-data: 123519.0
+    name: Dirt Rod
+    ability:
+      ability1:
+        type: SHOOT_DIRT
+        mode: LEFT_CLICK
+MARTINWEAPON2:
+  base:
+    material: STICK
+    custom-model-data: 123535.0
+FLARE_GUN:
+  base:
+    material: STICK
+    custom-model-data: 123537.0
+    name: §c§lFlare Gun
+    ability:
+      ability1:
+        type: SHOOT_FLARE
+        mode: RIGHT_CLICK
+    crafting:
+      shapeless: {}
+SANDGUN:
+  base:
+    material: STICK
+    custom-model-data: 123526.0
+    name: Sand Gun
+    ability:
+      ability1:
+        type: SHOOT_SAND
+        mode: LEFT_CLICK
+    crafting:
+      shapeless: {}
+CONFETTI_GUN:
+  base:
+    material: STICK
+    name: §lConfetti Gun
+    ability:
+      ability1:
+        type: SHOOT_CONFETTI
+        mode: RIGHT_CLICK
+    custom-model-data: 123535.0
+    crafting:
+      shapeless: {}

@@ -1,0 +1,1470 @@
+SMALL_HEALTH_JAM:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTFlN2ViMmU0NjFlOTZlNjMxY2JhMGMwY2RhYTU0NDg4MDYzMDJlZGFlOTFiNjFkYWZjMjgxYWU1ODRkOCJ9fX0=
+      uuid: 701aa558-c1b0-4eb7-81e4-79b1af25283c
+    name: Lesser Healing Jam
+    item-cooldown: 30.0
+    sounds:
+      on-consume: entity.generic.drink
+    restore-health: 8.0
+    cooldown-reference: SRT
+    crafting:
+      shaped: {}
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material feyblest_dust 1.0..
+    lore:
+    - Tastes like strawberries
+
+FISH_ON_A_STICK:
+  base:
+    material: RED_CONCRETE
+    name: Fish on a Stick
+    tier: MATERIAL
+    max-consume: 3.0
+    restore-health: 2.0
+    unstackable: true
+    cooldown-reference: SRT
+    item-cooldown: 10.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v stick - 1.0..
+          - v salmon - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+        '2':
+          input:
+          - v stick - 1.0..
+          - v cod - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+        '3':
+          input:
+          - v stick - 1.0..
+          - v tropical_fish - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+COOKED_FISH_ON_A_STICK:
+  base:
+    material: COOKED_SALMON
+    name: §lCooked Fish on a Stick
+    tier: MATERIAL
+    max-consume: 3.0
+    restore-health: 6.0
+    unstackable: true
+    cooldown-reference: SRT
+    item-cooldown: 10.0
+    crafting:
+      furnace:
+        '1':
+          input: []
+          item: v yellow_glazed_terracotta - 1.0..
+          amount: 1
+      smoker: {}
+      campfire: {}
+
+
+SHIELD_JAM:
+  base:
+    material: RAW_IRON
+    name: Shielding Jam
+    effects:
+      ABSORPTION:
+        duration: 60.0
+        amplifier: 3.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material thornbark 1.0..
+    lore:
+    - Tastes like walnuts
+    cooldown-reference: SRT
+    item-cooldown: 30.0
+LIFE_JAM:
+  base:
+    material: APPLE
+    name: Living Jam
+    effects:
+      HEALTH_BOOST:
+        duration: 60.0
+        amplifier: 2.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material lifebearer_shell 1.0..
+    lore:
+    - Tastes like apples
+    item-cooldown: 30.0
+SPEED_JAM:
+  base:
+    material: SUGAR
+    name: Speeding Jam
+    lore:
+    - Tastes like mangoes
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material windswept_dust 1.0..
+    effects:
+      SPEED:
+        duration: 60.0
+        amplifier: 1.0
+BOUNCE_JAM:
+  base:
+    material: RABBIT_FOOT
+    name: Bouncing Jam
+    effects:
+      JUMP:
+        duration: 60.0
+        amplifier: 2.0
+    lore:
+    - Tastes like grapes
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material springy_leg 1.0..
+FLOAT_JAM:
+  base:
+    material: FEATHER
+    name: Floating Jam
+    lore:
+    - Tastes like peppermint
+    effects:
+      SLOW_FALLING:
+        duration: 60.0
+        amplifier: 1.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material fluffy_cloud 1.0..
+SWIM_JAM:
+  base:
+    material: COD
+    name: Swimming Jam
+    lore:
+    - Tastes like watermelons
+    effects:
+      DOLPHINS_GRACE:
+        duration: 60.0
+        amplifier: 1.0
+      WATER_BREATHING:
+        duration: 60.0
+        amplifier: 1.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR 0 1..
+          - m material fish_gills 1.0..
+          - v AIR 0 1..
+          - v AIR 0 1..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material webbed_foot 1.0..
+RESTORE_JAM:
+  base:
+    material: APPLE
+    name: Restoring Jam
+    lore:
+    - Tastes like raspberries
+    effects:
+      REGENERATION:
+        duration: 60.0
+        amplifier: 1.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material solidified_droplet 1.0..
+FIGHT_JAM:
+  base:
+    material: SADDLE
+    name: Fighting Jam
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v glass_bottle - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - m material brawler_claw 1.0..
+    lore:
+    - Tastes like coconuts
+    ability:
+      ability1:
+        type: FIGHTING_JAM
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+      ability2:
+        type: FIGHTING_JAM
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 1.0
+    item-cooldown: 60.0
+SHARK_EGG:
+  base:
+    material: GLOWSTONE_DUST
+    name: §9§lShark Egg
+    disable-interaction: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-enchanting: true
+    ability:
+      ability1:
+        type: SUMMON_SHARK
+        mode: RIGHT_CLICK
+        cooldown: 0.1
+    disable-crafting: true
+    unstackable: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m consumable SMALL_HEALTH_JAM 1.0..|m consumable SMALL_HEALTH_JAM 1.0..|m
+            consumable SMALL_HEALTH_JAM 1.0..
+          - m consumable SMALL_HEALTH_JAM 1.0..|m material BROKEN_SHARK_EGG 1.0..|m
+            consumable SMALL_HEALTH_JAM 1.0..
+          - m consumable SMALL_HEALTH_JAM 1.0..|m consumable SMALL_HEALTH_JAM 1.0..|m
+            consumable SMALL_HEALTH_JAM 1.0..
+DEER_CRACKERS:
+  base:
+    material: GLOWSTONE_DUST
+    name: §2§lDeer Crackers
+    disable-interaction: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-enchanting: true
+    ability:
+      ability1:
+        type: SUMMON_DEER
+        cooldown: 0.1
+        mode: RIGHT_CLICK
+    disable-crafting: true
+    unstackable: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m consumable SMALL_HEALTH_JAM 1.0..|m consumable SMALL_HEALTH_JAM 1.0..|m
+            consumable SMALL_HEALTH_JAM 1.0..
+          - m consumable SMALL_HEALTH_JAM 1.0..|m material CONSUMED_DEER_CRACKERS
+            1.0..|m consumable SMALL_HEALTH_JAM 1.0..
+          - m consumable SMALL_HEALTH_JAM 1.0..|m consumable SMALL_HEALTH_JAM 1.0..|m
+            consumable SMALL_HEALTH_JAM 1.0..
+SLIMEGEL:
+  base:
+    material: GLOWSTONE_DUST
+    name: §f§lSlime Gel
+    ability:
+      ability1:
+        type: SLIME_GEL
+        mode: RIGHT_CLICK
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m CONSUMABLE SMALL_HEALTH_JAM 1.0..|m CONSUMABLE SMALL_HEALTH_JAM 1.0..|m
+            CONSUMABLE SMALL_HEALTH_JAM 1.0..
+          - m CONSUMABLE SMALL_HEALTH_JAM 1.0..|m material dried_slime_gel 1.0..|m
+            CONSUMABLE SMALL_HEALTH_JAM 1.0..
+          - m CONSUMABLE SMALL_HEALTH_JAM 1.0..|m CONSUMABLE SMALL_HEALTH_JAM 1.0..|m
+            CONSUMABLE SMALL_HEALTH_JAM 1.0..
+ROCK:
+  base:
+    material: COBBLESTONE
+    name: '&fRock'
+    lore:
+    - '&7Use it to sharpen your weapons,'
+    - '&7or &ndamage&7 your enemies.'
+    tier: TRASH
+    ability:
+      ability1:
+        type: THROW_ROCK
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v cobblestone - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+      shaped: {}
+    item-cooldown: 1.0
+    max-consume: 8.0
+ROCK_SIGIL:
+  base:
+    material: GLOWSTONE_DUST
+    disable-interaction: true
+    name: §2§lRock Sigil
+    lore:
+    - §8What can this innocent looking rock do?
+    ability:
+      ability1:
+        type: TOUCH_ROCK
+        mode: RIGHT_CLICK
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material aggravated_moss 1.0..|v obsidian - 1.0..|m material aggravated_moss
+            1.0..
+          - v obsidian - 1.0..|m material beating_barkheart 1.0..|v obsidian - 1.0..
+          - m material aggravated_moss 1.0..|v obsidian - 1.0..|m material aggravated_moss
+            1.0..
+
+CURSED_BLADE:
+  base:
+    material: GLOWSTONE_DUST
+    name: §f§lGust Sigil
+    ability:
+      ability1:
+        type: TOUCH_ENGRAVING
+        mode: RIGHT_CLICK
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    inedible: true
+    disable-right-click-consume: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material wind_essence 1.0..|m material lightweight_blade 1.0..|m material
+            wind_essence 1.0..
+          - m material wind_essence 1.0..|m material lightweight_blade 1.0..|m material
+            wind_essence 1.0..
+          - m material wind_essence 1.0..|v amethyst_shard - 1.0..|m material wind_essence
+            1.0..
+WATER_SIGIL:
+  base:
+    material: GLOWSTONE_DUST
+    name: §9§lTide Sigil
+    ability:
+      ability1:
+        type: TOUCH_SIGIL
+        mode: RIGHT_CLICK
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    inedible: true
+    disable-right-click-consume: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v gold_ingot - 1.0..|m material cone_of_the_sea 1.0..|v gold_ingot - 1.0..
+          - m material sea_puppet 1.0..|v map - 1.0..|m material sea_puppet 1.0..
+          - v gold_ingot - 1.0..|v heart_of_the_sea - 1.0..|v gold_ingot - 1.0..
+
+AMORPHOUS_BLOB:
+  base:
+    material: STICK
+    name: §f&lAmorphous Blob
+    ability:
+      ability1:
+        type: TOUCH_SLUDGE
+        mode: RIGHT_CLICK
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    inedible: true
+    disable-right-click-consume: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material fluffy_cloud 1.0..|m material windworn_rice_hat 1.0..|m material
+            fluffy_cloud 1.0..
+          - v slime_ball - 1.0..|m material corrupted_stone_heart 1.0..|v slime_ball
+            - 1.0..
+          - m material solidified_droplet 1.0..|m material woke_beards_leg 1.0..|m
+            material solidified_droplet 1.0..
+SOCKET_CARVER:
+  base:
+    material: AMETHYST_SHARD
+    name: §d§lSocket Carver
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    enchants:
+      mending: 1.0
+    hide-enchants: true
+    lore:
+    - §8Upon placing this item on your item, all gem sockets will be removed and given
+      back
+    random-unsocket: 4.0
+    sounds:
+      on-consume:
+        sound: block.amethyst.break
+        volume: 100.0
+        pitch: 1.0
+    disable-right-click-consume: true
+    inedible: true
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v AIR 0 1..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v amethyst_block - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|m material lightweight_blade 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v amethyst_block - 1.0..|v AIR 0 1..
+
+SANDWITCH:
+  base:
+    material: BREAD
+    name: '&cSand&6witch'
+    effects:
+      POISON:
+        duration: 10
+        amplifier: 2
+    lore:
+    - '&7Are you really that hungry?!'
+    item-cooldown: 15
+    restore-food: 5.0
+A_BIG_CARROT:
+  base:
+    material: CARROT
+    lore:
+    - '&7&oThere will always be carrot left'
+    disable-right-click-consume: true
+    vanilla-eating: true
+    restore-food: 1.0
+
+SCROLL_OF_IDENTIFICATION:
+  base:
+    material: PAPER
+    name: '&fScroll of Identification'
+    tier: UNCOMMON
+    can-identify: true
+    crafting:
+      shaped:
+        '1':
+        - AIR AIR AIR
+        - PAPER DIAMOND PAPER
+        - AIR AIR AIR
+    inedible: true
+ITEM_CRUSHER:
+  base:
+    material: IRON_AXE
+    required-level: 3.0
+    can-deconstruct: true
+    name: '&f&lItem Crusher'
+RECALL_POTION:
+  base:
+    material: POTION
+    hide-potion-effects: true
+    name: '&9Recall Potion'
+    lore:
+    - '&7Brings you back home.'
+    potion-color: 100 100 255
+    commands:
+      '1':
+        format: spawn
+    item-cooldown: 60.0
+FIREBALL_SCROLL:
+  base:
+    material: PAPER
+    item-cooldown: 30.0
+    required-level: 15.0
+    tier: MAGICAL
+    ability:
+      right-click:
+        type: FIREBOLT
+        mode: RIGHT_CLICK
+        damage: 5.0
+        cooldown: 0.0
+        ignite: 3.0
+    name: '&cFireball Scroll I'
+FIREBALL_SCROLL_II:
+  base:
+    material: PAPER
+    item-cooldown: 25.0
+    required-level: 17
+    tier: MAGICAL
+    ability:
+      right-click:
+        type: FIREBOLT
+        mode: RIGHT_CLICK
+        damage: 10.0
+        cooldown: 0.0
+        ignite: 5.0
+    name: '&cFireball Scroll II'
+FIREBALL_SCROLL_III:
+  base:
+    material: PAPER
+    item-cooldown: 20.0
+    required-level: 20.0
+    tier: MAGICAL
+    ability:
+      right-click:
+        type: FIREBOLT
+        mode: RIGHT_CLICK
+        damage: 15.0
+        cooldown: 0.0
+        ignite: 7.0
+    name: '&cFireball Scroll III'
+APPLE_OF_DISCORD:
+  base:
+    material: GOLDEN_APPLE
+    durability: 1.0
+    name: '&6[ Apple of Discord ]'
+    required-level: 4.0
+    item-cooldown: 50.0
+    effects:
+      ABSORPTION:
+        duration: 40
+        amplifier: 2
+      REGENERATION:
+        duration: 40
+        amplifier: 2
+      SPEED:
+        duration: 40
+        amplifier: 2
+    restore-health: 1.0
+    restore-food: 15.0
+    restore-saturation: 1.0
+SHARP_FLINT:
+  base:
+    material: FLINT
+    name: '&fSharp Flint'
+    tier: COMMON
+    repair: 20.0
+DEATH_STEW:
+  base:
+    material: MUSHROOM_STEW
+    name: '&fDeath Soup'
+    lore:
+    - '&8&oDon''t you dare drinking that...'
+    tier: UNIQUE
+    effects:
+      HARM:
+        duration: 1
+        amplifier: 100
+KARTOFFELSALAT:
+  base:
+    material: RABBIT_STEW
+    name: '&9Kartoffelsalat'
+    tier: COMMON
+    restore-stamina: 10.0
+    item-cooldown: 30.0
+    lore:
+    - '&7Very punchy, yet hard to finish.'
+    restore-food: 3.0
+    restore-saturation: 10.0
+
+LARGE_MANA_POTION:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2FmNmRjNjdjZTc1YjcyMjJhYzM5ZTA1MzZlMDkwNzI0OWY4NTUxNmVmZDEzODViZWM5MGJlMzNkZDUzZGUwNyJ9fX0=
+      uuid: 0b4b6108-eb50-4a35-ae8b-53d5c2ad2a84
+    name: '&fLarge Mana Potion'
+    restore-mana:
+      base: 35.0
+      spread: 0.042
+      max-spread: 0.13
+    item-cooldown: 0.0
+    sounds:
+      on-consume: entity.generic.drink
+TACO:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTQ5ZDNkODg5Y2ZmNjU1YzYyMjgzNDE4NDU1MjA1YjAzYWU3N2ZmYjdlZTE4ZGQwM2FjMGE0ZmZiODk1NjE1YiJ9fX0=
+      uuid: c8113aeb-0b63-4654-9e8f-54416fd2fde8
+    name: '&fTaco'
+    item-cooldown: 2.0
+    lore:
+    - '&7&oA hot & tasty taco!'
+    restore-health: 3.0
+    restore-food: 8.0
+    restore-saturation: 10.0
+BURGER:
+  base:
+    material: PLAYER_HEAD
+    item-cooldown: 3.0
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTUwMzkxYjEzODNkOWVmOWU2ZTdiZjVmODJkMWNmODgyZDgxZTJiMDA0ZGUzNjlmNzI5ZWRhMDRiMmVhNjNkMyJ9fX0=
+      uuid: 076dd3bf-0d76-497b-9745-40ed9402a311
+    restore-stamina: 30.0
+    name: '&fTasty Burger'
+    lore:
+    - '&7&oMmmmh, yummy!'
+    restore-health: 4.0
+    restore-food: 10.0
+    restore-saturation: 9.0
+WEIRD_CANDY_BAG:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODdmNTA0Y2RiZjViMjExMjFiODIxODUyOGRjZTU2NzUwNWQ0NTY3ZDdlNzJjZDQzYTQ2M2NkNTFjODAxM2E2In19fQ==
+      uuid: efdf121e-209f-49a2-9c56-d0bf058f33ae
+    name: '&9Weird Candy Bag'
+    item-cooldown: 3.0
+    effects:
+      CONFUSION:
+        duration: 30
+        amplifier: 1
+    restore-food: 4
+SUSHI_ROLL:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmVlYzc2NDBlNDMyNDBjODE2N2IxNjc3ZWFiZmZhYWQ5ZjYyODA2Y2NiZTI2NzMyNGM5N2NlYjcyOWQzMDNhIn19fQ==
+      uuid: b7c55ea2-d4cc-467e-85c7-dd8052c1675b
+    name: '&fSushi Roll'
+    lore:
+    - '&7&oSushis are leggit the'
+    - '&7&obest food on Earth.'
+    item-cooldown: 0.5
+    effects:
+      SPEED:
+        duration:
+          base: 10
+          scale: 10
+        amplifier: 1
+    restore-health: 1
+SOULBINDER1:
+  base:
+    material: ENDER_EYE
+    name: '&fApprentice Soulbinder'
+    disable-interaction: true
+    soulbound-level: 1.0
+    soulbinding-chance: 70.0
+    can-deconstruct: true
+SOULCRUSHER1:
+  base:
+    material: ENDER_PEARL
+    name: '&fNovice Soulcrusher'
+    disable-interaction: true
+    soulbound-level: 1.0
+    soulbound-break-chance: 30.0
+SOULBINDER2:
+  base:
+    material: ENDER_EYE
+    name: '&fIntermediate Soulbinder'
+    disable-interaction: true
+    soulbound-level: 2.0
+    soulbinding-chance: 80.0
+SOULCRUSHER2:
+  base:
+    material: ENDER_PEARL
+    name: '&fIntermediate Soulcrusher'
+    disable-interaction: true
+    soulbound-level: 2.0
+    soulbound-break-chance: 40.0
+SOULBINDER3:
+  base:
+    material: ENDER_EYE
+    name: '&fArcane Soulbinder'
+    disable-interaction: true
+    soulbound-level: 3.0
+    soulbinding-chance: 90.0
+SOULCRUSHER3:
+  base:
+    material: ENDER_PEARL
+    name: '&fArcane Soulcrusher'
+    disable-interaction: true
+    soulbound-level: 3.0
+    soulbound-break-chance: 50.0
+    effects:
+      SPEED:
+        duration:
+          base: 10.0
+          scale: 10.0
+          spread: 0.0
+          max-spread: 0.0
+        amplifier: 1.0
+SANTA_COOKIE:
+  base:
+    material: COOKIE
+    name: '&cS&fa&cn&ft&ca''&fs &cC&fo&co&fk&ci&fe'
+    lore:
+    - '&7&oWhere are the darn cookies!'
+    sounds:
+      on-consume: entity.player.burp
+    item-cooldown: 2.0
+    effects:
+      SPEED:
+        duration: 1
+        amplifier: 2
+    restore-saturation: 12
+ENDER_NOTE:
+  base:
+    material: PAPER
+    ability:
+      right-click:
+        type: BLINK
+        mode: RIGHT_CLICK
+        cooldown: 180
+        range: 150.0
+    name: '&5Ender Tome'
+    item-cooldown: 180
+    sounds:
+      on-consume: entity.enderman.teleport
+    lore:
+    - '&7Teleports you &5miles&7 away.'
+    effects:
+      HARM:
+        duration: 1
+        amplifier: 2
+THROW_COAL:
+  base:
+    material: COAL
+    ability:
+      right-click:
+        type: ITEM_THROW
+        cooldown: 3.0
+        damage: 3.0
+        mode: RIGHT_CLICK
+    name: '&fThrowable Coal'
+    lore:
+    - '&fChuck them at your friends'
+    item-cooldown: 3.0
+EGGNOG:
+  base:
+    material: EGG
+    name: '&6Eggnog'
+    disable-interaction: true
+    item-cooldown: 3.0
+    commands:
+      '1':
+        format: me Mmmmmh!
+        cooldown: 3.0
+    lore:
+    - '&eEarned during X-Mas 2018!'
+    - '&e&oA fresh & cold eggnog!'
+    crafting:
+      shapeless:
+        '1':
+        - EGG
+        - SUGAR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+    restore-health: 2.0
+    restore-food: 2.0
+    restore-saturation: 4.0
+MANGO:
+  base:
+    material: PLAYER_HEAD
+    name: '&fMango'
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTk1MzM4OGNjZDZmZjY0ZmMxOTUwZGQ0Y2VjNGFkZWFhMzQ4YWFhYmNjNTMyODI4ZTcxNDRmNTA5ZjIzYyJ9fX0=
+      uuid: 1c6aa7d0-582e-4111-8376-74a2a2f74a58
+    tier: COMMON
+    lore:
+    - '&7&oSweet and sour, hmm. Perfect combination'
+    effects:
+      REGENERATION:
+        duration: 20
+        amplifier: 1
+    vanilla-eating: false
+    restore-food: 8
+    restore-saturation: 10
+RECALL_STAR:
+  base:
+    material: NETHER_STAR
+    name: §f§lRecall Star
+    lore:
+    - §aExecuted §2/spawn§a when right-clicked.
+    - §bOtherwise, you could §9identify§b items with it.
+    max-consume: 5.0
+    can-identify: true
+    tier: EPIC
+    commands:
+      cmd0:
+        format: spawn
+        delay: 0.0
+        op: true
+    item-cooldown: 5.0
+GEM_REMOVER:
+  base:
+    material: SHEARS
+    lore:
+    - §7Removes a random gem applied on any item.
+    name: §6Gem Remover
+    disable-interaction: true
+    random-unsocket: 1.0
+FLASHDRIVE:
+  base:
+    material: STICK
+    custom-model-data: 123471.0
+    ability:
+      ability1:
+        type: FLASHBANG
+        mode: RIGHT_CLICK
+      ability2:
+        type: FLASHBANG
+        mode: SHIFT_RIGHT_CLICK
+    commands: {}
+    name: §f§l§nFLASH/DRIVE
+    lore:
+    - §7Right-click to throw a flash grenade projectile.
+    - §7After a brief wind up, it will detonate, blinding
+    - §7anyone in line of sight within 20 blocks.
+    - §7Turning away from the flash will reduce the flash duration
+    - §7and effects.
+    - \n
+    - '§8If the flash no longer works, use these commands:'
+    - §8/tag @a remove FLASHDRIVE
+    - §8/setblock 3178 67 2632 air
+    - §8Make sure to do them in that precise order.
+    - §7Also, please do not spam the flash. The item throw cooldown
+    - §7is how long it takes for the commands to reset, so
+    - §7spamming it will likely break the command without
+    - §7flashing anyone while wasting your consumable.
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1.0..|v IRON_INGOT - 1.0..|v AIR 0 1.0..
+          - v AIR 0 1.0..|v PRISMARINE_SHARD - 1.0..|v AIR 0 1.0..
+          - v AIR 0 1.0..|v IRON_INGOT - 1.0..|v AIR 0 1.0..
+FILETMIGNON:
+  base:
+    material: PLAYER_HEAD
+    name: §6§lFilet Mignon
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTMxODY3YTY5ODgwZGMxMjRjZjE3MzViZGVlZDI3ODhiZWM0ZjI2YjUyYjdkMzFhZWY5NjAxYzgwZjA4ODhlIn19fQ
+      uuid: ed2dbde6-501b-4346-8fdd-5e0c62669aac
+    restore-saturation: 10.0
+    restore-food: 8.0
+    restore-health: 4.0
+    effects:
+      REGENERATION:
+        duration: 10.0
+        amplifier: 1.0
+    sounds:
+      on-consume:
+        sound: entity.player.burp
+        volume: 2.0
+        pitch: 0.0
+SLAB_OF_RICE:
+  base:
+    material: SMOOTH_QUARTZ_SLAB
+    name: §rSlab of Rice
+    lore:
+    - §8yuck
+    effects:
+      POISON:
+        duration: 30.0
+        amplifier: 2.0
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    tier: TRASH
+EGG:
+  base:
+    material: APPLE
+THROWLINSCROLL:
+  base:
+    material: PAPER
+    name: Throwlin Scroll
+    commands:
+      cmd0:
+        format: warp Throwlin
+        delay: 0.0
+COCAINE:
+  base:
+    material: SUGAR
+    name: cocaine
+    restore-health: -4.0
+STUNGUN:
+  base:
+    material: STICK
+    item-damage: 123488.0
+    custom-model-data: 123489.0
+    name: §7Glock
+    ability:
+      ability1:
+        type: STUNGUN
+        mode: RIGHT_CLICK
+      ability2:
+        type: STUNGUN
+        mode: SHIFT_RIGHT_CLICK
+    max-consume: 3.0
+    lore:
+    - Fire a shot at the target, stunning them for 3 seconds
+START_SCP_HUNT:
+  base:
+    material: NETHER_STAR
+    commands:
+      cmd1:
+        format: playsound entity.wither.spawn master @a ~ ~ ~ 20 1
+        delay: 0.0
+        op: true
+      cmd0:
+        format: setblock -1455 38 -1364 redstone_block
+        delay: 120.0
+        op: true
+    name: Start the Hunt
+SCP_TRAP:
+  base:
+    material: STONE_BUTTON
+    name: SCP Trap
+    ability:
+      ability1:
+        type: SCPTRAP
+        mode: RIGHT_CLICK
+    lore:
+    - Drop a trap on the floor. When an SCP walks over it, they get slowed and revealed
+A727_WAGYU:
+  base:
+    material: COOKED_BEEF
+    max-consume: 100.0
+    restore-saturation: 20.0
+    restore-food: 20.0
+    restore-health: 20.0
+    restore-mana: 100.0
+    restore-stamina: 100.0
+    name: A727 Wagyu
+    item-particles:
+      particle: FLAME
+      type: FIREFLIES
+SCPKIT1:
+  base:
+    material: APPLE
+    commands:
+      cmd0:
+        format: meg disguise baggy hideSelfDisguise
+        delay: 1.0
+        op: true
+      cmd1:
+        format: meg undisguise
+        delay: 0.0
+        op: true
+APPLE:
+  base:
+    material: APPLE
+    commands:
+      cmd0:
+        format: meg disguise BiggieCheese hideSelfDisguise
+        delay: 1.0
+        op: true
+      cmd1:
+        format: meg undisguise
+        delay: 0.0
+        op: true
+DISGUSIE3:
+  base:
+    material: APPLE
+    commands:
+      cmd0:
+        format: meg disguise amongus hideSelfDisguise
+        delay: 1.0
+        op: true
+      cmd1:
+        format: meg undisguise
+        delay: 0.0
+        op: true
+DISGUISE4:
+  base:
+    material: APPLE
+    commands:
+      cmd0:
+        format: meg disguise demonface hideSelfDisguise
+        delay: 1.0
+        op: true
+      cmd1:
+        format: meg undisguise
+        delay: 0.0
+        op: true
+_OP_MM_TEST_CAST_SCPITEMS:
+  base:
+    material: CHEST
+    commands:
+      cmd0:
+        format: mm test cast SCPItems
+        delay: 0.0
+        op: true
+    name: Item Supply Bin
+    lore:
+    - §11§22§33§44§55§66§77§88§99§00§aa§bb§cc§dd
+TELETUBBY:
+  base:
+    material: APPLE
+    commands:
+      cmd0:
+        format: meg disguise teletubbies hideSelfDisguise
+        delay: 0.0
+ADRENALINESTICK:
+  base:
+    material: CARVED_PUMPKIN
+    name: §lAdrenaline Stick
+    custom-model-data: 123459.0
+    effects:
+      SPEED:
+        duration: 2.0
+        amplifier: 12.0
+FORCEFIELD:
+  base:
+    material: CONDUIT
+    name: §lForcefield
+    ability:
+      ability1:
+        type: FORCEFIELD
+        mode: RIGHT_CLICK
+    lore:
+    - Push enemies and crewmates away from you on consume
+SCPRADAR:
+  base:
+    material: COMPASS
+    name: §lSCP Radar
+    commands:
+      cmd0:
+        format: effect give @a[tag=SCPmonsters] minecraft:glowing 3 1 true
+        delay: 0.0
+        op: true
+    lore:
+    - Reveal the SCP's location for a brief moment of time on consume
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v lapis_lazuli - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|m material Broken_Shark_egg 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+INVISIBILITYCLOAK:
+  base:
+    material: LEATHER
+    name: §lInvisibility Cloak
+    ability:
+      ability1:
+        type: INVISIBILITY_CLOAK
+        mode: RIGHT_CLICK
+    lore:
+    - Turn invisible for 5 seconds on consumption
+CLONE:
+  base:
+    material: PLAYER_HEAD
+    name: §lClone
+    ability:
+      ability1:
+        type: CLONE
+        mode: RIGHT_CLICK
+    lore:
+    - Summon a clone of yourself that stuns attackers on consume
+REMOVER:
+  base:
+    material: APPLE
+STINKY_CHEESE:
+  base:
+    material: RAW_GOLD
+    name: §e§lStinky Cheese
+    max-consume: 2.0
+    effects:
+      CONFUSION:
+        duration: 10.0
+        amplifier: 1.0
+      SLOW:
+        duration: 10.0
+        amplifier: 1.0
+    restore-health: 8.0
+    cooldown-reference: SRT
+    item-cooldown: 30.0
+DRAGONS_DELIGHT:
+  base:
+    material: SUSPICIOUS_STEW
+    name: §f§lDragon's Delight
+    cooldown-reference: SRT
+    item-cooldown: 45.0
+    max-consume: 3.0
+    restore-health: 15.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v mushroom_stew - 1.0..
+          - m material dragonfly_wing 1.0..
+          - m material springy_leg 1.0..
+          - m material dragonfly_wing 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+SHARK_FIN_STEW:
+  base:
+    material: SUSPICIOUS_STEW
+    name: §9§lShark Fin Stew
+    effects:
+      DAMAGE_RESISTANCE:
+        duration: 20.0
+        amplifier: 1.0
+    cooldown-reference: SRT
+    item-cooldown: 30.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v mushroom_stew - 1.0..
+          - m material shark_fin 1.0..
+          - v cod - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+DYNAMITE:
+  base:
+    material: TNT
+    name: §c§lDynamite
+    item-cooldown: 1.0
+    ability:
+      ability1:
+        type: THROW_DYNAMITE
+        mode: RIGHT_CLICK
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v iron_ingot - 1.0..|v AIR 0 1..
+          - v iron_ingot - 1.0..|m consumable bomb 1.0..|v iron_ingot - 1.0..
+          - v AIR 0 1..|v iron_ingot - 1.0..|v AIR 0 1..
+BANANABUNCH:
+  base:
+    material: STICK
+    name: §e§lBanana Bunch
+    custom-model-data: 123488.0
+    item-cooldown: 30.0
+    cooldown-reference: SRT
+    restore-health: 9.0
+    crafting:
+      shapeless: {}
+      shaped:
+        '1':
+          input:
+          - m miscellaneous bloonana 1.0..|m miscellaneous bloonana 1.0..|m miscellaneous
+            bloonana 1.0..
+          - m miscellaneous bloonana 1.0..|m miscellaneous bloonana 1.0..|m miscellaneous
+            bloonana 1.0..
+          - m miscellaneous bloonana 1.0..|m miscellaneous bloonana 1.0..|m miscellaneous
+            bloonana 1.0..
+RED_MUSHROOM_STEW:
+  base:
+    material: MUSHROOM_STEW
+    name: §c§lRed Mushroom Stew
+    item-cooldown: 40.0
+    cooldown-reference: SRT
+    restore-health: 12.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v bowl - 1.0..
+          - v red_mushroom - 1.0..
+          - v brown_mushroom - 1.0..
+          - m material red_mushroom_chunk 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+VEGETABLE_CAKE:
+  base:
+    material: CAKE
+    name: §c§lCarrot Cake
+    max-consume: 3.0
+    restore-health: 4.0
+    item-cooldown: 10.0
+    cooldown-reference: SRT
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v carrot - 1.0..|v AIR 0 1..
+          - v carrot - 1.0..|v cake - 1.0..|v carrot - 1.0..
+          - v AIR 0 1..|v carrot - 1.0..|v AIR 0 1..
+MONSTER_MASH:
+  base:
+    material: RAW_COPPER_BLOCK
+    name: §2§lMonster Mash
+    restore-health: 25.0
+    item-cooldown: 60.0
+    cooldown-reference: SRT
+    effects:
+      CONFUSION:
+        duration: 10.0
+        amplifier: 1.0
+      SLOW:
+        duration: 10.0
+        amplifier: 1.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - m consumable shark_fin_stew 1.0..
+          - m consumable dragons_delight 1.0..
+          - m CONSUMABLE BANANABUNCH 1.0..
+          - m consumable red_mushroom_stew 1.0..
+          - m consumable vegetable_cake 1.0..
+          - m consumable stinky_cheese 1.0..
+          - m consumable holy_shit 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+BOMB:
+  base:
+    material: BLACK_CONCRETE
+    name: §lBomb
+    item-cooldown: 1.0
+    ability:
+      ability1:
+        type: THROW_BOMB
+        mode: RIGHT_CLICK
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1.0..|v cobblestone - 1.0..|v AIR 0 1.0..
+          - v cobblestone - 1.0..|v tnt - 1.0..|v cobblestone - 1.0..
+          - v AIR 0 1.0..|v cobblestone - 1.0..|v AIR 0 1.0..
+HOLY_SHIT:
+  base:
+    material: BROWN_DYE
+    name: §e§lHoly Shit
+    effects:
+      WITHER:
+        duration: 100.0
+        amplifier: 10.0
+SPIKY_BALL:
+  base:
+    material: IRON_BLOCK
+    disable-interaction: true
+    name: §7§lSpiky Ball
+    ability:
+      ability1:
+        type: SPIKY_BALL_THROW
+        mode: RIGHT_CLICK
+        cooldown: 0.5
+    sounds:
+      on-consume:
+        sound: entity.egg.throw
+        volume: 4.0
+        pitch: 1.0
+    item-cooldown: 0.5
+    disable-crafting: true
+BRONZE_GAMBLING_BOX:
+  base:
+    material: CHEST
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    name: §e§lBronze Gambling Box
+    ability:
+      ability1:
+        type: OPEN_BRONZE_GAMBLING_BOX
+        mode: RIGHT_CLICK
+    item-cooldown: 5.0
+BIG_GUN:
+  base:
+    material: STICK
+    custom-model-data: 123538.0
+    name: §c§lBig §fGun™
+    item-cooldown: 60.0
+    ability:
+      ability1:
+        type: SHOOT_BIG_GUN
+        mode: RIGHT_CLICK
+    max-consume: 1.0
+MOLOTOV:
+  base:
+    material: STICK
+    name: §c§lMolotov
+    ability:
+      ability1:
+        type: THROW_MOLOTOV
+        mode: RIGHT_CLICK
+    item-cooldown: 10.0
+    max-consume: 1.0
+    custom-model-data: 123539.0
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v glass_bottle - 1.0..
+          - m material solidified_droplet 1.0..
+          - v gunpowder - 1.0..
+          - v paper - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+SPIKESTORM:
+  base:
+    material: CHISELED_QUARTZ_BLOCK
+    name: §lSpike Storm
+    ability:
+      ability1:
+        type: SPIKY_BALL_STORM
+        mode: RIGHT_CLICK
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m consumable spiky_ball 1.0..|m consumable spiky_ball 1.0..|m consumable
+            spiky_ball 1.0..
+          - m consumable spiky_ball 1.0..|m consumable spiky_ball 1.0..|m consumable
+            spiky_ball 1.0..
+          - m consumable spiky_ball 1.0..|m consumable spiky_ball 1.0..|m consumable
+            spiky_ball 1.0..
+SRT_DUMMY:
+  base:
+    material: HAY_BLOCK
+    name: §2§lDummy Teemo
+    ability:
+      ability1:
+        type: SUMMON_DUMMY
+        mode: RIGHT_CLICK
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - v armor_stand - 1.0..
+          - v hay_block - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+GRENADE:
+  base:
+    material: GRAY_CONCRETE
+    name: §7§lGrenade
+    ability:
+      ability1:
+        type: THROW_GRENADE
+        mode: RIGHT_CLICK
+    item-cooldown: 1.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v white_wool - 1.0..|v AIR 0 1..
+          - v white_wool - 1.0..|v tnt - 1.0..|v white_wool - 1.0..
+          - v AIR 0 1..|v white_wool - 1.0..|v AIR 0 1..

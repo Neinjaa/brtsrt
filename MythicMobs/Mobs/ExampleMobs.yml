@@ -1,0 +1,6560 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+
+ArtificerGunTurret: 
+  Type: GIANT
+  Display: ArtificerGunTurret
+  Health: 25
+  Damage: 0 
+  Faction: Artificer
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: true
+    PreventJockeyMounts: true
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - sudoskill{s=TestDecoy} @PIR{r=7} ~onTimer:1n
+  - model{mid=dummy_teemo_red;n=false} @self ~onSpawn
+  - state{mid=dummy_teemo_red;s=hit} @self ~onDamaged
+  - projectile{hr=1;vr=1;bulletType=item;bulletMaterial=bone_meal;v=32;g=0.3;ti=1;d=200;mr=200;onTick=[
+    - particles{p=block_crack;m=stone;a=1;vs=0.1;vs=0.1} @origin
+    ];
+    onEnd=[
+    - setNoDamageTicks{ticks=0;delay=0} @eno{r=4}
+    - damage{a=6.5;element=EARTH;ii=true;pkb=true;ignore=players} @eno{r=4;ignore=players}
+    - setNoDamageTicks{ticks=0;delay=0} @eno{r=4;ignore=players}
+    - sound{s=item.shield.break;v=3;p=2} @origin
+    - e:particles{p=explosion_large;vs=0.1;hs=0.1;a=1} @origin
+    ];hnp=true;hp=true;se=true;i=1;syo=1.5;vo=0.2} @ENO{r=24;sort=nearest;limit=1;ignore=players,samefaction} ~onTimer:20
+  - remove{delay=400} @self ~onSpawn
+Tier1Smoke:
+  Type: husk
+  Display: '&'
+  Faction: SRT
+  Health: 100
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    baby: true
+    ApplyInvisibility: true
+    Invisible: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    VisibleByDefault: false
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - cancelEvent ~onDamaged  
+  - stun{d=240} @self ~onSpawn
+  - potion{d=1000;lvl=254;type=WEAKNESS;particles=false} @self ~onSpawn
+  - skill{s=Tier1SmokeCloudThing} @self ~onTimer:10
+  - sound{s=block.lava.extinguish} @self ~onSpawn
+  - remove{delay=160} @self ~onSpawn
+  
+SRT_Stage1BossSplit1:
+  Health: 300
+  Type: Zombie
+  Display: '&f&lTerra Slime'
+  Damage: 0
+  Faction: SRT
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  BossBar:
+    Enabled: true
+    Title: '&2&lEarth Slime <caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: BLUE
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0.01
+  Modules:
+    ThreatTable: true
+  Drops:
+  - mmoitems{type=MATERIAL;id=PLANETARY_GOOP} 3-5 1 
+  - mmoitems{type=MISCELLANEOUS;id=SILVER_COIN} 1 1
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - goto{speedModifier=1;sh=5;sv=5} @PIR{r=64;sort=nearest;conditions=[  - inlineofsight true ]} ~onTimer:200 
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - cancelEvent ~onDamaged ?damagecause{c=FALL} ?!damageTag{tag=SKILL}
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=tier1boss;n=true;step=3} @self ~onSpawn  
+  - sound{s=entity.slime.hurt;v=4;p=0.8;cooldown=0.3} @self ~onDamaged
+  - skill{s=Tier1EarthBoss} @self ~onTimer:240 0.5 
+  - skill{s=T1SlimeJump} @self ~onTimer:1 
+  - skill{s=Tier1EarthBounce2} @self ~onTimer:1 ?onground 
+  
+SRT_Stage1BossSplit2:
+  Health: 300
+  Type: Zombie
+  Display: '&f&lTerra Slime'
+  Damage: 0
+  Faction: SRT
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  BossBar:
+    Enabled: true
+    Title: '&f&lWind Slime <caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: BLUE
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0.01
+  Modules:
+    ThreatTable: true
+  Drops:
+  - mmoitems{type=MATERIAL;id=PLANETARY_GOOP} 3-5 1
+  - mmoitems{type=MISCELLANEOUS;id=SILVER_COIN} 1 1
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - cancelEvent ~onDamaged ?damagecause{c=FALL} ?!damageTag{tag=SKILL}
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=tier1boss;n=true;step=3} @self ~onSpawn  
+  - sound{s=entity.slime.hurt;v=4;p=0.8;cooldown=0.3} @self ~onDamaged
+  - skill{s=Tier1AirBoss} @self ~onTimer:240 0.5 
+  - skill{s=T1SlimeJump} @self ~onTimer:1 
+  - skill{s=Tier1AirBounce2} @self ~onTimer:1 ?onground 
+  
+SRT_Stage1BossSplit3:
+  Health: 300
+  Type: Zombie
+  Display: '&f&lTerra Slime'
+  Damage: 0
+  Faction: SRT
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  BossBar:
+    Enabled: true
+    Title: '&7&lWater Slime <caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: BLUE
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0.01
+  Modules:
+    ThreatTable: true
+  Drops:
+  - mmoitems{type=MATERIAL;id=PLANETARY_GOOP} 3-5 1
+  - mmoitems{type=MISCELLANEOUS;id=SILVER_COIN} 1 1
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - cancelEvent ~onDamaged ?damagecause{c=FALL} ?!damageTag{tag=SKILL}
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=tier1boss;n=true;step=3} @self ~onSpawn  
+  - sound{s=entity.slime.hurt;v=4;p=0.8;cooldown=0.3} @self ~onDamaged
+  - skill{s=Tier1WaterBoss} @self ~onTimer:240 0.5 
+  - skill{s=T1SlimeJump} @self ~onTimer:1 
+  - skill{s=Tier1WaterBounce2} @self ~onTimer:1 ?onground 
+  
+SRT_Stage1Boss:
+  Health: 1200
+  Type: Zombie
+  Display: '&f&lTerra Slime'
+  Damage: 0
+  Faction: SRT
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  BossBar:
+    Enabled: true
+    Title: '&9&lPlanetary Disaster <caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: BLUE
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0.01
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - cancelEvent ~onDamaged ?damagecause{c=FALL} ?!damageTag{tag=SKILL}
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=tier1boss;n=true;step=3} @self ~onSpawn  
+  - sound{s=entity.slime.hurt;v=4;p=0.8;cooldown=0.3} @self ~onDamaged
+  - skill{s=Tier1EarthBoss} @self ~onTimer:160 0.5 =66%-100%
+  - skill{s=Tier1AirBoss} @self ~onTimer:160 0.5 =33%-66%
+  - skill{s=Tier1WaterBoss} @self ~onTimer:160 0.5 =0%-33% 
+  - skill{s=T1SlimeJump} @self ~onTimer:1 
+  - skill{s=Tier1WaterBounce} @self ~onTimer:1 ?onground =0-33% 
+  - skill{s=Tier1AirBounce} @self ~onTimer:1 ?onground =33%-66%
+  - skill{s=Tier1EarthBounce} @self ~onTimer:1 ?onground =66%-100%
+  - skill{s=SlimeSplit} @self ~onDeath
+
+
+SRT_Mecha:
+  Health: 900
+  Type: snow_golem
+  Display: '&9&lSpikey Mecha'
+  Damage: 0
+  Faction: Spikey
+  Equipment:
+  - IRON_HELMET HEAD
+  - mmoitems{type=spear;id=HEAVYMINIGUN} HAND
+  - mmoitems{type=spear;id=HEAVYMINIGUN} OFFHAND
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0.20
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0.01
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 monsters
+  Skills:
+  - remove{delay=1200} @self ~onSpawn
+  - cancelevent ~onShoot
+  - skill{s=MechaThreat} @self ~onTimer:20
+  - skill{s=SpikeyBullet;repeat=19;repeatinterval=1} @target ~onTimer:100
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=martinmodel;n=true;step=3} @self ~onSpawn  
+  - LinkItemBone{modelid=martinmodel;bone=hand;slot=HAND} @self ~onTimer:20
+  - LinkItemBone{modelid=martinmodel;bone=lefthand;slot=OFFHAND} @self ~onTimer:20
+
+
+DredgeGrappleMob:
+  Type: husk
+  Display: '&'
+  Faction: SRT
+  Health: 100
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    baby: true
+    ApplyInvisibility: true
+    Invisible: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: true
+    MovementSpeed: 0
+    VisibleByDefault: false
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - cancelEvent ~onDamaged  
+  - stun{d=240} @self ~onSpawn
+  - potion{d=1000;lvl=254;type=WEAKNESS;particles=false} @self ~onSpawn
+  - skill{s=DredgeGrappleMobAbility} @self ~onSpawn
+
+
+SoccerBall:
+  Type: Drowned
+  Display: Soccer Ball
+  Disguise: Falling_Block white_concrete
+  Health: 10000
+  Damage: 0 
+  Options:
+    PreventOtherDrops: true
+    Silent: true
+    NoDamageTicks: 1
+    Despawn: true
+    MovementSpeed: 0
+    KnockbackResistance: 0
+  Skills:
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+
+
+TestDecoyMob:
+  Type: Villager
+  Display: Dummy Teemo
+  Health: 50
+  Damage: 0
+  Faction: Artificer  
+  Options:
+    PreventOtherDrops: true
+    Silent: true
+    NoDamageTicks: 1
+    Despawn: true
+    MovementSpeed: 0.2
+    KnockbackResistance: 1
+  AITargetSelectors:
+  - 0 golems
+  - 1 monsters
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - goto{speedModifier=1;sh=5;sv=5} @EIR{r=128;sort=nearest;ignore=players,samefaction} ~onTimer:1
+  - remove{delay=300} @self ~onSpawn
+  - sound{s=entity.zombie.break_wooden_door;v=3;p=0.8} @self ~onDeath
+  - sound{s=entity.zombie.break_wooden_door;v=3;p=1.3} @self ~onDamaged
+  - model{mid=dummy_teemo_red;n=false} @self ~onSpawn
+  - state{mid=dummy_teemo_red;s=hit} @self ~onDamaged
+  - sudoskill{s=TestDecoy} @PIR{r=7} ~onTimer:1
+
+SRT_Buccaneer2:
+  Health: 30
+  Type: Vindicator
+  Display: '&9&lBuccaneer'
+  Damage: 6
+  Faction: SRT
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0.2
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - model{mid=gunpirate;n=true;step=3} @self ~onSpawn  
+  - sound{s=entity.pillager.hurt;v=4;p=0.8;cooldown=0.3} @self ~onDamaged
+  - projectile{i=1;hnp=true;hp=true;se=true;sb=true;onTick=[
+    - particles{p=smoke;hs=0.1;vs=0.1;a=1} @origin
+    ];
+    onStart=[
+    - sound{s=entity.firework_rocket.blast;v=8;p=0.5} @self
+    - sound{s=entity.firework_rocket.blast_far;v=8;p=0.5} @Self
+    - particles{p=flame;a=4;hs=0.3;vs=0.3} @forward{f=0.5;y=1.5}
+    ];
+    onHit=[
+    - damage{a=4;ii=true;pkb=true;}
+    ];v=40;mr=48;} @target ~onTimer:40 0.4
+
+SRT_Buccaneer:
+  Health: 30
+  Type: Vindicator
+  Display: '&9&lBuccaneer'
+  Damage: 6
+  Faction: SRT
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - model{mid=swordpirate;n=true;step=3} @self ~onSpawn  
+  - sound{s=entity.pillager.hurt;v=4;p=0.8;cooldown=0.3} @self ~onDamaged
+
+SRT_WaterBoss:
+  Health: 900
+  Type: Zombie
+  Display: '&9&lWoke Beard'
+  Damage: 0
+  Faction: SRT
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  BossBar:
+    Enabled: true
+    Title: '&9&lThe Zesty <caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: BLUE
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0.23
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0.01
+  Modules:
+    ThreatTable: true
+  Drops:
+  - mmoitems{type=MATERIAL;id=WOKE_BEARDS_LEG} 1 1
+  - mmoitems{type=MISCELLANEOUS;id=SILVER_COIN} 1 1
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - BodyClamp{maxhead=10;maxbody=360,rdelay=5,rduration=5;playermode=true} @self ~onTimer:1
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=waterboss;n=true;step=3} @self ~onSpawn  
+  - sound{s=entity.pillager.hurt;v=4;p=0.8;cooldown=0.3} @self ~onDamaged
+  - skill{s=WaterBossAbove50} @self ~onTimer:20 >45%
+  - skill{s=WaterBossBelow50} @self ~onTimer:30 <45%
+  - skill{s=SummonBuccaneers} @self ~onTimer:200 0.4
+
+SRT_ScreamGull:
+  Type: vindicator
+  Health: <random.20to30>
+  Display: '&9&lScream Gull'
+  Damage: 6
+  Faction: SRT
+  Options:
+    Despawn: true
+    Silent: true
+    MaxCombatDistance: 48
+    PreventOtherDrops: true
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    MovementSpeed: 0.4
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - mmoitems{type=MATERIAL;id=BICKERING_BEAK} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - feather 1-2 0.5
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=water} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - sound{s=entity.parrot.hurt;p=2;v=3} @self ~onDamaged
+  - model{mid=screamgull;n=false;step=1} @self ~onSpawn 
+  - model{mid=screamgull;n=false;step=1} @self ~onTimer:100
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+
+SRT_SobbingSlime:
+  Type: Zombie
+  Display: '&9&lSobbing Slime'
+  Disguise: Falling_Block verdant_froglight
+  Health: <random.20to30>
+  Damage: 5
+  Faction: SRT
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    Despawn: true
+    PreventOtherDrops: true
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - mmoitems{type=MATERIAL;id=SOLIDIFIED_DROPLET} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - slime_ball 1-3 0.5
+  - verdant_froglight 1 0.2
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=entity.slime.hurt;v=2} @self ~onDamaged
+  - sound{s=entity.blaze.death;v=3;p=2} @self ~onDeath
+  - sound{s=entity.generic.splash;cooldown=1;p=2;v=3} @self ~onTimer:1 ?onGround{}
+  - particlesphere{r=4;p=reddust;color=#5E9DCA;a=64;hs=0.1;vs=0.1;cooldown=1} @self ~onTimer:1 ?onGround{}
+  - effect:particles{p=block_crack;m=Ochre_Froglight;amount=1;speed=0.1;hS=0.5;vS=0.5} @self
+  - lunge{velocity=0.9;velocityy=0.6;cooldown=1.3} @target ~onTimer:1 ?altitude{a=0-2}
+  - damage{a=<caster.damage>;pkb=true;ii=true;element=water;cooldown=1} @PIR{r=4;conditions=[  - inlineofsight true ]} ~onTimer:1 ?onGround{}
+SRT_Monkey:
+  Type: Villager
+  Health: <random.10to20>
+  Display: '&2&lMonkey'
+  Options:
+    MovementSpeed: 0.2
+    Despawn: true
+    Silent: true
+    Interactable: true
+    MaxCombatDistance: 48
+    PreventOtherDrops: true
+  Drops:
+  - mmoitems{type=MISCELLANEOUS;id=BLOONANA} 1 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  Skills:
+  - skill{s=MonkeyTrade} @self ~onInteract ?~holding{m=mmoitems.MISCELLANEOUS.BLOONANA}
+  - model{mid=monkey;n=false;step=1} @self ~onSpawn 
+  - model{mid=monkey;n=false;step=1} @self ~onTimer:100
+
+
+SRT_Crab:
+  Type: DROWNED
+  Health: <random.20to30>
+  Display: '&9&lBoxing Crab'
+  Damage: 5
+  Faction: SRT
+  Options:
+    Despawn: true
+    Silent: true
+    MaxCombatDistance: 48
+    PreventOtherDrops: true
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    PreventJockeyMounts: true
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    MovementSpeed: 0.4
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - shulker_shell 1 0.2
+  - mmoitems{type=MATERIAL;id=BRAWLER_CLAW} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=water} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - skill{s=BoxingCrabLeap} @self ~onTimer:20 0.2
+  - sound{s=rotmg.trees_hit;p=2;v=3} @self ~onDamaged
+  - sound{s=rotmg.trees_hit;p=2;v=3} @self ~onDamaged
+  - sound{s=rotmg.trees_hit;p=2;v=3} @self ~onDamaged
+  - model{mid=boxingcrab;n=false;step=1} @self ~onSpawn 
+  - model{mid=boxingcrab;n=false;step=1} @self ~onTimer:100
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+
+SRT_Shark:
+  Type: Drowned
+  Health: <random.100to120>
+  Display: '&9&lShark'
+  Damage: 4
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Drops:
+  - mmoitems{type=MATERIAL;id=BROKEN_SHARK_EGG} 1 0.05
+  - mmoitems{type=MATERIAL;id=SHARK_FIN} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=water} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - damage{a=4;pkb=true;element=WATER} @PIR{r=4;limit=1;sort=Nearest} ~onTimer:20
+  - look{headOnly=false;immediately=false} @Target ~onTimer:1
+  - propel{v=0.3} @self ~onTimer:2 ?inBlock{b=WATER} 
+  - sound{s=entity.blaze.death;v=8;p=0} @self ~onDeath
+  - sound{s=entity.salmon.hurt;v=4} @self ~onDamaged
+  - model{mid=shark} @self ~onSpawn
+  - model{mid=shark} @self ~onTimer:100
+  - aura{auraname=bleed;d=100;onTick=[
+    - damage{ii=true;a=1;ia=true;pkb=true}
+    - effect:particles{p=block_crack;m=redstone_block;amount=1;} @origin
+    ];i=20} @PIR{r=5} ~onAttack
+  
+
+SRT_Dolphin:
+  Type: Dolphin
+  Health: <random.30to40>
+  Display: '&9&lDolphin'
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: false
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+
+SRT_Cow:
+  Type: Cow
+  Health: 10
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    Silent: false
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Drops:
+  - mmoitems{type=CONSUMABLE;id=HOLY_SHIT} 1 0.01 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - summon{mob=SRT_Cow} @self ~onSpawn 0.6
+SRT_Sheep:
+  Type: Sheep
+  Health: <random.10to20>
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    Silent: false
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - summon{mob=SRT_Sheep} @self ~onSpawn 0.6
+SRT_Pig:
+  Type: Pig
+  Health: 10
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    Silent: false
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - summon{mob=SRT_Pig} @self ~onSpawn 0.6
+SRT_Chicken:
+  Type: Chicken
+  Health: 4
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    Silent: false
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - summon{mob=SRT_Chicken} @self ~onSpawn 0.6
+SRT_TropicalFish:
+  Type: Tropical_Fish
+  Health: <random.12to16>
+  Display: '&9&lTropical Fish'
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: false
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Drops:
+  - tropical_fish 1 1
+  - mmoitems{type=MATERIAL;ID=FISH_GILLS} 1 0.2
+  Skills:
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - summon{mob=SRT_TropicalFish;repeat=1} @self ~onSpawn 0.6
+
+SRT_PufferFish:
+  Type: pufferfish
+  Health: <random.10to14>
+  Display: '&9&lPufferfish'
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: false
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Drops:
+  - pufferfish 1 1
+  Skills:
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+
+SRT_ElderGuardian:
+  Type: Elder_Guardian
+  Health: <random.100to150>
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Faction: SRT
+  Drops:
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 8-10 1
+  Damage: 7
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventSunburn: true
+    PreventOtherDrops: false
+    PreventRandomEquipment: true
+    FollowRange: 48
+    Despawn: true
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+
+  
+SRT_Guardian:
+  Type: Guardian
+  Health: <random.8to12>
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Faction: SRT
+  Damage: 5
+  Drops: 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - mmoitems{type=MATERIAL;id=WEBBED_FOOT} 1 0.80
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventSunburn: true
+    PreventOtherDrops: false
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 32
+    Despawn: true
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  
+  
+SRT_SpindriftSnail:
+  Type: Drowned
+  Health: <random.5to8>
+  Display: '&9&lSpindrift Snail'
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Faction: SRT
+  Damage: 3
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0.7
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Drops: 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - glowing_ink_sac 1-2 0.5
+  - mmoitems{type=MATERIAL;id=SWIRLY_SHELL} 1 0.80
+  Skills:
+  - particles{p=reddust;color=#5E9DCA;hs=0;vs=0;y=0.1} @self ~onTimer:1
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - model{mid=spindriftsnail} @self ~onSpawn
+  - model{mid=spindriftsnail} @self ~onTimer:100
+  - sound{s=entity.squid.hurt;v=4} @self ~onDamaged  
+  
+SRT_ElectricSquid:
+  Type: Drowned
+  Health: <random.20to30>
+  Display: '&9&lElectric Squid'
+  Disguise: squid
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Faction: SRT
+  Damage: 3
+  Equipment:
+  - stick hand
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Drops: 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - glowing_ink_sac 1-2 0.5
+  - mmoitems{type=MATERIAL;id=STINGY_TENTACLE} 1 0.80
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - skill{s=Squidshock} @self ~onTimer:1
+  - look{headOnly=false;immediately=false} @Target ~onTimer:1
+  - propel{v=0.8} @self ~onTimer:60 ?inBlock{b=WATER} 
+  - sound{s=entity.squid.hurt;v=4} @self ~onDamaged
+SRT_Piranha:
+  Type: Drowned
+  Health: <random.5to6>
+  Display: '&9&lPiranha'
+  Faction: SRT
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Damage: 3
+  Modules:
+    ThreatTable: true
+  Drops: 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 0.5
+  - raw_cod 1 1
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - damage{a=<caster.damage>;pkb=true;ii=true;element=water} @PIR{r=3;limit=1;sort=Nearest} ~onTimer:20
+  - summon{mob=SRT_PiranhaSummon;noise=2;a=<random.4to5>} @self ~onSpawn
+  - look{headOnly=false;immediately=false} @Target ~onTimer:1
+  - propel{v=0.23} @self ~onTimer:2 ?inBlock{b=WATER} 
+  - sound{s=entity.salmon.hurt;v=4} @self ~onDamaged
+  - model{mid=piranha} @self ~onSpawn
+  - model{mid=piranha} @self ~onTimer:100
+SRT_PiranhaSummon:
+  Type: Drowned
+  Health: <random.5to6>
+  Display: '&9&lPiranha'
+  Faction: SRT
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Damage: 3
+  Drops:
+  - raw_cod 1 1 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 0.5
+  Modules:
+    ThreatTable: true
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - damage{a=<caster.damage>;pkb=true;element=water} @PIR{r=3;limit=1;sort=Nearest} ~onTimer:20
+  - look{headOnly=false;immediately=false} @Target ~onTimer:1
+  - propel{v=0.23} @self ~onTimer:2 ?inBlock{b=WATER} 
+  - sound{s=entity.salmon.hurt;v=4} @self ~onDamaged
+  - model{mid=piranha} @self ~onSpawn
+  - model{mid=piranha} @self ~onTimer:100
+SharkMountTemp:
+  Type: turtle
+  Options:
+    Silent: true
+    Despawn: true
+    MovementSpeed: 0.4
+    PreventOtherDrops: true
+  Drops:
+  - mmoitems{type=MATERIAL;id=BROKEN_SHARK_EGG} 
+  Skills:
+  - sound{s=entity.blaze.death;v=8;p=0} @self ~onDeath
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=shark;drive=true} @self ~onSpawn
+  - sound{s=entity.salmon.hurt;v=4} @self ~onDamaged
+  - mountmodel{drive=true;mode=FORCE_FLYING} @trigger ~onInteract
+  - potion{type=slow;lvl=3;particles=false;d=3} @self ~onTimer:1 ?!onblock{b=WATER,AIR}
+  - oxygen{amount=10} @nearestplayer ~onTimer:1
+  - skill{s=SharkRemove} @self ~onSignal:SharkWhistle
+
+SharkMount:
+  Type: turtle
+  Options:
+    Silent: true
+    Despawn: true
+    MovementSpeed: 0.1
+    PreventOtherDrops: true
+  Drops:
+  - mmoitems{type=MATERIAL;id=BROKEN_SHARK_EGG} 
+  Skills:
+  - sound{s=entity.blaze.death;v=8;p=0} @self ~onDeath
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=shark;drive=true} @self ~onSpawn
+  - sound{s=entity.salmon.hurt;v=4} @self ~onDamaged
+  - mountmodel{drive=true;mode=FORCE_WALKING} @trigger ~onInteract
+  - potion{type=slow;lvl=3;particles=false;d=3} @self ~onTimer:1 ?!onblock{b=WATER,AIR}
+  - oxygen{amount=10} @nearestplayer ~onTimer:1
+  - skill{s=SharkRemove} @self ~onSignal:SharkWhistle
+  
+DeerMount:
+  Type: Pig
+  Health: 30
+  Options:
+    Silent: true
+    Despawn: true
+    MovementSpeed: 0.25
+    PreventOtherDrops: true
+  DamageModifiers:
+  - FALL 0.01
+  Drops:
+  - mmoitems{type=MATERIAL;id=CONSUMED_DEER_CRACKERS} 
+  Skills:
+  - sound{s=entity.cow.death;v=8;p=2} @self ~onDeath
+  - sound{s=entity.cow.hurt;v=8;p=2} @self ~onDamaged
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=deer;drive=true;step=1} @self ~onSpawn
+  - mountmodel{drive=true;mode=Force_Walking} @trigger ~onInteract
+  - skill{s=DeerRemove} @self ~onSignal:DeerCrackers
+  
+SlimeMount:
+  Type: Pig
+  Health: 30
+  Options:
+    Silent: true
+    Despawn: true
+    MovementSpeed: 0.25
+    PreventOtherDrops: true
+  DamageModifiers:
+  - FALL 0.01
+  Drops:
+  - mmoitems{type=MATERIAL;id=DRIED_SLIME_GEL} 
+  Skills:
+  - cancelEvent ~onDamaged ?damagecause{c=FALL} ?!damageTag{tag=SKILL}
+  - sound{s=entity.slime.death;v=8;p=1} @self ~onDeath
+  - sound{s=entity.slime.hurt;v=8;p=1} @self ~onDamaged
+  - potion{type=WEAKNESS;d=10000;lvl=10;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=JUMP;d=10000;lvl=10;particles=false} @self ~onSpawn
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=windslime;drive=true;step=1} @self ~onSpawn
+  - mountmodel{drive=true;mode=Force_Walking} @trigger ~onInteract
+  - skill{s=DeerRemove} @self ~onSignal:DeerCrackers
+  
+SRT_CalciteGolem:
+  Type: Zombie
+  Health: <random.40to50>
+  Display: '&f&lCalcite Golem'
+  Faction: SRT
+  Damage: 7
+  Options:
+    MaxCombatDistance: 48
+    DigOutOfGround: true
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Despawn: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    MovementSpeed: 0.3
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - quartz 1-2 0.5
+  - mmoitems{type=MATERIAL;id=CALCITE_CORE} 1-2 1
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=WIND} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - sound{s=entity.iron_golem.hurt} @self ~onDamaged
+  - model{mid=airgolem;n=false;step=1} @self ~onSpawn 
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+SRT_DragonFly:
+  Type: CAVE_SPIDER
+  Health: <random.18to20>
+  Display: '&2&lAir Dragonfly'
+  Faction: SRT
+  Damage: 7
+  Options:
+    Despawn: true
+    Silent: false
+    PreventOtherDrops: true
+  DropOptions:
+    MaxCombatDistance: 48
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    MovementSpeed: 0.4
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - phantom_membrane 1-2 0.5
+  - mmoitems{type=MATERIAL;id=DRAGONFLY_WING} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=WIND} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - sound{s=entity.spider.hurt;p=1.5} @self ~onDamaged
+  - model{mid=airdragonfly;n=false;step=1} @self ~onSpawn 
+  - model{mid=airdragonfly;n=false;step=1} @self ~onTimer:100
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+SRT_WindCrawler:
+  Type: CAVE_SPIDER
+  Health: <random.15to20>
+  Display: '&2&lWind Crawler'
+  Faction: SRT
+  Damage: 5
+  Options:
+    Despawn: true
+    Silent: false
+    PreventOtherDrops: true
+  DropOptions:
+    MaxCombatDistance: 48
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    MovementSpeed: 0.4
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - string 1-2 0.5
+  - mmoitems{type=MATERIAL;id=SPRINGY_LEG} 1-2 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=WIND} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - sound{s=entity.spider.hurt} @self ~onDamaged
+  - model{mid=windcrawler;n=false;step=1} @self ~onSpawn 
+  - model{mid=windcrawler;n=false;step=1} @self ~onTimer:100
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+WindRonin:
+  Health: 900
+  Type: Zombie
+  Display: '&f&lThe Fallen Swordsman'
+  Faction: SRT
+  Damage: 0
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  Modules:
+    ThreatTable: true
+  BossBar:
+    Enabled: true
+    Title: '&7&lThe Fallen <caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: GRAY
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    MaxCombatDistance: 48
+    DigOutOfGround: true
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0.01
+  Drops:
+  - mmoitems{type=MATERIAL;id=WINDWORN_RICE_HAT} 1 1
+  - mmoitems{type=MISCELLANEOUS;id=SILVER_COIN} 1 1
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - state{mid=windboss;s=death} @self ~onDeath
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=windboss;n=true;step=3} @self ~onSpawn  
+  - randomskill{s=RoninRandomSlash 0.8,RoninRandomSlashTP 0.2} @self ~onTimer:50 1 >60%
+  - skill{s=RoninRandomSlashTP} @self ~onTimer:45 1 <60%
+
+ 
+
+SRT_Ogre:
+  Type: Zombie
+  Health: <random.40to60>
+  Faction: SRT
+  Display: '&2Ogre'
+  Damage: 6
+  Drops: 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 10-12 1
+  Modules:
+    ThreatTable: true
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.32
+    PreventSunburn: true
+    FollowRange: 48
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - randomskill{s=OgreA2,OgreA3} @self ~onTimer:60 0.4
+  - model{mid=ogre;n=false;step=1} @self ~onSpawn 
+  - model{mid=ogre;n=false;step=1} @self ~onTimer:100
+  - setitemmodel{m=ogre;bone=ir_hand;i=example_item} @self ~onSpawn
+
+
+SRT_CloudSpirit:
+  Type: Allay
+  Faction: SRT
+  Display: '&f&lCloud Spirit'
+  Health: 2
+  Damage: 5
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    Invisible: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - mmoitems{type=MATERIAL;id=FLUFFY_CLOUD} 2-3 1
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - model{mid=cloudspirit;n=false} @self ~onSpawn 
+  - model{mid=cloudspirit;n=false} @self ~onTimer:100
+  - skill{s=CloudAttack} @self ~onTimer:20 0.4
+  - sound{s=entity.ender_dragon.flap} @self ~onDamaged
+  - sound{s=block.lava.extinguish} @self ~onDamaged
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  
+
+SRT_BrazenGoat:
+  Type: Zombie
+  Display: '&f&lBrazen Goat'
+  Faction: SRT
+  Disguise: goat
+  Health: <random.15to25>
+  Damage: 5
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0.4
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: false
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 meleeattack
+  Drops:
+  - mmoitems{type=MATERIAL;id=TWISTED_HORN} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - white_wool 1-2 0.5
+  - raw_mutton 1-2 0.5
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=WIND} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - throw{v=4;velocityy=4} @target ~onAttack
+  - skill{s=GoatAttack} @self ~onTimer:20 0.4
+
+
+SRT_Breeze:
+  Type: Zombie
+  Display: '&f&lBreeze'
+  Faction: SRT
+  Health: <random.15to20>
+  Damage: 5
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0.3
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 fleeplayers
+  Drops:
+  - snowball 1-4 0.5
+  - mmoitems{type=MATERIAL;id=ERODED_PEBBLE} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{cause=FALL}
+  - model{mid=breeze;n=false} @self ~onSpawn 
+  - model{mid=breeze;n=false} @self ~onTimer:100
+  - potion{type=WEAKNESS;lvl=254;d=1000;particles=false} @self ~onTimer:20
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=custom.breezehurt;v=4} @self ~onDamaged
+  - sound{s=custom.breezedeath;v=4} @self ~onDeath
+  - skill{s=BreezeAttack} @self ~onTimer:20 0.4
+
+
+SRT_WindCreeper:
+  Type: Zombie
+  Display: '&f&lWind Creeper'
+  Faction: SRT
+  Health: <random.18to24>
+  Damage: 5
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0.3
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  Drops:
+  - mmoitems{type=MATERIAL;id=WINDSWEPT_DUST} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - gunpowder 1-2 0.5
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - model{mid=whirlwindcreeper;n=false;step=1} @self ~onSpawn 
+  - model{mid=whirlwindcreeper;n=false;step=1} @self ~onTimer:100 
+  - potion{type=WEAKNESS;lvl=254;d=1000;particles=false} @self ~onTimer:20
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=entity.creeper.hurt;v=4} @self ~onDamaged
+  - skill{s=WindCreeperExplode} @self ~onTimer:10
+  - particles{p=explosion_large;a=20;vs=1.5;hs=1.5} @self ~onDeath
+
+
+
+SRT_Fungun:
+  Type: Zombie
+  Faction: SRT
+  Health: <random.12to15>
+  Display: '&2Fungun'
+  Drops:
+  - red_mushroom 1-2 0.5
+  - brown_mushroom 1-2 0.5
+  - mmoitems{type=MATERIAL;id=RED_MUSHROOM_CHUNK} 1 1
+  - mmoitems{type=MATERIAL;id=RED_MUSHROOM_CHUNK} 1 0.3 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - mmoitems{type=MATERIAL;id=RED_MUSHROOM_CHUNK} 1 0.3
+  Modules:
+    ThreatTable: true
+  Damage: 3
+  Options:
+    Despawn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - potion{type=WEAKNESS;lvl=254;d=1000;particles=false} @self ~onTimer:20
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - model{mid=fungun;n=false} @self ~onSpawn 
+  - model{mid=fungun;n=false} @self ~onTimer:100
+  - skill{s=FungunAttack} @Forward{f=-2} ~onTimer:200 
+  - sound{s=entity.glow_squid.hurt;v=2;p=1.5} @self ~onDamaged
+
+WhirlpoolMob:
+  Type: husk
+  Display: ''
+  Health: 100
+  Faction: SRT
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    baby: true
+    ApplyInvisibility: true
+    VisibleByDefault: false
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: true
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - potion{d=1000;lvl=254;type=WEAKNESS;particles=false} @self ~onSpawn
+  - skill{s=SRT_WhirlpoolWave} @self ~onSpawn
+  - suicide{delay=240} @self ~onSpawn
+BattallionBannerMob:
+  Type: Giant
+  Faction: SRT
+  Display: ''
+  Health: 100
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    baby: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=battalionbanner;n=false;step=false} @self ~onSpawn 
+  - cancelEvent ~onDamaged
+  - stun{d=240} @self ~onSpawn
+  - potion{d=1000;lvl=254;type=WEAKNESS;particles=false} @self ~onSpawn
+  - skill{s=SRT_BattallionBannerT} @self ~onTimer:1
+  - remove{delay=240} @self ~onSpawn
+  - remove @self ~onSignal:downdraftend
+  - skill{s=[
+    - summon{mob=BattallionBannerMob} @origin
+    - remove @self
+    ];} @self ~onSignal:updraft  
+  
+BillowingSmokeMob:
+  Type: husk
+  Faction: SRT
+  Display: ''
+  Health: 100
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    baby: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    VisibleByDefault: false
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - cancelEvent ~onDamaged
+  - stun{d=240} @self ~onSpawn
+  - potion{d=1000;lvl=254;type=WEAKNESS;particles=false} @self ~onSpawn
+  - skill{s=SRT_BillowSmokeT} @self ~onTimer:1
+  - remove{delay=240} @self ~onSpawn
+  - remove @self ~onSignal:downdraftend
+  - skill{s=[
+    - summon{mob=BillowingSmokeMob} @origin
+    - remove @self
+    ];} @self ~onSignal:updraft
+PlaguePoisonMob:
+  Type: husk
+  Display: ''
+  Health: 100
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    baby: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    VisibleByDefault: false
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - cancelEvent ~onDamaged  
+  - stun{d=240} @self ~onSpawn
+  - potion{d=1000;lvl=254;type=WEAKNESS;particles=false} @self ~onSpawn
+  - skill{s=SRT_PlaguePoisonT} @self ~onTimer:1
+  - remove{delay=240} @self ~onSpawn
+  - remove @self ~onSignal:downdraftend
+  - skill{s=[
+    - summon{mob=PlaguePoisonMob} @origin
+    - remove @self
+    ];} @self ~onSignal:updraft
+  
+  
+ElectricSmokeMob:
+  Type: husk
+  Display: ''
+  Health: 100
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    baby: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    VisibleByDefault: false
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - cancelEvent ~onDamaged  
+  - stun{d=240} @self ~onSpawn
+  - potion{d=1000;lvl=254;type=WEAKNESS;particles=false} @self ~onSpawn
+  - skill{s=SRT_ElectricSmokeT} @self ~onTimer:20
+  - remove{delay=240} @self ~onSpawn
+  - remove @self ~onSignal:downdraftend
+  - skill{s=[
+    - summon{mob=ElectricSmokeMob} @origin
+    - remove @self
+    ];} @self ~onSignal:updraft
+CannonBarrageMob:
+  Type: husk
+  Display: '&9&lWoke Beard'
+  Faction: SRT
+  Health: 100
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    baby: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - cancelEvent ~onDamaged  
+  - stun{d=240} @self ~onSpawn
+  - potion{d=1000;lvl=254;type=WEAKNESS;particles=false} @self ~onSpawn
+  - skill{s=CannonBarrageT} @self ~onSpawn
+SRT_PitcherPlant:
+  Health: <random.10to15>
+  Faction: SRT
+  Type: Zombie
+  Display: '&2&lPitcher Plant'
+  Disguise: Falling_Block PITCHER_PLANT
+  Damage: 0
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  Drops:
+  - beetroot_seeds 1-2 0.2
+  - seeds 1-2 0.2
+  - carrot 1-2 0.2
+  - pumpkin_seeds 1-2 0.2
+  - melon_seeds 1-2 0.2 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=block.grass.break;v=2;p=2} @self ~onDamaged
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - projectile{bulletType=item;bulletMaterial=seeds;syo=1.5;g=0.5;hr=0.9;vr=0.9;d=150;onHit=[
+    - damage{ii=true;a=4;pkb=true;element=EARTH}
+    - potion{type=poison;lvl=0;particles=false;d=40} 
+    ];hnp=true;hp=true;v=16;ti=1;sb=true;se=true;vo=0.3} @target ~onTimer:20 0.3
+
+
+SRT_PredatorSpider:
+  Type: Spider
+  Health: <random.100to120>
+  Display: '&2&lGiant Spider'
+  Faction: SRT
+  Damage: 7
+  Drops:
+  - string 1-2 0.5
+  - spider_eye 1-2 1
+  - mmoitems{type=MATERIAL;id=MOTHER_SPIDER_SAC} 1 1 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 10-12 1
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.40
+    PreventOtherDrops: true
+    KnockbackResistance: 1
+    PreventSunburn: true
+    FollowRange: 256
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=EARTH} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - model{mid=motherspider;n=false;step=false} @self ~onSpawn 
+  - model{mid=motherspider;n=false;step=false} @self ~onTimer:100 
+  - skill{s=MotherSpiderJump} @self ~onTimer:20 1
+  - skill{s=PredatorSpiderWebThrow} @self ~onTimer:100 0.4
+  - potion{type=BLINDNESS;duration=20;lvl=1;p=false} @target ~onAttack
+  - potion{type=slow;duration=40;lvl=1;p=false} @target ~onAttack
+  - potion{type=JUMP;duration=100000;lvl=5;p=false} @self ~onSpawn
+  - teleport{sh=5} @self ~onAttack
+
+
+SRT_RockGolemMinion:
+  Type: Zombie
+  Display: '&7&lRock Entity'
+  Disguise: Falling_Block cobblestone
+  Faction: SRT
+  Health: <random.20to28>
+  Damage: 5
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0.3
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - suicide{delay=<random.400to800>} @self ~onSpawn
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - skill{s=RockGolemH} @self ~onDamaged
+  - particles{p=explosion_large;a=20;vs=1.5;hs=1.5} @self ~onDeath
+  - damage{a=5} @PIR{r=7} ~onDeath
+  - sound{s=entity.generic.explode;v=4} @self ~ondeath
+
+
+SRT_Skeleton:
+  Type: Skeleton
+  Display: '&lSkeleton'
+  Health: <random.10to15>
+  Faction: SRT
+  Drops:
+  - bone 1-2 0.5 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Damage: 3
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Modules:
+    ThreatTable: true
+  Options:
+    PreventSunburn: true
+    PreventOtherDrops: true
+    MovementSpeed: 0.3
+  Equipment:
+  - bow hand
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+
+
+SRT_Creeper:
+  Type: Creeper
+  Display: '&lCreeper'
+  Health: <random.15to20>
+  Faction: SRT
+  Drops:
+  - gunpowder 1-2 0.5 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Modules:
+    ThreatTable: true
+  Options:
+    PreventOtherDrops: true
+    PreventSunburn: true
+    MovementSpeed: 0.3
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+
+SRT_Zombie:
+  Type: ZOMBIE
+  Display: '&lZombie'
+  Health: <random.20to25>
+  Faction: SRT
+  Drops:
+  - rotten_flesh 1-2 0.5 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Damage: 4
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Modules:
+    ThreatTable: true
+  Options:
+    PreventOtherDrops: true
+    PreventSunburn: true
+    MovementSpeed: 0.3
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+
+SRT_HungryZombie:
+  Type: ZOMBIE
+  Display: '&3&lHungry Zombie'
+  Faction: SRT
+  Health: <random.20to25>
+  Drops:
+  - rotten_flesh 1-2 0.5 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Damage: 4
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Modules:
+    ThreatTable: true
+  Options:
+    PreventSunburn: false
+    MovementSpeed: 0.35
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - skill{s=LeapAttack} @self ~onTimer:1 0.007
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+SRT_WilderWolfAlpha:
+  Type: Vindicator
+  Display: '&e&2Wilder Wolf Alpha'
+  Disguise: wolf
+  Health: <random.60to70>
+  Faction: SRT
+  Damage: 5
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    Despawn: true
+    MovementSpeed: 0.35
+    PreventOtherDrops: true
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  DamageModifiers:
+  - FALL 0
+  Drops:
+  - mmoitems{type=MATERIAL;id=JAGGED_LEAF} 2-3  
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=EARTH} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - particles{p=slash;a=1;fo=1} @self ~onAttack
+  - lunge{velocity=1;velocityy=0.6} @self ~onTimer:20 0.2
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - aura{auraname=SRT_Bleed;d=100;i=20;onTick=[
+    - damage{a=1;ii=true;pkb=true;ia=true} 
+    - particles{p=block_crack;material=redstone_block;a=3;hs=0.1;vs=0.1} 
+    ];} @target ~onAttack
+  - summon{mob=SRT_WilderWolfBeta;a=<random.5to8>} @self ~onSpawn
+
+SRT_WilderWolfBeta:
+  Type: Vindicator
+  Display: '&e&2Wilder Wolf Beta'
+  Disguise: wolf
+  Health: <random.10to15>
+  Faction: SRT
+  Damage: 3
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    Despawn: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  - gotoowner 
+  Drops:
+  - mmoitems{type=MATERIAL;id=JAGGED_LEAF} 1 1
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=EARTH} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - particles{p=slash;a=1} @triggerlocation ~onAttack
+  - lunge{velocity=1;velocityy=0.6} @self ~onTimer:20 0.2
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - aura{auraname=SRT_Bleed;d=100;i=20;onTick=[
+    - damage{a=1;ii=true;pkb=true;ia=true} 
+    - particles{p=block_crack;material=redstone_block;a=3;hs=0.1;vs=0.1} 
+    ];} @target ~onAttack
+
+SRT_HealingBug:
+  Type: Allay
+  Display: '&e&lFloral Spirit'
+  Health: 3
+  Faction: SRT
+  Damage: 5
+  Options:
+    Interactable: false
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    PreventSunburn: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    Despawn: true
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - glowstone_dust 1-2 0.5
+  - mmoitems{type=MATERIAL;id=LIFEBEARER_SHELL} 1-1 1
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - clear
+  - players
+  - golems 
+  - OtherFaction
+  Skills:
+  - remove{delay=1200} @self ~onSpawn
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - model{mid=dustfairy;n=false} @self ~onSpawn 
+  - model{mid=dustfairy;n=false} @self ~onTimer:100
+  - sound{s=entity.allay.hurt} @self ~onDamaged
+  - sound{s=entity.allay.death} @self ~onDeath
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - effect:particleline{tyo=1;p=dust_color_transition;color1=#FFFFFF;color2=#f9f375;hs=0.1;vs=0.1;a=1;fromOrigin=true;syo=0.5} @EIR{r=32;ignore=players;sort=NEAREST;limit=1} ~onTimer:40
+  - heal{a=3} @EIR{r=32;ignore=players,self;sort=NEAREST;limit=1} ~onTimer:40
+
+
+SRT_FlaxCollector:
+  Health: 10
+  Type: Zombie
+  Display: 'Flax Collector'
+  Faction: SRT
+  Damage: 0
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: true
+    FollowRange: 48
+    PreventOtherDrops: true
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - remove{delay=1200} @self ~onSpawn
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=entity.vindicator.hurt;v=2} @self ~onDamaged
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - projectile{bulletType=item;bulletMaterial=gold_nugget;syo=1.5;g=0.5;hr=0.9;vr=0.9;d=150;onHit=[
+    - damage{ii=true;a=2;pkb=true}
+    ];hnp=true;hp=true;v=16;ti=1;sb=true;se=true;vo=0.3} @target ~onTimer:20 0.3
+
+SRT_RockGolem:
+  Health: 1200
+  Type: Zombie
+  Display: '&7&lRock Golem'
+  Damage: 0
+  Faction: SRT
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  BossBar:
+    Enabled: true
+    Title: '&7&lANIMATED MONSTROSITY <caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: GRAY
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0.01
+  Modules:
+    ThreatTable: true
+  Drops:
+  - mmoitems{type=MATERIAL;id=CORRUPTED_STONE_HEART} 1 1
+  - mmoitems{type=MISCELLANEOUS;id=SILVER_COIN} 1 1
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onInteract
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - skill{s=JayceQ} @self ~onTimer:20 0.2
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onTimer:1000
+  - potion{type=WEAKNESS;d=10000;lvl=254;particles=false} @self ~onSpawn
+  - model{mid=rockgolem;n=true;step=3} @self ~onSpawn  
+  - summon{mob=SRT_RockGolemMinion;a=<random.3to4>;r=10} @self ~onTimer:300 0.5
+  - skill{s=RockGolemH} @self ~onDamaged
+  - skill{s=RockGolemA3} @self ~onTimer:60 0.3
+  - skill{s=RockGolemRandomShot} @self ~onTimer:20 0.3
+  - skill{s=SRT_RockGolemA1} @self ~onTimer:20 0.7
+
+SRT_BiggieCheese:
+  Health: <random.150to200>
+  Type: ZOMBIE
+  Display: '&lBiggie Cheese'
+  Damage: 4
+  Faction: SRT
+  Modules:
+    ThreatTable: true
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0.4
+    KnockbackResistance: 1
+    Despawn: true
+    PreventOtherDrops: true
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  Drops:
+  - mmoitems{type=MATERIAL;id=POISON_SHARD_I} 1 0.2 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 10-12 1
+  - mmoitems{type=consumable;id=STINKY_CHEESE} 1 0.4
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75  
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=AIR} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - model{mid=biggiecheese;n=false;step=2} @self ~onSpawn  
+  - model{mid=biggiecheese;n=false;step=2} @self ~onTimer:100
+  - sound{s=entity.bat.hurt;v=3} @self ~onDamaged
+  - skill{s=SRT_CheeseRoll} @self ~onTimer:200
+SRT_TreantZombie:
+  Type: Zombie
+  Display: '&2&lTreant Zombie'
+  Health: <random.30to40>
+  Faction: SRT
+  Damage: 5
+  KillMessages:
+  - '<target.name><&sq>s soul was feasted upon by <caster.name>'
+  Equipment:
+  - oak_leaves HEAD
+  - leather_chestplate CHEST
+  - leather_leggings LEGS
+  - leather_boots FEET
+  - cocoa_beans HAND
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0.15
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    Silent: true
+    Despawn: true
+    PreventOtherDrops: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: true
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - mmoitems{type=MATERIAL;id=THORNBARK} 1 0.80
+  - mmoitems{type=consumable;id=DEER_CRACKERS} 1 0.01 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - charcoal 1-3 1
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - clear
+  - players
+  - golems 
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=EARTH} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - skill{s=SRT_TreantZombieMainAttack} @self ~onTimer:5 0.1
+  - skill{s=SRT_TreantLeap} @self ~onTimer:5 0.1
+  - sound{s=rotmg.trees_hit;v=3} @self ~onDamaged
+  - sound{s=rotmg.trees_hit;v=3} @self ~onDamaged
+  - sound{s=rotmg.trees_hit;v=3} @self ~onDamaged
+  - sound{s=entity.zombie.death;v=3;p=0.8} @self ~onDeath
+  - effect:particles{p=block_crack;m=oak_log;amount=1;speed=0.1;hS=0.5;vS=0.5} @self
+
+SRT_GoblinGangLeader:
+  Type: Vindicator
+  Faction: SRT
+  Health: <random.10to12>
+  Display: '&2&lGoblin'
+  Damage: 4
+  Options:
+    MaxCombatDistance: 48
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    Despawn: true
+    PreventOtherDrops: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  Drops:
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - mmoitems{type=CONSUMABLE;id=FISH_ON_A_STICK} 1 0.2
+  - mmoitems{type=CONSUMABLE;id=SPIKY_BALL} 2-4 0.2
+  Modules:
+    ThreatTable: true
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  AITargetSelectors:
+  - clear
+  - players
+  - golems 
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=EARTH} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=entity.vindicator.hurt;p=1.5;v=2} ~onDamaged
+  - sound{s=entity.vindicator.death;p=1.5;v=2} ~onDeath
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - skill{s=GoblinSpawn} @self ~onSpawn
+  - state{mid=goblin;s=attack1} @self ~onAttack
+  - model{mid=goblin;n=false} @self ~onSpawn 
+  - model{mid=goblin;n=false} @self ~onTimer:100
+
+SRT_ForestSpider:
+  Type: CAVE_SPIDER
+  Health: <random.18to24>
+  Display: '&2&lForest Spider'
+  Faction: SRT
+  Damage: 5
+  Options:
+    Despawn: true
+    PreventOtherDrops: true
+  DropOptions:
+    MaxCombatDistance: 48
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - string 1-2 0.5
+  - spider_eye 1-2 1
+  - mmoitems{type=MATERIAL;id=STICKY_WEB} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - randomstroll
+  - leapattack
+  AITargetSelectors:
+  - clear
+  - players
+  - golems 
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=EARTH} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - potion{type=BLINDNESS;duration=10;lvl=1;p=false} @target ~onAttack
+  - potion{type=wither;duration=20;lvl=1;p=false} @target ~onAttack 0.3
+  - potion{type=JUMP;duration=100000;lvl=3;p=false} @self ~onSpawn
+SRT_PixieSlimeSplit:
+  Type: Zombie
+  Display: '&e&lPixie Slime'
+  Disguise: Falling_Block Ochre_Froglight
+  Health: <random.4to5>
+  Faction: SRT
+  Damage: 4
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    Despawn: true
+    PreventOtherDrops: true
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Drops:
+  - slime_ball 1-2 0.5
+  - mmoitems{type=MATERIAL;id=FEYBLEST_DUST} 1 0.80 
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - clear
+  - players
+  - golems 
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=EARTH} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - model{mid=smallpixieslime;n=false} @self ~onSpawn 
+  - model{mid=smallpixieslime;n=false} @self ~onTimer:100
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=entity.slime.hurt;v=2} @self ~onDamaged
+  - sound{s=entity.blaze.death;v=3;p=2} @self ~onDeath
+  - particlesphere{r=4;p=reddust;color=#f7efc9;a=64;hs=0.1;vs=0.1} @self ~onDeath
+  - effect:particles{p=block_crack;m=Ochre_Froglight;amount=1;speed=0.1;hS=0.5;vS=0.5} @self
+  - lunge{velocity=0.7;velocityy=0.6;cooldown=1.3} @target ~onTimer:1 ?altitude{a=0-2}
+SRT_PixieSlime:
+  Type: Zombie
+  Display: '&e&lPixie Slime'
+  Health: <random.20to30>
+  Faction: SRT
+  Damage: 4
+  Options:
+    MaxCombatDistance: 48
+    MovementSpeed: 0
+    Despawn: true
+    PreventOtherDrops: true
+    PreventSunburn: true
+    PreventRandomEquipment: true
+    Silent: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  DropOptions:
+    Lootsplosion: false
+    ShowDeathChatMessage: false
+    ShowDeathHologram: false
+    PerPlayerDrops: false
+    ClientSideDrops: false
+    HologramItemNames: false
+    ItemGlowByDefault: false
+    ItemBeamByDefault: false
+    ItemVFXByDefault: false
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - clear
+  - players
+  - golems 
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - cancelevent ~onAttack
+  - damage{a=<caster.damage>;element=EARTH} @target ~onAttack
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - model{mid=pixieslime;n=false} @self ~onSpawn 
+  - model{mid=pixieslime;n=false} @self ~onTimer:100
+  - summon{mob=SRT_PixieSlimeSplit;a=<random.2to3>;hspread=2} @self ~onDeath
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=entity.slime.hurt;v=2} @self ~onDamaged
+  - sound{s=entity.blaze.death;v=3;p=2} @self ~onDeath
+  - heal{a=7} @EIR{r=10;ignore=players} ~onDeath
+  - particlesphere{r=4;p=reddust;color=#f7efc9;a=64;hs=0.1;vs=0.1} @self ~onDeath
+  - effect:particles{p=block_crack;m=Ochre_Froglight;amount=1;speed=0.1;hS=0.5;vS=0.5} @self
+  - lunge{velocity=0.9;velocityy=0.7;cooldown=1.3} @target ~onTimer:1 ?altitude{a=0-2}
+
+NPCVillagerMV2:
+  Type: Villager
+  Display: ''
+  Health: 50
+  Disguise: player Steve setSkin npc4.png setCustomName "&l"
+  Equipment:
+  Options:
+    LockPitch: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    Silent: true
+    PreventRenaming: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - randomstroll
+  Skills:
+  - sound{s=entity.player.hurt;v=2} @self ~onDamaged
+
+NPCVillagerMV1:
+  Type: Villager
+  Display: ''
+  Health: 50
+  Disguise: player Steve setSkin npc3.png setCustomName "&l"
+  Equipment:
+  Options:
+    LockPitch: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    Silent: true
+    PreventRenaming: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - randomstroll
+  Skills:
+  - sound{s=entity.player.hurt;v=2} @self ~onDamaged
+  
+NPCVillagerMV:
+  Type: Villager
+  Display: ''
+  Health: 50
+  Disguise: player Steve setSkin npc1.png setCustomName "&l"
+  Equipment:
+  Options:
+    LockPitch: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    Silent: true
+    PreventRenaming: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - randomstroll
+  Skills:
+  - sound{s=entity.player.hurt;v=2} @self ~onDamaged
+  
+
+
+SCPTP:
+  Type: PILLAGER
+  Health: 1000
+  Display: 'TELEPORTER'
+  Modules:
+    ThreatTable: true
+  Damage: 0
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Invisible: true
+    Despawn: persistent
+    Silent: true
+    Despawn: false
+    MovementSpeed: 0
+    VisibleByDefault: false
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - teleportto{location=-1498.5,-9,-1528.5} @self ~onTimer:1
+  - sudoskill{s=SCPTPSkill} @pir{r=1.5;limit=1;sort=NEAREST} ~onTimer:1
+
+
+LightShutter2:
+  Type: Vindicator
+  Health: 1000
+  Damage: 0
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    Invisible: true
+    Despawn: persistent
+    MovementSpeed: 0
+    VisibleByDefault: false
+    FollowRange: 48
+  Skills:
+  - skill{s=ShutLights3} ~onSpawn
+  - remove{delay=10} @self ~onSpawn
+
+LightShutter:
+  Type: Vindicator
+  Health: 1000
+  Damage: 0
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    Invisible: true
+    Despawn: persistent
+    MovementSpeed: 0
+    VisibleByDefault: false
+    FollowRange: 48
+  Skills:
+  - skill{s=ShutLights2} ~onSpawn
+  - remove{delay=10} @self ~onSpawn
+SCPSupply:
+  Type: Vindicator
+  Health: 1000
+  Display: 'Supplier'
+  Modules:
+    ThreatTable: true
+  Damage: 0
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    Despawn: false
+    MovementSpeed: 0
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - teleportto{location=-1412,20,-1474} @self ~onTimer:1
+  - skill{s=SupplierSkill} ~onInteract
+
+
+
+
+SCPMobThingy:
+  Type: Villager
+  Health: 30000
+  Display: 'Portal'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: false
+    Despawn: false
+    Silent: true
+    MovementSpeed: 0.01
+    FollowRange: 48
+  Skills:
+  - summon{mob=SCPSupply} @self ~onSpawn
+  - summon{mob=SCPTP} @self ~onSpawn
+  - sudoskill{s=ShutLights} @self ~onTimer:1
+  - sudoskill{s=SCPGiveArmor} @PIR{r=1000} ~onSpawn
+  - skill{s=SCPTimeOut} @self ~onSpawn
+  - command{c="title @a title <&dq>The game has started!<&dq>";ac=true;op=true} @self ~onSpawn
+  - teleportto{location=-1460,39,-1362} @self ~onSpawn 
+  - command{delay=1;c="tellraw @a <&dq><&lb><&nm><&rb> There are <global.var.scpplayercount> workers left...<&dq>";ac=true;op=true} @self ~onSignal:PlayersLeft
+  - skill{s=SCPAllDeaths;delay=10} @self ~onTimer:1
+  - speak{m=<global.var.scpplayercount>} @self ~onInteract
+  - skill{s=SCPSpawn} @self ~onSpawn
+  - skill{s=SummonSCPKey} @self ~onTimer:1800
+  - sudoskill{s=SCPBlindSwitch} @PIR{r=1000} ~onTimer:1
+  - sound{s=ambient.cave;v=128;cooldown=1} @pIR{r=1000} ~onTimer:20 0.02
+  - sudoskill{s=UndisguiseEveryoneSCP} @server ~onDeath
+  
+FlamingSkull:
+  Type: zombie
+  display: 'Flaming Skull'
+  Health: 120
+  Options:
+    MovementSpeed: 0.3
+    PreventSunburn: true
+    Silent: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=demonface;n=false} @self ~onSpawn 
+  - skill{s=FlamethrowerShootSkull} @self ~onTimer:60
+  - potion{type=WEAK;lvl=244;particles=false} @self ~onTimer:1
+  - skill{s=SkullReveal;cooldown=5] @self ~onAttack
+
+Necromancer:
+  Type: skeleton
+  Health: 10
+  Options:
+    MovementSpeed: 0.1
+    PreventSunburn: true
+    Silent: true
+    FollowRange: 256
+    KnockbackResistance: 1
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=NecromancerShoot;delay=100} @self ~onTimer:1 0.02
+
+SCPClone:
+  Type: Vindicator
+  Display: ''
+  Health: 1
+  Equipment:
+  - mmoitems{type=ARMOR;id=HAZMAT_HELMET} HEAD
+  - mmoitems{type=ARMOR;id=HAZMAT_CHEST} CHEST
+  - mmoitems{type=ARMOR;id=HAZMAT_LEGS} LEGS
+  - mmoitems{type=ARMOR;id=HAZMATBOOTS} FEET
+  - mmoitems{type=CONSUMABLE;id=ADRENALINESTICK} HAND
+  Options:
+    LockPitch: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    Silent: true
+    PreventRenaming: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - clear
+  Skills:
+  - sound{s=entity.player.hurt;v=2} @self ~onDamaged
+  - skill{s=SCPCloneExplode} @self ~onDeath
+  - suicide{delay=600} @self ~onSpawn
+  - setname{name=<global.var.trickstername>} @self ~onSpawn
+  - disguise{d="player <global.var.trickstername> setCustomName &l "} @self ~onSpawn
+
+
+TricksterClone:
+  Type: Vindicator
+  Display: ''
+  Health: 50
+  Equipment:
+  - mmoitems{type=ARMOR;id=ROGUE_HELM} HEAD
+  - mmoitems{type=ARMOR;id=ROGUE_CHEST} CHEST
+  - mmoitems{type=ARMOR;id=ROGUE_PANT} LEGS
+  - mmoitems{type=ARMOR;id=ROGUE_BOOTS} FEET
+  - mmoitems{type=DAGGER;id=ASSASSINDAGGER} HAND
+  Options:
+    LockPitch: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    Silent: true
+    PreventRenaming: true
+    FollowRange: 256
+    KnockbackResistance: 1
+  AIGoalSelectors:
+  - clear
+  Skills:
+  - sound{s=entity.player.hurt;v=2} @self ~onDamaged
+  - skill{s=JesterExplode} @self ~onDeath
+  - suicide{delay=600} @self ~onSpawn
+  - sudoskill{s=TricksterReset} @owner ~onDeath
+  - setname{name=<global.var.trickstername>} @self ~onSpawn
+  - disguise{d="player <global.var.trickstername> setCustomName &l "} @self ~onSpawn
+  - skill{s=TricksterMove} ~onSignal:TricksterMove
+  - skill{s=TricksterUUIDBind} @self ~onSpawn
+  
+AngryBull:
+  Type: VINDICATOR
+  Health: 40
+  Display: '&lAngryCow'
+  Damage: 4
+  Disguise: Cow
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.35
+    KnockbackResistance: 1
+    PreventSunburn: true
+    FollowRange: 48
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=AngryBullCharge;cooldown=<random.float.0.5to1.0>} @self ~onTimer:1 0.80
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - propel{v=0.8} @target ~onAttack
+
+NewGrapplingHookMob:
+  Type: silverfish
+  Health: 10000
+  Options:
+    MovementSpeed: 0
+    NoGravity: true
+    Collidable: false
+    VisibleByDefault: false
+    silent: true
+    ApplyInvisibility: true
+    KnockbackResistance: 0
+  Skills:
+  - stun{d=1000000} @self ~onSpawn
+  - skill{s=GrappleSequence} @self ~onTimer:1
+  - suicide @self ~onSignal:kys
+  - suicide{delay=50} @self ~onSpawn
+  - skill{s=GrapplePull} @self ~onTimer:1
+Rogue:
+  Type: ZOMBIE
+  Health: 80
+  Display: '&lRogue'
+  Damage: 4
+  Equipment:
+  - mmoitems{type=ARMOR;id=ROGUE_HELM} HEAD
+  - mmoitems{type=ARMOR;id=ROGUE_CHEST} CHEST
+  - mmoitems{type=ARMOR;id=ROGUE_PANT} LEGS
+  - mmoitems{type=ARMOR;id=ROGUE_BOOTS} FEET
+  - mmoitems{type=DAGGER;id=ASSASSINDAGGER} HAND
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.40
+    KnockbackResistance: 1
+    PreventSunburn: true
+    FollowRange: 48
+    Silent: true
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0.01
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - sound{s=entity.zombie.converted_to_drowned;p=1.8;v=4} @self ~onDamaged
+  - skill{s=RogueMobSkills} @self ~onSpawn
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - potion{type=slow;duration=40;lvl=3;p=false} @target ~onAttack
+  - skill{s=AssassinSlash} @self ~onAttack
+  - propel{v=0.8} @target ~onAttack
+
+CaptureTotem_spades:
+  Type: Husk
+  Display: Capture
+  Health: 1000
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - particles{y=0;p=dust_color_transition;color1=#c9c9c9;color2=#ffffff;hs=0.1;vs=1.5;a=30;size=1} @self ~onTimer:1
+  - signal{s=CaptureTotem_spades} @EIR{r=100} ~onSpawn 
+  - skill{s=InheritTeam} @self ~onSpawn
+  - skill{s=Capture1_spades;delay=2} @self ~onSignal:CaptureTotem_spades
+  - suicide{delay=80} ~onSpawn
+
+CaptureTotem_clubs:
+  Type: Husk
+  Display: Capture
+  Health: 1000
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - particles{y=0;p=dust_color_transition;color1=#c9c9c9;color2=#ffffff;hs=0.1;vs=1.5;a=30;size=1} @self ~onTimer:1
+  - signal{s=CaptureTotem_clubs} @EIR{r=100} ~onSpawn 
+  - skill{s=InheritTeam} @self ~onSpawn
+  - skill{s=Capture1_clubs;delay=5} @self ~onSignal:CaptureTotem_clubs
+  - suicide{delay=100} ~onSpawn
+CaptureTotem_diamonds:
+  Type: Husk
+  Display: Capture
+  Health: 1000
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - particles{y=0;p=dust_color_transition;color1=#c9c9c9;color2=#ffffff;hs=0.1;vs=1.5;a=30;size=1} @self ~onTimer:1
+  - signal{s=CaptureTotem_diamonds} @EIR{r=100} ~onSpawn 
+  - skill{s=InheritTeam} @self ~onSpawn
+  - skill{s=Capture1_diamonds;delay=5} @self ~onSignal:CaptureTotem_diamonds
+  - suicide{delay=100} ~onSpawn
+CaptureTotem_hearts:
+  Type: Husk
+  Display: Capture
+  Health: 1000
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - particles{y=0;p=dust_color_transition;color1=#c9c9c9;color2=#ffffff;hs=0.1;vs=1.5;a=30;size=1} @self ~onTimer:1
+  - signal{s=CaptureTotem_hearts} @EIR{r=100} ~onSpawn 
+  - skill{s=InheritTeam} @self ~onSpawn
+  - skill{s=Capture1_hearts;delay=5} @self ~onSignal:CaptureTotem_hearts
+  - suicide{delay=100} ~onSpawn
+
+SorcererTotem_spades:
+  Type: GIANT
+  Display: SorcererTotem_spades
+  Health: 75
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    PreventJockeyMounts: true
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=teslacoil;n=false} @self ~onSpawn 
+  - skill{s=SorcererDamageAround_spades} @self ~onSignal:SorcererDamageAround_spades
+  - skill{s=SorcDamageAura_spades} @self ~onSignal:SorcererDamageAround_spades
+  - suicide{delay=600} @self ~onSpawn
+  - skill{s=SorcererDetonate1_spades} @self ~onSignal:SorcDetonate_spades
+  - suicide{delay=5} @self ~onSignal:SorcDetonate_spades
+  - skill{s=SorcNet_spades} @self ~onSignal:SorcererNet_spades
+  - skill{s=InheritTeam} @self ~onSpawn
+SorcererTotem_clubs:
+  Type: GIANT
+  Display: SorcererTotem_clubs
+  Health: 75
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    PreventJockeyMounts: true
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=teslacoil;n=false} @self ~onSpawn 
+  - skill{s=SorcererDamageAround_clubs} @self ~onSignal:SorcererDamageAround_clubs
+  - skill{s=SorcDamageAura_clubs} @self ~onSignal:SorcererDamageAround_clubs
+  - suicide{delay=600} @self ~onSpawn
+  - skill{s=SorcererDetonate1_clubs} @self ~onSignal:SorcDetonate_clubs
+  - suicide{delay=5} @self ~onSignal:SorcDetonate_clubs
+  - skill{s=SorcNet_clubs} @self ~onSignal:SorcererNet_clubs
+  - skill{s=InheritTeam} @self ~onSpawn
+
+SorcererTotem_hearts:
+  Type: GIANT
+  Display: SorcererTotem_hearts
+  Health: 75
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    NoDamageTicks: 1
+    PreventJockeyMounts: true
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=teslacoil;n=false} @self ~onSpawn
+  - skill{s=SorcererDamageAround_hearts} @self ~onSignal:SorcererDamageAround_hearts
+  - skill{s=SorcDamageAura_hearts} @self ~onSignal:SorcererDamageAround_hearts
+  - suicide{delay=600} @self ~onSpawn
+  - skill{s=SorcererDetonate1_hearts} @self ~onSignal:SorcDetonate_hearts
+  - suicide{delay=5} @self ~onSignal:SorcDetonate_hearts
+  - skill{s=SorcNet_hearts} @self ~onSignal:SorcererNet_hearts
+  - skill{s=InheritTeam} @self ~onSpawn
+
+SorcererTotem_diamonds:
+  Type: GIANT
+  Display: SorcererTotem_diamonds
+  Health: 75
+  Damage: 0 
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    Silent: true
+    ApplyInvisibility: true
+    PreventJockeyMounts: true
+    NoDamageTicks: 1
+    PreventRandomEquipment: true
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=teslacoil;n=false} @self ~onSpawn
+  - skill{s=SorcererDamageAround_diamonds} @self ~onSignal:SorcererDamageAround_diamonds
+  - skill{s=SorcDamageAura_diamonds} @self ~onSignal:SorcererDamageAround_diamonds
+  - suicide{delay=600} @self ~onSpawn
+  - skill{s=SorcererDetonate1_diamonds} @self ~onSignal:SorcDetonate_diamonds
+  - suicide{delay=5} @self ~onSignal:SorcDetonate_diamonds
+  - skill{s=SorcNet_diamonds} @self ~onSignal:SorcererNet_diamonds
+  - skill{s=InheritTeam} @self ~onSpawn
+RandomWave:
+  Health: 2000
+  Type: vex
+  Damage: 0
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: false
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: false
+    PreventSunburn: true
+  Skills: 
+  - sudoskill{s=GlobalWaveSkills;cooldown=10} @NearestPlayer{r=256;y=10} ~onSpawn
+  - suicide{delay=10} @self ~onSpawn
+
+PrismaticBarrier:
+  Health: 20
+  Type: silverfish
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - skill{s=PrismaticBarrierM} @self ~onSpawn
+
+SkillTester2:
+  Type: pig
+  Health: 300
+  Display: ''
+  Modules:
+    ThreatTable: true
+  Damage: 1
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - MountModel{m=Flying;drive=true;force=true} @EIR{r=10} ~onDamaged
+  - model{mid=pixieslime;n=false;ride=true} @self ~onSpawn 
+
+
+
+PortalMob:
+  Type: Villager
+  Health: 30
+  Display: 'Portal'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=PortalMobS} @self ~onSpawn
+  - SudoSkill{s=HellDomainEnemy;setcasterastrigger=true} @EIR{r=2} ~onTimer:2
+
+
+PortalMob:
+  Type: Villager
+  Health: 30
+  Display: 'Portal'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=PortalMobS} @self ~onSpawn
+  - SudoSkill{s=HellDomainEnemy;setcasterastrigger=true} @EIR{r=2} ~onTimer:2
+
+HookedArrowM:
+  Health: 20
+  Type: villager
+  Display: '&bArrow Rain'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: true
+    VisibleByDefault: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    Invisible: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=HookedArrowS} @self ~onSpawn
+
+BigOneMob:
+  Type: silverfish
+  Health: 3000
+  Display: 'Satchel'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=BigOneSkill} @self ~onSpawn
+
+DisableMob:
+  Type: silverfish
+  Health: 3000
+  Display: 'Disable'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=DisableMobS} @self ~onSpawn
+
+SatchelMob:
+  Type: Wolf
+  Health: 30
+  Display: 'Satchel'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=SatchelMobSkill} @self ~onSpawn
+sandstormmob:
+  Type: Villager
+  Health: 30
+  Display: 'Sandstorm'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - damage{a=5;pkb=true} @EIR{r=5} ~onTimer:10
+  - velocity{m=set;y=0.7;x=0;z=0;} @EIR{r=4} ~onTimer:2
+  - command{c="tag @s add adventuring";ac=true;op=true} @self ~onSpawn
+SiegeCamel:
+  Type: Camel
+  Health: 100
+  Display: 'Siege Camel'
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    PreventMobKillDrops: true
+    PreventOtherDrops: true
+    Invisible: false
+    Silent: false
+    MovementSpeed: 0.2
+    Saddled: true
+    FollowRange: 48
+  Skills:
+  - skill{s=SiegeCamelSpawn} @self ~onSpawn
+  - potion{t=JUMP;duration=100000;lvl=3;particles=false} @self ~onTimer:1
+  - onDamaged{auraName=ODM;d=20;damageMods="FALL 0"} @self ~onTimer:1
+  - skill{s=SiegeCamelJump} @self ~onSignal:siegecameljumpnow
+  - skill{s=SiegeCamelLaunch} @self ~onSignal:SiegeCamelLaunch
+
+
+
+HealingTotemMobSkill:
+  Type: Villager
+  Health: 30
+  Display: 'Smoke'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=HealingTotemMobSkill} @self ~onTimer:1
+  - stun{d=2000} @self ~onSpawn
+
+FlareGunMob:
+  Type: HUSK
+  Health: 200
+  Display: 'Smoke'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=FlareGunReveal} @self ~onTimer:1
+SmokeBomb:
+  Type: Villager
+  Health: 200
+  Display: 'Smoke'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=Decontamination} @self ~onSpawn
+  
+Kronii:
+  Type: ZOMBIFIED_PIGLIN
+  Health: 200
+  Display: 'Kronii'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - model{mid=kronii;n=false} @self ~onSpawn 
+  - randomskill{s=KroniiPoint,KroniiRun} @self ~onInteract
+
+SkillTester:
+  Type: Vindicator
+  Health: 300
+  Display: ''
+  Modules:
+    ThreatTable: true
+  Damage: 1
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - skill{s=ThunderStorm} @self ~onInteract
+gof:
+  Type: Vindicator
+  Health: 200
+  Display: '&2Urgot'
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  Modules:
+    ThreatTable: true
+  Damage: 1
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.2
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - model{mid=gof;n=false} @self ~onSpawn 
+
+Urgot:
+  Type: Vindicator
+  Health: 300
+  Display: '&2Urgot'
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  Modules:
+    ThreatTable: true
+  BossBar:
+    Enabled: true
+    Title: '&2&lTHE DREADNOUGHT'
+    Range: 64
+    Color: GREEN
+    Style: SOLID
+    PlayMusic: true
+  Damage: 1
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - model{mid=chempunkboss;n=false} @self ~onSpawn 
+  - skill{s=UrgotShotgun} @self ~onTimer:1
+  - skill{s=UrgotMachineGun} @self ~onTimer:110
+  - skill{s=UrgotLeap} @self ~onTimer:1
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+
+Baggy:
+  Type: Vindicator
+  Health: 150
+  Display: '&2Baggy'
+  Modules:
+    ThreatTable: true
+  Damage: 7
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.45
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - model{mid=Baggy;n=false} @self ~onSpawn 
+  - skill{s=BaggyLeap} @self ~onTimer:1
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  
+BigSpider:
+  Type: Vindicator
+  Health: 150
+  Display: '&2Baggy'
+  Modules:
+    ThreatTable: true
+  Damage: 7
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.45
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - model{mid=spiderqueen;n=false} @self ~onSpawn 
+  - skill{s=BaggyLeap} @self ~onTimer:1
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+WaterBallMob:
+  Skills:
+  Health: 20
+  Type: Villager
+  Display: '&bArrow Rain'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - heal{a=2} @ENO{r=7;conditions=[  - hastag{t=adventuring} true ]} ~onTimer:10
+  - potion{type=speed;d=30;lvl=2;particles=false} @ENO{r=7;conditions=[  - hastag{t=adventuring} true ]} ~onTimer:10
+  - potion{type=SLOW;d=30;lvl=2;particles=false} @ENO{r=7;conditions=[  - hastag{t=adventuring} false ]} ~onTimer:10
+  - sound{s=entity.experience_orb.pickup;v=1;p=2} @self ~onTimer:10
+  - skill{s=WaterOrbital} @self ~onSpawn
+  - skill{s=WaterOrbital} @self ~onSpawn
+  - skill{s=WaterOrbital} @self ~onSpawn
+  - skill{s=WaterOrbital} @self ~onSpawn
+  - skill{s=WaterOrbital} @self ~onSpawn
+  - skill{s=WaterOrbital} @self ~onSpawn
+  - skill{s=WaterOrbital} @self ~onSpawn
+GrappleHookHook1:
+  Health: 20
+  Type: Villager
+  Display: '&bArrow Rain'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - model{mid=icebullet;n=false} @self ~onSpawn   
+  - skill{s=GrappleHook2} @self ~onSpawn
+  
+
+GrappleHookHook2:
+  Health: 20
+  Type: Villager
+  Display: '&bArrow Rain'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - model{mid=icebullet;n=false} @self ~onSpawn   
+  - skill{s=GrappleHook2No2} @self ~onSpawn
+GrappleHookHook3:
+  Health: 20
+  Type: Villager
+  Display: '&bArrow Rain'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - model{mid=icebullet;n=false} @self ~onSpawn   
+  - skill{s=GrappleHook2No3} @self ~onSpawn
+
+Grimoire:
+  Type: Vindicator
+  Health: 20
+  Display: '&2Corrupted Grimoire'
+  Damage: 10
+  Options:
+    Silent: true
+    FollowRange: 48
+    MovementSpeed: 0
+  Skills:
+  - model{mid=floatingbook;n=false} @self ~onSpawn 
+  - skill{s=SmallFireball} @self ~onTimer:60
+  - skill{s=TeleportToPlayer} @self ~onTimer:100
+
+Mushroom:
+  Type: Wolf
+  Health: 100000
+  Display: '&2Mushroom'
+  Damage: 10
+  Options:
+    PreventRandomEquipment: true
+    Tameable: true
+    ShowHealth: true
+    Silent: true
+    FollowRange: 48
+  Skills:
+  - randomskill{s=Mushroom1,Mushroom2,Mushroom3,Mushroom4,Mushroom5,Mushroom6,Mushroom7,Mushroom8} @self ~onSpawn
+  - particles{p=heart;a=6;vs=0.5;hs=0.3} @self ~onTame
+  - skill{s=MushroomTamed} @self ~onTimer:100
+  - heal{a=10000} @self ~onTimer:20
+
+Boss1:
+  Type: ZOMBIE
+  Display: '&ADead End'
+  Health: 300
+  Damage: 3
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  - ExcaliburBlade HAND
+  Options:
+    MovementSpeed: 0.3
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 OtherFaction
+  - 5 villagers
+  Skills:
+  - randomskill{S=BossFurySlashes,SwordCut} @self ~onTimer:100
+  - skill{S=Boss1Dash} @self ~onTimer:20 0.3
+  - look{headOnly=false;immediately=true} @Target ~onTimer:1
+  - skill{s=KnightUppercut} @self ~onAttack 0.2
+  - sound{s=entity.zombie.attack_iron_door;v=2;p=1.3} @self ~onDamaged
+  - skill{s=ShieldBash} @self ~onDamaged 0.2
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+DemonEyeSpawner:
+  Type: Vex
+  Health: 15
+  Display: '&2Demon Eye'
+  Modules:
+    ThreatTable: true
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - model{mid=demoneye;n=false} @self ~onSpawn 
+  - summon{type=DemonEye;amount=3;radius=2} @self ~onSpawn
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+
+DemonEye:
+  Type: Vex
+  Health: 15
+  Display: '&2Demon Eye'
+  Modules:
+    ThreatTable: true
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.35
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - model{mid=demoneye;n=false} @self ~onSpawn 
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+DemonEyeSCP:
+  Type: Phantom
+  Health: 15
+  Display: '&2Demon Eye'
+  Modules:
+    ThreatTable: true
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    Despawn: false
+    MovementSpeed: 0.35
+    FollowRange: 48
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - model{mid=demoneye;n=false} @self ~onSpawn 
+OceanMonster:
+  Type: Zombie
+  Health: 15
+  Display: '&2Ocean Monster'
+  Modules:
+    ThreatTable: true
+  Damage: 3
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  Skills:
+  - model{mid=oceanmonster;n=false} @self ~onSpawn 
+  - state{mid=oceanmonster;s=move} @self ~onInteract
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+Fungun:
+  Type: Zombie
+  Health: 15
+  Display: '&2Fungun'
+  Modules:
+    ThreatTable: true
+  Damage: 3
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  AIGoalSelectors:
+  - clear
+  - meleeattack
+  - randomstroll
+  AITargetSelectors:
+  - players
+  - golems
+  - attacker  
+  - villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - model{mid=fungun;n=false} @self ~onSpawn 
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - skill{s=FungunAttack} @Forward{f=-2} ~onTimer:200 
+  - sound{s=entity.glow_squid.hurt;v=2;p=1.5} @self ~onDamaged
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+
+Ogre:
+  Type: Zombie
+  Health: <random.50to80>
+  Display: '&2Ogre'
+  Damage: 6
+  Modules:
+    ThreatTable: true
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.32
+    PreventSunburn: true
+    FollowRange: 48
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - randomskill{s=OgreA2,OgreA3} @self ~onTimer:60 0.4
+  - model{mid=ogre;n=false} @self ~onSpawn 
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - setitemmodel{m=ogre;bone=ir_hand;i=example_item} @self ~onSpawn
+
+PushingMob:
+  Type: Silverfish
+  Display: 'lol'
+  Health: 20
+  Options:
+    Invisible: true
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+  Skills:
+  - throw{velocity=10000;velocityY=500} @EIR{r=1} ~onTimer:1
+  
+  
+
+PullingMob:
+  Type: Silverfish
+  Display: '&aZombified Knight'
+  Health: 20
+  Modules:
+    ThreatTable: true
+  Options:
+    Invisible: true
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+  Skills:
+  - pull{v=16;to=true} @EIR{r=2.5} ~onTimer:1
+  
+
+Brute:
+  Type: Zombie
+  Display: '&aZombified Brute'
+  Health: 20
+  DamageModifiers:
+  - PROJECTILE 0.5
+  Options:
+    MovementSpeed: 0.28
+    Damage: 4
+    KnockbackResistance: 0.5
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  - IRON_Axe HAND
+  Skills:
+  - skill{s=ChainMace} @self ~onTimer:60 0.4
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - sound{s=entity.zombie.attack_iron_door;v=2;p=2} @self ~onDamaged
+Goblin:
+  Type: Zombie
+  Health: <random.10to12>
+  Display: '&2Goblin'
+  Faction: SRT
+  Damage: 4
+  Modules:
+    ThreatTable: true
+  Options:
+    MaxCombatDistance: 48
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  Drops:
+  - mmoitems{type=MISCELLANEOUS;id=BRONZE_COIN} 1-2 1
+  - mmoitems{type=CONSUMABLE;id=SPIKY_BALL} 2-4 0.2
+  - mmoitems{type=CONSUMABLE;id=FISH_ON_A_STICK} 1 0.2
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - skill{s=SRT_Despawn;delay=1200} @self ~onTimer:300
+  - skill{s=FungunThreat} @self ~onTimer:5
+  - cancelEvent ~onDamaged ?damagecause{c=ENTITY_ATTACK} ?!damageTag{tag=SKILL}
+  - sound{s=entity.vindicator.hurt;p=1.5;v=2} ~onDamaged
+  - sound{s=entity.vindicator.death;p=1.5;v=2} ~onDeath
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - state{mid=goblin;s=attack1} @self ~onAttack
+  - model{mid=goblin;n=false} @self ~onSpawn 
+  - model{mid=goblin;n=false} @self ~onTimer:100
+
+GoblinGangLeader:
+  Type: Vindicator
+  Health: 15
+  Display: '&2Goblin'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  Modules:
+    ThreatTable: true
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - skill{s=GoblinSpawn} @self ~onSpawn
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - state{mid=goblin;s=attack1} @self ~onAttack
+  - model{mid=goblin;n=false} @self ~onSpawn 
+AGoblin:
+  Type: Zombie
+  Health: 25
+  Display: '&2ArmoredGoblin'
+  Damage: 5
+  Modules:
+    ThreatTable: true
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - state{mid=armoredgoblin;s=attack1} @self ~onAttack
+  - model{mid=armoredgoblin;n=false} @self ~onSpawn 
+AGoblinGangLeader:
+  Type: Vindicator
+  Health: 25
+  Display: '&2ArmoredGoblin'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  Modules:
+    ThreatTable: true
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - skill{s=AGoblinSpawn} @self ~onSpawn
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - state{mid=armoredgoblin;s=attack1} @self ~onAttack
+  - model{mid=armoredgoblin;n=false} @self ~onSpawn 
+ArrowRainMob:
+  Health: 20
+  Type: Villager
+  Display: '&bArrow Rain'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=ArrowRainM2} @self ~onSpawn
+  
+PredatorSpiderNet:
+  Health: 20
+  Type: Villager
+  Display: '&bArrow Rain'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - model{mid=icebullet;n=false} @self ~onSpawn   
+  - skill{s=NS-E2} @self ~onSpawn
+
+IcicleSpikesThing:
+  Health: 20
+  Type: Villager
+  Display: '&bIcicle Spikes'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=IcicleSpikes2} @self ~onSpawn
+
+BabySpider:
+  Type: Spider
+  Health: 12
+  Display: '&2Baby Spider'
+  Damage: 4
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - model{mid=babyspider;n=false} @self ~onSpawn 
+
+MotherSpider:
+  Type: Spider
+  Health: 35
+  Display: '&2Mother Spider'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.35
+    PreventSunburn: true
+    FollowRange: 48
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - summon{type=BabySpider;amount=<random.2to7>;radius=4} @self ~onDeath
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  
+PredatorSpider:
+  Type: Spider
+  Health: 150
+  Display: '&2Giant Spider'
+  Damage: 7
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.40
+    KnockbackResistance: 1
+    PreventSunburn: true
+    FollowRange: 48
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - summon{type=AssassinSpider;amount=2;radius=4} @self ~onDeath
+  - model{mid=motherspider;n=false} @self ~onSpawn 
+  - skill{s=MotherSpiderJump} @self ~onTimer:20 1
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - skill{s=PredatorSpiderWebThrow} @self ~onTimer:100 0.4
+  - potion{type=BLINDNESS;duration=20;lvl=1;p=false} @target ~onAttack
+  - potion{type=slow;duration=40;lvl=1;p=false} @target ~onAttack
+  - potion{type=JUMP;duration=100000;lvl=5;p=false} @self ~onSpawn
+  - teleport{sh=5} @self ~onAttack
+
+AssassinSpider:
+  Type: CAVE_SPIDER
+  Health: 25
+  Display: '&2Assassin Spider'
+  Damage: 4
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.4
+    PreventSunburn: true
+    FollowRange: 48
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+  - FALL 0
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 leapattack
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - potion{type=BLINDNESS;duration=10;lvl=1;p=false} @target ~onAttack
+  - potion{type=slow;duration=40;lvl=0;p=false} @target ~onAttack
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - potion{type=JUMP;duration=100000;lvl=5;p=false} @self ~onSpawn
+  - teleport{sh=5} @self ~onAttack
+SmiteThing:
+  Health: 20
+  Type: Villager
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventMobKillDrops: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - skill{s=RighteousSmite2} @self ~onSpawn
+FrostfireMage:
+  Type: Husk
+  Health: 25
+  Display: '&aFrostfire Mage'
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.01
+    PreventSunburn: true
+    Silent: true
+    FollowRange: 48
+  Modules:
+    ThreatTable: true
+  AIGoalSelectors:
+  - 0 randomstroll
+  - 1 fleeplayers
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Equipment:
+  - Leather_Helmet{Color=Purple} HEAD
+  - Leather_Chestplate{Color=Purple} CHEST
+  - Leather_Leggings{Color=Purple} LEGS
+  - Leather_BOOTS{Color=Purple} FEET
+  - STICK HAND
+  Skills:
+  - skill{s=FrostfireWispMM} @self ~onTimer:1 0.01
+  - potion{type=SLOW;duration=99999;lvl=2;p=false} @self ~onSpawn
+  - teleport{sh=15;conditions=[  - onGround true  ];cooldown=4} @self{conditions=[  - inlineofsight true ]} ~onDamaged 0.2
+  - potion{type=SLOW_FALLING;duration=100;lvl=2;p=false} @self ~onDamaged 
+  - sound{s=entity.enderman.teleport;sc=master} @self ~onDamaged
+  - model{mid=frostfiremage;n=false} @self ~onSpawn 
+
+OPFrog:
+  Health: 20
+  Type: Frog
+  Options:
+    MovementSpeed: 0.2
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+  Skills: 
+  - setTongueTarget @trigger ~onInteract
+
+ShapeShot:
+  Health: 20
+  Type: IRON_GOLEM
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - randomskill{s=SextagonP,SquareP,PentagonP,CircleP} @self ~onSpawn
+  
+HexShockM:
+  Health: 20
+  Type: IRON_GOLEM
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - randomskill{s=HexShotP} @self ~onSpawn
+
+FireCircleShot:
+  Health: 20
+  Type: IRON_GOLEM
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - skill{s=FireCircle} @self ~onSpawn
+
+PolygonShot:
+  Health: 20
+  Type: Villager
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - skill{s=PolygonExample} @self ~onSpawn
+Dennis:
+  Health: 20
+  Display: 'Dennis'
+  Type: Husk
+  Damage: 10
+  Options:
+    MovementSpeed: 0.2
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - skill{s=Dennis} @self ~onTimer:10
+Pochita:
+  Health: 20
+  Display: 'Pochita'
+  Type: Husk
+  Damage: 10
+  Options:
+    MovementSpeed: 0.2
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - skill{s=pochita} @self ~onTimer:10
+  
+
+Stopwatch:
+  Type: Pig
+  Display: '&l<caster.hp> seconds left'
+  Health: 200
+  Damage: 12
+  Options:
+    Invisible: true
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  BossBar:
+    Enabled: true
+    Title: '&l<caster.hp> seconds left'
+    Range: 64
+    Color: RED
+    Style: SOLID
+    PlayMusic: true
+  Skills:
+  - skill{s=Stopwatch1} @self ~onSpawn
+  - sound{s=custom.tacobell;sc=master;v=3;p=1} @origin ~onDeath
+
+SMFC:
+  Type: ZOMBIE
+  Display: Super Fan
+  Health: 15
+  Damage: 0
+  Armor: 0
+  Faction: Gay
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 OtherFaction
+  - 5 villagers
+  Options:
+    MovementSpeed: 0
+    Collidable: true
+    PreventJockeyMounts: true
+    PreventTransformation: true
+    Silent: true
+    PreventSunburn: true
+  Skills:
+    - shoot{t=ARROW;oh=PMFCD;md=10;pl=1} @Target ~onTimer:5
+    - damage{a=1;pi=true;pkb=true} @Self ~onTimer:20
+    - setNoDamageTicks{ticks=0;delay=0} @Target ~onTimer:1
+
+PMFC:
+  Type: ZOMBIE
+  Display: Plasma Fan
+  Health: 15
+  Damage: 0
+  Armor: 0
+  Options:
+    MovementSpeed: 0
+    Collidable: true
+    PreventJockeyMounts: true
+    PreventTransformation: true
+    PreventSunburn: true
+    Silent: true
+  Faction: Gay
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 OtherFaction
+  - 5 villagers
+  Skills:
+    - shoot{t=arrow;oh=PMFCD;md=10;pl=4} @Target ~onTimer:2
+    - damage{a=1;pi=true;pkb=true} @Self ~onTimer:20
+    - setNoDamageTicks{ticks=0;delay=0} @Target ~onTimer:1
+
+IceBullet:
+  Health: 20
+  Type: Villager
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 9
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - model{mid=icebullet;n=false} @self ~onSpawn 
+
+DirtPillar:
+  Health: 20
+  Type: Zombie
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventMobKillDrops: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - model{mid=dirtpillar;n=false} @self ~onSpawn 
+  - suicide @self ~onTimer:20
+
+IceSpikes:
+  Health: 20
+  Type: Zombie
+  Damage: 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventMobKillDrops: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - model{mid=icespike;n=false} @self ~onSpawn 
+  - suicide @self ~onTimer:20
+RockBullet:
+  Health: 20
+  Type: Zombie
+  Damage: 1
+  Options:
+    MovementSpeed: 0.50
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+  Skills: 
+  - model{mid=rockbullet;n=false} @self ~onSpawn 
+  - state{mid=rockbullet;s=animation.model.spin} @self ~onSpawn
+
+BouncyCluster:
+  Health: 1000
+  Type: Endermite
+  Display: '&lBouncy Cluster'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=SuperBouncyBall2} @self ~onSpawn
+Gatsby:
+  Health: 20
+  Type: Zombie
+  Damage: 1
+  Options:
+    MovementSpeed: 0.50
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - model{mid=GatsbyCar;n=false} @self ~onSpawn 
+  - throw{velocity=48;velocityY=12} @target ~onAttack
+MagicCircle:
+  Health: 20
+  Type: VEX
+  Options:
+    MovementSpeed: 0.01
+    NoGravity: true
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+    NoAI: true
+  Skills: 
+  - model{mid=magiccircleh;n=false} @self ~onSpawn
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn
+  - suicide @self ~onTimer:120
+SaunaSprite:
+  Health: 20
+  Type: Zombie
+  Damage: 1
+  Options:
+    MovementSpeed: 0.50
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - model{mid=saunasprite;n=false} @self ~onSpawn 
+  - throw{velocity=24;velocityY=6} @target ~onAttack
+GatsbyAFK:
+  Health: 20
+  Type: Zombie
+  Damage: 50
+  Options:
+    MovementSpeed: 0.00
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoAI: true
+    PreventSunburn: true
+  Skills: 
+  - model{mid=GatsbyCar;n=false} @self ~onSpawn 
+  - suicide @self ~onInteract
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn      
+AMissile:
+  Health: 2000
+  Type: Villager
+  Display: '&lHoming Missile'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - stun{d=10000} @self ~onSpawn
+  - particlesphere{p=smoke;r=1;a=10} @self ~onTimer:2
+  - particlesphere{p=flame;r=2;a=30} @self ~onTimer:2
+  - skill{s=TestForExplosion} @self ~onTimer:1
+TestMob123:
+  Type: Zombie
+  Display: '&lSugon, Master of Elements'
+  Health: 10
+  Disguise: player WYFSI setCustomNameVisible false
+  Equipment:
+  - Iron_Sword HAND
+  Options:
+    Collidable: true
+    KnockbackResistance: 1
+    MovementSpeed: 0.3
+    FollowRange: 48
+    Despawn: false
+    Silent: true
+    PreventSunburn: true
+  Skills:
+  - skill{s=Boss1DialogueSpawn} @self ~onSpawn
+  - skill{s=Boss1DialogueDeath} @self ~onDeath
+
+CatsheMom:
+  Type: Zombie
+  Display: '&lYour Mom'
+  Health: 1000
+  Disguise: player WYFSI setCustomNameVisible false
+  Damage: 1000
+  Equipment:
+  - Leather_Helmet{Color=Purple} HEAD
+  - Leather_Chestplate{Color=Purple} CHEST
+  - Leather_Leggings{Color=Purple} LEGS
+  - Leather_BOOTS{Color=Purple} FEET
+  - STICK HAND
+  Options:
+    Collidable: false
+    KnockbackResistance: 1
+    MovementSpeed: 0.50
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+Herobrine:
+  Type: Zombie
+  Display: '&lHerobrine'
+  Health: 1000
+  Disguise: player pooky0 setCustomNameVisible false
+  Damage: 1000
+  Options:
+    Collidable: false
+    KnockbackResistance: 1
+    MovementSpeed: 0.35
+    Despawn: false
+    AlwaysShowName: true
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  Skills:
+Luis:
+  Type: Zombie
+  Display: '&lWYFSI'
+  Health: 1000
+  Disguise: player WYFSI setCustomNameVisible false
+  Damage: 1000
+  Options:
+    Collidable: false
+    KnockbackResistance: 1
+    MovementSpeed: 0.35
+    Despawn: false
+    AlwaysShowName: true
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  Skills:
+  - suicide ~onAttack
+
+
+GeyserMob:
+  Health: 1000
+  Type: Villager
+  Display: '&lGeyser Mob'
+  Disguise: Falling_Block Redstone_Block
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=GeyserTestfor} @self ~onTimer:1
+  - skill{s=GeyserSuicide} @self ~onTimer:1
+  - effect:particlering{particle=flame;radius=5;points=32;amount=2;hS=0.5;vS=0.5} @self ~onTimer:1
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+VaporSmokeT:
+  Health: 20
+  Type: Villager
+  Display: '&bToxic Vapors'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - stun{d=10000} @self ~onSpawn
+  - skill{s=VaporSmokeT} @self ~onTimer:20
+
+AirVacuumMob:
+  Health: 20
+  Type: Villager
+  Display: '&bAir Vacuum'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Collidable: false
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - stun{d=10000} @self ~onSpawn
+  - particlesphere{p=cloud;r=5;a=100} @self ~onTimer:20
+  - skill{s=AirVacuumMobT} @self ~onTimer:5
+RootsMob:
+  Health: 20
+  Type: HUSK
+  Display: '&bRoots'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - stun{d=10000} @self ~onSpawn
+  - skill{s=RootsMobT} @self ~onTimer:20
+BoulderMob:
+  Health: 10
+  Type: Villager
+  Display: '&lBoulder'
+  Disguise: Falling_Block Stone
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+
+AirVortex:
+  Health: 100
+  Type: Zombie
+  Display: '&lTestMob'
+  Damage: 1
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 0
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - skill{s=AirVortex2} @self ~onSpawn
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+
+TestMob:
+  Health: 100
+  Type: Zombie
+  Display: '&lTestMob'
+  Damage: 1
+  Options:
+    MovementSpeed: 0.27
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  Skills: 
+  - skill{s=AirVortex} @self ~onTimer:200
+
+
+StaticMob:
+  Health: 20
+  Type: HUSK
+  Display: '&bStatic'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=Static} @self ~onTimer:7
+  - stun{d=10000} @self ~onSpawn
+  - skill{s=SuicideStatic} @self ~onSpawn
+
+IcePrisonMob:
+  Health: 20
+  Type: HUSK
+  Display: '&bIce Prison'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=IcePrison2} @self ~onSpawn
+  - stun{d=10000} @self ~onSpawn
+WaterWaveMob:
+  Health: 20
+  Type: HUSK
+  Display: '&bWater Wave'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=WWH2} @self ~onSpawn
+  - stun{d=10000} @self ~onSpawn
+ThunderstormMob:
+  Health: 1000
+  Type: Villager
+  Display: '&bThunderStorm'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=ThunderStormSpellM} @self ~onSpawn
+  - stun{d=10000} @self ~onSpawn
+MinigameAbility1Mob:
+  Health: 20
+  Type: Silverfish
+  Display: '&4Cloud Burst'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - model{mid=icebullet;n=false} @self ~onSpawn   
+  - skill{s=MA1H2} @self ~onSpawn
+  - stun{d=10000} @self ~onSpawn
+MinigameAbility2Mob:
+  Health: 20
+  Type: Silverfish
+  Display: '&4Fire Clap'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - model{mid=icebullet;n=false} @self ~onSpawn   
+  - skill{s=MA1H3} @self ~onSpawn
+  - stun{d=10000} @self ~onSpawn
+DDT:
+  Health: 418
+  Type: Zombie
+  Display: 'DDT'
+  Disguise: Falling_Block Netherite_Block
+  Damage: 816
+  Armor: 0
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0
+  - BLOCK_EXPLOSION 0
+  - PROJECTILE 0.01
+  - ENTITY_ATTACK 0
+  Options:
+    MovementSpeed: 0.4125
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+BAD:
+  Health: 24918
+  Type: Zombie
+  Display: 'BAD'
+  Disguise: Falling_Block Amethyst_Block
+  Damage: 55760
+  Armor: 0
+  Options:
+    MovementSpeed: 0.027
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+ZOMG:
+  Health: 4918
+  Type: Zombie
+  Display: 'ZOMG'
+  Disguise: Falling_Block EMERALD_Block
+  Damage: 16656
+  Armor: 0
+  Options:
+    MovementSpeed: 0.027
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+BFB:
+  Health: 918
+  Type: Zombie
+  Display: 'BFB'
+  Disguise: Falling_Block Redstone_Block
+  Damage: 3164
+  Armor: 0
+  Options:
+    MovementSpeed: 0.0375
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+  - model{mid=bfb;n=false} @self ~onSpawn 
+
+MOAB:
+  Health: 218
+  Type: Zombie
+  Display: 'MOAB'
+  Damage: 616
+  Armor: 0
+  Options:
+    MovementSpeed: 0.15
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack 
+  - model{mid=MOAB;n=false} @self ~onSpawn 
+
+CeramicBalloon:
+  Health: 18
+  Type: Zombie
+  Display: 'Ceramic'
+  Disguise: Falling_Block Bricks
+  Damage: 104
+  Armor: 0
+  Options:
+    MovementSpeed: 0.375
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+RainbowBalloon:
+  Health: 8
+  Type: Zombie
+  Display: 'Rainbow'
+  Damage: 47
+  Armor: 0
+  Disguise: Falling_Block Bookshelf
+  Options:
+    MovementSpeed: 0.27
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+PurpleBalloon:
+  Health: 6
+  Type: Zombie
+  Display: 'Purple'
+  Disguise: Falling_Block Purple_Concrete
+  Damage: 11
+  Armor: 0
+  DamageModifiers:
+  - LIGHTNING 0
+  - MAGIC 0
+  - LAVA 0
+  - FIRE_TICK 0
+  - FIRE 0
+  Options:
+    MovementSpeed: 0.45
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+LeadBalloon:
+  Health: 7
+  Type: Zombie
+  Display: 'Lead'
+  Disguise: Falling_Block IRON_Block
+  Damage: 23
+  Armor: 0
+  DamageModifiers:
+  - PROJECTILE 0
+  - CUSTOM 0
+  - Contact 0
+  - ENTITY_ATTACK 0
+  Options:
+    MovementSpeed: 0.15
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+ZebraBalloon:
+  Health: 7
+  Type: Zombie
+  Display: 'Zebra'
+  Disguise: Falling_Block Birch_Wood
+  Damage: 23
+  Armor: 0
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0
+  - BLOCK_EXPLOSION 0
+  Options:
+    MovementSpeed: 0.27
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+WhiteBalloon:
+  Health: 6
+  Type: Zombie
+  Display: 'White'
+  Disguise: Falling_Block White_Concrete
+  Damage: 11
+  Armor: 0
+  Options:
+    MovementSpeed: 0.3  
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+BlackBalloon:
+  Health: 6
+  Type: Zombie
+  Display: 'Black'
+  Disguise: Falling_Block Black_Concrete
+  Damage: 11
+  Armor: 0
+  DamageModifiers:
+  - ENTITY_EXPLOSION 0
+  - BLOCK_EXPLOSION 0
+  Options:
+    MovementSpeed: 0.27
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+PinkBalloon:
+  Health: 5
+  Type: Zombie
+  Display: 'Pink'
+  Damage: 5
+  Armor: 0
+  Disguise: Falling_Block Pink_Concrete
+  Options:
+    MovementSpeed: 0.525
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+YellowBalloon:
+  Health: 4
+  Type: Zombie
+  Display: 'Yellow'
+  Disguise: Falling_Block Yellow_Concrete
+  Damage: 4
+  Armor: 0
+  Options:
+    MovementSpeed: 0.48
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+GreenBalloon:
+  Health: 3
+  Type: Zombie
+  Display: 'Green'
+  Disguise: Falling_Block Lime_Concrete
+  Damage: 3
+  Armor: 0
+  Options:
+    MovementSpeed: 0.27
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+BlueBalloon:
+  Health: 2
+  Type: Zombie
+  Display: 'BLue'
+  Disguise: Falling_Block Light_Blue_Concrete
+  Damage: 2
+  Armor: 0
+  Options:
+    MovementSpeed: 0.21
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+RedBalloon:
+  Health: 1
+  Type: Zombie
+  Display: 'Red'
+  Disguise: Falling_Block Red_Concrete
+  Damage: 1
+  Armor: 0
+  Options:
+    MovementSpeed: 0.15
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=Bloon} @self ~onSpawn
+  - suicide ~onAttack
+
+LandmineSmoothQuartz:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Smooth_Quartz
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+  
+LandmineWhiteConcrete:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block White_Concrete
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+
+LandmineOakPlanks:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Oak_Planks
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineStoneBricks:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Stone_Bricks
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Baby: true
+    AgeLock: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineYellowConcrete:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Yellow_Concrete
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Baby: true
+    AgeLock: true
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+
+BrownWool:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Brown_Wool
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Baby: true
+    AgeLock: true
+    Silent: true
+    NoGravity: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract  
+  
+SmoothQuartz:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Smooth_Quartz
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Baby: true
+    AgeLock: true
+    Silent: true
+    NoGravity: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract    
+LandmineBlueConcrete:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Blue_Concrete
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+
+LandmineCommandBlock:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Command_Block
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Baby: true
+    AgeLock: true
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineRepeatingCommandBlock:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Repeating_Command_Block
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineChainCommandBlock:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Chain_Command_Block
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Baby: true
+    AgeLock: true
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+
+LandmineGravel:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Gravel
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineBlueIce:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Blue_Ice
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn  
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineIce:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Ice
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    FollowRange: 48
+    Baby: true
+    AgeLock: true
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDeath
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineCobblestone:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Cobblestone
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineStone:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Stone
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Baby: true
+    AgeLock: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn
+  - skill{s=LandmineDefuse} @self ~onInteract
+LandmineGrass:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Grass_block
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Baby: true
+    AgeLock: true
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn
+  - skill{s=LandmineDefuse} @self ~onInteract
+  
+PotatoMine:
+  Health: 10
+  Type: Villager
+  Display: '&lPotato Mine'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: true
+    Despawn: true
+    LockPitch:  true
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn
+  - skill{s=LandmineDefuse} @self ~onInteract  
+  - model{mid=PotatoMine;n=false} @self ~onSpawn 
+LandmineDirt:
+  Health: 10
+  Type: Villager
+  Display: '&lLandmine'
+  Disguise: Falling_Block Dirt
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    Baby: true
+    AgeLock: true
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+  Skills:
+  - skill{s=LandmineTestfor} @self ~onTimer:1
+  - skill{s=LandmineDie} @self ~onDamaged
+  - potion{type=SLOW;duration=99999;lvl=40;p=false} @self ~onSpawn
+  - skill{s=LandmineDefuse} @self ~onInteract
+SpeedPig:
+  Health: 20
+  Type: Horse
+  Display: '&lSpeed Pig'
+  Options:
+    MovementSpeed: 0.75
+    Despawn: false
+    FollowRange: 48
+    PreventRandomEquipment: true
+KAYOFLASHDUD:
+  Health: 20
+  Type: Villager
+  Display: '&4KAYOFLASH'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - model{mid=FlashDriveMob;n=false} @self ~onSpawn  
+KAYOFLASH:
+  Health: 20
+  Type: Villager
+  Display: '&4KAYOFLASH'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=KOFE} @self ~onSpawn
+  - stun{d=10000} @self ~onSpawn  
+  - model{mid=FlashDriveMob;n=false} @self ~onSpawn  
+RockGolem:
+  Health: 200
+  Type: Zombie
+  Display: '&7&lRock Golem'
+  Damage: 5
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  BossBar:
+    Enabled: true
+    Title: '&7&lANIMATED MONSTROSITY'
+    Range: 64
+    Color: GRAY
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    MovementSpeed: 0.3
+    KnockbackResistance: 0.5
+    MaxCombatDistance: 32
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.25
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - model{mid=rockgolem;n=true} @self ~onSpawn  
+  - skill{s=RockGolemH} @self ~onDamaged
+  - randomskill{s=RockGolemA,RockGolemA3} @self ~onTimer:60 0.3
+  - skill{s=RockGolemRandomShot} @self ~onTimer:20 0.3
+  
+RockGolemAFK:
+  Health: 200
+  Type: Zombie
+  Display: '&7&lRock Golem'
+  Damage: 5
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  Options:
+    MovementSpeed: 0.25
+    KnockbackResistance: 0.5
+    MaxCombatDistance: 32
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.25
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - model{mid=rockgolem;n=true} @self ~onSpawn  
+MBEM:
+  Health: 20
+  Type: HUSK
+  Display: '&4Megumin Blast'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=BigExplosion} @self ~onSpawn
+  - stun{d=10000} @self ~onSpawn
+NGMBEM:
+  Health: 20
+  Type: HUSK
+  Display: '&4Megumin Blast'
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    NoGravity: true
+  Skills:
+  - skill{s=NGBigExplosion} @self ~onSpawn
+  - stun{d=10000} @self ~onSpawn
+UndeadMinerThrower:
+  Health: 20
+  Type: HUSK
+  Display: '&6Undead Miner Thrower'
+  Equipment:
+  - IRON_HELMET Head
+  - STONE_PICKAXE Hand
+  Drops:
+  - money 200-300 1
+  Options:
+    MovementSpeed: 0.15
+    KnockbackResistance: 0.5
+    Despawn: False
+    FollowRange: 48
+    Silent: false
+  Skills:
+  - skill{s=PickaxeThrow} @target ~onTimer:60 0.75
+AnimatedMinecartFurnace:
+  Health: 10
+  Type: ZOMBIE
+  Display: '&4Burning Animated Minecart'
+  Damage: 4
+  Disguise: Minecart_Furnace
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  Drops:
+  - money 75-125 1
+  Options:
+    MovementSpeed: 0.35
+    KnockbackResistance: 0.25
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75  
+  Skills:
+  - effect:particles{p=flame;speed=0.05;a=20;hs=0.5;vs=0.5} @self ~onTimer:5
+  - sound{s=item.shield.break;v=3} @self ~onDamaged
+  - effect:particles{p=block_crack;m=iron_block;amount=10;speed=0.1;hS=0.5;vS=0.5} @self
+  - ignite{d=100} @target ~onAttack
+AnimatedMinecart:
+  Health: 5
+  Type: ZOMBIE
+  Display: '&6Animated Minecart'
+  Disguise: Minecart
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - WOOD_SWORD HAND
+  Drops:
+  - money 75-125 1
+  Options:
+    MovementSpeed: 0.42
+    KnockbackResistance: 0.25
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75  
+  Skills:
+  - sound{s=item.shield.break;v=3} @self ~onDamaged
+  - effect:particles{p=block_crack;m=iron_block;amount=10;speed=0.1;hS=0.5;vS=0.5} @self
+  - skill{s=Throw} @target ~onAttack
+UndeadMiner:
+  Health: 20
+  Type: HUSK
+  Display: '&6Undead Miner'
+  Equipment:
+  - IRON_HELMET Head
+  - STONE_PICKAXE Hand
+  Drops:
+  - money 200-300 1
+  Options:
+    MovementSpeed: 0.25
+    KnockbackResistance: 0
+    Despawn: False
+    FollowRange: 48
+    Silent: false
+    PreventRandomEquipment: true
+UndeadCharger:
+  Health: 20
+  Type: HUSK
+  Display: '&6Undead Miner'
+  Equipment:
+  - IRON_HELMET Head
+  - STONE_PICKAXE Hand
+  Drops:
+  - money 200-300 1
+  Options:
+    MovementSpeed: 0.25
+    KnockbackResistance: 0
+    Despawn: False
+    FollowRange: 48
+    Silent: false
+  Skills:
+  - lunge{velocity=0.5;velocityy=0.1;repeat=3;repeatinterval=5} @target ~onTimer:20 0.1 
+UndeadShoveler:
+  Health: 20
+  Type: HUSK
+  Display: '&6Undead Shoveler'
+  Equipment:
+  - IRON_HELMET Head
+  - IRON_SHOVEL Hand
+  Drops:
+  - money 200-300 1
+  Options:
+    MovementSpeed: 0.25
+    KnockbackResistance: 0
+    Despawn: False
+    FollowRange: 48
+    Silent: false
+  Skills:
+  - skill{s=Throw2} @target ~onAttack 
+BiggieCheese:
+  Health: <random.100to200>
+  Type: ZOMBIE
+  Display: 'Biggie Cheese'
+  Damage: 4
+  Faction: BiggieCheese
+  Drops:
+  - money 75-125 1
+  Options:
+    MovementSpeed: 0.4
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75  
+  Skills:
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - model{mid=biggiecheese;n=false} @self ~onSpawn  
+  - sound{s=entity.bat.hurt;v=3} @self ~onDamaged
+  - skill{s=CheeseRoll} @self ~onTimer:200
+  
+BiggieCheeseAFK:
+  Health: 20
+  Type: ZOMBIE
+  Display: 'Biggie Cheese'
+  Damage: 4
+  Faction: BiggieCheese
+  Drops:
+  - money 75-125 1
+  Options:
+    MovementSpeed: 0.4
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75  
+  Skills:
+  - model{mid=biggiecheese;n=false} @self ~onSpawn  
+  - sound{s=entity.bat.hurt;v=3} @self ~onDamaged
+  - skill{s=CheeseRoll} @self ~onTimer:200
+Sans:
+  Health: 100
+  Type: ZOMBIE
+  Display: '&Sans'
+  Drops:
+  - money 75-125 1
+  Options:
+    MovementSpeed: 0.2
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75  
+  Skills:
+  - model{mid=sans;n=false} @self ~onSpawn  
+  - sound{s=entity.skeleton.hurt;v=3} @self ~onDamaged
+  - effect:particles{p=block_crack;m=iron_block;amount=10;speed=0.1;hS=0.5;vS=0.5} @self
+UnstableUranium:
+  Health: 100
+  Type: ZOMBIE
+  Display: '&5Unstable Uranium'
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  Drops:
+  - money 75-125 1
+  Options:
+    MovementSpeed: 0.01
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75  
+  Skills:
+  - stun{d=999999;facing=false} @self ~onSpawn
+  - model{mid=crystal;n=false} @self ~onSpawn  
+  - sound{s=item.shield.break;v=3} @self ~onDamaged
+  - effect:particles{p=block_crack;m=crying_obsidian;amount=10;speed=0.1;hS=0.5;vS=0.5} @self
+MinerBoss:
+  Health: 150
+  Type: HUSK
+  Display: '&6Miner Leader'
+  Equipment:
+  - IRON_HELMET Head
+  - GOLDEN_PICKAXE Hand
+  Drops:
+  - money 200-300 1
+  Options:
+    MovementSpeed: 0.4
+    KnockbackResistance: 1
+    Despawn: False
+    FollowRange: 48
+    Silent: false
+    PreventRandomEquipment: true
+  DamageModifiers:
+  - Projectile 1.25
+  - Entity_Explosion 0.5
+  Skills:
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - skill{s=TnTThrow} @self ~onTimer:20 0.1
+  - summon{mob=UndeadMiner;amount=2;noise=5} @self ~onTimer:30 0.1
+AnimatedObsidian:
+  Health: 30
+  Type: ZOMBIE
+  Display: '&5Animated Obsidian'
+  Disguise: Falling_Block Crying_Obsidian
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  Damage: 4
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75  
+  Skills:
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - sound{s=item.shield.break;v=3} @self ~onDamaged
+  - effect:particles{p=block_crack;m=crying_obsidian;amount=1;speed=0.1;hS=0.5;vS=0.5} @self
+  - skill{s=AnimatedObsidianLeap} @self ~onTimer:20
+AnimatedTnt:
+  Health: 10
+  Type: ZOMBIE
+  Display: '&4Animated TnT'
+  Damage: 0
+  Disguise: Falling_Block TNT
+  Drops:
+  - money 75-125 1
+  Options:
+    MovementSpeed: 0.1
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  Skills:
+  - sound{s=block.grass.break;v=3} @self ~onDamaged
+  - effect:particles{p=block_crack;m=TNT;amount=2;speed=0.1;hS=0.5;vS=0.5} @self
+  - explosion{yield=2} @self ~onDeath 
+  - skill{s=TNTBlow} @self ~onTimer:4  
+SupplyCrate:
+  Health: 20
+  Type: Villager
+  Display: '&6Supply Crate'
+  Disguise: Falling_Block Barrel
+  Drops:
+  - LootChestDrops
+  Options:
+    MovementSpeed: 0.01 
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0  
+  Skills:
+  - stun{d=999999;facing=false} @self ~onSpawn
+  - sound{s=block.wood.break;v=3} @self ~onDamaged
+  - effect:particles{p=block_crack;m=chest;amount=10;speed=0.1;hS=0.5;vS=0.5} @self
+  - explosion{yield=2} @self ~onDeath 0.02
+RedstoneGolemNerf:
+  Type: ZOMBIE
+  Display: '&ARedstone Golem'
+  Health: 300
+  Damage: 8
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  Options:
+    MovementSpeed: 0.25
+    KnockbackResistance: 1
+    Despawn: true
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.75
+  BossBar:
+    Enabled: true
+    Title: '&4&lAUTOMATED WAR MACHINE'
+    Range: 64
+    Color: RED
+    Style: SOLID
+    PlayMusic: true
+  Faction: Redstone
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  Skills:
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - model{mid=redstonegolem;n=false} @self ~onSpawn  
+  - randomskill{s=RGA12,RGASummon2,Zap} @self ~onTimer:30 0.2
+  - skill{s=RGA3} @self ~onAttack 0.25
+  - randomskill{s=RGA2} @self ~onTimer:3 0.01
+  - effect:particles{p=reddust;color=#FF0000;amount=10;hS=0.2;vS=0.2} @self ~onTimer:1
+  - randomskill{s=RGCharge} @self ~onTimer:5 0.01
+  - sound{s=entity.iron_golem.damage;v=3} @self ~onDamaged
+  - sound{s=block.piston.contract;v=3} @self ~onDamaged
+  - sound{s=block.beacon.activate;v=6} @self ~onDeath
+  - skill{s=RGADM} @self ~onTimer:200
+  - skill{s=rgareset} @self ~onTimer:200
+  - skill{s=SelfTinker} @self ~onTimer:500
+  - skill{s=rgad} @self ~onDamaged 0.1
+  - effect:particles{p=crit;amount=5;speed=0.3;hS=1;vS=1} @self ~onDamaged
+  - threat{amount=1100} @PlayersInRadius{r=10} ~onDamaged
+  - threat{amount=1000} @PlayersInRadius{r=10} ~onTimer:200
+  - randomskill{s=RGCharge} @self ~onTimer:2 0.01
+RedstoneGolemMNerf:
+  Type: IRON_GOLEM
+  Display: '&ARedstone Golem Part'
+  Health: 8
+  Damage: 3
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  Options:
+    MovementSpeed: 0.2
+    KnockbackResistance: 1
+    Despawn: true
+    FollowRange: 64
+    Silent: true
+    PreventSunburn: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 villagers
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.25
+  Faction: Redstone
+  Skills:
+  - skill{s=RGCharge} @self ~onTimer:25 0.1
+  - skill{s=MiniLazer2} @self ~onTimer:25 0.1
+  - sound{s=block.anvil.place;v=3;p=2} @self ~onDamaged
+RedstoneGolemM:
+  Type: IRON_GOLEM
+  Display: '&ARedstone Golem Part'
+  Health: 15
+  Damage: 7
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  Options:
+    MovementSpeed: 0.3
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 64
+    Silent: true
+    PreventSunburn: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 OtherFaction
+  - 5 villagers
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.25
+  Faction: Redstone
+  Skills:
+  - skill{s=RGCharge} @self ~onTimer:25 0.175
+  - skill{s=MiniLazer} @self ~onTimer:25 0.175
+  - sound{s=block.anvil.place;v=3;p=2} @self ~onDamaged
+RedstoneGolem:
+  Type: ZOMBIE
+  Display: '&ARedstone Golem'
+  Health: 500
+  Damage: 12
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  - ExcaliburBlade HAND
+  Drops:
+  - mmoitems{type=sword;id=COOLS} 1 1
+  Options:
+    MovementSpeed: 0.25
+    KnockbackResistance: 1
+    Despawn: false
+    FollowRange: 48
+    Silent: true
+    PreventSunburn: true
+  DamageModifiers:
+  - FALL 0
+  - PROJECTILE 0.25
+  BossBar:
+    Enabled: true
+    Title: '&4&lAUTOMATED WAR MACHINE'
+    Range: 64
+    Color: RED
+    Style: SOLID
+    PlayMusic: true
+  Faction: Redstone
+  Modules:
+    ThreatTable: true
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 OtherFaction
+  - 5 villagers
+  Skills:
+  - model{mid=redstonegolem;n=false} @self ~onSpawn  
+  - randomskill{s=RGA2,RGA1,LaserBeam,RGASummon} @self ~onTimer:25 >30% 0.2
+  - skill{s=RGA3} @self ~onAttack >30% 0.25
+  - skill{s=RGA3} @self ~onAttack <30% 0.5
+  - skill{s=RGADM} @self ~onTimer:100 >30% 1
+  - skill{s=Zap} @self ~onTimer:2 0.015
+  - skill{s=RGADM2} @self ~onTimer:100 <30% 1
+  - effect:particles{p=reddust;color=#FF0000;amount=10;hS=0.2;vS=0.2} @self ~onTimer:1 >30%
+  - effect:particles{p=reddust;color=#059DC0;amount=10;hS=0.2;vS=0.2} @self ~onTimer:1 <30%
+  - randomskill{s=RGCharge} @self ~onTimer:2 0.01
+  - randomskill{s=RGASpeak1,RGASpeak2,RGASpeak3} @self ~onTimer:4 0.01
+  - sound{s=entity.iron_golem.damage;v=3} @self >30% ~onDamaged
+  - sound{s=block.piston.contract;v=3} @self >30% ~onDamaged
+  - sound{s=block.beacon.activate;v=6} @self ~onDeath
+  - skill{s=rgareset} @self ~onTimer:200
+  - skill{s=SelfTinker} @self ~onTimer:500
+  - skill{s=rgad} @self ~onDamaged >30% 0.1
+  - skill{s=rgad2} @self ~onDamaged <30% 0.1
+  - effect:particles{p=crit;amount=50;speed=0.3;hS=1;vS=1} @self ~onDamaged
+  - randomskill{s=RGA2,TractorBeam;RGASummon} @self ~onTimer:25 <30% 0.2
+  - skill{s=RGASpeak4} @self =30%
+  - threat{amount=100} @EntitiesInRadius{r=64;sort=NEAREST;limit=1} ~onDamaged
+  - sound{s=block.anvil.place;v=3;p=2} @self <30% ~onDamaged
+  - threat{amount=0} @EntitiesInRadius{r=128} ~onTimer: 200
+Red_Impostor:
+  Type: ZOMBIE
+  Display: '&3Red Crewmate'
+  Health: 30
+  Damage: 5
+  AIGoalSelectors:
+  - 0 clear
+  - 1 meleeattack
+  - 2 randomstroll
+  - 3 float
+  Equipment:
+  - IRON_HELMET HEAD
+  Options:
+    MovementSpeed: 0.35
+    Despawn: false
+  Skills:
+  Skills:
+  - model{mid=amongus;n=false} @self ~onSpawn  
+  
+ZombifiedKnight:
+  Type: Zombie
+  Display: '&aZombified Knight'
+  Health: <random.20to35>
+  Damage: 1
+  DamageModifiers:
+  - PROJECTILE 0.5
+  Options:
+    MovementSpeed: 0.3
+    KnockbackResistance: 0.5
+  Modules:
+    ThreatTable: true
+  Equipment:
+  - IRON_HELMET HEAD
+  - IRON_CHESTPLATE CHEST
+  - IRON_LEGGINGS LEGS
+  - IRON_BOOTS FEET
+  - IRON_SWORD HAND
+  - SHIELD OFFHAND
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - skill{s=ShieldBash} @self ~onDamaged 0.2
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - sound{s=entity.zombie.attack_iron_door;v=2;p=2} @self ~onDamaged
+ChronusJonas:
+  Type: Villager
+  Display: '&2&lChronus Jonas'
+  Health: 1000
+  Disguise: player The_Fate
+  Options:
+    Collidable: false
+    KnockbackResistance: 1
+    MovementSpeed: 0
+    HasTrades: true 
+    Interactable: true
+    VillagerType: BUTCHER
+    NOAI: true
+  Skills:
+  - randomskill{skills=CJPassive,CJPassive2,CJPassive3,CJPassive4,CJPassive5,CJPassive6,CJPassive7,CJPassive8,CJPassive9,CJPassive10} @self ~onTimer:200
+  - potion{type=DAMAGE_RESISTANCE;d=1000000;lvl=4;hasParticles=false} @self ~onSpawn
+  - potion{type=SLOW;d=1000000;lvl=100;hasParticles=false} @self ~onSpawn   
+  - randomskill{skills=CJInteract} @self ~onInteract
+  - skill{skill=CJAttack} @self ~onDamaged
+
+Gobpin:
+  Type: Villager
+  Display: '&2&lRecent Winner'
+  Health: 1000
+  Disguise: player The_Fate
+  Options:
+    Collidable: false
+    KnockbackResistance: 1
+    MovementSpeed: 0
+    HasTrades: true 
+    Interactable: true
+    VillagerType: BUTCHER
+    NOAI: true
+  Skills:
+  - potion{type=DAMAGE_RESISTANCE;d=1000000;lvl=4;hasParticles=false} @self ~onSpawn
+  - potion{type=SLOW;d=1000000;lvl=100;hasParticles=false} @self ~onSpawn   
+  - speak{m=LT} @self ~onInteract
+HungryZombie:
+  Type: ZOMBIE
+  Display: '&3Hungry Zombie'
+  Health: 30
+  Damage: 5
+  Options:
+    PreventSunburn: true
+    MovementSpeed: 0.35
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - skill{s=LeapAttack} @self ~onTimer:1 0.007
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+UnfriendlyTraveler:
+  Type: Skeleton
+  Health: 25
+  Display: '&2Unfriendly Traveler'
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    MovementSpeed: 0.2
+    PreventSunburn: true
+    FollowRange: 64
+  Disguise: player Impaktz setCustomNameVisible false
+  Modules:
+    ThreatTable: true
+  AIGoalSelectors:
+  - 0 bowshoot
+  - 1 fleeplayers
+  - 2 randomstroll
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 attacker  
+  - 3 villagers
+  Equipment:
+  - IronHelmet HEAD
+  - Bow HAND
+  Skills:
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self ~onSpawn
+  - skill{s=Unfriendly} @target ~onTimer:2 0.01
+  - skill{s=TripleShotM} @target ~onTimer:2 0.01
+  - sound{s=entity.pillager.hurt;p=1.3;v=2} @self ~onDamaged
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+  - sound{s=entity.pillager.death;p=1.3;v=2} @self ~onDeath
+ArcaneBeast:
+  Type: zombie  
+  Health: 100
+  Display: 'Arcane Beast'
+  MaxCombatDistance: 32
+  PreventRandomEquipment: true
+  ShowHealth: true
+  PreventTransformation: true
+  MovementSpeed: 0.35
+  NoDamageTicks: 60
+  FollowRange: 48
+  Faction: Arcane
+  AIGoalSelectors:
+  - 0 clear
+  - 1 randomstroll
+  - 2 float
+  - 3 lookatplayers
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker  
+  - 4 OtherFaction
+  - 5 villagers
+  Equipment:
+  - HoodA HEAD
+  - RobeA CHEST
+  - RobeA2 LEGS
+  - RobeShoesA FEET
+  - STICK HAND
+  Skills:
+  - skill{s=Lisa} @target ~onTimer:60
+  - skill{s=50%AB} @target ~onTimer:60
+  - skill{s=LisaV} @target ~onTimer:40
+  - effect:particleline{particle=flame;amount=10;yt=5;syo=-1;sso=1} @RLNTE{a=20;r=10;s=3;minr=3} ~onTimer:60
+Trident:
+  Type: Trident
+Ditto:
+  Type: VILLAGER
+  Skills:
+  - disguise{type=player;player=Danwoo;skin=The_Fate} ~onSpawn  
+  - skill{s=Lisa} @Ring{radius=3;points=2} ~onTimer:60
+  - summon{mob=Ditto;amount=1;noise=5} @Self ~onTimer:100  
+Shecat:
+  Type: VILLAGER
+  Skills:
+  - disguise{type=player;player=snowcat8041;skin=snowcat8041} ~onSpawn
+  - summon{mob=Shecat;amount=1;noise=5} @Self ~onTimer:400   
+  - skill{s=Lisa} @Ring{radius=3;points=2} ~onTimer:60
+  
+SkeletonKing:
+  Type: WITHER_SKELETON
+  Display: '&6Skeleton King'
+  Health: 175
+  Damage: 4
+  Skills:
+  - speak{m="None may challenge the Skeleton King!";cooldown=20} @PlayersInRadius{r=40}
+    ~onCombat >0 0.2
+  - speak{m="Ahahahahah! Die, <trigger.name>!"} @PlayersInRadius{r=40} ~onPlayerKill
+    >0 1
+  - skill{s=SummonSkeletons} @self 0.1 ~onTimer:20
+  - skill{s=SmashAttack} @target >0 0.2
+  Equipment:
+  - KingsCrown HEAD
+  - SkeletonKingSword HAND
+  Drops:
+  - SkeletonKingDrops
+  Options:
+    AlwaysShowName: true
+    FollowRange: 48
+    MovementSpeed: 0.3
+    PreventOtherDrops: true
+  Skills:
+  - skill{s=TeleportToPlayer} @self ~onTimer:60
+SkeletalMinion:
+  Type: SKELETON
+  Display: '&2Skeletal Minion'
+  Health: 10
+  Damage: 2
+  Options:
+    MovementSpeed: 0.3
+    PreventSunburn: true
+StaticallyChargedSheep:
+  Type: SHEEP
+  Display: '&aStatically Charged Sheep'
+  Health: 100
+  Damage: 2
+  Options:
+    MovementSpeed: 0.3
+  DamageModifiers:
+  - LIGHTNING 0
+  - FIRE 0.5
+  Skills:
+  - randomskill{
+    skills=
+    CJPassive,
+    CJPassive2,
+    CJPassive3,
+    CJPassive4,
+    CJPassive5,
+    CJPassive6
+    } ~onTimer:200
+AngrySludge:
+  Type: SLIME
+  Display: '&aAngry Sludge'
+  Health: 100
+  Damage: 2
+  Options:
+    Size: 20
+    MovementSpeed: 0.1
+    PreventSlimeSplit: true
+    PreventOtherDrops: true
+    MaxCombatDistance: 30
+    KnockbackResistance: 1
+  Skills:
+  - skill{s=AngrySludgePoison} 0.2
+  - blockmask{material=SLIME_BLOCK;r=1;duration=100} @self ~onTimer:20

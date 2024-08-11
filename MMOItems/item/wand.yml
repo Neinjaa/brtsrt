@@ -1,0 +1,848 @@
+OAK_WAND:
+  base:
+    material: STICK
+    name: '&f<wood> Wand'
+    required-level: 1.0
+    range: 20.0
+    attack-damage:
+      base: 3.5
+      spread: 0.1
+      max-spread: 0.3
+    attack-speed:
+      base: 1.15
+      spread: 0.04
+      max-spread: 0.12
+    critical-strike-chance:
+      base: 9.0
+      spread: 0.03
+      max-spread: 0.1
+    ability:
+      right-click:
+        type: SPARKLE
+        mode: RIGHT_CLICK
+        damage: 3.0
+        cooldown: 15.0
+BLAZE_WAND:
+  base:
+    material: BLAZE_ROD
+    hide-enchants: true
+    enchants:
+      unbreaking: 1
+    required-level: 38.0
+    attack-damage:
+      base: 14.0
+      spread: 0.11
+      scale: 0.04
+    attack-speed: 1.5
+    critical-strike-chance:
+      base: 5.0
+      scale: 0.04
+      spread: 0.06
+    range: 28.0
+    tier: LEGENDARY
+    perm-effects:
+      FIRE_RESISTANCE: 1
+    ability:
+      right-click:
+        type: FIREBOLT
+        mode: RIGHT_CLICK
+        damage: 5.0
+        ignite: 3.0
+        cooldown: 10.0
+      ability1:
+        type: BURNING_HANDS
+        mode: SHIFT_RIGHT_CLICK
+        duration: 3.0
+        damage: 4.0
+        cooldown: 5.0
+    gem-sockets:
+    - Nether
+    - Nether
+    name: '&c&lBlaze Wand'
+    disable-crafting: true
+    lore:
+    - §eAh yeah, that's hot.
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v nether_star - 1.0..|v magma_cream - 1.0..|v nether_star - 1.0..
+          - v AIR 0 1..|v blaze_rod - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v blaze_rod - 1.0..|v AIR 0 1..
+    staff-spirit: NETHER_SPIRIT
+    critical-strike-power:
+      base: 12.1
+      scale: 0.04
+      spread: 0.06
+    undead-damage:
+      base: 60.0
+      scale: 0.1
+      spread: 0.19
+COSMOS_WAND:
+  base:
+    material: STICK
+    gem-sockets:
+    - Blue
+    staff-spirit: VOID_SPIRIT
+    attack-speed: 1.9
+    crafting:
+      shapeless:
+        '1':
+          input:
+          - m catalyst perfect_ender_pearl 1.0..
+          - v nether_star - 1.0..
+          - m catalyst enchanted_shulker_shell 1.0..
+          - v AIR - 1.0..
+          - v stick - 1.0..
+          - v AIR - 1.0..
+          - v AIR - 1.0..
+          - v stick - 1.0..
+          - v AIR - 1.0..
+    unbreakable: true
+    tier: EPIC
+    magic-damage:
+      base: 35.0
+      spread: 0.05
+      max-spread: 0.19
+    attack-damage:
+      base: 5.0
+      scale: 0.14
+      spread: 0.04
+      max-spread: 0.08
+    range: 20.0
+    ability:
+      ability2:
+        type: LIFE_ENDER
+        mode: SHIFT_RIGHT_CLICK
+        damage: 15.0
+        knockback: 1.5
+        cooldown: 14.0
+        radius: 5.0
+      ability1:
+        type: BLINK
+        timer: 1.0
+        range: 45.0
+        mode: RIGHT_CLICK
+        cooldown: 8.0
+    lore:
+    - §b§l§o"The stars are yours!"
+    name: §5§lCosmic Wand
+    upgrade:
+      max: 10
+      template: weapon-default
+    critical-strike-chance:
+      base: 10.0
+      scale: 0.02
+      spread: 0.15
+      max-spread: 0.26
+    critical-strike-power:
+      base: 6.0
+      scale: 0.02
+      spread: 0.15
+      max-spread: 0.26
+    required-level: 14.0
+SPELLCASTER_WAND:
+  base:
+    material: STICK
+    name: §dSpellcaster Wand
+    required-level: 1.0
+    required-class:
+    - Mage
+    range: 16.0
+    attack-damage:
+      base: 6.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    attack-speed: 1.4
+    critical-strike-chance:
+      base: 6.0
+      spread: 0.1
+      max-spread: 0.15
+    critical-strike-power:
+      base: 12.0
+      spread: 0.1
+      max-spread: 0.15
+    magic-damage:
+      base: 15.0
+      scale: 0.1
+      spread: 0.08
+      max-spread: 0.12
+    tier: UNCOMMON
+    element:
+      water:
+        damage:
+          base: 20.0
+          scale: 0.0
+          spread: 0.2
+          max-spread: 0.3
+    mana-cost: 3.0
+    set: SPELLCASTER
+    lore:
+    - §7§o"You're a wizard, Harry."
+CULTISTWAND:
+  base:
+    material: STICK
+    name: §8§lKarmic Inverse
+    lore:
+    - §8§oThe hatred inside the user determines the power of the weapon...
+    range: 1.0
+    tier: RARE
+    unbreakable: true
+    ability:
+      ability2:
+        type: BLINK
+        range: 16.0
+        mode: SHIFT_LEFT_CLICK
+      ability3:
+        type: CURSED_BEAM
+        damage: 6.0
+        duration: 3.0
+        cooldown: 0.5
+        mode: LEFT_CLICK
+      ability1:
+        type: MAGICAL_PATH
+        mode: RIGHT_CLICK
+        cooldown: 30.0
+        duration: 2.0
+      ability4:
+        type: SHADOW_VEIL
+        cooldown: 30.0
+        mode: SHIFT_RIGHT_CLICK
+        duration: 5.0
+    attack-speed: 0.01
+    undead-damage: -10.0
+BROOM:
+  base:
+    material: STICK
+    attack-speed: 0.001
+    range: 1.0
+    unbreakable: true
+    tier: EPIC
+    ability:
+      ability1:
+        type: LIGHT_DASH
+        cooldown: 0.5
+        length: 0.5
+        mode: RIGHT_CLICK
+    name: §5§lBroom
+    lore:
+    - §5§oA broom infused with magic in order to fly.
+???:
+  base:
+    material: STICK
+    name: §9§k§l§oTraiist's §r§9§l§oWand
+    lore:
+    - §f§oPower unfathomable to humans.
+    - §f§k§oTraiist's §r§f§ogo-to weapon to cause mayhem.
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    tier: MYTHICAL
+    item-particles:
+      particle: NAUTILUS
+      type: FIREFLIES
+      amount: 4.0
+TEST2:
+  base:
+    material: BLAZE_ROD
+    name: §l§1TEST2
+    attack-damage:
+      base: 10.0
+      scale: 0.2
+      spread: 0.1
+      maxSpread: 0.2
+    unbreakable: true
+    ability:
+      ability1: {}
+    staff-spirit: LIGHTNING_SPIRIT
+NECROMANCER'S:
+  base:
+    material: STICK
+    name: §5Necromancer's Wand
+    unbreakable: true
+    ability:
+      ability1:
+        type: CORRUPT
+        mode: RIGHT_CLICK
+      ability2:
+        type: CURSED_BEAM
+        mode: LEFT_CLICK
+        duration: 4.0
+        damage: 8.0
+        cooldown: 0.5
+    attack-damage:
+      base: 20.0
+      scale: 0.2
+      spread: 0.1
+      maxSpread: 0.2
+    staff-spirit: VOID_SPIRIT
+    element:
+      darkness:
+        damage:
+          base: 15.0
+          scale: 0.5
+          spread: 0.0
+          max-spread: 0.0
+    attack-speed: 0.01
+    range: 1.0
+    lore:
+    - §5 §o You want to learn the dark arts? What a foolish desire....
+TELEPORTATION:
+  base:
+    material: STICK
+    name: §3Teleportation Rod
+    attack-damage: 0.0
+    range: 0.0
+    ability:
+      ability1:
+        type: BLINK
+        mode: LEFT_CLICK
+        range: 16.0
+        cooldown: 0.5
+      ability2:
+        type: MAGICAL_PATH
+        duration: 10.0
+        cooldown: 0.5
+        mode: RIGHT_CLICK
+    lore:
+    - §3Ya'll ready for this?
+BEADBLASTWAND:
+  base:
+    material: SOUL_TORCH
+    ability:
+      ability1:
+        type: FIREBOLT
+        mode: SHIFT_RIGHT_CLICK
+        ignite: 2.0
+        cooldown: 1.0
+        damage: 4.0
+    attack-damage: 4.0
+    attack-speed: 1.5
+    name: §fBeadblast Wand
+    disable-interaction: true
+    lore:
+    - §8A wand capable of firing many
+    - §8small firebolts.
+    tier: UNCOMMON
+BRIGHTWISH:
+  base:
+    material: BLAZE_ROD
+    name: §fBright Wish
+    lore:
+    - §8You've found your connection to the
+    - §8stars, now they will help you.
+    attack-speed: 0.5
+    attack-damage: 6.0
+    tier: UNCOMMON
+    range: 10.0
+    disable-interaction: true
+    ability:
+      ability1:
+        type: HOLY_MISSILE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 5.0
+HEXCASTER:
+  base:
+    material: STICK
+    tier: EARLYGAME
+    hide-enchants: true
+    enchants:
+      sharpness: 1.0
+    attack-damage: 6.0
+    attack-speed: 1.1
+    range: 6.0
+    name: §fHexcaster
+    lore:
+    - §8A cursed wand, that is capable
+    - §8of locking someone in place with
+    - §8dark magic.
+    ability:
+      ability1:
+        type: BLACK_HOLE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+        duration: 5.0
+        radius: 1.0
+TWINKLERWAND:
+  base:
+    material: TORCH
+    hide-enchants: true
+    enchants:
+      unbreaking: 1.0
+    unstackable: true
+    tier: EARLYGAME
+    name: §fTwinkler Wand
+    attack-damage: 5.0
+    attack-speed: 1.8
+    lore:
+    - §8A wand specializing in white
+    - §8magic. Overwhelm opponents with
+    - §8popping lights.
+    ability:
+      ability1:
+        type: SPARKLE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 5.0
+    disable-interaction: true
+ANCIENT_WILL:
+  base:
+    material: BOOK
+    name: §rAncient Will
+    displayed-type: §cSpellbook
+    attack-speed: 0.8
+    item-cooldown: 2.0
+    commands:
+      cmd0:
+        format: minecraft:tag @s add VigorI
+        delay: 0.0
+    attack-damage: 4.0
+    tier: COMMON
+    lore:
+    - §8The book stores the words of
+    - §8several generation of tranquility,
+    - §8trusted in your hands.
+    staff-spirit: LIGHTNING_SPIRIT
+    disable-interaction: true
+GUIDE_TO_RESTORATION:
+  base:
+    material: ENCHANTED_BOOK
+    name: §r§fGuide To Restoration
+    displayed-type: Spellbook
+    attack-speed: 0.9
+    attack-damage: 4.0
+    item-cooldown: 3.0
+    commands:
+      cmd0:
+        format: minecraft:tag @s add MendlightI
+        delay: 0.0
+    lore:
+    - §8A book containing healing-centric
+    - §8spells. Nearby players can use
+    - §8the regeneration from it.
+    disable-interaction: true
+    tier: UNCOMMON
+    staff-spirit: LIGHTNING_SPIRIT
+APPRENTICE'S_NOTES:
+  base:
+    material: BOOK
+    name: §r§fApprentice's Notes
+    displayed-type: §cSpellbook
+    item-cooldown: 3.0
+    commands:
+      cmd0:
+        format: minecraft:tag @s add BlackroseI
+        delay: 0.0
+    lore:
+    - §8The author of this book wrote down quite a
+    - §8variety of spells, but this one will prove
+    - §8useful during combat.
+    tier: UNCOMMON
+    staff-spirit: LIGHTNING_SPIRIT
+    disable-interaction: true
+    attack-damage: 5.0
+    attack-speed: 1.0
+SPILLCASTER:
+  base:
+    material: BOOK
+    name: §r§fSpillcaster
+    displayed-type: §cSpellbook
+    attack-damage: 4.0
+    attack-speed: 1.0
+    item-cooldown: 4.0
+    commands:
+      cmd0:
+        format: minecraft:tag @s add MendlightI
+        delay: 0.0
+      cmd1:
+        format: minecraft:tag @s add VigorI
+        delay: 0.0
+    lore:
+    - §8Two potions at once? This will surely
+    - §8prove useful for buffs.
+    tier: UNCOMMON
+    staff-spirit: LIGHTNING_SPIRIT
+    disable-interaction: true
+SCEPTER:
+  base:
+    material: STICK
+    staff-spirit: SUNFIRE_SPIRIT
+CRYOS_BAUBLE:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGRiYTY0MmVmZmZhMTNlYzM3MzBlYWZjNTkxNGFiNjgxMTVjMWY5OTg4MDNmNzQ0NTJlMmUwY2QyNmFmMGI4In19fQ==
+      uuid: 405c79e6-da03-41ea-ae67-59162f10536b
+    displayed-type: §cOrb
+    name: §r§bPuresscence
+    staff-spirit: MANA_SPIRIT
+    disable-interaction: true
+    attack-speed: 1.65
+    attack-damage: 5.0
+    ability:
+      ability1:
+        type: ICE_CRYSTAL
+        duration: 4.0
+        cooldown: 2.0
+        damage: 7.0
+        mode: SHIFT_LEFT_CLICK
+      ability2:
+        type: GRAND_HEAL
+        cooldown: 8.0
+        mode: SHIFT_RIGHT_CLICK
+HOLYDARKNESS:
+  base:
+    material: STICK
+    name: §0§lHoly Darkness
+    unbreakable: true
+    staff-spirit: VOID_SPIRIT
+    ability:
+      ability3:
+        type: HOLY_MISSILE
+        duration: 20.0
+        mode: LEFT_CLICK
+        cooldown: 0.1
+      ability1:
+        type: CURSED_BEAM
+        duration: 20.0
+        mode: RIGHT_CLICK
+        cooldown: 0.1
+      ability4:
+        type: ICE_CRYSTAL
+        cooldown: 0.1
+        mode: SHIFT_LEFT_CLICK
+      ability2:
+        type: FIREBOLT
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 0.1
+    attack-speed: 0.01
+    range: 0.0
+VIGOR_BAUBLE:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTQ4NjE2N2UwZTUwMTcwM2VmMzAyNDkxYjA0Yjc4Y2ViNGVlOWM1ODczMTY2ZmQ3NWFjNWRlMTFhOTRhOTdmOSJ9fX0=
+      uuid: 5dd58b6d-677d-4e7d-97bf-9ebac82e0161
+    name: §c§l§nViv§f§l§na§c§l§nferros
+    displayed-type: §9Weaponsmith's Favor
+    item-particles:
+      particle: REDSTONE
+      color:
+        red: 255
+        green: 192
+        blue: 161
+      type: HELIX
+    attack-damage: 5.0
+    attack-speed: 1.3
+    staff-spirit: MANA_SPIRIT
+    ability:
+      ability1:
+        type: VAMPIRISM
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 8.0
+        drain: 6.0
+      ability2:
+        type: SWIFTNESS
+        cooldown: 2.0
+        duration: 2.0
+        mode: ON_HIT
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    unbreakable: true
+    unstackable: true
+QUARTERTOME:
+  base:
+    material: NETHERITE_SCRAP
+    enchants:
+      mending: 1.0
+    hide-enchants: true
+    name: §a§l§nQuadr§8§l§net§a§l§nhesis
+    displayed-type: §9Weaponsmith's Favor
+    staff-spirit: VOID_SPIRIT
+    critical-strike-chance: 25.0
+    critical-strike-power: 400.0
+    attack-damage: 2.0
+    attack-speed: 1.1
+    ability:
+      ability1:
+        type: SHULKER_MISSILE
+        duration: 1.0
+        mode: LEFT_CLICK
+        cooldown: 1.2
+        damage: 4.0
+        effect-duration: 0.01
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    item-particles:
+      particle: REDSTONE
+      type: HELIX
+      color:
+        red: 114
+        green: 179
+        blue: 109
+    unbreakable: true
+    unstackable: true
+SECRET:
+  base:
+    material: STICK
+    name: §b§lGolden Wand
+    lore:
+    - §7§oA golden wand with a
+    - §7§oblue crystal on it's top.
+    - §7§oSummons a yellow beam
+    - §7§owhip when used.
+    item-particles:
+      particle: END_ROD
+      type: FIREFLIES
+      amount: 1.0
+    ability:
+      ability1:
+        type: HOLY_MISSILE
+        mode: LEFT_CLICK
+        duration: 1.0
+        cooldown: 1.5
+        damage: 6.5
+      ability2:
+        type: SPARKLE
+        mode: RIGHT_CLICK
+        damage: 5.0
+        radius: 4.0
+        cooldown: 5.0
+    staff-spirit: LIGHTNING_SPIRIT
+    projectile-damage: 0.0
+    disable-crafting: true
+    disable-smelting: true
+    disable-repairing: true
+    unbreakable: true
+    tier: EPIC
+    attack-speed: 1.0
+    range: 3.5
+    disable-interaction: true
+CINDER_PETALS:
+  base:
+    material: WITHER_ROSE
+    name: §8Cinder Petals
+    displayed-type: §cMagic Flower
+    attack-damage: 4.0
+    staff-spirit: NETHER_SPIRIT
+    ability:
+      ability1:
+        type: FIREFLY
+        duration: 1.0
+        damage: 5.0
+        cooldown: 5.0
+        mode: RIGHT_CLICK
+      ability2:
+        type: VAMPIRISM
+        mode: SHIFT_LEFT_CLICK
+        drain: 6.0
+    unbreakable: true
+    unstackable: true
+    disable-interaction: true
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+DISPERSAL_WAND:
+  base:
+    material: STICK
+    name: §f§nDispersal Wand§r §d¤
+    displayed-type: §7Critical Wand
+    staff-spirit: VOID_SPIRIT
+    sounds:
+      on-left-click:
+        sound: minecraft:block.lantern.place
+        volume: 10.0
+        pitch: 0.75
+      on-attack:
+        sound: minecraft:block.lantern.place
+        volume: 10.0
+        pitch: 0.75
+    attack-speed: 1.5
+    disable-interaction: true
+    unstackable: true
+    movement-speed: 0.025
+    ability:
+      ability1:
+        type: ICE_CRYSTAL
+        mana: 4.0
+        mode: RIGHT_CLICK
+        cooldown: 6.0
+      ability2:
+        type: BLINK
+        mode: SHIFT_LEFT_CLICK
+        range: 4.0
+        mana: 10.0
+        cooldown: 5.0
+    mana-regeneration: 3.0
+    mana-cost: 4.0
+BP_MAGIC_TWIG:
+  base:
+    material: STICK
+    name: §r§fMagic Twig
+    lore:
+    - §8A special twig imbued with
+    - §8magical power.
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-advanced-enchants: true
+    disable-repairing: true
+    attack-damage: 6.0
+    attack-speed: 1.0
+    tier: COMMON
+    ability: {}
+    unstackable: true
+    range: 6.0
+    critical-strike-chance: 4.0
+BP_AROMAGIC_WAND:
+  base:
+    material: RED_TULIP
+    name: §fAromagic Wand
+    range: 5.5
+    attack-speed: 1.0
+    attack-damage: 5.0
+    critical-strike-chance: 3.0
+    mana-regeneration: 0.5
+    ability:
+      ability1:
+        type: GRAND_HEAL
+        radius: 3.0
+        mana: 3.0
+        heal: 4.0
+        cooldown: 15.0
+        mode: SHIFT_RIGHT_CLICK
+    tier: UNCOMMON
+BP_POLARIS:
+  base:
+    material: REDSTONE_TORCH
+    attack-damage: 5.0
+    attack-speed: 1.1
+    name: §fPolaris
+    range: 6.5
+    tier: UNCOMMON
+    unbreakable: true
+    unstackable: true
+    ability:
+      ability1:
+        type: BLACK_HOLE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 3.0
+        duration: 0.7
+        radius: 2.0
+        mana: 5.0
+    disable-interaction: true
+    lore:
+    - §8A wand that creates a black hole,
+    - §8pulling people in.
+    critical-strike-chance: 3.0
+    mana-regeneration: 1.0
+CRPG_WONDER_WAND:
+  base:
+    material: STICK
+    name: §7§nWonder Wand
+    displayed-type: §8Wand
+    ability:
+      ability1:
+        type: SPARKLE
+        cooldown: 8.0
+        mana: 4.0
+        radius: 2.0
+        mode: SHIFT_LEFT_CLICK
+    custom-model-data: 220004.0
+    attack-damage: 4.0
+    required-level: 0.0
+    critical-strike-chance: 5.0
+    range: 5.0
+    unbreakable: true
+    attack-speed: 1.2
+    mana-regeneration: 0.2
+    disable-interaction: true
+    unstackable: true
+CRPG_LEATHER_TOME:
+  base:
+    material: BOOK
+    name: §7§nLeather Tome
+    displayed-type: §8Tome
+    range: 5.0
+    staff-spirit: MANA_SPIRIT
+    attack-damage: 4.0
+    critical-strike-chance: 5.0
+    attack-speed: 1.0
+    unstackable: true
+    ability:
+      ability1:
+        type: BLIZZARD
+        mode: SHIFT_LEFT_CLICK
+        duration: 1.0
+        force: 0.6
+        cooldown: 5.0
+        mana: 5.0
+        damage: 2.0
+    required-level: 0.0
+    disable-interaction: true
+CRPG_SANCTIFIER:
+  base:
+    material: BOOK
+    name: §f§nSanctifier
+    displayed-type: §3Tome §o(Water)
+    range: 5.0
+    staff-spirit: MANA_SPIRIT
+    attack-damage: 4.0
+    critical-strike-chance: 5.0
+    attack-speed: 1.1
+    unstackable: true
+    ability:
+      ability1:
+        type: GRAND_HEAL
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 8.0
+        mana: 8.0
+    required-level: 1.0
+    element:
+      water:
+        damage: 20.0
+    disable-interaction: true
+FLYKNIGHT_TALES:
+  base:
+    material: BOOK
+    item-particles:
+      particle: WAX_OFF
+      type: FIREFLIES
+      amount: 2.0
+      radius: 4.0
+      rotation-speed: 1.5
+    name: §fFlyknight Tales
+    displayed-type: §8Bard Weapon
+    attack-damage: 5.0
+    attack-speed: 1.3
+    ability:
+      ability1:
+        type: SWIFTNESS
+        mode: SHIFT_LEFT_CLICK
+        duration: 7.0
+        mana: 12.0
+        cooldown: 15.0
+SHANTY_TALES:
+  base:
+    material: BOOK
+    name: §fShanty Tales
+    displayed-type: §7Tome
+TEST_WAND:
+  base:
+    material: STICK

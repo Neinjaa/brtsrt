@@ -1,0 +1,28 @@
+TestingDummy:
+  Type: zombie
+  Health: 20
+  Display: 'Zombie'
+  PreventRandomEquipment: true
+  ShowHealth: true
+  PreventTransformation: true
+  MovementSpeed: 0.35
+  NoDamageTicks: 60
+  FollowRange: 128
+  PreventSunburn: true
+  AIGoalSelectors:
+  - 0 clear
+  - 1 restrictsun
+  - 2 fleesun
+  - 3 randomstroll
+  - 4 meleeattack
+  - 5 movetowardstarget
+  AITargetSelectors:
+  - 0 players
+  - 1 golems
+  - 2 monsters
+  - 3 attacker
+  - 4 OtherFaction
+  - 5 villagers
+  Skills:
+  - disguise{type=player;player=habideho;skin=habideho} ~onSpawn  
+  - skill{s=PotatoLaunch} @Ring{radius=4;points=10} ~onTimer:60

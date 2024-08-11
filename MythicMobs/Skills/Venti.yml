@@ -1,0 +1,26 @@
+SelfWind:
+    Skills:
+    - setstance{stance=SelfWind} @self
+TargetWind:
+    Skills:
+    - setstance{stance=TargetWind} @self
+    
+WhirlwindS:
+    Skills:
+    - aura{auraname=Va;oT=Va
+    - particlering{p=reddust;color=#77ffd3;r=4;points=128;amount=3;hS=1;vS=5} @self
+    - projectile{v=16;sb=true;startyoffset=7;vO=90;mr=7;oT=WhirlwindT;i=1} @RLNTE{a=20;r=4;s=0.5}
+    - velocity{m=set;x=0;y=1.5;z=0} @self
+    - sudoskill{s=Slam} @EntitiesInRadius{r=4}
+    - damage{a=12} @LivingEntitiesInRadius{r=4}
+    - projectile{oT=WhirlwindT;v=1;sb=true;bulletType=item;material=FEATHER;startyoffset=7;g=0.1;i=1;mr=10} @RLNTE{a=20;r=4;s=0.5}
+    - potion{type=SLOW_FALLING;lvl=1;duration=100} @self
+    - potion{type=SLOW_FALLING;lvl=1;duration=100} @EntitiesInRadius{r=4}
+    
+WhirlwindT:
+    Sills:
+    - effect:particlesphere{p=reddust;color=#FFFFFF;amount=3;radius=0.5}
+    
+Va:
+    Skills:
+    - 

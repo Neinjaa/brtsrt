@@ -1,0 +1,69 @@
+'1':
+  base:
+    name: '&aMy First Custom Block'
+    lore:
+    - '&7Wow... It''s possible!'
+    - '&7That''s awesome!'
+    required-power: 2
+    min-xp: 10
+    max-xp: 20
+    gen-template: basic-template
+    material: STONE
+    block-id: 1.0
+'2':
+  base:
+    name: '&bMy Second Custom Block'
+    material: STONE
+    block-id: 2.0
+'3':
+  base:
+    lore:
+    - I have no display name.
+    - I only have a lore!
+    material: STONE
+    block-id: 3.0
+DANWOOBLOCK:
+  base:
+    material: STONE
+    block-id: 7.0
+TEST:
+  base:
+    material: STONE
+    block-id: 4.0
+    sounds:
+      on-placed:
+        sound: custom.vine
+        volume: 2.0
+        pitch: 1.0
+VINETHUD:
+  base:
+    material: STONE
+    block-id: 5.0
+    sounds:
+      on-block-break:
+        sound: custom.vine
+        volume: 100.0
+        pitch: 1.0
+      on-placed:
+        sound: custom.vine
+        volume: 100.0
+        pitch: 1.0
+OSUBLOCKQUIET:
+  base:
+    material: STONE
+    block-id: 4.0
+SHROOM:
+  base:
+    material: MUSHROOM_STEM
+    block-id: 99999.0
+ARCANE_FORGE:
+  base:
+    material: ENCHANTING_TABLE
+    unbreakable: true
+MEGA_WORKBENCH:
+  base:
+    material: STONE
+CUSTOMORE:
+  base:
+    material: LIGHT_BLUE_STAINED_GLASS
+    block-id: 0.0

@@ -1,0 +1,9 @@
+    # The internal name of the MM skill.
+mythicmobs-skill-id: ExplosionSpell   
+
+# Ability name displayed in lore.
+
+
+modifiers:
+- damage
+- duration

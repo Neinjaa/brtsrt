@@ -1,0 +1,163 @@
+#Use raytrace for Grab
+#Add sounds to the rest of the skills
+#Make Push and Reversal do damage
+Jab:
+  Skills:
+  - switch{condition=score{o=BrawlHand;v=<case>};cases=
+      case 0=[
+        - slash{y=1;w=6;h=25;mpd=true;a=45;radius=1;rot=180,270,0;
+            oP=[- effect:particles{p=reddust;color=#ED5368}];
+            oH=[- damage{a=5.5} - sound{s=entity.player.attack.knockback} - throw{v=2;vy=1}];
+            oS=[- sound{s=item.armor.equip_leather}];
+            roll=<random.-30to30>;fo=3;duration=4} @self
+        - slash{y=1;w=7;h=27;mpd=true;a=45;radius=1;rot=180,270,0;
+            oP=[- effect:particles{p=reddust;color=#E38D9E}];
+            roll=<random.-30to30>;fo=3;duration=4} @self
+        - command{cmd="scoreboard players set <target.name> BrawlHand 1";op=true} @self
+        ]
+      case 1=[
+        - slash{y=1;w=6;h=25;mpd=true;a=45;radius=1;rot=0,270,0;
+            oP=[- effect:particles{p=reddust;color=#ED5368}];
+            oH=[- damage{a=5.5} - sound{s=entity.player.attack.knockback} - throw{v=2;vy=1}];
+            oS=[- sound{s=item.armor.equip_leather}];
+            roll=<random.-30to30>;fo=3;duration=4} @self
+        - slash{y=1;w=7;h=27;mpd=true;a=45;radius=1;rot=0,270,0;
+            oP=[- effect:particles{p=reddust;color=#E38D9E}];
+            roll=<random.-30to30>;fo=3;duration=4} @self
+        - command{cmd="scoreboard players set <target.name> BrawlHand 0";op=true} @self
+        ]
+    } @self
+Hook:
+  Skills:
+  - switch{condition=score{o=BrawlHand;v=<case>};cases=
+      case 0=[
+        - slash{y=1;w=8;h=35;mpd=true;a=25;radius=1;rot=180,180,0;
+                  oP=[- effect:particles{p=reddust;color=#ED5368;spread=0.1}];
+                  oH=[- damage{a=7} - sound{s=entity.player.attack.knockback} - throw{velocity=15;velocityY=5}];
+                  oS=[- sound{s=item.armor.equip_leather}];
+                  roll=<random.-30to30>;fo=1;duration=4} @self
+        - command{cmd="scoreboard players set <target.name> BrawlHand 1";op=true} @self
+        ]
+      case 1=[
+        - slash{y=1;w=8;h=35;mpd=true;a=25;radius=1;rot=0,0,0;
+                  oP=[- effect:particles{p=reddust;color=#ED5368;spread=0.1}];
+                  oH=[- damage{a=7} - sound{s=entity.player.attack.knockback} throw{velocity=15;velocityY=5}];
+                  oS=[- sound{s=item.armor.equip_leather}];
+                  roll=<random.-30to30>;fo=1;duration=4} @self
+        - command{cmd="scoreboard players set <target.name> BrawlHand 0";op=true} @self
+        ]
+    } @self
+Grab:
+  Skills:
+  - damage{a=2} @T
+  - effect:particlering{r=1.2;p=20;p=reddust;color=#ED5368;y=0.5} @T
+  - effect:particleline{p=reddust;color=#ED5368;a=1;fo=true;syo=1} @T
+  - sound{s=block.weeping_vines.break} @T
+  - sound{s=item.flintandsteel.use} @T
+  - pull{v=5.5;to=true} @T
+Pummel:
+  Skills:
+  - switch{repeat=6;repeatI=4;condition=score{o=BrawlHand;v=<case>};cases=
+      case 0=[
+        - slash{y=1;w=6;h=25;mpd=true;a=45;radius=1;rot=180,270,0;
+            oP=[- effect:particles{spread=0.1;p=dust_color_transition;color1=#ED5368;color2=#FF9A36}];
+            oH=[- setNoDamageTicks{ticks=0;delay=0;repeatI=3;repeat=2} @ENO{r=4} - damage{a=5} - sound{s=entity.player.attack.knockback} - throw{v=2;vy=1}];
+            oS=[- sound{s=item.armor.equip_leather}]
+            roll=<random.-30to30>;fo=3;duration=4} @self
+        - slash{y=1;w=7;h=27;mpd=true;a=45;radius=1;rot=180,270,0;
+            oP=[- effect:particles{p=reddust;color=#E38D9E}];
+            roll=<random.-30to30>;fo=3;duration=4} @self
+        - command{cmd="scoreboard players set <target.name> BrawlHand 1";op=true} @self
+        ]
+      case 1=[
+        - slash{y=1;w=6;h=25;mpd=true;a=45;radius=1;rot=0,270,0;
+            oP=[- effect:particles{spread=0.1;p=dust_color_transition;color1=#ED5368;color2=#FF9A36}];
+            oH=[- setNoDamageTicks{ticks=0;delay=0;repeatI=3;repeat=2} @ENO{r=4} - damage{a=5} - sound{s=entity.player.attack.knockback} - throw{v=2;vy=1}];
+            oS=[- sound{s=item.armor.equip_leather}];
+            roll=<random.-30to30>;fo=3;duration=4} @self
+        - slash{y=1;w=7;h=27;mpd=true;a=45;radius=1;rot=0,270,0;
+            oP=[- effect:particles{p=reddust;color=#E38D9E}];
+            roll=<random.-30to30>;fo=3;duration=4} @self
+        - command{cmd="scoreboard players set <target.name> BrawlHand 0";op=true} @self
+        ]
+    } @self
+Uppercut:
+  Skills:
+  - jump{v=0.7} @self
+  - slash{y=2;w=8;h=25;mpd=true;a=45;radius=1;rot=180,225,90;
+      oP=[- effect:particles{spread=0.1;p=dust_color_transition;color1=#ED5368;color2=#FF9A36}];
+      oH=[- damage{a=7} - sound{s=entity.player.attack.knockback} - throw{v=1;vy=5}];
+      oS=[- sound{s=item.armor.equip_leather}];
+      fo=1;duration=8} @self
+Handblast:
+  Skills:
+  - projectile{v=24;i=1;hnp=true;d=40;sE=false;id=5;
+            oT=[- effect:particles{p=reddust;color=#ED5368;spread=0.1} - effect:particles{p=reddust;color=#E38D9E;delay=3}];
+            oH=[- damage{a=4.5}];
+            oS=[- sound{s=block.chain.break}];
+            bulletType=display;mat=stick;model=123503;bmd=true} @Forward{y=1}
+Reversal: 
+  Skills:
+  - effect:particles{p=spit;s=0.25;a=20}
+  - teleport @SelfEyeLocation{fo=-6}
+  - command{cmd="minecraft:teleport <caster.name> ~ ~ ~ facing ^ ^1 ^1";op=true;ac=true} @Self
+  - command{cmd="minecraft:teleport <caster.name> ~ ~2 ~ facing ^ ^ ^-3";op=true;ac=true} @Self
+  - lunge @SelfEyeLocation{fo=-4}
+  - skill{s=Hook}
+Firefist:
+  Skills:
+  - projectile{v=24;i=1;hnp=true;d=40;id=5;
+            oT=[- effect:particles{spread=0.1;p=dust_color_transition;color1=#ED5368;color2=#FF9A36;spread=0.15} - effect:particles{p=reddust;color=#E38D9E;delay=3}];
+            oE=[- setNoDamageTicks{ticks=0;delay=0;repeatI=3;repeat=2} @ENO{r=4} - damage{repeat=2;repeatI=3;a=3.5} @ENO{r=4} - throw{repeat=2;repeatI=3;v=15;vY=5} @{r=3} - effect:particles{repeat=2;repeatI=3;p=lava;a=5} - effect:particles{repeat=2;repeatI=3;p=explosion_large} - sound{repeat=2;repeatI=3;s=entity.dragon_fireball.explode} - sound{repeat=2;repeatI=3;s=block.fire.extinguish}];
+            oS=[- sound{s=block.chain.break}];
+            bulletType=display;mat=stick;model=123503;bmd=true} @Forward{y=1}
+Push:
+  Skills:
+  - throw{velocity=15;velocityY=5} @EIC{a=45;r=8}
+  - effect:particleline{p=reddust;color=#ED5368;a=4;syo=1;xs=1;zs=1} @Forward{f=8}
+  - sound{s=entity.player.attack.knockback}
+BrawlerLight:
+  Skills:
+  - switch{condition=score{o=BrawlCombo;v=<case>};cases=
+      case 0=[- skill{s=Jab} - command{cmd="scoreboard players set <target.name> BrawlCombo 1";op=true} @self]
+      case 1=[- skill{s=Jab} - command{cmd="scoreboard players set <target.name> BrawlCombo 1";op=true} @self]
+      case 2=[- skill{s=Pummel} - command{cmd="scoreboard players set <target.name> BrawlCombo 0";op=true} @self]
+      case 3=[- skill{s=Push} - command{cmd="scoreboard players set <target.name> BrawlCombo 0";op=true} @self]
+      case 4=[- skill{s=Jab} - command{cmd="scoreboard players set <target.name> BrawlCombo 1";op=true} @self]
+    } @self
+  - skill{s=BrawlerAura}
+BrawlerHeavy:
+  Skills:
+  - switch{condition=score{o=BrawlCombo;v=<case>};cases=
+      case 0=[- skill{s=Hook} - command{cmd="scoreboard players set <target.name> BrawlCombo 2";op=true} @self]
+      case 1=[- skill{s=Uppercut} - command{cmd="scoreboard players set <target.name> BrawlCombo 0";op=true} @self]
+      case 2=[- skill{s=Hook} - command{cmd="scoreboard players set <target.name> BrawlCombo 2";op=true} @self]
+      case 3=[- skill{s=Reversal} - command{cmd="scoreboard players set <target.name> BrawlCombo 0";op=true} @self]
+      case 4=[- skill{s=Hook} - command{cmd="scoreboard players set <target.name> BrawlCombo 2";op=true} @self]
+    } @self
+  - skill{s=BrawlerAura}
+BrawlerGrab:
+  Skills:
+  - switch{condition=score{o=BrawlCombo;v=<case>};cases=
+      case 0=[- skill{s=Grab} - command{cmd="scoreboard players set <target.name> BrawlCombo 3";op=true} @self]
+      case 1=[- skill{s=Grab} - command{cmd="scoreboard players set <target.name> BrawlCombo 3";op=true} @self]
+      case 2=[- skill{s=Grab} - command{cmd="scoreboard players set <target.name> BrawlCombo 3";op=true} @self]
+      case 3=[- skill{s=Grab} - command{cmd="scoreboard players set <target.name> BrawlCombo 3";op=true} @self]
+      case 4=[- skill{s=Grab} - command{cmd="scoreboard players set <target.name> BrawlCombo 3";op=true} @self]
+    } @self
+  - skill{s=BrawlerAura}
+BrawlerHandblast:
+  Skills:
+  - switch{condition=score{o=BrawlCombo;v=<case>};cases=
+      case 0=[- skill{s=Handblast} - command{cmd="scoreboard players set <target.name> BrawlCombo 4";op=true} @self]
+      case 1=[- skill{s=Firefist} - command{cmd="scoreboard players set <target.name> BrawlCombo 0";op=true} @self]
+      case 2=[- skill{s=Handblast} - command{cmd="scoreboard players set <target.name> BrawlCombo 4";op=true} @self]
+      case 3=[- skill{s=Handblast} - command{cmd="scoreboard players set <target.name> BrawlCombo 4";op=true} @self]
+      case 4=[- skill{s=Handblast} - command{cmd="scoreboard players set <target.name> BrawlCombo 4";op=true} @self]
+    } @self
+  - skill{s=BrawlerAura}
+BrawlerAura:
+  Skills:
+  - aura{auraName=BrawlAura;d=14;
+      oe=[- command{cmd="scoreboard players set <target.name> BrawlCombo 0";op=true} @self];
+      ms=1;rd=true;overwriteAll=true;desot=false} @self

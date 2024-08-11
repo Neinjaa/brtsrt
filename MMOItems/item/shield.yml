@@ -1,0 +1,291 @@
+PALADIN_SHIELD:
+  base:
+    material: SHIELD
+    name: §e§lShield of the Sun
+    tier: MAGICAL
+    two-handed: false
+    armor: 6.0
+    armor-toughness: 3.0
+    unbreakable: true
+    block-power: 50.0
+    block-rating:
+      base: 20.0
+      scale: 0.02
+      spread: 0.09
+      max-spread: 0.17
+    perm-effects:
+      SLOW: 3
+    gem-sockets:
+    - Yellow
+    - Yellow
+    required-level: 25.0
+    shield-pattern:
+      color: YELLOW
+      '0':
+        pattern: CURLY_BORDER
+        color: ORANGE
+      '1':
+        pattern: STRIPE_MIDDLE
+        color: YELLOW
+    attack-damage:
+      base: 6.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    attack-speed:
+      base: 1.4
+      spread: 0.06
+      max-spread: 0.14
+    block-cooldown-reduction:
+      base: 10.0
+      scale: 0.02
+      spread: 0.09
+      max-spread: 0.17
+MAGICAL_SHIELD:
+  base:
+    material: SHIELD
+    required-level: 5.0
+    tier: MAGICAL
+    perm-effects:
+      SLOW: 4
+      DAMAGE_RESISTANCE: 4
+    gem-sockets:
+    - Red
+    - Red
+    shield-pattern:
+      color: WHITE
+      '0':
+        pattern: STRAIGHT_CROSS
+        color: YELLOW
+      '1':
+        pattern: FLOWER
+        color: ORANGE
+      '2':
+        pattern: BORDER
+        color: YELLOW
+    name: '&fMagical Shield'
+    lore:
+    - '&7A rudimentary shield to'
+    - '&7carry your gem stones.'
+    block-rating: 5.0
+    block-power:
+      base: 6.0
+      spread: 0.05
+      max-spread: 0.14
+ABSORBING_SHIELD:
+  base:
+    material: SHIELD
+    required-level: 15.0
+    shield-pattern:
+      color: BLUE
+    name: '&9Absorbing Shield'
+    unbreakable: true
+    damage-reduction:
+      base: 55.0
+      spread: 0.03
+      max-spread: 0.08
+    movement-speed: -0.03
+    two-handed: true
+    disable-smelting: false
+    disable-crafting: true
+OBSIDIAN_SHIELD:
+  base:
+    material: SHIELD
+    name: §8Obsidian Shield
+    lore:
+    - §cThis shield is even stronger than
+    - §cdiamond.
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v obsidian - 1.0..|v diamond - 1.0..|v obsidian - 1.0..
+          - v obsidian - 1.0..|v obsidian - 1.0..|v obsidian - 1.0..
+          - v AIR 0 1..|v obsidian - 1.0..|v AIR 0 1..
+    attack-damage:
+      base: 6.0
+      scale: 0.2
+      spread: 0.1
+      max-spread: 0.18
+    block-rating:
+      base: 20.0
+      scale: 0.15
+      spread: 0.11
+      max-spread: 0.19
+    block-power: 100.0
+    tier: UNCOMMON
+    physical-damage-reduction:
+      base: 20.0
+      scale: 0.05
+      spread: 0.2
+      max-spread: 0.3
+    defense:
+      base: 10.0
+      spread: 0.1
+      max-spread: 0.2
+    shield-pattern:
+      color: BLACK
+    handworn: true
+SUPREME_SHIELD:
+  base:
+    material: SHIELD
+    tier: LEGENDARY
+    block-power: 100.0
+    block-rating:
+      base: 60.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    attack-damage:
+      base: 25.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    required-class:
+    - Warrior
+    name: §9§l§oSupreme Shield
+    lore:
+    - §7The mightiest of all §eshields§7.
+    movement-speed: -0.03
+    shield-pattern:
+      color: PURPLE
+    element:
+      earth:
+        defense: 25.0
+      lightness:
+        defense: 25.0
+      wind:
+        defense: 25.0
+      fire:
+        defense: 25.0
+    pve-damage-reduction:
+      base: 30.0
+      scale: 0.1
+      spread: 0.2
+      max-spread: 0.3
+    armor-toughness: 2.0
+    armor: 8.0
+    projectile-damage-reduction:
+      base: 100.0
+      scale: 0.1
+      spread: 0.2
+      max-spread: 0.3
+ICY_PROTECTOR:
+  base:
+    material: SHIELD
+    shield-pattern:
+      color: BLUE
+      '0':
+        pattern: GRADIENT
+        color: WHITE
+      '1':
+        pattern: GRADIENT_UP
+        color: WHITE
+      '2':
+        pattern: CURLY_BORDER
+        color: LIGHT_BLUE
+      '3':
+        pattern: CURLY_BORDER
+        color: WHITE
+      '4':
+        pattern: RHOMBUS_MIDDLE
+        color: LIGHT_GRAY
+      '5':
+        pattern: FLOWER
+        color: WHITE
+    name: §7§lIron Will
+    ability:
+      ability1:
+        type: KNIGHTCHARGE
+        mode: RIGHT_CLICK
+        cooldown: 10.0
+      ability2:
+        type: SHIELDBASH
+        mode: LEFT_CLICK
+        cooldown: 5.0
+      ability3:
+        type: KNIGHTUPPERCUT
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 15.0
+      ability4:
+        type: RALLY
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+    attack-damage: 5.0
+    armor: 3.0
+    unbreakable: true
+    two-handed: true
+    movement-speed: -0.05
+    block-power: 33.0
+    block-rating: 100.0
+    block-cooldown-reduction: 100.0
+    attack-speed: 0.1
+OLIVER_SHIELD:
+  base:
+    material: SHIELD
+    name: Cyberverse Firewall
+    block-power: 85.0
+    block-rating: 15.0
+    damage-reduction: 20.0
+    ability: {}
+    perm-effects:
+      REGENERATION: 1.0
+    shield-pattern:
+      color: ORANGE
+HOLYSHIELD:
+  base:
+    material: SHIELD
+    name: §e§lCourageous Buckler
+    unbreakable: true
+    ability:
+      ability1:
+        type: HOLYSHIELDBASH
+        mode: RIGHT_CLICK
+        cooldown: 7.0
+      ability2:
+        type: HOLYPROTECTION
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+      ability3:
+        type: CONSECRATE
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 20.0
+    shield-pattern:
+      color: LIGHT_BLUE
+      '0':
+        pattern: GRADIENT
+        color: WHITE
+      '1':
+        pattern: RHOMBUS_MIDDLE
+        color: WHITE
+      '2':
+        pattern: GRADIENT_UP
+        color: WHITE
+      '3':
+        pattern: CURLY_BORDER
+        color: LIGHT_GRAY
+      '4':
+        pattern: CURLY_BORDER
+        color: YELLOW
+      '5':
+        pattern: CROSS
+        color: WHITE
+      '6':
+        pattern: BORDER
+        color: WHITE
+      '7':
+        pattern: CROSS
+        color: YELLOW
+      '8':
+        pattern: TRIANGLES_BOTTOM
+        color: WHITE
+      '9':
+        pattern: TRIANGLES_TOP
+        color: WHITE
+    block-power: 20.0
+    block-rating: 100.0
+    armor: 2.0
+    knockback-resistance: 1.0
+    movement-speed: -0.05
+    block-cooldown-reduction: 50.0
+    two-handed: true

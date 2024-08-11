@@ -1,0 +1,24 @@
+Mushroom1:
+  Skills:
+  - model{mid=mushroom1;n=false} @self 
+Mushroom2:
+  Skills:
+  - model{mid=mushroom2;n=false} @self 
+Mushroom3:
+  Skills:
+  - model{mid=mushroom3;n=false} @self 
+Mushroom4:
+  Skills:
+  - model{mid=mushroom4;n=false} @self 
+Mushroom5:
+  Skills:
+  - model{mid=mushroom5;n=false} @self 
+Mushroom6:
+  Skills:
+  - model{mid=mushroom6;n=false} @self 
+Mushroom7:
+  Skills:
+  - model{mid=mushroom7;n=false} @self 
+Mushroom8:
+  Skills:
+  - model{mid=mushroom8;n=false} @self 

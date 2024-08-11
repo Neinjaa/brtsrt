@@ -1,0 +1,855 @@
+PistolShot:
+  Skills:
+  - switch{condition=score{o=moveStyle;v=<case>};cases=
+    case 0=[
+    - effect:particles{p=campfire_cosy_smoke;size=0.1;speed=0.1;a=2} @forward{f=1;y=1}
+    - sound{s=block.chain.break;p=1.5} @self
+    - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+    - projectile{so=0.4;mr=10;v=30;i=1;hnp=true;d=20;sE=true;id=5;
+      oT=[- effect:particles{p=reddust;color=#ffe7a3;size=1}
+      - effect:particleline{p=reddust;color=#4795c1;size=0.4;zz=true;zzs=2;zzo=0.3;fo=true} @ProjectileForward{f=2}];
+      oH=[
+        - setNoDamageTicks{ticks=0;delay=0}
+        - damage{a=3} 
+        - sound{s=item.trident.hit}
+        - setNoDamageTicks{ticks=0;delay=0}
+        ];
+      ti=2;hr=0.5;vr=0.5} @Forward{y=1}
+    - modifytargetscore{objective=moveStyle;action=add;value=1}
+    ]
+    case DEFAULT=[
+    - effect:particles{p=campfire_cosy_smoke;size=0.1;speed=0.1;a=2} @forward{f=1;y=1}
+    - sound{s=block.chain.break;p=1.5} @self
+    - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+    - projectile{so=-0.4;mr=10;v=30;i=1;hnp=true;d=20;sE=true;id=5;
+      oT=[- effect:particles{p=reddust;color=#ffe7a3;size=1}
+      - effect:particleline{p=reddust;color=#4795c1;size=0.4;zz=true;zzs=2;zzo=0.3;fo=true} @ProjectileForward{f=2}];
+      oH=[
+       - setNoDamageTicks{ticks=0;delay=0}
+       - damage{a=3}
+       - sound{s=item.trident.hit}
+       - setNoDamageTicks{ticks=0;delay=0}
+       ];ti=2;hr=0.5;vr=0.5} @Forward{y=1}
+    - modifytargetscore{objective=moveStyle;action=subtract;value=1}
+    ]} @self ?!hasaura{n=TriggerMania}
+  - switch{repeat=1;repeatI=2;condition=score{o=moveStyle;v=<case>};cases=
+    case 0=[
+    - effect:particles{p=campfire_cosy_smoke;size=0.1;speed=0.1;a=2} @forward{f=1;y=1}
+    - sound{s=block.chain.break;p=1.5} @self
+    - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+    - projectile{so=0.4;mr=10;v=30;i=1;hnp=true;d=20;sE=true;id=5;
+      oT=[- effect:particles{p=reddust;color=#4795c1;size=1}
+      - effect:particleline{p=reddust;color=#ffe7a3;size=0.4;zz=true;zzs=2;zzo=0.3;fo=true} @ProjectileForward{f=2}];
+      oH=[
+        - setNoDamageTicks{ticks=0;delay=0}
+        - damage{a=4}
+        - sound{s=item.trident.hit}
+        - setNoDamageTicks{ticks=0;delay=0}
+        ];ti=2;hr=0.5;vr=0.5} @Forward{y=1}
+    - modifytargetscore{objective=moveStyle;action=add;value=1}
+    ]
+    case DEFAULT=[
+    - effect:particles{p=campfire_cosy_smoke;size=0.1;speed=0.1;a=2} @forward{f=1;y=1}
+    - sound{s=block.chain.break;p=1.5} @self
+    - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+    - projectile{so=-0.4;mr=10;v=30;i=1;hnp=true;d=20;sE=true;id=5;
+      oT=[- effect:particles{p=reddust;color=#4795c1;size=1}
+      - effect:particleline{p=reddust;color=#ffe7a3;size=0.4;zz=true;zzs=2;zzo=0.3;fo=true} @ProjectileForward{f=2}];
+      oH=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=4}
+      - sound{s=item.trident.hit}
+      - setNoDamageTicks{ticks=0;delay=0}
+      ];
+      ti=2;hr=0.5;vr=0.5} @Forward{y=1}
+    - modifytargetscore{objective=moveStyle;action=subtract;value=1}
+    ]} @self ?hasaura{n=TriggerMania}
+  Conditions:
+  - hasaura{n=openInput} castinstead SalvoSprint
+Pistolwhip:
+  Skills:
+  - sound{s=block.chain.break;p=1.5} @self
+  - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+  - projectile{mr=5;v=30;i=1;hnp=true;d=20;sE=true;id=5;
+    oT=[- effect:particles{p=reddust;color=#ffe7a3;size=1}
+        - effect:particleline{p=reddust;color=#4795c1;size=0.4;zz=true;zzs=2;zzo=0.3;fo=true} @ProjectileForward{f=2}];
+    oH=[- damage{a=5} - sound{s=item.trident.hit}];
+    ti=2;hr=0.5;vr=0.5} @Forward{y=1}
+  - slash{y=1;w=3;h=20;mpd=true;a=45;radius=0.4;rot=0,0,30;
+    oP=[- effect:particles{a=4;p=reddust;color=#4795c1;size=2.2}];
+    oH=[- damage{a=2}];
+    fo=1;duration=3} @self
+  - slash{y=1;w=3;h=20;mpd=true;a=45;radius=1;rot=0,0,30;
+    oP=[- effect:particles{a=4;p=reddust;color=#ffe7a3;size=1.2}];
+    fo=0.6;duration=3} @self
+  - sound{s=block.iron_trapdoor.open;p=1.5} @self ?hasaura{n=openInput}
+  - removeaura{n=openInput} @self
+  Conditions:
+  - hasaura{n=openInput} castinstead CrossfireCombo
+TriggerMania:
+  Skills:
+  - sound{s=entity.illusioner.prepare_mirror;p=2} @self
+  - aura{auraname=TriggerMania;d=150;oE=[- sound{s=entity.evoker.prepare_summon}]} @self
+  - particlering{r=2;p=mobspell;color=#4795c1;points=10} @self
+  Conditions:
+  - hasaura{n=openInput} castinstead DeadlyGrounds
+Lockload:
+  Skills:
+  - sendtitle{title="";subtitle="";d=1} @self
+  - sendtitle{delay=1;title="";subtitle="<caster.var.salvosprintcd|&3&lL>   <caster.var.crossfirecombocd|&3&lR>   <caster.var.deadlygroundscd|&3&lSR>   <caster.var.reloadroulettecd|&3&lSL>";d=20} @self
+  - aura{delay=1;auraName=openInput;ma=true;duration=20;oc=true} @self
+  - sound{s=block.iron_trapdoor.open;p=1.5} @self
+  Conditions:
+  - hasaura{n=openInput} castinstead ReloadRoulette
+SalvoSprint:
+  Skills:
+  - particlering{r=2;p=campfire_cosy_smoke;size=0.1;speed=0.1;a=2;points=10} @self
+  - damage{a=4} @EIR{r=4}
+  - sound{s=block.chain.break;p=1.5} @self
+  - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+  - lunge{v=1.5;vy=0.7} @self ?pitch{p=<0}
+  - lunge{v=1.5;vy=-0.7} @self ?pitch{p=>0}
+  - sendtitle{title="";subtitle="&f&lL   &8R   &8SR   &8SL";d=20} @self
+  - removeaura{n=openInput} @self
+  - aura{auraname=SalvoSprintCD;d=120;
+    oS=[
+    - setvar{var=caster.salvosprintcd;type=string;val="&7&lL"}
+    - modifytargetscore{objective=DuelistRNG;action=add;value=1}
+    ];
+    oE=[
+    - setvar{var=caster.salvosprintcd;type=string;val="&3&lL"}
+    - actionmessage{m="<gradient:#365cb5:#4a9cc2>&l&oSalvo Sprint [L] is now off cooldown!</gradient>"}
+    - modifytargetscore{objective=DuelistRNG;action=subtract;value=1}
+    ]} @self
+  Conditions:
+  - hasaura{n=SalvoSprintCD} false
+CrossfireCombo:
+  Skills:
+  - effect:particles{p=campfire_cosy_smoke;size=0.1;speed=0.1;a=2} @forward{f=1;y=1}
+  - switch{repeat=2;repeatI=2;condition=score{o=moveStyle;v=<case>};cases=
+    case 0=[
+    - projectile{hO=-15;sfo=-2;so=1.4;mr=10;v=30;i=1;hnp=true;d=20;sE=true;id=5;
+        oT=[- effect:particles{p=reddust;color=#ffe7a3;size=1}
+        - effect:particleline{p=reddust;color=#4795c1;size=0.4;zz=true;zzs=2;zzo=0.3;fo=true} @ProjectileForward{f=1}];
+        oH=[
+        - setNoDamageTicks{ticks=0;delay=0}
+        - damage{a=5} 
+        - sound{s=item.trident.hit}
+        - setNoDamageTicks{ticks=0;delay=0}
+        ];
+        ti=2;hr=0.5;vr=0.5} @Forward{y=1}
+    - sound{s=block.chain.break;p=1.5} @self
+    - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+    - modifytargetscore{objective=moveStyle;action=add;value=1}
+    ]
+    case DEFAULT=[
+    - projectile{hO=15;sfo=-2;so=-1.4;mr=10;v=30;i=1;hnp=true;d=20;sE=true;id=5;
+        oT=[- effect:particles{p=reddust;color=#ffe7a3;size=1}
+        - effect:particleline{p=reddust;color=#4795c1;size=0.4;zz=true;zzs=2;zzo=0.3;fo=true} @ProjectileForward{f=1}];
+        oH=[
+        - setNoDamageTicks{ticks=0;delay=0}
+        - damage{a=5} 
+        - sound{s=item.trident.hit}
+        - setNoDamageTicks{ticks=0;delay=0}
+        ];
+        ti=2;hr=0.5;vr=0.5} @Forward{y=1}
+    - sound{s=block.chain.break;p=1.5} @self
+    - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+    - modifytargetscore{objective=moveStyle;action=subtract;value=1}
+    ]} @self
+  - sendtitle{title="";subtitle="&8&lL   &fR   &8SR   &8SL";d=20} @self
+  - removeaura{n=openInput} @self
+  - aura{auraname=CrossfireComboCD;d=120;
+    oS=[
+    - setvar{var=caster.crossfirecombocd;type=string;val="&7&lR"}
+    - modifytargetscore{objective=DuelistRNG;action=add;value=2}
+    ];
+    oE=[
+    - setvar{var=caster.crossfirecombocd;type=string;val="&3&lR"}
+    - actionmessage{m="<gradient:#365cb5:#4a9cc2>&l&oCrossfire Combo [R] is now off cooldown!</gradient>"}
+    - modifytargetscore{objective=DuelistRNG;action=subtract;value=2}
+    ]} @self
+  Conditions:
+  - hasaura{n=CrossfireComboCD} false
+DeadlyGrounds:
+  Skills:
+  - sendtitle{title="";subtitle="&8&lL   &8R   &fSR   &8SL";d=20} @self
+  - removeaura{n=openInput} @self
+  - sound{s=block.chain.break;p=1.5} @self
+  - sound{s=entity.zombie.attack_wooden_door;p=2} @self
+  - projectile{mr=40;v=30;i=1;hnp=true;d=20;sE=false;id=5;
+    oT=[- effect:particles{p=reddust;color=#4795c1;size=1}
+    - effect:particleline{p=reddust;color=#ffe7a3;size=0.4;zz=true;zzs=2;zzo=0.3;fo=true} @ProjectileForward{f=1}];
+    ohb=[
+    - totem{;duration=100;
+      oT=[
+        - particlering{p=reddust;color=#4795c1;radius=5;points=32;amount=1;y=-1}
+        - particlering{p=reddust;color=#ffe7a3;radius=4.9;points=32;amount=1;y=-1}]
+      }
+    - totem{i=12;duration=100;
+      oT=[
+        - sound{s=entity.firework_rocket.blast;p=0.5}
+        - skill{s=DeadlyGroundsBlast} @RLNO{a=1;r=4;minr=1}
+        ]
+      }
+    ];
+    ti=2;hr=0.5;vr=0.5} @Forward{y=1}
+  - aura{auraname=DeadlyGroundsCD;d=240;
+    oS=[
+    - setvar{var=caster.deadlygroundscd;type=string;val="&7&lSR"}
+    - modifytargetscore{objective=DuelistRNG;action=add;value=4}
+    ];
+    oE=[
+    - setvar{var=caster.deadlygroundscd;type=string;val="&3&lSR"}
+    - actionmessage{m="<gradient:#365cb5:#4a9cc2>&l&oDeadly Grounds [SR] is now off cooldown!</gradient>"}
+    - modifytargetscore{objective=DuelistRNG;action=subtract;value=4}
+    ]} @self
+  Conditions:
+  - hasaura{n=DeadlyGroundsCD} false
+DeadlyGroundsBlast:
+  Skills:
+  - particles{a=3;p=explosion_large;y=-1;size=2;speed=0}
+  - particles{a=3;p=campfire_cosy_smoke;y=-1;size=1;speed=0.1}
+  - damage{a=2} @ENTL{r=3}
+ReloadRoulette:
+  Skills:
+  - sendtitle{title="";subtitle="&8&lL   &8R   &8SR   &fSL";d=20} @self
+  - sound{s=block.chain.break;p=1.5;repeat=4;repeatI=2} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - sound{s=item.crossbow.loading_end} @self
+  - aura{auraname=ReloadRouletteCD;d=240;
+    oS=[- setvar{var=caster.reloadroulettecd;type=string;val="&7&lSL"}];
+    oE=[
+    - setvar{var=caster.reloadroulettecd;type=string;val="&3&lSL"}
+    - actionmessage{m="<gradient:#365cb5:#4a9cc2>&l&oReload Roulette [SL] is now off cooldown!</gradient>"}
+    ]} @self
+  - skill{s=ReloadRouletteRNG} @self
+  Conditions:
+  - hasaura{n=ReloadRouletteCD} false
+  - score{o=DuelistRNG;v=1to7} true
+ReloadRouletteRNG:
+  Skills:
+  - switch{condition=score{o=DuelistRNG;v=<case>};cases=
+    case 1=[- removeaura{n=SalvoSprintCD}]
+    case 2=[- removeaura{n=CrossfireComboCD}]
+    case 3=[
+    - setvar{var=caster.duelistdice;type=integer;val=<random.1to2>}
+    - removeaura{n=SalvoSprintComboCD} ?vareq{var=caster.duelistdice;val=1}
+    - removeaura{n=CrossfireComboCD} ?vareq{var=caster.duelistdice;val=2}
+    - varunset{var=caster.duelistdice}
+    ]
+    case 4=[- removeaura{n=DeadlyGroundsCD}]
+    case 5=[
+    - setvar{var=caster.duelistdice;type=integer;val=<random.1to2>}
+    - removeaura{n=SalvoSprintComboCD} ?vareq{var=caster.duelistdice;val=1}
+    - removeaura{n=DeadlyGroundsCD} ?vareq{var=caster.duelistdice;val=2}
+    - varunset{var=caster.duelistdice}
+    ]
+    case 6=[
+    - setvar{var=caster.duelistdice;type=integer;val=<random.1to2>}
+    - removeaura{n=DeadlyGroundsCD} ?vareq{var=caster.duelistdice;val=1}
+    - removeaura{n=CrossfireComboCD} ?vareq{var=caster.duelistdice;val=2}
+    - varunset{var=caster.duelistdice}
+    ]
+    case 7=[
+    - setvar{var=caster.duelistdice;type=integer;val=<random.1to3>}
+    - removeaura{n=SalvoSprintComboCD} ?vareq{var=caster.duelistdice;val=1}
+    - removeaura{n=CrossfireComboCD} ?vareq{var=caster.duelistdice;val=2}
+    - removeaura{n=DeadlyGroundsCD} ?vareq{var=caster.duelistdice;val=3}
+    - varunset{var=caster.duelistdice}
+    ]
+    } @self
+
+LoseDollar:
+  Skills:
+  - sound{s=block.note_block.chime} @self
+  - switch{condition=score{o=dollars;v=<case>};cases=
+    case DEFAULT=[
+    - sound{s=entity.villager.hurt} @self
+    - modifytargetscore{objective=dollars;action=subtract;value=1} @self
+    - message{m="&7You lost $1. You now have $<caster.score.dollars>."} @self
+    ]
+    case 0=[
+    - sound{s=entity.villager.hurt} @self
+    - message{m="&7You don<&sq>t have any money! You are poor !"} @self
+    ]} @self
+GainDollar:
+  Skills:
+  - sound{s=block.note_block.chime} @self
+  - sound{s=entity.villager.celebrate} @self
+  - modifytargetscore{objective=dollars;action=add;value=1} @self
+  - message{m="&7You gained $1. You now have $<caster.score.dollars>."} @self
+DonateDollar:
+  Skills:
+  - sound{s=block.note_block.chime} @self
+  - modifytargetscore{objective=dollars;action=subtract;value=1} @self
+  - modifytargetscore{objective=dollars;action=add;value=1} @T
+  - message{m="&7How generous of you to give $1 to <target.name>. You now have $<caster.score.dollars>.";audience=@self} @T
+  - message{m="&7You are $1 richer, thanks to <caster.name>. You now have $<target.score.dollars>."} @T
+  Conditions:
+  - targets{a=1} true
+  - score{o=dollars;v=>0} true
+
+MindSpike:
+  Skills:
+  - auraremove{n=MindPressure} @self
+  - modifytargetscore{objective=EsperMP;action=set;value=0} @self
+  - sound{s=entity.enderman.teleport} ~onSignal:PsyArtActivation
+  - damage{a=9} @EIR{r=3;conditions=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|none>"} false]}
+  - throw{velocity=6;velocityY=5} @EIR{r=3;conditions=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|none>"} false]}
+  - sound{s=item.trident.thunder;p=1.7} @self
+  - slash{y=1;w=8;h=25;mpd=true;a=45;radius=1;arc=90;rot=90,0,0;
+          oP=[- effect:particles{p=reddust;color=#b49cdb}];
+          duration=1} @self
+  - slash{y=1;w=8;h=25;mpd=true;a=45;radius=1;arc=90;rot=-90,180,0;
+          oP=[- effect:particles{p=reddust;color=#b49cdb}];
+          duration=1} @self
+  - slash{y=1;w=3.5;h=15;mpd=true;a=45;radius=1;arc=90;rot=90,180,0;
+          oP=[- effect:particles{p=reddust;color=#b49cdb}];
+          duration=1} @self
+  - slash{y=1;w=3.5;h=15;mpd=true;a=45;radius=1;arc=90;rot=-90,0,0;
+          oP=[- effect:particles{p=reddust;color=#b49cdb}];
+          duration=1} @self
+  - particlering{particle=reddust;color=#b49cdb;repeat=2;repeatI=2;radius=<skill.var.itr>;points=32;amount=1;size=1.5} @self
+  - particlering{particle=reddust;color=#e783eb;repeat=2;repeatI=2;delay=1;radius="<skill.var.itr> - 0.5";points=32;amount=1;size=1.5} @self
+  - damagepercent{p=0.4;ch=true} @self
+  - particles{p=dragon_breath;a=100;speed=0.4} @self
+EsperMPLoss:
+  Skills:
+  - switch{condition=score{o=EsperMP;v=<case>};cases=
+    case 0=[- modifytargetscore{objective=EsperMP;action=set;value=0} @self]
+    case 1=[- auraremove{n=MindPressure} @self - modifytargetscore{objective=EsperMP;action=set;value=0} @self]
+    case DEFAULT=[- modifytargetscore{objective=EsperMP;action=subtract;value=1} @self]
+    } @self
+EsperMP:
+  Skills:
+  - switch{condition=score{o=EsperMP;v=<case>};cases=
+        case 0to11=[
+          - modifytargetscore{objective=EsperMP;action=add;value=1} @self
+          - skill{s=EsperMPTick} @self
+          ]
+        case DEFAULT=[
+          - skill{s=MindSpike}
+          ]
+        } @self
+EsperMPCase:
+  Skills:
+  - switch{condition=score{o=EsperMP;v=<case>};cases=
+        case 0=[
+          ]
+        case DEFAULT=[
+          - skill{s=EsperMPTick} @self
+          ]
+        } @self
+EsperMPTick:
+  Skills:
+  - aura{auraname=MindPressure;ma=true;delay=1;desot=false;duration=50;bt=true;bartimercolor=PURPLE;bartimerdisplay="<#b49cdb>&lMind Pressure<&co> <#e783eb>&n<caster.score.EsperMP>&r <#b49cdb>&o<&fs>12";
+    oE=[- skill{s=EsperMPLoss} @self - skill{s=EsperMPCase} @self]
+    } @self
+PsychicBlaze3:
+  Skills:
+  - skill{s=EsperMP}
+  - projectile{repeat=2;repeatI=5;mr=10;v=24;i=2;hnp=true;d=20;sE=true;id=5;
+          oT=[- modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.95} - effect:particles{p=reddust;color=#b49cdb;size=0.4}];
+          oH=[
+            - setNoDamageTicks{ticks=0;delay=0} @ENO{r=5}
+            - damage{a=2;pkb=true} - effect:particles{p=dragon_breath;a=3;spread=0.1;speed=0.05}
+            - setNoDamageTicks{ticks=0;delay=0} @ENO{r=5}
+            ];
+          oS=[- sound{s=block.end_portal_frame.fill}];
+          c=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|none>"} false];
+          ti=2;hR=0.7;vR=0.7;a=0.6;vn=7.5;bulletType=display;mat=stick;model=123524;bmd=true;scale=0.25,0.25,0.25} @Forward{y=1} ?!hasaura{aura=Psyfloat}
+  - projectile{repeat=2;repeatI=5;ho=15;mr=10;v=24;i=2;hnp=true;d=20;sE=true;id=5;
+          oT=[- modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.95} - effect:particles{p=reddust;color=#b49cdb;size=0.4}];
+          oH=[
+            - setNoDamageTicks{ticks=0;delay=0} @ENO{r=5}
+            - damage{a=2;pkb=true} - effect:particles{p=dragon_breath;a=3;spread=0.1;speed=0.05}
+            - setNoDamageTicks{ticks=0;delay=0} @ENO{r=5}
+            ];
+          oS=[- sound{s=entity.vex.hurt}];
+          c=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|none>"} false];
+          ti=2;hR=0.7;vR=0.7;a=0.6;vn=7.5;bulletType=display;mat=stick;model=123524;bmd=true;scale=0.25,0.25,0.25} @Forward{y=1} ?!hasaura{aura=Psyfloat}
+  - projectile{repeat=2;repeatI=5;ho=-15;mr=10;v=24;i=2;hnp=true;d=20;sE=true;id=5;
+          oT=[- modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.95} - effect:particles{p=reddust;color=#b49cdb;size=0.4}];
+          oH=[
+            - setNoDamageTicks{ticks=0;delay=0} @ENO{r=5}
+            - damage{a=2;pkb=true} - effect:particles{p=dragon_breath;a=3;spread=0.1;speed=0.05}
+            - setNoDamageTicks{ticks=0;delay=0} @ENO{r=5}
+            ];
+          oS=[- sound{s=-;p=1.5}];
+          c=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|none>"} false];
+          ti=2;hR=0.7;vR=0.7;a=0.6;vn=7.5;bulletType=display;mat=stick;model=123524;bmd=true;scale=0.25,0.25,0.25} @Forward{y=1} 
+
+NeuralPoint:
+  Skills:
+  - skill{s=EsperMP;repeat=1;repeatI=5}
+  - switch{condition=score{o=moveStyle;v=<case>};cases=
+        case 0=[
+          - missile{in=1;vn=10;vO=0.5;hO=120;mr=14;v=50;i=1;hnp=true;d=30;sE=true;id=5;d=10;
+          oT=[- effect:particles{p=dust_color_transition;color1=#b49cdb;color2=#b49cdb;size=1}];
+          oS=[- sound{s=entity.evoker.cast_spell;p=1.5} - effect:particles{p=mobSpellAmbient;color=#b49cdb;size=1}];
+          oE=[- damage{a=12} @ENO{r=3} - throw{repeat=2;repeatI=3;v=15;vY=5} @{r=3} - effect:particles{repeat=2;repeatI=3;p=explosion_large} - sound{s=entity.dragon_fireball.explode;p=1.4}]
+          c=[- mythicmobtype{t=Summon} false];
+          ti=2;hR=0.3;vR=0.3} @Forward{y=1;f=20}
+          - modifytargetscore{objective=moveStyle;action=add;value=1}
+          ]
+        case DEFAULT=[
+          - missile{in=1;vn=10;vO=0.5;hO=-120;mr=14;v=50;i=1;hnp=true;d=30;sE=true;id=5;d=10;
+          oT=[- effect:particles{p=dust_color_transition;color1=#b49cdb;color2=#b49cdb;size=1}];
+          oS=[- sound{s=entity.evoker.cast_spell;p=1.5} - effect:particles{p=mobSpellAmbient;color=#b49cdb;size=1}];
+          oE=[- damage{a=12} @ENO{r=3} - throw{repeat=2;repeatI=3;v=15;vY=5} @{r=3} - effect:particles{repeat=2;repeatI=3;p=explosion_large} - sound{s=entity.dragon_fireball.explode;p=1.4}]
+          c=[- mythicmobtype{t=Summon} false];
+          ti=2;hR=0.3;vR=0.3} @Forward{y=1;f=20}
+          - modifytargetscore{objective=moveStyle;action=subtract;value=1}
+          ]
+        } @self
+
+PsychicBlaze:
+  Skills:
+  - switch{condition=mythicmobtype{t=<case>};cases=
+      case Riftbearer=[- signal{s=PsyArtActivation} @target - skill{s=EsperMP} @self]
+      case Armorborne=[- signal{s=PsyArtActivation} @target - skill{s=EsperMP} @self]
+      case Tetherlight=[- signal{s=PsyArtActivation} @target]
+      case DEFAULT=[- skill{s=PsychicBlaze2}]
+    } @target
+PsychicBlaze2:
+  Skills:
+  - skill{s=PsychicBlaze3} ?!hasaura{aura=Psyfloat}
+  - skill{s=NeuralPoint} ?hasaura{aura=Psyfloat} ?!materialIsOnCooldown{mat=STICK} ?!mythicmobtype{t=Riftbearer}
+PsychicAura:
+  Skills:
+  - slash{y=1;w=8;h=25;mpd=true;a=45;radius=1;arc=90;rot=90,0,0;
+          oP=[- effect:particles{p=reddust;color=#b49cdb}];
+          duration=1} @self
+  - slash{y=1;w=8;h=25;mpd=true;a=45;radius=1;arc=90;rot=-90,180,0;
+          oP=[- effect:particles{p=reddust;color=#b49cdb}];
+          duration=1} @self
+  - slash{y=1;w=3.5;h=15;mpd=true;a=45;radius=1;arc=90;rot=90,180,0;
+          oP=[- effect:particles{p=reddust;color=#b49cdb}];
+          duration=1} @self
+  - slash{y=1;w=3.5;h=15;mpd=true;a=45;radius=1;arc=90;rot=-90,0,0;
+          oP=[- effect:particles{p=reddust;color=#b49cdb}];
+          duration=1} @self
+  - throw{velocity=15;velocityY=5} @EIR{r=3}
+  - sound{s=item.trident.thunder}
+MindSpikeOld:
+  Skills:
+  - swingarm @self
+  - onDamaged{i=1;auraName=mindspike;
+          oH=[- skill{s=PsychicAura}];
+          oS=[- sound{s=block.enchantment_table.use} - effect:particlering{particle=reddust;color=#b49cdb;radius=2;points=10;amount=1;size=6;vS=0;y=0.5} @self];
+          duration=10;m=0.4} @self
+DisplayMindPressure:
+  Skills:
+  - actionmessage{m="<skill.var.mindspike-stacks>"} @self
+IllusoryBubble:
+  Skills:
+  - projectile{HitSelf=false;hR=4.5;vR=4.5;mr=10;v=12;i=2;hnp=true;d=80;sE=false;id=5;
+          oT=[- modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.95} - effect:particlesphere{p=dust_color_transition;color1=#b49cdb;color2=#fff0fc;size=1;a=50;radius=4.5}];
+          oH=[- throw{velocity=5;velocityY=0} - damage{a=2}];
+          oS=[- sound{s=block.amethyst_cluster.place}];
+          ti=2} @Forward{y=1}
+  - projectile{HitSelf=true;hitTarget=false;hR=4.5;vR=4.5;mr=10;v=12;i=2;d=80;sE=false;id=100;
+          oT=[- modifyProjectile{trait=VELOCITY;action=MULTIPLY;value=0.95}];
+          oH=[- heal{a=1} - effect:particles{a=6;p=glow}];
+          oS=[- sound{s=block.amethyst_cluster.place}];
+          ti=2} @Forward{y=1}
+PsionicFloatTick:
+  Skills:
+  - sound{s=block.snow.break;p=0.4} @self
+  - particles{p=dragon_breath;speed=0.01;a=2} @self
+  - removeaura{n=PsyfloatDecay} @self ?varrange{var=caster.PsyfloatCD;val=>100}
+  - setmaterialcooldown{m=STICK;d=100} @self ?varrange{var=caster.PsyfloatCD;val=>100}
+  - modifytargetscore{o=PsyfloatCD;a=add;v=1} @self ?!varrange{var=caster.PsyfloatCD;val=>100}
+  - modifytargetscore{o=PsyfloatCD;a=set;v=-1} @self ?varrange{var=caster.PsyfloatCD;val=>100}
+  - setvariable{var=caster.PsyfloatCD;type=integer;value="0";repeat=3;repeatI=6} @self ?varrange{var=caster.PsyfloatCD;val=>100}
+  - lunge{v=0.3;vy=-0.05} @self ?!sprinting ?!pitch{p=>65}
+  - lunge{v=0.6;vy=0.1} @self ?sprinting ?!pitch{p=>65}
+  - lunge{v=0.1;vy=0.4} @self ?pitch{p=>65}
+  - modifytargetscore{o=PsyfloatCD;a=add;v=1} @self
+  - setvariable{var=caster.PsyfloatCD;type=integer;value="<caster.score.PsyfloatCD>"} @self
+  Conditions:
+  - materialIsOnCooldown{mat=STICK} false
+PsionicFloat:
+  Skills:
+  - aura{auraName=Psyfloat;d=5;rd=true;
+    oT=PsionicFloatTick
+    } @self 
+  - aura{auraName=PsyfloatDecay;d=50;rd=true;desot=false;
+    oE=[
+    - setmaterialcooldown{m=STICK;d=30} @self ?!materialIsOnCooldown{mat=STICK}
+    - modifytargetscore{o=PsyfloatCD;a=set;v=0}
+    ]
+    } @self
+PhantRiftBlink:
+  Skills:
+  - particleline{p=dragon_breath;size=0.4;amount=1;syo=1.5;fromOrigin=true;maxdistance=10} @TL
+  - command{cmd="minecraft:tp <caster.name> <target.l.x> <target.l.y> <target.l.z>"}
+  - delay 2
+  - signal{s=DIE}
+  - skill{s=RiftCollapse}
+  TargetConditions:
+  - distance{d=<10} orElseCast PsychicBlazeTrigger
+PsyArts:
+  Skills:
+  - aura{auraName=PsyArtsCD;duration=160;oE=[- sound{s=entity.player.levelup;p=2} @self]} @self
+  - switch{condition=score{o=psyart;v=<case>};cases=
+      case 0=[- summon{a=1;t=Riftbearer;r=1;os=true} @self]
+      case 1=[- summon{a=1;t=Armorborne;r=1;os=true} @self]
+      case 2=[- summon{a=1;t=Tetherlight;r=1;os=true} @self]
+    } @self
+  - sudoskill{s=SummonTeamJoin} @summons
+SummonTeamJoin:
+  - setvar{var=caster.team;type=string;val="<skill.var.team>"} @self
+PhantasmalRift:
+  Skills:
+  - summon{a=6;t=Arcane_Rift;r=10;os=true} @self
+  - sound{s=entity.warden.death} @self
+  - sound{s=block.sculk_shrieker.shriek} @self
+RiftCollapse:
+  Skills:
+  - projectile{repeat=3;repeatI=0;hR=0.5;vR=0.5;mr=10;v=8;i=4;d=160;bulletType=display;mat=stick;model=100005;sE=false;hnp=true;scale=1.5,1.5,1.5;ty=-0.5;mch=2;mdh=2;
+          oH=[- damage{a=4}];
+          oS=[- sound{s=block.amethyst_cluster.place}];
+          c=[- owner false];
+          ti=2;hs=true;hO=0} @Forward
+  - projectile{repeat=3;repeatI=0;hR=0.5;vR=0.5;mr=10;v=8;i=4;d=160;bulletType=display;mat=stick;model=100005;sE=false;hnp=true;scale=1.5,1.5,1.5;ty=-0.5;mch=2;mdh=2;
+          oH=[- damage{a=4}];
+          oS=[- sound{s=block.amethyst_cluster.place}];
+          c=[- owner false];
+          ti=2;hs=true;hO=72} @Forward
+  - projectile{repeat=3;repeatI=0;hR=0.5;vR=0.5;mr=10;v=8;i=4;d=160;bulletType=display;mat=stick;model=100005;sE=false;hnp=true;scale=1.5,1.5,1.5;ty=-0.5;mch=2;mdh=2;
+          oH=[- damage{a=4}];
+          oS=[- sound{s=block.amethyst_cluster.place}];
+          c=[- owner false];
+          ti=2;hs=true;hO=144} @Forward
+  - projectile{repeat=3;repeatI=0;hR=0.5;vR=0.5;mr=10;v=8;i=4;d=160;bulletType=display;mat=stick;model=100005;sE=false;hnp=true;scale=1.5,1.5,1.5;ty=-0.5;mch=2;mdh=2;
+          oH=[- damage{a=4}];
+          oS=[- sound{s=block.amethyst_cluster.place}];
+          c=[- owner false];
+          ti=2;hs=true;hO=216} @Forward
+  - projectile{repeat=3;repeatI=0;hR=0.5;vR=0.5;mr=10;v=8;i=4;d=160;bulletType=display;mat=stick;model=100005;sE=false;hnp=true;scale=1.5,1.5,1.5;ty=-0.5;mch=2;mdh=2;
+          oH=[- damage{a=4}];
+          oS=[- sound{s=block.amethyst_cluster.place}];
+          c=[- owner false];
+          ti=2;hs=true;hO=288} @Forward
+  - sound{s=entity.enderman.teleport;p=0.7}
+PsychicBlazeOld:
+  Skills:
+  - switch{condition=mythicmobtype{t=<case>};cases=
+      case Arcane_Rift=[- skill{s=PhantRiftBlink}]
+      case DEFAULT=[- skill{s=PsychicBlazeTrigger}]
+    }
+Magicognition:
+  Skills:
+  - skill{s=EsperMP}
+  - sound{s=block.enchantment_table.use;p=1.5} @self
+  - particlering{particle=reddust;color=#b49cdb;repeat=2;repeatI=2;radius=<skill.var.itr>;points=32;amount=1;size=1.5} @self
+  - particlering{particle=reddust;color=#e783eb;repeat=2;repeatI=2;delay=1;radius="<skill.var.itr> - 0.5";points=32;amount=1;size=1.5} @self
+  - switch{condition=score{o=psyart;v=<case>};cases=
+      case 0=[- modifytargetscore{objective=psyart;action=set;value=1} @self - am{m="&f<#b49cdb>&lPsy Art<&co> Armorborne"} @self]
+      case 1=[- modifytargetscore{objective=psyart;action=set;value=2} @self - am{m="&f<#b49cdb>&lPsy Art<&co> Tetherlight"} @self]
+      case 2=[- modifytargetscore{objective=psyart;action=set;value=0} @self - am{m="&f<#b49cdb>&lPsy Art<&co> Riftbearer"} @self]
+      case DEFAULT=[- modifytargetscore{objective=psyart;action=set;value=0} @self - am{m="&f<#b49cdb>&lPsy Art<&co> Riftbearer"} @self]
+    } @self
+UndyingFlame:
+  Skills:
+  - projectile{mr=10;v=30;i=1;hnp=true;d=20;sE=true;id=5;
+          oT=[- effect:particles{p=reddust;color=#03f4fc;size=1}];
+          oH=[- damage{a=4} - addtag{t=summontarget}];
+          oS=[- sound{s=block.end_portal_frame.fill}];
+          c=[- mythicmobtype{t=Summon} false];
+          ti=2;hR=0.7;vR=0.7} @Forward{y=1}
+          
+ScathingClover:
+  Skills:
+  - projectile{sfo=0.3;oT=ScathingClover-OT;i=3;oH=ScathingClover-OH;sB=true;sE=true;hnp=true;hR=1.2;vR=0.1;v=3;d=60;hnp=true} @targetLocation
+ScathingClover-OT:
+  Skills:
+  - effect:particlering{p=reddust;color=#32b365;a=8;r=0.2} @origin
+  - effect:particlering{p=reddust;color=#c2ff8a;a=6;r=0.5} @origin
+  - modifyprojectile{trait=VELOCITY;action=MULTIPLY;value=0.95}
+ScathingClover-OH:
+  Skills:
+  - damage{a=4}
+  - throw{vy=8}
+PassingLights:
+  Skills:
+  - projectile{sfo=0.3;i=2;sB=true;sE=true;hn=0.3;vn=0.3;hnp=false;hR=1;vR=1;v=8;d=75;repeat=5;repeatI=4;
+    oT=[
+      - effect:particle{p=reddust;color=#FBFCE6;a=3;hs=0.1;vs=0.1} @origin
+      - effect:particle{p=wax_off;a=2;hs=0.05;vs=0.05} @origin
+    ];
+    oH=[
+      - heal{a=3}
+    ];
+    } @targetLocation
+ClimacticRush:
+  Skills:
+  - potion{type=JUMP;duration=140;lvl=0;particles=false} @Self
+  - potion{type=SPEED;duration=140;lvl=1;particles=false} @Self
+  - particlering{p=reddust;color=#FF8FF2;points=40;r=4;size=1.35;y=0.7} @origin
+  - particlering{p=reddust;color=#BD3DD4;points=30;r=3.8;size=1.35;y=0.5} @origin
+  - particlering{p=reddust;color=#8E39BD;points=25;r=3.7;size=1.35;y=0.3} @origin
+  - heal{a=3} @self
+ShatteringNote:
+  Skills:
+  - projectile{hn=1.3;sfo=0.3;i=2;sB=true;sE=false;hn=0.3;vn=0.3;hnp=true;hR=1;vR=1;v=5;d=45;
+    oT=[
+      - effect:particles{p=note;a=2} @origin
+    ];
+    oE=[
+      - damage{a=8} @PIR{r=4}
+      - effect:particlesphere{p=reddust;color=#FF8FF2;amount=50;r=3} @origin
+    ];
+    } @targetLocation
+SymphonicArrows:
+  Skills:
+  - particles{p=mobspell;color=#FF8FF2;a=20;hs=3;vs=3} @origin
+  - sound{s=item.crossbow.shoot;v=4;repeat="<modifier.arrows>";repeatI=2} @origin
+  - sound{s=block.amethyst_cluster.break;v=4;repeat="<modifier.arrows>";repeatI=2} @origin
+  - projectile{bulletType=ARROW;repeat="<modifier.arrows>";repeatI=2;syo=4.5;sfo=-1;tyo=-2;sso=random(-3,3);hn=1.3;sfo=0.3;i=2;sB=true;sE=false;hn=0.3;vn=0.3;hnp=true;hR=1;vR=1;v=15;d=45;
+    oT=[
+      - effect:particles{p=spell_instant;a=1} @origin
+      - effect:particles{p=reddust;color=#FF8FF2} @origin
+    ];
+    oH=[
+      - damage{a="<modifier.damage>"}
+      - sound{s=item.trident.hit;v=4} @T
+    ];
+    } @targetLocation
+WingsOfAMystic:
+  Skills:
+  - velocity{m=set;x=0,y=0.4;z=0} @caster
+  - skill{s=MysticArrow;delay=15;repeat="<modifier.flaps>";repeatI=15} @caster
+MysticArrow:
+  Skills:
+  - jump{vy=1} @caster
+  - sound{s=item.trident.throw;v=4;sc=MASTER} @origin
+  - sound{s=custom.waterbolt;sc=master;v=4} @origin
+  - projectile{bulletSpin=4;bulletType=ARROW;sfo=0.3;i=2;sB=true;sE=false;hn=0.3;vn=0.3;hnp=true;hR=1;vR=1;v=25;d=75;
+    oT=[
+      - effect:particles{p=reddust;color=#4A80FF;a=3;hs=0.1;vs=0.1} @origin
+      - effect:particles{p=block;m=packed_ice;a=4;hs=0.15;vs=0.15} @origin
+    ];
+    oH=[
+      - mmodamage{a="<modifier.damage>";element=WATER}
+      - heal{a=3} @caster
+    ];
+    } @targetLocation 
+#Planned skills:
+# Scathing Clover - Sends out a spinning leaf that deals damage on-contact.
+# Passing Lights - Fires multiple high-velocity beams of light that heal its targets and gives them a temporary speed boost.
+# Heartburst - Sacrifices health points in order to create a delayed explosion around the user and buffs them.
+#  Wings Of A Mystic - Flies up in the air and shoots out several water arrows.
+
+#Luis here - you can save via ctrl+s
+
+#Anyways here some tips when it comes to mythicmobs
+#1 Every indent is two spaces meaning that a skill with a nested ability would look something like this:
+ScathingCloverSimplified:
+  Skills:
+  - projecitle{sfo=0.3;i=3;sb=true;se=true;hnp=true;hr=1.2;vr=0.1;v=3;d=60;
+    oT=[
+      - effect:particlering{p=reddust;color=#32b365;a=8;r=0.2} @origin
+      - effect:particlering{p=reddust;color=#c2ff8a;a=6;r=0.5} @origin
+      - modifyprojectile{trait=VELOCITY;action=MULTIPLY;value=0.95}
+    ];
+    oh=[
+      - damage{a=4}
+      - throw{vy=4}
+    ];
+    }
+
+#2 Make sure that brackets have been paired up otherwise mythicmobs might regard this skill file as unreadable,
+#preventing you from using other skills in this yml file until you fix it.
+
+#3 The particle reddust is not affected by the speed modifier meaning they will be static.
+
+#4 You can make a projectile's bullet type as a mob (really useful if you want certain skills to occur around the projectile).
+
+#5 The raytrace feature is better for hitscan than using the projectile mechanic.
+
+#6 Filet mignon
+
+#7 You don't need to name all the auras (like onDamaged or aura) unless you want a condition that checks for auras from entities.
+
+#8 You can basically make an entire command block chain in here and honestly it kinda works (yeah neal).
+
+#9 Make sure to have a targeteron the main abilies.
+
+#10 The origin targeter is wherever it is casted from (very important when making two part skills).
+ChordProgression:
+  Skills:
+  - switch{condition=hastag{t=<case>};cases=
+        case BardLament=[
+          - command{c="tag @s add BardSoothe";ac=true;op=true} @self
+          - sound{s=block.amethyst_block.break;sc=master;v=3;p=1} @origin
+          - command{c="tag @s remove BardLament";ac=true;op=true} @self
+          - actionmessage{m="&d&lSong of Soothing activated"} @self
+          - particlering{p=mobspell;color=#e544eb;points=5;r=1;size=1.35} @origin
+          ]
+        case BardSoothe=[
+          - command{c="tag @s add BardInspire";ac=true;op=true} @self
+          - sound{s=item.trident.return;sc=master;v=3;p=1} @origin
+          - command{c="tag @s remove BardSoothe";ac=true;op=true} @self
+          - actionmessage{m="&e&lSong of Inspiration activated"} @self
+          - particlering{p=mobspell;color=#fffb8c;points=5;r=1;size=1.35} @origin
+          ]
+        case BardInspire=[
+          - command{c="tag @s add BardLament";ac=true;op=true} @self
+          - sound{s=block.beacon.power_select;sc=master;v=3;p=1} @origin
+          - command{c="tag @s remove BardInspire";ac=true;op=true} @self
+          - actionmessage{m="&9&lSong of Lament activated"} @self
+          - particlering{p=mobspell;color=#8cafff;points=5;r=1;size=1.35} @origin
+          ]
+      } @self
+LoudNote:
+  Skills:
+  - switch{condition=hastag{t=<case>};cases=
+        case BardSoothe=[
+          - sound{s=block.note_block.guitar;sc=master;v=6;p=1.4} @origin
+          - projectile{sfo=0.3;i=2;sb=true;se=true;hnp=true;hr=0.5;vr=0.5;v=24;d=60;bounce=true;bv=1;
+              oT=[
+                - effect:particlesphere{p=reddust;color=#f7bcec;a=5;r=0.3} @origin
+                - effect:particlesphere{p=reddust;color=#f069d7;a=2;r=0.1} @origin
+              ];
+              oH=[
+                - damage{a=5} @ENO{r=2}
+                - onDamaged{auraName=SoothDebuff;d=200;m=1.2}
+                - sound{s=block.amethyst_cluster.break;sc=master;v=3;p=1} @origin
+                - effect:particlering{p=20;p=reddust;color=#f069d7;r=1.5;y=0.3}
+              ];
+            } @targetLocation
+          ]
+        case BardInspire=[
+          - sound{s=block.note_block.guitar;sc=master;v=3;p=1} @origin
+          - projectile{sfo=0.3;i=2;sb=true;se=true;hnp=true;hr=0.5;vr=0.5;v=24;d=60;bounce=true;bv=1;
+              oT=[
+                - effect:particlesphere{p=reddust;color=#fffb8c;a=5;r=0.3} @origin
+                - effect:particlesphere{p=reddust;color=#dea82a;a=2;r=0.1} @origin
+              ];
+              oH=[
+                - damage{a=5} @ENO{r=2}
+                - onAttack{auraName=InspireDebuff;d=200;m=0.8}
+                - sound{s=block.amethyst_cluster.break;sc=master;v=3;p=1} @origin
+                - effect:particlering{p=20;p=reddust;color=#dea82a;r=1.5;y=0.3}
+              ];
+            } @targetLocation
+          ]
+        case BardLament=[
+          - sound{s=block.note_block.guitar;sc=master;v=3;p=0.8} @origin
+          - projectile{sfo=0.3;i=2;sb=true;se=true;hnp=true;hr=0.5;vr=0.5;v=24;d=60;bounce=true;bv=1;
+              oT=[
+                - effect:particlesphere{p=reddust;color=#8cafff;a=5;r=0.3} @origin
+                - effect:particlesphere{p=reddust;color=#2a60de;a=2;r=0.1} @origin
+              ];
+              oH=[
+                - damage{a=5} @ENO{r=2}
+                - potion{type=SLOW;duration=200;lvl=0;particles=false}
+                - sound{s=block.amethyst_cluster.break;sc=master;v=3;p=1} @origin
+                - effect:particlering{p=20;p=reddust;color=#2a60de;r=1.5;y=0.3}
+              ];
+            } @targetLocation
+          ]
+      } @self
+BardicTune:
+  Skills:
+  - switch{condition=hastag{t=<case>};cases=
+        case BardSoothe=[
+          - sound{s=entity.allay.ambient_with_item;sc=master;v=6;p=0.75} @origin
+          - potion{type=REGENERATION;duration=140;lvl=0;particles=false} @PlayersInRing{min=5;max=10}
+          - potion{type=REGENERATION;duration=140;lvl=1;particles=false} @PIR{r=5}
+          - potion{type=REGENERATION;duration=140;lvl=1;particles=false} @self
+          - particlering{p=reddust;color=#f069d7;points=25;r=10;size=1.35;y=-0.3} @origin
+          - particlering{p=reddust;color=#e544eb;points=15;r=5;size=1.35;y=-0.3} @origin
+          - heal{a=6} @PlayersInRing{min=5;max=10}
+          - heal{a=8} @PIR{r=5}
+          - heal{a=6} @self
+          ]
+        case BardInspire=[
+          - sound{s=entity.allay.ambient_with_item;sc=master;v=6;p=1} @origin
+          - potion{type=SPEED;duration=140;lvl=0;particles=false} @PlayersInRing{min=5;max=10}
+          - potion{type=SPEED;duration=140;lvl=1;particles=false} @PIR{r=5}
+          - potion{type=SPEED;duration=140;lvl=1;particles=false} @self
+          - particlering{p=reddust;color=#fffb8c;points=25;r=10;size=1.35;y=-0.3} @origin
+          - particlering{p=reddust;color=#dea82a;points=15;r=5;size=1.35;y=-0.3} @origin
+          ]
+        case BardLament=[
+          - sound{s=entity.allay.ambient_with_item;sc=master;v=6;p=0.5} @origin
+          - onDamaged{auraName=LamentBuff;d=140;m=0.6} @PlayersInRing{min=5;max=10}
+          - onDamaged{auraName=LamentBuff;d=140;m=0.5} @PIR{r=5}
+          - onDamaged{auraName=LamentBuff;d=140;m=0.5} @self
+          - particlering{p=reddust;color=#8cafff;points=25;r=10;size=1.35;y=-0.3} @origin
+          - particlering{p=reddust;color=#2a60de;points=15;r=5;size=1.35;y=-0.3} @origin
+          ]
+      } @self
+Soundburst:
+  Skills:
+  - switch{condition=hastag{t=<case>};cases=
+        case BardSoothe=[
+          - sound{s=entity.warden.sonic_boom;sc=master;v=3;p=1.4} @origin
+          - projectile{ti=1;sfo=0.3;i=2;sb=true;se=false;hnp=true;hr=0.5;vr=0.5;v=32;d=60;bv=1;
+              oT=[
+                - slash{roll=90;a=180;w=2;p=8;
+                    oP=[
+                      - particles{p=reddust;color=#f069d7}
+                    ];
+                    oH=[
+                      - damage{a=10}
+                      - throw{velocity=5;velocityY=8}
+                      - onDamaged{auraName=SoothDebuff;d=200;m=1.2}
+                      - sound{s=block.amethyst_cluster.break;sc=master;v=0.5;p=1} @origin
+                      - effect:particleorbital{t=200;p=4;p=reddust;color=#f069d7;r=1.5}
+                    ];
+                }
+              ];
+            } @targetLocation
+        ]
+        case BardInspire=[
+          - sound{s=entity.warden.sonic_boom;sc=master;v=3;p=1.4} @origin
+          - projectile{ti=1;sfo=0.3;i=2;sb=true;se=false;hnp=true;hr=0.5;vr=0.5;v=24;d=60;bv=1;
+              oT=[
+                - slash{roll=90;a=180;w=2;p=8;
+                    oP=[
+                      - particles{p=reddust;color=#fffb8c}
+                    ];
+                    oH=[
+                      - damage{a=10}
+                      - throw{velocity=5;velocityY=8}
+                      - onAttack{auraName=InspireDebuff;d=200;m=0.8}
+                      - sound{s=block.amethyst_cluster.break;sc=master;v=0.5;p=1} @origin
+                      - effect:particlering{p=20;p=reddust;color=#dea82a;r=1.5;y=0.3}
+                    ];
+                }
+              ];
+            } @targetLocation
+        ]
+        case BardLament=[
+          - sound{s=entity.warden.sonic_boom;sc=master;v=3;p=1.4} @origin
+          - projectile{ti=1;sfo=0.3;i=2;sb=true;se=false;hnp=true;hr=0.5;vr=0.5;v=24;d=60;bv=1;
+              oT=[
+                - slash{roll=90;a=180;w=2;p=8;
+                    oP=[
+                      - particles{p=reddust;color=#8cafff}
+                    ];
+                    oH=[
+                      - damage{a=10}
+                      - throw{velocity=5;velocityY=8}
+                      - potion{type=SLOW;duration=200;lvl=0;particles=false}
+                      - sound{s=block.amethyst_cluster.break;sc=master;v=0.5;p=1} @origin
+                      - effect:particlering{p=20;p=reddust;color=#2a60de;r=1.5;y=0.3}
+                    ];
+                }
+              ];
+            } @targetLocation
+        ]
+      } @self
+      

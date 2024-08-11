@@ -1,0 +1,16 @@
+Pistol Shot:
+  mythicmobs-skill-id: PistolShot
+  modifiers:
+  - cooldown
+Pistolwhip:
+  mythicmobs-skill-id: Pistolwhip
+  modifiers:
+  - cooldown
+Trigger Mania:
+  mythicmobs-skill-id: TriggerMania
+  modifiers:
+  - cooldown
+Lockload:
+  mythicmobs-skill-id: Lockload
+  modifiers:
+  - cooldown

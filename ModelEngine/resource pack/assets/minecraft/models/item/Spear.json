@@ -1,0 +1,71 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "item/Spear",
+		"particle": "item/Spear"
+	},
+	"elements": [
+		{
+			"from": [5.95, 3, 6],
+			"to": [7.05, 22, 7],
+			"faces": {
+				"north": {"uv": [0, 0, 0.5, 8.5], "texture": "#0"},
+				"east": {"uv": [0.5, 0, 1, 8.5], "texture": "#0"},
+				"south": {"uv": [1, 0, 1.5, 8.5], "texture": "#0"},
+				"west": {"uv": [1.5, 0, 2, 8.5], "texture": "#0"},
+				"up": {"uv": [4, 2, 3.5, 1.5], "texture": "#0"},
+				"down": {"uv": [4, 2, 3.5, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6, 21.5, 6],
+			"to": [7, 24.5, 9],
+			"rotation": {"angle": -45, "axis": "x", "origin": [6.5, 22, 6.5]},
+			"faces": {
+				"north": {"uv": [2, 3, 2.5, 4.5], "texture": "#0"},
+				"east": {"uv": [2, 0, 3.5, 1.5], "texture": "#0"},
+				"south": {"uv": [2.5, 3, 3, 4.5], "texture": "#0"},
+				"west": {"uv": [2, 1.5, 3.5, 3], "texture": "#0"},
+				"up": {"uv": [3.5, 4.5, 3, 3], "texture": "#0"},
+				"down": {"uv": [4, 0, 3.5, 1.5], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [1.5, -3, 3]
+		},
+		"thirdperson_lefthand": {
+			"translation": [-1.5, 0, 3]
+		},
+		"firstperson_righthand": {
+			"translation": [4, -1, -1]
+		},
+		"firstperson_lefthand": {
+			"translation": [1.5, -2.25, -1]
+		},
+		"ground": {
+			"rotation": [-54.25, 28.99, -53.67]
+		},
+		"gui": {
+			"rotation": [79.63, 45.53, -82.56],
+			"translation": [-3.5, -6, 0]
+		},
+		"head": {
+			"rotation": [-90, 0, 0],
+			"translation": [1.5, 3.75, 3.5]
+		},
+		"fixed": {
+			"rotation": [0, -90, 0]
+		}
+	},
+	"groups": [
+		{
+			"name": "Spear",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

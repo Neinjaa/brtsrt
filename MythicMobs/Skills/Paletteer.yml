@@ -1,0 +1,744 @@
+AllPaletteerCDs:
+  Skills:
+  - setvar{var=caster.WhirlingHuesCDR;val=(ceil(<caster.skill.WhirlingHues.cooldown> * 10) / 10);type=float}
+  - setvar{var=caster.WhirlingHuesCD;val="";type=string} ?!skillOnCooldown{skill=WhirlingHues}
+  - setvar{var=caster.WhirlingHuesCD;val="<#f2dd63>WhHu &f<caster.var.WhirlingHuesCDR> ";type=string} ?skillOnCooldown{skill=WhirlingHues}
+  - setvar{var=caster.RunningRainbowCDR;val=(ceil(<caster.skill.RunningRainbow.cooldown> * 10) / 10);type=float}
+  - setvar{var=caster.RunningRainbowCD;val="";type=string} ?!skillOnCooldown{skill=RunningRainbow}
+  - setvar{var=caster.RunningRainbowCD;val="<#e65a81>RuRa &f<caster.var.RunningRainbowCDR> ";type=string} ?skillOnCooldown{skill=RunningRainbow}
+  - setvar{var=caster.SereneSplashCDR;val=(ceil(<caster.skill.SereneSplash.cooldown> * 10) / 10);type=float}
+  - setvar{var=caster.SereneSplashCD;val="";type=string} ?!skillOnCooldown{skill=SereneSplash}
+  - setvar{var=caster.SereneSplashCD;val="<#3272c7>SeSp &f<caster.var.SereneSplashCDR> ";type=string} ?skillOnCooldown{skill=SereneSplash}
+  - setvar{var=caster.AquaticSurgeCDR;val=(ceil(<caster.skill.AquaticSurge.cooldown> * 10) / 10);type=float}
+  - setvar{var=caster.AquaticSurgeCD;val="";type=string} ?!skillOnCooldown{skill=AquaticSurge}
+  - setvar{var=caster.AquaticSurgeCD;val="<#3272c7>AqSu &f<caster.var.AquaticSurgeCDR> ";type=string} ?skillOnCooldown{skill=AquaticSurge}
+PaletteerCD:
+  Skills:
+  - aura{auraName=PaletteerCD;i=1;duration=250;bt=true;bartimercolor=WHITE;bartimerdisplay=" <caster.var.WhirlingHuesCD><caster.var.RunningRainbowCD><caster.var.SereneSplashCD><caster.var.AquaticSurgeCD>";
+    oT=[- skill{s=AllPaletteerCDs}]} @self
+PassiveDyeCollectionA:
+  Conditions:
+  - hasaura{n=DyeBarB} false
+  Skills:
+  - skill{s=CheckNextDye} @self
+  - aura{auraname=DyeBarA;duration=10000;bt=true;bartimercolor=WHITE;bartimerstyle=SEGMENTED_10;bartimertext="<caster.var.dyerestockiconstart|–>&f <caster.var.dyeformat1|&7><caster.var.dyeicon1|–>&f <caster.var.dyeformat2|&7><caster.var.dyeicon2|->&f <caster.var.dyeformat3|&7><caster.var.dyeicon3|->&f <caster.var.dyerestockiconend|–>"} @self
+  - aura{auraname=DyeBarRemovalA;duration=20;
+    oE=[- removeaura{n=DyeBarA}]} @self
+  - skill{s=DyeLockA} @self
+  - skill{s=DyeSlotRenders} @self
+
+PassiveDyeCollectionB:
+  Skills:
+  - skill{s=CheckNextDye} @self
+  - removeaura{n=DyeBarA} @self
+  - aura{auraname=DyeBarB;duration=10000;bt=true;bartimercolor=WHITE;bartimerstyle=SEGMENTED_10;bartimertext="<caster.var.dyerestockiconstart|–> <caster.var.dyeformat1|&7><caster.var.dyeicon1|–>&f <caster.var.dyeformat2|&7><caster.var.dyeicon2|->&f <caster.var.dyeformat3|&7><caster.var.dyeicon3|->&f <caster.var.dyeformat4|&7><caster.var.dyeicon4|->&f <caster.var.dyeformat5|&7><caster.var.dyeicon5|->&f <caster.var.dyerestockiconend|–>"} @self
+  - aura{auraname=DyeBarRemovalB;duration=20;
+    oE=[- removeaura{n=DyeBarB}]} @self
+  - skill{s=DyeLockB} @self
+  - skill{s=DyeSlotRenders} @self
+
+DyeRestock:
+  Skills:
+  - skill{s=DyeRestockA} @self ?hasaura{n=DyeBarA}
+  - skill{s=DyeRestockB} @self ?hasaura{n=DyeBarB}
+  Conditions:
+  - pitch{p=70to90} true
+  - hasaura{n=DyeRestockChargeCD} false
+
+DyeRestockA:
+  Skills:
+  - sound{s=entity.experience_orb.pickup;p=1.5}
+  - aura{auraname=DyeRestockChargeCD;duration=40}
+  - aura{auraname=DyeRestockFrames;duration=40}
+  - setvar{var=caster.dyerestockiconstart;val="<#5bf5db>Restocking! ⏴⏴⏴";type=string} @self
+  - setvar{var=caster.dyerestockiconend;val="<#5bf5db>⏵⏵⏵ Restocking!";type=string} @self
+  - removeaura{n=DyeRestockCharge}
+  - skill{s=EmptyAll;repeat=2;repeatI=3}
+  - delay 12
+  - skill{s=RestockRandomRYB;repeat=2;repeatI=3}
+  - delay 15
+  - skill{s=DyeRestockRenders}
+
+DyeRestockB:
+  Skills:
+  - sound{s=entity.experience_orb.pickup;p=1.5}
+  - aura{auraname=DyeRestockChargeCD;duration=40}
+  - aura{auraname=DyeRestockFrames;duration=40}
+  - setvar{var=caster.dyerestockiconstart;val="<#5bf5db>Restocking! &7⏴⏴⏴";type=string} @self
+  - setvar{var=caster.dyerestockiconend;val="&7⏵⏵⏵ <#5bf5db>Restocking!";type=string} @self
+  - removeaura{n=DyeRestockCharge}
+  - skill{s=EmptyAll;repeat=4;repeatI=2}
+  - delay 12
+  - skill{s=RestockRandomRYB;repeat=4;repeatI=2}
+  - delay 20
+  - skill{s=DyeRestockRenders}
+
+DyeLockA:
+  Skills:
+  - variableunset{var=caster.dyecolor4} @self
+  - variableunset{var=caster.dyecolor5} @self
+  - variableunset{var=caster.dyecolor6} @self
+  - variableunset{var=caster.dyecolor7} @self
+  - variableunset{var=caster.dyecolor8} @self
+  - variableunset{var=caster.dyecolor9} @self
+  - variableunset{var=caster.dyecolor10} @self
+  - variableunset{var=caster.dyeslot4} @self
+  - variableunset{var=caster.dyeslot5} @self
+  - variableunset{var=caster.dyeslot6} @self
+  - variableunset{var=caster.dyeslot7} @self
+  - variableunset{var=caster.dyeslot8} @self
+  - variableunset{var=caster.dyeslot9} @self
+  - variableunset{var=caster.dyeslot10} @self
+  - variableunset{var=caster.dyeicon4} @self
+  - variableunset{var=caster.dyeicon5} @self
+  - variableunset{var=caster.dyeicon6} @self
+  - variableunset{var=caster.dyeicon7} @self
+  - variableunset{var=caster.dyeicon8} @self
+  - variableunset{var=caster.dyeicon9} @self
+  - variableunset{var=caster.dyeicon10} @self
+  - variableunset{var=caster.dyeformat4} @self
+  - variableunset{var=caster.dyeformat5} @self
+  - variableunset{var=caster.dyeformat6} @self
+  - variableunset{var=caster.dyeformat7} @self
+  - variableunset{var=caster.dyeformat8} @self
+  - variableunset{var=caster.dyeformat9} @self
+  - variableunset{var=caster.dyeformat10} @self
+DyeLockB:
+  Skills:
+  - variableunset{var=caster.dyecolor6} @self
+  - variableunset{var=caster.dyecolor7} @self
+  - variableunset{var=caster.dyecolor8} @self
+  - variableunset{var=caster.dyecolor9} @self
+  - variableunset{var=caster.dyecolor10} @self
+  - variableunset{var=caster.dyeslot6} @self
+  - variableunset{var=caster.dyeslot7} @self
+  - variableunset{var=caster.dyeslot8} @self
+  - variableunset{var=caster.dyeslot9} @self
+  - variableunset{var=caster.dyeslot10} @self
+  - variableunset{var=caster.dyeicon6} @self
+  - variableunset{var=caster.dyeicon7} @self
+  - variableunset{var=caster.dyeicon8} @self
+  - variableunset{var=caster.dyeicon9} @self
+  - variableunset{var=caster.dyeicon10} @self
+  - variableunset{var=caster.dyeformat6} @self
+  - variableunset{var=caster.dyeformat7} @self
+  - variableunset{var=caster.dyeformat8} @self
+  - variableunset{var=caster.dyeformat9} @self
+  - variableunset{var=caster.dyeformat10} @self
+
+
+RestockRed:
+  Skills:
+  - setvar{var=caster.dyecolor<skill.var.itr>;val="red";type=string} @self
+  - addvar{var=caster.dyecountred;a=1} @self
+  - addvar{var=caster.dyecountall;a=1} @self
+RestockYellow:
+  Skills:
+  - setvar{var=caster.dyecolor<skill.var.itr>;val="yellow";type=string} @self
+  - addvar{var=caster.dyecountyellow;a=1} @self
+  - addvar{var=caster.dyecountall;a=1} @self
+RestockBlue:
+  Skills:
+  - setvar{var=caster.dyecolor<skill.var.itr>;val="blue";type=string} @self
+  - addvar{var=caster.dyecountblue;a=1} @self
+  - addvar{var=caster.dyecountall;a=1} @self
+RestockWhite:
+  Skills:
+  - setvar{var=caster.dyecolor<skill.var.itr>;val="white";type=string} @self
+  - addvar{var=caster.dyecountwhite;a=1} @self
+  - addvar{var=caster.dyecountall;a=1} @self
+RestockBlack:
+  Skills:
+  - setvar{var=caster.dyecolor<skill.var.itr>;val="black";type=string} @self
+  - addvar{var=caster.dyecountblack;a=1} @self
+  - addvar{var=caster.dyecountall;a=1} @self
+EmptyAll:
+  Skills:
+  - setvar{var=caster.dyecountred;val=0;type=integer} @self
+  - setvar{var=caster.dyecountyellow;val=0;type=integer} @self
+  - setvar{var=caster.dyecountblue;val=0;type=integer} @self
+  - setvar{var=caster.dyecountwhite;val=0;type=integer} @self
+  - setvar{var=caster.dyecountblack;val=0;type=integer} @self
+  - setvar{var=caster.dyecountall;val=0;type=integer} @self
+  - sound{s=block.iron_trapdoor.close;p=2} ?vareq{var=caster.dyeslot<skill.var.itr>;val="full"}
+  - setvar{var=caster.dyeslot<skill.var.itr>;val="empty";type=string} @self
+
+RestockRandomRYB:
+  Skills:
+  - setvar{var=caster.dyeslot<skill.var.itr>;val="full";type=string} @self
+  - randomskill{skills=RestockRed,RestockYellow,RestockBlue}
+  - sound{s=item.bottle.fill;p=1.5}
+RestockRandomRYBW:
+  Skills:
+  - setvar{var=caster.dyeslot<skill.var.itr>;val="full";type=string} @self
+  - randomskill{skills=RestockRed,RestockYellow,RestockBlue,RestockWhite}
+  - sound{s=item.bottle.fill;p=1.5}
+RestockRandomRYBWB:
+  Skills:
+  - setvar{var=caster.dyeslot<skill.var.itr>;val="full";type=string} @self
+  - randomskill{skills=RestockRed,RestockYellow,RestockBlue,RestockBlack,RestockWhite}
+  - sound{s=item.bottle.fill;p=1.5}
+
+SplashClash:
+  Cooldown: 0.3
+  Skills:
+  - sound{s=item.brush.brushing.gravel;p=0.6} @self
+  - sound{s=item.bucket.empty;p=1.6} @self
+  - slash{d=7;a=240;w=3;h=3;roll=(<random.-15to15> + (180 * <random.0to1>));r=1;
+    hC=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false];
+    oP=[- effect:particles{a=1;p=reddust;color=#95f5df;size=2}];
+    oH=[
+    - basedamage{ii=true;useAttribute=true;m=4.2;i=true;e=water}
+    - sound{s=block.slime_block.place;p=0.8}
+    ]} @Forward{y=1;f=0} ?!varrange{var=caster.dyecountall;val=1to10}
+  - skill{s=SwingColors} ?varrange{var=caster.dyecountall;val=1to10}
+  Conditions:
+  - hasaura{n=DyeRestockFrames} false
+SwingColors:
+  Skills:
+  - skill{s=EmptyDye} @self
+  - skill{s=RedSplashClash} ?vareq{var=caster.nextdyecolor;val="red"}
+  - skill{s=YellowSplashClash} ?vareq{var=caster.nextdyecolor;val="yellow"}
+  - skill{s=BlueSplashClash} ?vareq{var=caster.nextdyecolor;val="blue"}
+  Conditions:
+  - hasaura{n=DyeRestockFrames} false
+
+RedSplashClash:
+  Skills:
+  - slash{d=5;a=240;w=3;h=3;roll=(<random.-15to15> + (180 * <random.0to1>));r=1;
+    hC=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false];
+    oP=[- effect:particles{a=4;p=reddust;color=#d6496c;size=3}];
+    oH=[
+    - basedamage{ii=true;useAttribute=true;m=5.5;e=water}
+    - sound{s=block.slime_block.place;p=0.8}
+    - skill{s=DrenchedInRed;d=60}
+    ]} @Forward{y=1;f=0}
+YellowSplashClash:
+  Skills:
+  - slash{d=5;a=240;w=3;h=3;roll=(<random.-15to15> + (180 * <random.0to1>));r=1;
+    hC=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false];
+    oP=[- effect:particles{a=4;p=reddust;color=#f2dd63;size=3}];
+    oH=[
+    - basedamage{ii=true;useAttribute=true;m=5.5;e=water}
+    - sound{s=block.slime_block.place;p=0.8}
+    - skill{s=DrenchedInYellow;d=80}
+    ]} @Forward{y=1;f=0}
+BlueSplashClash:
+  Skills:
+  - slash{d=5;a=240;w=3;h=3;roll=(<random.-15to15> + (180 * <random.0to1>));r=1;
+    hC=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false];
+    oP=[- effect:particles{a=4;p=reddust;color=#2379c4;size=3}];
+    oH=[
+    - setnodamageticks{ticks=0} 
+    - basedamage{ii=true;useAttribute=true;m=5.5;e=water}
+    - sound{s=block.slime_block.place;p=0.8}
+    - skill{s=DrenchedInBlue;d=120}
+    ]} @Forward{y=1;f=0}
+
+WhirlingHues:
+  Cooldown: 6
+  Skills:
+  - velocity{m=multiply;x=3.5;z=3.5;y=0} @self ?sprinting
+  - velocity{m=multiply;x=0.1;z=0.1;y=0} @self ?!sprinting
+  - velocity{m=add;x=0;z=0;y=0.4} @self
+  - skill{s=WhirlingHuesSlash} @origin ?!sprinting
+  - aura{d=10;oE=[- skill{s=WhirlingHuesSlash} @Forward{f=5;uel=true}
+    ]} @self ?sprinting
+  - skill{s=EmptyDyeYellow;slots=2} @self
+  - skill{s=PaletteerCD} @self
+  Conditions:
+  - hasaura{n=DyeRestockFrames} false
+  - varrange{var=caster.dyecountyellow;val=2to10} true
+WhirlingHuesSlash:
+  Skills:
+  - slash{repeat=2;repeatI=4;d=4;a=180;w=((<skill.var.itr> * 0.8) + 2);h=((<skill.var.itr> * 0.5) + 2);r=0.9;fromorigin=true;yo=0.05;
+      hC=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false];
+      oP=[- particles{p=reddust;a=1;c=#ecf58c;size=2.5}];
+      oS=[- sound{s=entity.player.attack.sweep;0.5}];
+      oH=[- basedamage{ii=true;useAttribute=true;m=5;e=water}]} @origin
+  - slash{repeat=2;repeatI=4;d=4;a=180;w=((<skill.var.itr> * 0.8) + 2);h=((<skill.var.itr> * 0.5) + 2);r=0.9;yaw=180;fromorigin=true;yo=0.05;delay=4;
+      hC=[- stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false];
+      oP=[- particles{p=reddust;a=1;c=#ecf58c;size=2.5}];
+      oS=[- sound{s=entity.player.attack.sweep;0.5}];
+      oH=[- basedamage{ii=true;useAttribute=true;m=5;e=water}]} @origin
+RunningRainbowTrail:
+  Skills:
+    - particles{p=reddust;a=8;spread=0.2;color=#e65a81;size=1.5}
+    - skill{s=DrenchedInRed;d=60} @ENO{r=0.5}
+  TargetConditions:
+  - stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false
+RunningRainbow:
+  Cooldown: 8
+  Skills:
+  - potion{type=SPEED;d=100;l=2;p=false;i=false;f=true} @self
+  - sound{s=entity.allay.ambient_without_item;p=2} @self
+  - onDamaged{m=1.1;oE=RainbowBlast;duration=100} @self
+  - aura{auraname=RunningRainbow;duration=100;i=2;
+    oT=[
+    - skill{s=RunningRainbowTrail;repeat=19;repeatI=2} @origin]} @self
+  - skill{s=EmptyDyeRed;slots=2} @self
+  - skill{s=PaletteerCD} @self
+  Conditions:
+  - hasaura{n=DyeRestockFrames} false
+  - varrange{var=caster.dyecountred;val=2to10} true
+SereneSplash:
+  Cooldown: 12
+  Skills:
+  - sound{s=entity.generic.splash;p=2} @self
+  - projectile{d=200;ti=1;g=0.4;v=12;vO=0.839;sE=false;sB=true;
+    oT=[- particles{p=reddust;c=#82deff;size=2} @origin];
+    oE=[
+    - particle{y=((abs(2.5 * (sin(0.12566 * <skill.var.itr>)))) - 0.2);repeat=99;repeatI=2;p=reddust;color=#82deff;size=2} @origin
+    - particlering{y=-0.3;repeat=99;repeatI=2;r=5;p=reddust;points=25;color=#3272c7} @origin
+    - totem{d=201;i=50;
+      oT=[
+      - sound{s=block.enchantment_table.use;p=1.5} @origin
+      - particlering{y=-0.2;repeat=9;repeatI=1;r=(<skill.var.itr> * 0.5);p=reddust;points=25;color=#3272c7} @origin
+      - heal{a=5} @PlayersNearOrigin{r=5;target=players,self}
+      ]}
+    ]} @Forward{y=1}
+  - skill{s=EmptyDyeBlue;slots=2} @self
+  - skill{s=PaletteerCD} @self
+  Conditions:
+  - hasaura{n=DyeRestockFrames} false
+  - varrange{var=caster.dyecountblue;val=2to10} true
+AquaticSurge:
+  Cooldown: 10
+  Skills:
+  - skill{s=EmptyDyeBlue;slots=1} @self
+  - skill{s=PaletteerCD} @self
+  - sound{s=entity.player.splash.high_speed;sc=master;v=4} @self
+  - missile{hs=true;hp=true;hnp=true;syo=1;hr=2;vr=0.2;se=false;sb=true;v=12;d=30;i=1;ho=160;in=3;
+    onHit=[
+    - setNoDamageTicks{ticks=0}
+    - basedamage{m=4;element=WATER}
+    - potion{type=Slow;lvl=1;particles=false;d=100}
+    ];
+    onTick=[
+    - pull{v=10;to=true} @ENO{r=4;conditions=[  - hastag{t=adventuring} false - stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false]}
+    - particles{p=reddust;color=#82deff;a=6;hs=1;vs=0.2}
+    ];i=1} @Forward{f=30;sideOffset=-20;y=2}
+  - missile{hs=true;hp=true;hnp=true;syo=1;hr=2;vr=0.2;sb=true;se=false;v=12;d=30;i=1;ho=-160;in=3;
+    onHit=[
+    - setNoDamageTicks{ticks=0}
+    - basedamage{m=4;element=WATER}
+    - potion{type=Slow;lvl=1;particles=false;d=100}
+    ];
+    onTick=[
+    - pull{v=10;to=true} @ENO{r=4;conditions=[  - hastag{t=adventuring} false - stringequals{val1="<caster.var.team|spades>";val2="<target.var.team|other>"} false]}
+    - particles{p=reddust;color=#82deff;a=6;hs=1;vs=0.2}
+    ];i=1} @Forward{f=30;sideOffset=20;y=2}
+  Conditions:
+  - hasaura{n=DyeRestockFrames} false
+  - varrange{var=caster.dyecountblue;val=1to10} true
+DrenchedInRed:
+  Skills:
+  - aura{auratype=Drenched;auraname=DrenchedInRedP;d=<skill.d|40>;i=5;
+    oT=[- particles{spread=0.5;a=5;p=mobspell;c=#d6496c}]}
+  - aura{auraname=DrenchedInRed;d=<skill.d|40>;i=15;
+    oT=[- basedamage{ii=true;useAttribute=true;m=4;pi=true;e=water;preventknockback=true}]}
+DrenchedInYellow:
+  Skills:
+  - aura{auratype=Drenched;auraname=DrenchedInYellowP;d=<skill.d|40>;i=5;
+    oT=[- particles{spread=0.5;a=5;p=mobspell;c=#f2dd63}]}
+  - aura{auraname=DrenchedInYellow;d=<skill.d|40>;i=15;desot=false;
+    oE=[
+    - basedamage{ii=true;useAttribute=true;m=5;pi=true;e=water;preventknockback=true}
+    - particles{spread=0.5;a=10;p=reddust;c=#f2dd63}
+    ]}
+DrenchedInBlue:
+  Skills:
+  - delay 5
+  - aura{auratype=Drenched;auraname=DrenchedInBlueP;d=<skill.d|40>;i=5;
+    oT=[- particles{spread=0.5;a=5;p=mobspell;c=#2379c4}]}
+  - onDamaged{auraname=DrenchedInBlue;d=<skill.d|40>;i=5;
+    oH=[
+    - healpercent{m=0.08;cd=1} @Trigger{target=players,self}
+    ]}
+
+
+
+CheckNextDye:
+  Skills:
+  - setvar{var=caster.checknextdye;val=0;type=integer} @self
+  - setvar{var=caster.checknextdye;val=10;type=integer} @self ?vareq{var=caster.dyeslot10;val="full"}
+  - setvar{var=caster.checknextdye;val=9;type=integer} @self ?vareq{var=caster.dyeslot9;val="full"}
+  - setvar{var=caster.checknextdye;val=8;type=integer} @self ?vareq{var=caster.dyeslot8;val="full"}
+  - setvar{var=caster.checknextdye;val=7;type=integer} @self ?vareq{var=caster.dyeslot7;val="full"}
+  - setvar{var=caster.checknextdye;val=6;type=integer} @self ?vareq{var=caster.dyeslot6;val="full"}
+  - setvar{var=caster.checknextdye;val=5;type=integer} @self ?vareq{var=caster.dyeslot5;val="full"}
+  - setvar{var=caster.checknextdye;val=4;type=integer} @self ?vareq{var=caster.dyeslot4;val="full"}
+  - setvar{var=caster.checknextdye;val=3;type=integer} @self ?vareq{var=caster.dyeslot3;val="full"}
+  - setvar{var=caster.checknextdye;val=2;type=integer} @self ?vareq{var=caster.dyeslot2;val="full"}
+  - setvar{var=caster.checknextdye;val=1;type=integer} @self ?vareq{var=caster.dyeslot1;val="full"}
+  - setvar{var=caster.nextdyecolor;val="<caster.var.dyecolor<caster.var.checknextdye>|empty>";type=string} @self  
+
+EmptyDye:
+  Skills:
+  - setvar{var=caster.emptydye;val=<skill.slots|1>;type=integer} @self
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot1>";val2="full"}
+  - setvar{var=caster.dyeslot1;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot1>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot2>";val2="full"}
+  - setvar{var=caster.dyeslot2;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot2>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot3>";val2="full"}
+  - setvar{var=caster.dyeslot3;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot3>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot4>";val2="full"}
+  - setvar{var=caster.dyeslot4;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot4>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot5>";val2="full"}
+  - setvar{var=caster.dyeslot5;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot5>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot6>";val2="full"}
+  - setvar{var=caster.dyeslot6;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot6>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot7>";val2="full"}
+  - setvar{var=caster.dyeslot7;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot7>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot8>";val2="full"}
+  - setvar{var=caster.dyeslot8;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot8>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot9>";val2="full"}
+  - setvar{var=caster.dyeslot9;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot9>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - addvar{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0} ?!stringequals{val1="<caster.var.dyeslot10>";val2="full"}
+  - setvar{var=caster.dyeslot10;val="empty";type=string} @self ?!vareq{var=caster.emptydye;val=0} ?stringequals{val1="<caster.var.dyeslot10>";val2="full"}
+  - variablesubtract{var=caster.emptydye;a=1} @self ?!vareq{var=caster.emptydye;val=0}
+  - variablesubtract{var=caster.dyecountall;a=1} @self
+
+DyeRecountAll:
+  Skills:
+  - skill{s=DyeRecount;dyerecount=red} @self
+  - skill{s=DyeRecount;dyerecount=yellow} @self
+  - skill{s=DyeRecount;dyerecount=blue} @self
+  - skill{s=DyeRecount;dyerecount=white} @self
+  - skill{s=DyeRecount;dyerecount=black} @self
+  - setvar{var=caster.dyecountall;val=(<caster.var.dyecountred>+<caster.var.dyecountyellow>+<caster.var.dyecountblue>+<caster.var.dyecountwhite>+<caster.var.dyecountblack>);type=integer} @self
+
+DyeRecount:
+  Skills:
+  - setvar{var=caster.dyecount<skill.dyerecount|red>;val=0} @self
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor1;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot1;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor2;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot2;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor3;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot3;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor4;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot4;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor5;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot5;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor6;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot6;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor7;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot7;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor8;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot8;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor9;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot9;val="full"}
+  - addvar{var=caster.dyecount<skill.dyerecount|red>;a=1} @self ?vareq{var=caster.dyecolor10;val="<skill.dyerecount|red>"} ?vareq{var=caster.dyeslot10;val="full"}
+
+EmptyDyeRed:
+  Skills:
+  - setvar{var=caster.emptydyered;val=<skill.slots|1>;type=integer} @self
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="redfull"}
+  - setvar{var=caster.dyeslot1;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="redfull"}
+  - setvar{var=caster.dyeslot2;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="redfull"}
+  - setvar{var=caster.dyeslot3;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="redfull"}
+  - setvar{var=caster.dyeslot4;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="redfull"}
+  - setvar{var=caster.dyeslot5;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="redfull"}
+  - setvar{var=caster.dyeslot6;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="redfull"}
+  - setvar{var=caster.dyeslot7;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="redfull"}
+  - setvar{var=caster.dyeslot8;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="redfull"}
+  - setvar{var=caster.dyeslot9;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+  - addvar{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?!stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="redfull"}
+  - variablesubtract{var=caster.dyecountred;a=1} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="redfull"}
+  - setvar{var=caster.dyeslot10;val="empty";type=string} @self ?!vareq{var=caster.emptydyered;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="redfull"}
+  - variablesubtract{var=caster.emptydyered;a=1} @self ?!vareq{var=caster.emptydyered;val=0}
+
+EmptyDyeYellow:
+  Skills:
+  - setvar{var=caster.emptydyeyellow;val=<skill.slots|1>;type=integer} @self
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot1;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot2;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot3;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot4;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot5;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot6;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot7;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot8;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot9;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+  - addvar{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?!stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="yellowfull"}
+  - variablesubtract{var=caster.dyecountyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="yellowfull"}
+  - setvar{var=caster.dyeslot10;val="empty";type=string} @self ?!vareq{var=caster.emptydyeyellow;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="yellowfull"}
+  - variablesubtract{var=caster.emptydyeyellow;a=1} @self ?!vareq{var=caster.emptydyeyellow;val=0}
+
+EmptyDyeBlue:
+  Skills:
+  - setvar{var=caster.emptydyeblue;val=<skill.slots|1>;type=integer} @self
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="bluefull"}
+  - setvar{var=caster.dyeslot1;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="bluefull"}
+  - setvar{var=caster.dyeslot2;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="bluefull"}
+  - setvar{var=caster.dyeslot3;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="bluefull"}
+  - setvar{var=caster.dyeslot4;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="bluefull"}
+  - setvar{var=caster.dyeslot5;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="bluefull"}
+  - setvar{var=caster.dyeslot6;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="bluefull"}
+  - setvar{var=caster.dyeslot7;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="bluefull"}
+  - setvar{var=caster.dyeslot8;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="bluefull"}
+  - setvar{var=caster.dyeslot9;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+  - addvar{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?!stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="bluefull"}
+  - variablesubtract{var=caster.dyecountblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="bluefull"}
+  - setvar{var=caster.dyeslot10;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblue;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="bluefull"}
+  - variablesubtract{var=caster.emptydyeblue;a=1} @self ?!vareq{var=caster.emptydyeblue;val=0}
+
+EmptyDyeWhite:
+  Skills:
+  - setvar{var=caster.emptydyewhite;val=<skill.slots|1>;type=integer} @self
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="whitefull"}
+  - setvar{var=caster.dyeslot1;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="whitefull"}
+  - setvar{var=caster.dyeslot2;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="whitefull"}
+  - setvar{var=caster.dyeslot3;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="whitefull"}
+  - setvar{var=caster.dyeslot4;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="whitefull"}
+  - setvar{var=caster.dyeslot5;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="whitefull"}
+  - setvar{var=caster.dyeslot6;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="whitefull"}
+  - setvar{var=caster.dyeslot7;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="whitefull"}
+  - setvar{var=caster.dyeslot8;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="whitefull"}
+  - setvar{var=caster.dyeslot9;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+  - addvar{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?!stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="whitefull"}
+  - variablesubtract{var=caster.dyecountwhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="whitefull"}
+  - setvar{var=caster.dyeslot10;val="empty";type=string} @self ?!vareq{var=caster.emptydyewhite;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="whitefull"}
+  - variablesubtract{var=caster.emptydyewhite;a=1} @self ?!vareq{var=caster.emptydyewhite;val=0}
+
+EmptyDyeBlack:
+  Skills:
+  - setvar{var=caster.emptydyeblack;val=<skill.slots|1>;type=integer} @self
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="blackfull"}
+  - setvar{var=caster.dyeslot1;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor1><caster.var.dyeslot1>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="blackfull"}
+  - setvar{var=caster.dyeslot2;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor2><caster.var.dyeslot2>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="blackfull"}
+  - setvar{var=caster.dyeslot3;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor3><caster.var.dyeslot3>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="blackfull"}
+  - setvar{var=caster.dyeslot4;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor4><caster.var.dyeslot4>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="blackfull"}
+  - setvar{var=caster.dyeslot5;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor5><caster.var.dyeslot5>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="blackfull"}
+  - setvar{var=caster.dyeslot6;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor6><caster.var.dyeslot6>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="blackfull"}
+  - setvar{var=caster.dyeslot7;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor7><caster.var.dyeslot7>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="blackfull"}
+  - setvar{var=caster.dyeslot8;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor8><caster.var.dyeslot8>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="blackfull"}
+  - setvar{var=caster.dyeslot9;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor9><caster.var.dyeslot9>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+  - addvar{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?!stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="blackfull"}
+  - variablesubtract{var=caster.dyecountblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="blackfull"}
+  - setvar{var=caster.dyeslot10;val="empty";type=string} @self ?!vareq{var=caster.emptydyeblack;val=0} ?stringequals{val1="<caster.var.dyecolor10><caster.var.dyeslot10>";val2="blackfull"}
+  - variablesubtract{var=caster.emptydyeblack;a=1} @self ?!vareq{var=caster.emptydyeblack;val=0}
+
+
+
+
+
+DyeRestockRenders:
+  Skills:
+  - setvar{var=caster.dyerestockiconstart;val="<#818a88>⏴⏴⏴";type=string} @self
+  - setvar{var=caster.dyerestockiconend;val="<#818a88>⏵⏵⏵";type=string} @self
+  - delay 2
+  - setvar{var=caster.dyerestockiconstart;val="<#818a88>⏴⏴<#48d9b7>⏴";type=string} @self
+  - setvar{var=caster.dyerestockiconend;val="<#48d9b7>⏵<#818a88>⏵⏵";type=string} @self
+  - delay 2
+  - setvar{var=caster.dyerestockiconstart;val="<#818a88>⏴<#48d9b7>⏴⏴";type=string} @self
+  - setvar{var=caster.dyerestockiconend;val="<#48d9b7>⏵⏵<#818a88>⏵";type=string} @self
+  - delay 2
+  - setvar{var=caster.dyerestockiconstart;val="<#48d9b7>⏴⏴⏴";type=string} @self
+  - setvar{var=caster.dyerestockiconend;val="<#48d9b7>⏵⏵⏵";type=string} @self
+
+DyeSlotRenders:
+  Skills:
+  - skill{s=DyeRecountAll} @self
+  - setvar{var=caster.dyeicon1;val="★";type=string} @self ?vareq{var=caster.dyeslot1;val="full"}
+  - setvar{var=caster.dyeicon2;val="★";type=string} @self ?vareq{var=caster.dyeslot2;val="full"}
+  - setvar{var=caster.dyeicon3;val="★";type=string} @self ?vareq{var=caster.dyeslot3;val="full"}
+  - setvar{var=caster.dyeicon4;val="★";type=string} @self ?vareq{var=caster.dyeslot4;val="full"}
+  - setvar{var=caster.dyeicon5;val="★";type=string} @self ?vareq{var=caster.dyeslot5;val="full"}
+  - setvar{var=caster.dyeicon6;val="★";type=string} @self ?vareq{var=caster.dyeslot6;val="full"}
+  - setvar{var=caster.dyeicon7;val="★";type=string} @self ?vareq{var=caster.dyeslot7;val="full"}
+  - setvar{var=caster.dyeicon8;val="★";type=string} @self ?vareq{var=caster.dyeslot8;val="full"}
+  - setvar{var=caster.dyeicon9;val="★";type=string} @self ?vareq{var=caster.dyeslot9;val="full"}
+  - setvar{var=caster.dyeicon10;val="★";type=string} @self ?vareq{var=caster.dyeslot10;val="full"}
+  - setvar{var=caster.dyeicon1;val="☆";type=string} @self ?vareq{var=caster.dyeslot1;val="empty"}
+  - setvar{var=caster.dyeicon2;val="☆";type=string} @self ?vareq{var=caster.dyeslot2;val="empty"}
+  - setvar{var=caster.dyeicon3;val="☆";type=string} @self ?vareq{var=caster.dyeslot3;val="empty"}
+  - setvar{var=caster.dyeicon4;val="☆";type=string} @self ?vareq{var=caster.dyeslot4;val="empty"}
+  - setvar{var=caster.dyeicon5;val="☆";type=string} @self ?vareq{var=caster.dyeslot5;val="empty"}
+  - setvar{var=caster.dyeicon6;val="☆";type=string} @self ?vareq{var=caster.dyeslot6;val="empty"}
+  - setvar{var=caster.dyeicon7;val="☆";type=string} @self ?vareq{var=caster.dyeslot7;val="empty"}
+  - setvar{var=caster.dyeicon8;val="☆";type=string} @self ?vareq{var=caster.dyeslot8;val="empty"}
+  - setvar{var=caster.dyeicon9;val="☆";type=string} @self ?vareq{var=caster.dyeslot9;val="empty"}
+  - setvar{var=caster.dyeicon10;val="☆";type=string} @self ?vareq{var=caster.dyeslot10;val="empty"}
+  - setvar{var=caster.dyeformat1;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor1;val="red"}
+  - setvar{var=caster.dyeformat2;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor2;val="red"}
+  - setvar{var=caster.dyeformat3;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor3;val="red"}
+  - setvar{var=caster.dyeformat4;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor4;val="red"}
+  - setvar{var=caster.dyeformat5;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor5;val="red"}
+  - setvar{var=caster.dyeformat6;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor6;val="red"}
+  - setvar{var=caster.dyeformat7;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor7;val="red"}
+  - setvar{var=caster.dyeformat8;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor8;val="red"}
+  - setvar{var=caster.dyeformat9;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor9;val="red"}
+  - setvar{var=caster.dyeformat10;val="<#d6496c>";type=string} @self ?vareq{var=caster.dyecolor10;val="red"}
+  - setvar{var=caster.dyeformat1;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor1;val="yellow"}
+  - setvar{var=caster.dyeformat2;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor2;val="yellow"}
+  - setvar{var=caster.dyeformat3;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor3;val="yellow"}
+  - setvar{var=caster.dyeformat4;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor4;val="yellow"}
+  - setvar{var=caster.dyeformat5;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor5;val="yellow"}
+  - setvar{var=caster.dyeformat6;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor6;val="yellow"}
+  - setvar{var=caster.dyeformat7;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor7;val="yellow"}
+  - setvar{var=caster.dyeformat8;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor8;val="yellow"}
+  - setvar{var=caster.dyeformat9;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor9;val="yellow"}
+  - setvar{var=caster.dyeformat10;val="<#f2dd63>";type=string} @self ?vareq{var=caster.dyecolor10;val="yellow"}
+  - setvar{var=caster.dyeformat1;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor1;val="blue"}
+  - setvar{var=caster.dyeformat2;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor2;val="blue"}
+  - setvar{var=caster.dyeformat3;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor3;val="blue"}
+  - setvar{var=caster.dyeformat4;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor4;val="blue"}
+  - setvar{var=caster.dyeformat5;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor5;val="blue"}
+  - setvar{var=caster.dyeformat6;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor6;val="blue"}
+  - setvar{var=caster.dyeformat7;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor7;val="blue"}
+  - setvar{var=caster.dyeformat8;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor8;val="blue"}
+  - setvar{var=caster.dyeformat9;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor9;val="blue"}
+  - setvar{var=caster.dyeformat10;val="<#2379c4>";type=string} @self ?vareq{var=caster.dyecolor10;val="blue"}
+  - setvar{var=caster.dyeformat1;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor1;val="white"}
+  - setvar{var=caster.dyeformat2;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor2;val="white"}
+  - setvar{var=caster.dyeformat3;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor3;val="white"}
+  - setvar{var=caster.dyeformat4;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor4;val="white"}
+  - setvar{var=caster.dyeformat5;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor5;val="white"}
+  - setvar{var=caster.dyeformat6;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor6;val="white"}
+  - setvar{var=caster.dyeformat7;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor7;val="white"}
+  - setvar{var=caster.dyeformat8;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor8;val="white"}
+  - setvar{var=caster.dyeformat9;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor9;val="white"}
+  - setvar{var=caster.dyeformat10;val="<#cae7e8>";type=string} @self ?vareq{var=caster.dyecolor10;val="white"}
+  - setvar{var=caster.dyeformat1;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor1;val="black"}
+  - setvar{var=caster.dyeformat2;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor2;val="black"}
+  - setvar{var=caster.dyeformat3;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor3;val="black"}
+  - setvar{var=caster.dyeformat4;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor4;val="black"}
+  - setvar{var=caster.dyeformat5;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor5;val="black"}
+  - setvar{var=caster.dyeformat6;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor6;val="black"}
+  - setvar{var=caster.dyeformat7;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor7;val="black"}
+  - setvar{var=caster.dyeformat8;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor8;val="black"}
+  - setvar{var=caster.dyeformat9;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor9;val="black"}
+  - setvar{var=caster.dyeformat10;val="<#3b3045>";type=string} @self ?vareq{var=caster.dyecolor10;val="black"}

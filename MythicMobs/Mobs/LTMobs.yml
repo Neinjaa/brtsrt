@@ -1,0 +1,217 @@
+AlchFireBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block FIRE
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchMagmaBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block MAGMA_BLOCK
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchWhiteConcretePowderBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block WHITE_CONCRETE_POWDER
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchHoneyBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block HONEY_BLOCK
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchCobblestoneBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block COBBLESTONE
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchMudBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block MUD
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchGravelBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block GRAVEL
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchLapisBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block LAPIS_BLOCK
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchBlueStainedGlassBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block BLUE_STAINED_GLASS
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchGlassBlock:
+  Health: 10
+  Type: Villager
+  Disguise: Falling_Block GLASS
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 0.5
+    Collidable: false
+    Despawn: false
+    followrange: 256
+    Silent: true
+    Baby: true
+    AgeLock: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+
+AlchThrowFireWater_Toss:
+  Health: 20
+  Type: Zombie
+  Damage: 1
+  Options:
+    MovementSpeed: 0.50
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    followrange: 256
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - model{mid=rockbullet;n=false} @self ~onSpawn 
+  - skill{s=AlchTFW_TS} @self ~onSpawn
+  
+AlchThrowWater_Toss:
+  Health: 20
+  Type: Zombie
+  Damage: 1
+  Options:
+    MovementSpeed: 0.50
+    KnockbackResistance: 0
+    Collidable: true
+    Despawn: false
+    followrange: 256
+    Silent: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills: 
+  - model{mid=rockbullet;n=false} @self ~onSpawn 
+  - skill{s=AlchTW_TS} @self ~onSpawn
+  
+DruidVinesP:
+  Health: 20
+  Type: SILVERFISH
+  Damage: 0
+  Options:
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Collidable: false
+    Despawn: false
+    FollowRange: 128
+    Silent: true
+    PreventMobKillDrops: true
+    PreventOtherDrops: true
+    PreventRandomEquipment: true
+    ApplyInvisibility: true
+    PreventSunburn: true
+  Skills:
+  - addtag{t=adventuring} @self ~onSpawn
+  - skill{s=DruidVinesL} @origin ~onTimer:20
+  - suicide{delay=400} ~onSpawn
+  - skill{s=DruidExplodeX} @self ~onSignal:DruidExplode

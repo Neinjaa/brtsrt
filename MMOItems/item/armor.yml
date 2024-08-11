@@ -1,0 +1,4996 @@
+SRT_SWORDSMANHELMET:
+  base:
+    material: CARVED_PUMPKIN
+    name: §8§lVanguards Visage
+    armor: 5.0
+    unbreakable: true
+    disable-death-drop: true
+    durability-bar: true
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    hide-enchants: true
+    element:
+      wind: {}
+    gem-sockets:
+    - Stat
+    ability:
+      ability1:
+        type: SRT_DEATH
+        mode: DEATH
+      ability2:
+        type: CHARGE_FOCUS
+        mode: TIMER
+        timer: 20.0
+    max-health: 2.0
+    custom-model-data: 123481.0
+SRT_LUISCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §f§lSage's Wakibiki
+    armor: 7.0
+    unbreakable: true
+    max-health: 6.0
+    gem-sockets:
+    - Stat
+    disable-death-drop: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material moonstone_shard 1.0..|v AIR 0 1.0..|m material moonstone_shard
+            1.0..
+          - m material floating_pebbles 1.0..|m material spirit_of_sword 1.0..|m material
+            floating_pebbles 1.0..
+          - m material moonstone_shard 1.0..|m material floating_pebbles 1.0..|m material
+            moonstone_shard 1.0..
+SRT_SWORDSMANELGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §lBattle Plating
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    physical-damage: 15.0
+    armor: 6.0
+    max-health: 4.0
+    gem-sockets:
+    - Stat
+SRT_SWORDSMANBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §lBattle Boots
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    physical-damage: 35.0
+    armor: 4.0
+    max-health: 2.0
+    unbreakable: true
+    gem-sockets:
+    - Stat
+SRT_NEALCHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §7§lBattle Gi
+    hide-dye: true
+    armor: 8.0
+    unbreakable: true
+    disable-death-drop: true
+    max-health: 8.0
+    gem-sockets:
+    - Stat
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material wind_essence 1.0..|v AIR 0 1.0..|m material wind_essence 1.0..
+          - m material moonstone_shard 1.0..|m material spirit_of_cunning 1.0..|m
+            material moonstone_shard 1.0..
+          - m material wind_essence 1.0..|m material moonstone_shard 1.0..|m material
+            wind_essence 1.0..
+SRT_NAMEITLATERNEAL:
+  base:
+    material: CARVED_PUMPKIN
+    name: §7§lShrouded Veil
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    gem-sockets:
+    - Stat
+    armor: 6.0
+    max-health: 6.0
+    ability:
+      ability1:
+        type: SRT_DEATH
+        mode: DEATH
+      ability2:
+        type: INSPIRING_BREEZE
+        mode: TIMER
+        timer: 1.0
+    custom-model-data: 123480.0
+    hide-enchants: true
+    disable-death-drop: true
+PALETTEER_BERET:
+  base:
+    material: CARVED_PUMPKIN
+    name: <gradient:#ECC4F5:#FFFFFF>Palett</gradient><gradient:#FFFFFF:#9EE6D1>eer's</gradient><gradient:#9EE6D1:#9EA7E6>
+      Beret</gradient>
+    ability:
+      ability1:
+        type: DYE_COLLECTOR
+        mode: TIMER
+        timer: 0.2
+      ability2:
+        type: SRT_DEATH
+        mode: DEATH
+      ability3:
+        type: DYE_RESTOCK
+        mode: SNEAK
+    armor: 4.0
+    custom-model-data: 123479.0
+    gem-sockets:
+    - Stat
+    max-health: 2.0
+    disable-death-drop: true
+PALETTEER_COAT:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: <gradient:#ECC4F5:#FFFFFF>Palett</gradient><gradient:#FFFFFF:#9EE6D1>eer's
+      </gradient><gradient:#9EE6D1:#9EA7E6>Coat</gradient>
+    ability:
+      ability1:
+        type: COLOR_COMPOSITION
+        mode: TIMER
+        timer: 0.2
+    armor: 6.0
+    custom-model-data: 123479.0
+    hide-dye: true
+    dye-color: 156 214 199
+    unbreakable: true
+    gem-sockets:
+    - Stat
+    max-health: 4.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material aquamarine_shard 1.0..|v AIR 0 1..|m material aquamarine_shard
+            1.0..
+          - m material cone_of_the_sea 1.0..|m material spirit_of_artistry 1.0..|m
+            material cone_of_the_sea 1.0..
+          - m material aquamarine_shard 1.0..|m material cone_of_the_sea 1.0..|m material
+            aquamarine_shard 1.0..
+SRT_BLINDFOLD:
+  base:
+    material: CARVED_PUMPKIN
+    name: §lBlindfold
+    armor: 4.0
+    unbreakable: true
+    disable-death-drop: true
+    durability-bar: true
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    hide-enchants: true
+    element:
+      wind: {}
+    gem-sockets:
+    - Stat
+    ability:
+      ability1:
+        type: SRT_DEATH
+        mode: DEATH
+      ability2:
+        type: ENERGY_CHARGE
+        mode: TIMER
+        timer: 4.0
+    lore:
+    - §f§oYowai mo...
+    custom-model-data: 123478.0
+    max-health: 3.0
+SRT_GOJOCHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §f§lGojo's Shirt
+    lore:
+    - yowai mo
+    dye-color: 0 0 0
+    hide-dye: true
+    armor: 8.0
+    unbreakable: true
+    disable-death-drop: true
+    max-health: 5.0
+    gem-sockets:
+    - Stat
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material sea_puppet 1.0..|v AIR 0 1..|m material sea_puppet 1.0..
+          - m material aquamarine_shard 1.0..|m material spirit_of_strongest 1.0..|m
+            material aquamarine_shard 1.0..
+          - m material sea_puppet 1.0..|m material aquamarine_shard 1.0..|m material
+            sea_puppet 1.0..
+SRT_GOJOPANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §lGojo Pants
+    armor: 7
+    dye-color: 0 0 0
+    physical-damage: 15.0
+    hide-dye: true
+    unbreakable: true
+    disable-death-drop: true
+    durability-bar: true
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    hide-enchants: true
+    element:
+      wind: {}
+    gem-sockets:
+    - Stat
+    lore:
+    - §f§oYowai mo...
+    custom-model-data: 123478.0
+    max-health: 4.0
+SRT_GOJOBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §f§lGojo Feet
+    lore:
+    - yowai mo
+    dye-color: 0 0 0
+    hide-dye: true
+    physical-damage: 35.0
+    armor: 3.0
+    unbreakable: true
+    disable-death-drop: true
+    max-health: 2.0
+    gem-sockets:
+    - Stat
+    ability:
+      ability1:
+        type: ENERGY_CHARGE
+        mode: TIMER
+        timer: 6.0
+
+SRT_ARTIFICERHEAD:
+  base:
+    material: CARVED_PUMPKIN
+    name: Artificer's Goggles
+    custom-scrap: 32.0
+    ability:
+      ability1:
+        type: SRT_DEATH
+        mode: DEATH
+        cooldown: 0.1
+      ability2:
+        type: SCRAP_CHARGE
+        mode: SNEAK
+        cooldown: 0.5
+    gem-sockets:
+    - Stat
+    armor: 3.0
+    max-health: 2.0
+    custom-model-data: 123482.0
+    disable-death-drop: true
+SRT_ARTIFICERCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: Artificer's Apron
+    unbreakable: true
+    custom-scrap: 32.0
+    gem-sockets:
+    - Stat
+    armor: 5.0
+    max-health: 4.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material magical_twig 1.0..|v AIR 0 1..|m material magical_twig 1.0..
+          - m material peridot_shard 1.0..|m material spirit_of_ingenuity 1.0..|m
+            material peridot_shard 1.0..
+          - m material magical_twig 1.0..|m material peridot_shard 1.0..|m material
+            magical_twig 1.0..
+SRT_ARTIFICERLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: Artificer's Toolbelt
+    armor: 5.0
+    unbreakable: true
+    disable-repairing: true
+    max-health: 4.0
+    gem-sockets:
+    - Stat
+    custom-scrap: 32.0
+SRT_ARTIFICERBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: Artificer's Loafers
+    disable-repairing: true
+    unbreakable: true
+    armor: 3.0
+    max-health: 2.0
+    movement-speed: 0.02
+    gem-sockets:
+    - Stat
+    custom-scrap: 32.0
+    physical-damage: 50.0
+SRT_MECHAARMOR:
+  base:
+    material: CARVED_PUMPKIN
+    name: §7§lMecha Head
+    ability:
+      ability1:
+        type: SRT_DEATH
+        mode: DEATH
+      ability2:
+        type: EQUIP_WEAPONS
+        mode: TIMER
+        timer: 20.0
+      ability3:
+        type: MECHA_FUEL
+        mode: TIMER
+        timer: 100.0
+    gem-sockets:
+    - Stat
+    movement-speed: -0.03
+    knockback-resistance: 1.0
+    max-health: 6.0
+    armor: 4.0
+    perm-effects:
+      JUMP: 2.0
+    disable-death-drop: true
+MECHACHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §lMecha Chestplate
+    unbreakable: true
+    armor: 6.0
+    max-health: 10.0
+    gem-sockets:
+    - Stat
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material peridot_shard 1.0..|v AIR 0 1..|m material peridot_shard 1.0..
+          - m material beating_barkheart 1.0..|m material spirit_of_mecha 1.0..|m
+            material beating_barkheart 1.0..
+          - m material peridot_shard 1.0..|m material beating_barkheart 1.0..|m material
+            peridot_shard 1.0..
+DRAGON_HELMET:
+  base:
+    material: DIAMOND_HELMET
+    max-durability: 5500.0
+    tier: EPIC
+    max-health: 4.0
+    armor-toughness: 3.0
+    magic-damage-reduction:
+      base: 3.0
+      spread: 0.05
+      max-spread: 0.17
+    armor: 3.5
+    element:
+      fire:
+        defense:
+          base: 5.0
+          scale: 0.0
+          spread: 0.07
+          max-spread: 0.2
+      darkness:
+        defense:
+          base: 12.0
+          scale: 0.0
+          spread: 0.07
+          max-spread: 0.2
+    name: §5§lDragon Helmet
+    enchants:
+      fire_protection: 4.0
+    lore:
+    - §c§oThis powerful armor is taken from
+    - §c§odragon scales.
+    required-level: 12.0
+    block-rating:
+      base: 4.0
+      scale: 0.075
+      spread: 0.02
+      max-spread: 0.08
+    gem-sockets:
+    - Magenta
+    - Black
+    set: DRAGON
+DRAGON_CHESTPLATE:
+  base:
+    material: DIAMOND_CHESTPLATE
+    max-durability: 6850.0
+    tier: EPIC
+    max-health: 10.0
+    armor-toughness: 3.0
+    magic-damage-reduction:
+      base: 8.0
+      spread: 0.05
+      max-spread: 0.17
+    armor: 7.0
+    element:
+      fire:
+        defense:
+          base: 18.0
+          scale: 0.0
+          spread: 0.07
+          max-spread: 0.2
+      darkness:
+        defense:
+          base: 35.0
+          scale: 0.0
+          spread: 0.07
+          max-spread: 0.2
+    name: §5§lDragon Chestplate
+    enchants:
+      fire_protection: 4.0
+    lore:
+    - §c§oThis powerful armor is taken from
+    - §c§odragon scales.
+    required-level: 12.0
+    block-rating:
+      base: 5.0
+      scale: 0.075
+      spread: 0.02
+      max-spread: 0.08
+    gem-sockets:
+    - Magenta
+    - Black
+    set: DRAGON
+DRAGON_LEGGINGS:
+  base:
+    material: DIAMOND_LEGGINGS
+    max-durability: 6150.0
+    tier: EPIC
+    max-health: 7.0
+    armor-toughness: 3.0
+    magic-damage-reduction:
+      base: 5.0
+      spread: 0.05
+      max-spread: 0.17
+    armor: 5.0
+    element:
+      fire:
+        defense:
+          base: 12.0
+          scale: 0.0
+          spread: 0.07
+          max-spread: 0.2
+      darkness:
+        defense:
+          base: 22.0
+          scale: 0.0
+          spread: 0.07
+          max-spread: 0.2
+    name: §5§lDragon Leggings
+    enchants:
+      fire_protection: 4.0
+    lore:
+    - §c§oThis powerful armor is taken from
+    - §c§odragon scales.
+    required-level: 12.0
+    block-rating:
+      base: 4.5
+      scale: 0.075
+      spread: 0.02
+      max-spread: 0.08
+    gem-sockets:
+    - Magenta
+    - Black
+    set: DRAGON
+DRAGON_BOOTS:
+  base:
+    material: DIAMOND_BOOTS
+    max-durability: 5500.0
+    tier: EPIC
+    max-health: 4.0
+    armor-toughness: 3.0
+    magic-damage-reduction:
+      base: 3.0
+      spread: 0.05
+      max-spread: 0.17
+    armor: 3.5
+    element:
+      fire:
+        defense:
+          base: 5.0
+          scale: 0.0
+          spread: 0.07
+          max-spread: 0.2
+      darkness:
+        defense:
+          base: 12.0
+          scale: 0.0
+          spread: 0.07
+          max-spread: 0.2
+    name: §5§lDragon Boots
+    enchants:
+      fire_protection: 4.0
+    lore:
+    - §c§oThis powerful armor is taken from
+    - §c§odragon scales.
+    required-level: 12.0
+    block-rating:
+      base: 4.0
+      scale: 0.075
+      spread: 0.02
+      max-spread: 0.08
+    gem-sockets:
+    - Magenta
+    - Black
+    set: DRAGON
+SPELLCASTER_HELMET:
+  base:
+    material: LEATHER_HELMET
+    name: §dSpellcaster Helmet
+    lore:
+    - §d§lSuits very well for mages!
+    required-class:
+    - Mage
+    required-level: 1.0
+    block-power:
+      base: 10.0
+      spread: 0.1
+      max-spread: 0.2
+    block-rating:
+      base: 7.0
+      spread: 0.1
+      max-spread: 0.2
+    tier: UNCOMMON
+    max-durability: 950.0
+    element:
+      water:
+        defense:
+          base: 5.0
+          scale: 0.0
+          spread: 0.2
+          max-spread: 0.3
+    max-mana: 6.0
+    magic-damage-reduction: 25.0
+    armor-toughness: 1.0
+    armor: 2.0
+    hide-dye: true
+    dye-color: 125 0 255
+    set: SPELLCASTER
+SPELLCASTER_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §dSpellcaster Chestplate
+    lore:
+    - §d§lSuits very well for mages!
+    required-class:
+    - Mage
+    required-level: 1.0
+    block-power:
+      base: 15.0
+      spread: 0.1
+      max-spread: 0.2
+    block-rating:
+      base: 10.0
+      spread: 0.1
+      max-spread: 0.2
+    tier: UNCOMMON
+    max-durability: 1450.0
+    element:
+      water:
+        defense:
+          base: 10.0
+          scale: 0.0
+          spread: 0.2
+          max-spread: 0.3
+    max-mana: 6.0
+    magic-damage-reduction: 25.0
+    armor-toughness: 1.0
+    armor: 4.0
+    hide-dye: true
+    dye-color: 125 0 255
+    set: SPELLCASTER
+SPELLCASTER_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §dSpellcaster Leggings
+    lore:
+    - §d§lSuits very well for mages!
+    required-class:
+    - Mage
+    required-level: 1.0
+    block-power:
+      base: 12.0
+      spread: 0.1
+      max-spread: 0.2
+    block-rating:
+      base: 8.5
+      spread: 0.1
+      max-spread: 0.2
+    tier: UNCOMMON
+    max-durability: 1450.0
+    element:
+      water:
+        defense:
+          base: 7.5
+          scale: 0.0
+          spread: 0.2
+          max-spread: 0.3
+    max-mana: 6.0
+    magic-damage-reduction: 25.0
+    armor-toughness: 1.0
+    armor: 3.0
+    hide-dye: true
+    dye-color: 125 0 255
+    set: SPELLCASTER
+SPELLCASTER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §dSpellcaster Boots
+    lore:
+    - §d§lSuits very well for mages!
+    required-class:
+    - Mage
+    required-level: 1.0
+    block-power:
+      base: 10.0
+      spread: 0.1
+      max-spread: 0.2
+    block-rating:
+      base: 7.0
+      spread: 0.1
+      max-spread: 0.2
+    tier: UNCOMMON
+    max-durability: 950.0
+    element:
+      water:
+        defense:
+          base: 5.0
+          scale: 0.0
+          spread: 0.2
+          max-spread: 0.3
+    max-mana: 6.0
+    magic-damage-reduction: 25.0
+    armor-toughness: 1.0
+    armor: 2.0
+    hide-dye: true
+    dye-color: 125 0 255
+    set: SPELLCASTER
+OMNIELEMENTAL_HELMET:
+  base:
+    material: LEATHER_HELMET
+    required-level: 15.0
+    lore:
+    - §bDon't limit yourself to one element.
+    - §cIt will be downgraded on death or
+    - §cupon breaking.
+    - §9Gives Night Vision when worn.
+    enchants:
+      luck_of_the_sea: 1.0
+    hide-enchants: true
+    name: §c§lO§6§lm§e§ln§a§li§2§lE§3§ll§9§le§b§lm§f§le§e§ln§a§lt§6§la§c§ll §c§lH§6§le§e§ll§a§lm§2§le§3§lt
+    armor-toughness: 2.5
+    armor: 4.5
+    max-durability: 1950.0
+    element:
+      fire:
+        defense: 100.0
+      earth:
+        defense: 100.0
+    block-power:
+      base: 10.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    block-rating:
+      base: 8.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    magic-damage:
+      base: 10.0
+      scale: 0.15
+      spread: 0.2
+      max-spread: 0.3
+    dye-color: 255 255 0
+    break-downgrade: true
+    death-downgrade: true
+    death-downgrade-chance: 100.0
+    gem-sockets:
+    - Rainbow
+    - Rainbow
+    perm-effects:
+      NIGHT_VISION: 1.0
+    tier: VERY_RARE
+    max-health: 5.0
+OMNIELEMENTAL_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    required-level: 15.0
+    lore:
+    - §bDon't limit yourself to one element.
+    - §cIt will be downgraded on death or
+    - §cupon breaking.
+    - §9Gives Resistance I when worn.
+    enchants:
+      luck_of_the_sea: 1.0
+    hide-enchants: true
+    name: §c§lO§6§lm§e§ln§a§li§2§lE§3§ll§9§le§b§lm§f§le§e§ln§a§lt§6§la§c§ll §c§lC§6§lh§e§le§a§ls§2§lt§3§lp§9§ll§b§la§f§lt§e§le
+    armor-toughness: 2.5
+    armor: 9.5
+    max-durability: 3900.0
+    element:
+      ice:
+        defense: 100.0
+      water:
+        defense: 100.0
+    block-power:
+      base: 12.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    block-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    magic-damage:
+      base: 15.0
+      scale: 0.15
+      spread: 0.2
+      max-spread: 0.3
+    dye-color: 150 200 255
+    break-downgrade: true
+    death-downgrade: true
+    death-downgrade-chance: 100.0
+    gem-sockets:
+    - Rainbow
+    - Rainbow
+    perm-effects:
+      DAMAGE_RESISTANCE: 1.0
+    tier: VERY_RARE
+    max-health: 5.0
+OMNIELEMENTAL_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    required-level: 15.0
+    lore:
+    - §bDon't limit yourself to one element.
+    - §cIt will be downgraded on death or
+    - §cupon breaking.
+    - §9Gives Speed I when worn.
+    enchants:
+      luck_of_the_sea: 1.0
+    hide-enchants: true
+    name: §c§lO§6§lm§e§ln§a§li§2§lE§3§ll§9§le§b§lm§f§le§e§ln§a§lt§6§la§c§ll §c§lL§6§le§e§lg§a§lg§2§li§3§ln§b§lg§f§ls
+    armor-toughness: 2.5
+    armor: 7.0
+    max-durability: 3000.0
+    element:
+      thunder:
+        defense: 100.0
+      wind:
+        defense: 100.0
+    block-power:
+      base: 10.5
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    block-rating:
+      base: 8.5
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    magic-damage:
+      base: 12.0
+      scale: 0.15
+      spread: 0.2
+      max-spread: 0.3
+    dye-color: 180 180 0
+    break-downgrade: true
+    death-downgrade: true
+    death-downgrade-chance: 100.0
+    gem-sockets:
+    - Rainbow
+    - Rainbow
+    perm-effects:
+      SPEED: 1.0
+    tier: VERY_RARE
+    max-health: 5.0
+OMNIELEMENTAL_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    required-level: 15.0
+    lore:
+    - §bDon't limit yourself to one element.
+    - §cIt will be downgraded on death or
+    - §cupon breaking.
+    - §9Gives Jump Boost I when worn.
+    enchants:
+      luck_of_the_sea: 1.0
+    hide-enchants: true
+    name: §c§lO§6§lm§e§ln§a§li§2§lE§3§ll§9§le§b§lm§f§le§e§ln§a§lt§6§la§c§ll §c§lB§6§lo§e§lo§a§lt§2§ls
+    armor-toughness: 2.5
+    armor: 3.0
+    max-durability: 2150.0
+    element:
+      darkness:
+        defense: 100.0
+      lightness:
+        defense: 100.0
+    block-power:
+      base: 4.5
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    block-rating:
+      base: 5.5
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    magic-damage:
+      base: 8.0
+      scale: 0.15
+      spread: 0.2
+      max-spread: 0.3
+    dye-color: 160 160 160
+    break-downgrade: true
+    death-downgrade: true
+    death-downgrade-chance: 100.0
+    gem-sockets:
+    - Rainbow
+    - Rainbow
+    perm-effects:
+      JUMP: 1.0
+    tier: VERY_RARE
+    max-health: 5.0
+HELMET_OF_THE_SEA:
+  base:
+    material: LEATHER_HELMET
+    max-durability: 8000.0
+    attack-damage:
+      base: 6.0
+      scale: 0.1
+      spread: 0.2
+      max-spread: 0.3
+    required-level: 10.0
+    weapon-damage:
+      base: 10.0
+      scale: 0.1
+      spread: 0.2
+      max-spread: 0.25
+    magic-damage:
+      base: 10.0
+      scale: 0.1
+      spread: 0.2
+      max-spread: 0.25
+    physical-damage:
+      base: 15.0
+      scale: 0.1
+      spread: 0.2
+      max-spread: 0.25
+    cooldown-reduction:
+      base: 15.0
+      scale: 0.1
+      spread: 0.2
+      max-spread: 0.25
+    pve-damage:
+      base: 15.0
+      scale: 0.1
+      spread: 0.2
+      max-spread: 0.25
+    tier: RARE
+    dye-color: 120 120 255
+    name: §9Helmet of the Ocean
+    hide-dye: true
+    element:
+      water:
+        defense:
+          base: 25.0
+          scale: 0.0
+          spread: 0.2
+          max-spread: 0.4
+    amphibian: DAMP
+    perm-effects:
+      NIGHT_VISION: 1.0
+      WATER_BREATHING: 1.0
+    lore:
+    - §3Will only work when §9§lUNDERWATER§3.
+    - §3Gives §9Night Vision §3and §9Water Breathing§3.
+UNDEADSLAYER_HELMET:
+  base:
+    material: NETHERITE_HELMET
+    max-durability: 10500.0
+    tier: EPIC
+    armor-toughness: 2.5
+MOON_BOOTS:
+  base:
+    material: DIAMOND_BOOTS
+    lore:
+    - §bMoon boots will simulate being on the moon!
+    - §7Gives §3Jump Boost II§7 when worn.
+    - §cWill only work in "the end" biome.
+    max-durability: 2650.0
+    name: §b§lMoon Boots
+    tier: UNIQUE
+    armor-toughness: 1.5
+    armor: 3.0
+    fall-damage-reduction: 75.0
+    perm-effects:
+      JUMP: 2.0
+    required-biomes:
+    - the_end
+CONTROL_DEVICES:
+  base:
+    material: LEATHER_HELMET
+    max-durability: 15000.0
+    name: §d§lControl Devices
+    dye-color: 255 102 204
+    ability: {}
+    set: PSYCHIC
+    perm-effects:
+      DAMAGE_RESISTANCE: 2.0
+      SPEED: 2.0
+      REGENERATION: 2.0
+      FIRE_RESISTANCE: 1.0
+      INCREASE_DAMAGE: 2.0
+    required-class:
+    - Mage
+    lore:
+    - §7To keep your powers in check...
+    armor-toughness: 2.0
+    armor: 7.0
+    tier: MAGICAL
+    unbreakable: true
+UNDEAD_SLAYER_HELMET:
+  base:
+    material: NETHERITE_HELMET
+    required-level: 80.0
+    undead-damage: 15.0
+    set: UNDEADSLAYER
+    name: §cUndead Slayer Helmet
+    max-durability: 17500.0
+    physical-damage: 5.0
+    armor: 8.0
+    armor-toughness: 4.0
+    tier: MYTHICAL
+    knockback-resistance: 0.25
+    perm-effects:
+      NIGHT_VISION: 1.0
+    element:
+      darkness:
+        defense: 50.0
+      thunder:
+        defense: 25.0
+    lore:
+    - §cThey'll fear you.
+    damage-reduction: 5.0
+    physical-damage-reduction: 8.0
+    magic-damage-reduction: 20.0
+    pve-damage-reduction: 5.0
+    enchants:
+      smite: 3.0
+      protection: 4.0
+UNDEAD_SLAYER_CHESTPLATE:
+  base:
+    material: NETHERITE_CHESTPLATE
+    required-level: 80.0
+    undead-damage: 15.0
+    set: UNDEADSLAYER
+    name: §cUndead Slayer Chestplate
+    max-durability: 19800.0
+    physical-damage: 5.0
+    armor: 11.0
+    armor-toughness: 4.0
+    tier: MYTHICAL
+    knockback-resistance: 0.25
+    perm-effects:
+      FIRE_RESISTANCE: 1.0
+      REGENERATION: 1.0
+    element:
+      darkness:
+        defense: 80.0
+      thunder:
+        defense: 50.0
+    lore:
+    - §cThey'll fear you.
+    damage-reduction: 10.0
+    physical-damage-reduction: 15.0
+    magic-damage-reduction: 50.0
+    pve-damage-reduction: 10.0
+    enchants:
+      smite: 3.0
+      protection: 4.0
+UNDEAD_SLAYER_LEGGINGS:
+  base:
+    material: NETHERITE_LEGGINGS
+    undead-damage: 15.0
+    set: UNDEADSLAYER
+    name: §cUndead Slayer Leggings
+    max-durability: 18800.0
+    physical-damage: 5.0
+    armor: 10.0
+    armor-toughness: 4.0
+    tier: MYTHICAL
+    knockback-resistance: 0.25
+    perm-effects:
+      SPEED: 1.0
+    element:
+      darkness:
+        defense: 60.0
+      thunder:
+        defense: 30.0
+    lore:
+    - §cThey'll fear you.
+    damage-reduction: 8.0
+    physical-damage-reduction: 10.0
+    magic-damage-reduction: 30.0
+    pve-damage-reduction: 8.0
+    enchants:
+      smite: 3.0
+      protection: 4.0
+UNDEAD_SLAYER_BOOTS:
+  base:
+    material: NETHERITE_BOOTS
+    required-level: 80.0
+    undead-damage: 15.0
+    set: UNDEADSLAYER
+    name: §cUndead Slayer Boots
+    max-durability: 15500.0
+    physical-damage: 5.0
+    armor: 8.0
+    armor-toughness: 4.0
+    tier: MYTHICAL
+    knockback-resistance: 0.25
+    perm-effects:
+      JUMP: 1.0
+    element:
+      darkness:
+        defense: 50.0
+      thunder:
+        defense: 25.0
+    lore:
+    - §cThey'll fear you.
+    damage-reduction: 5.0
+    physical-damage-reduction: 8.0
+    magic-damage-reduction: 20.0
+    pve-damage-reduction: 5.0
+    enchants:
+      smite: 3.0
+      protection: 4.0
+MYTHRIL_CHAINMAIL:
+  base:
+    material: CHAINMAIL_CHESTPLATE
+    name: '&b--] &fMythril Chainmail &b[--'
+    block-power:
+      base: 60.0
+      spread: 0.048
+      max-spread: 0.14
+    block-rating:
+      base: 12.5
+      spread: 0.06
+      max-spread: 0.17
+    armor: 5
+    element:
+      ice:
+        defense: 8.0
+      earth:
+        defense: 6.4
+    gem-sockets:
+    - Red
+    - Blue
+    required-level: 4.0
+    tier: UNCOMMON
+STEEL_HELMET:
+  base:
+    material: IRON_HELMET
+    block-power:
+      base: 6.0
+      spread: 0.048
+      max-spread: 0.14
+    block-rating:
+      base: 6.5
+      spread: 0.0625
+      max-spread: 0.1875
+    required-level: 3.0
+    name: '&fSteel Helm'
+    armor: 2.5
+    lore:
+    - '&7Slightly better than an iron helmet.'
+    tier: COMMON
+    knockback-resistance:
+      base: 0.02
+      spread: 0.11
+      max-spread: 0.33
+    gem-sockets:
+    - Green
+    set: STEEL
+    crafting:
+      shaped:
+        '1':
+        - MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+        - AIR AIR AIR
+        '2':
+        - AIR AIR AIR
+        - MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+STEEL_CHESTPLATE:
+  base:
+    material: IRON_CHESTPLATE
+    block-power:
+      base: 6.0
+      spread: 0.048
+      max-spread: 0.15
+    block-rating:
+      base: 6.5
+      spread: 0.0625
+      max-spread: 0.1875
+    required-level: 3.0
+    name: '&fSteel Chestplate'
+    armor: 6.5
+    lore:
+    - '&7Slightly better than an iron chestplate.'
+    tier: COMMON
+    knockback-resistance:
+      base: 0.02
+      spread: 0.11
+      max-spread: 0.33
+    gem-sockets:
+    - Blue
+    set: STEEL
+    crafting:
+      shaped:
+        '1':
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+        - MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT
+        - MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT
+STEEL_LEGGINGS:
+  base:
+    material: IRON_LEGGINGS
+    block-power:
+      base: 6.0
+      spread: 0.048
+      max-spread: 0.14
+    block-rating:
+      base: 6.5
+      spread: 0.0625
+      max-spread: 0.1875
+    required-level: 3.0
+    name: '&fSteel Leggings'
+    armor: 5.5
+    lore:
+    - '&7Slightly better than iron leggings.'
+    tier: COMMON
+    knockback-resistance:
+      base: 0.02
+      spread: 0.11
+      max-spread: 0.33
+    gem-sockets:
+    - Blue
+    set: STEEL
+    crafting:
+      shaped:
+        '1':
+        - MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT MATERIAL.STEEL_INGOT
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+STEEL_BOOTS:
+  base:
+    material: IRON_BOOTS
+    block-power:
+      base: 6.0
+      spread: 0.048
+      max-spread: 0.14
+    block-rating:
+      base: 6.5
+      spread: 0.0625
+      max-spread: 0.1875
+    required-level: 3.0
+    name: '&fSteel Boots'
+    armor: 2.5
+    lore:
+    - '&7Slightly better than iron boots.'
+    tier: COMMON
+    knockback-resistance:
+      base: 0.02
+      spread: 0.11
+      max-spread: 0.33
+    gem-sockets:
+    - Green
+    set: STEEL
+    crafting:
+      shaped:
+        '2':
+        - AIR AIR AIR
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+        '1':
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+        - MATERIAL.STEEL_INGOT AIR MATERIAL.STEEL_INGOT
+        - AIR AIR AIR
+CURSED_WITHER_SKULL:
+  base:
+    material: WITHER_SKELETON_SKULL
+    name: '&7Cursed Wither Skull'
+    required-level: 30.0
+    tier: UNIQUE
+    gem-sockets:
+    - Red
+    - Blue
+    armor: 3.0
+    armor-toughness: 2.0
+    perm-effects:
+      ABSORPTION: 1
+    lore:
+    - '&7Grants a permanent &62'
+    - '&6hearts &7absorption shield.'
+    durability: 1.0
+    element:
+      thunder:
+        defense: 67.4
+      fire:
+        defense: 53.4
+    crafting:
+      shaped:
+        '1':
+        - BONE BONE BONE
+        - BONE MATERIAL.UNIQUE_WEAPON_ESSENCE BONE
+        - BONE BONE BONE
+HUGE_MOTHRON_WINGS:
+  base:
+    material: ELYTRA
+    max-durability: 5.0
+    two-handed: false
+    name: '&eHuge Mothron Wings'
+    tier: RARE
+    unbreakable: true
+    movement-speed: -1.0
+    will-break: false
+ARCANE_HELM:
+  base:
+    material: LEATHER_HELMET
+    name: '&5Arcane Helm'
+    tier: RARE
+    required-level: 4.0
+    max-mana: 10.0
+    dye-color: 100 100 255
+    armor: 2.0
+    magic-damage: 15.0
+    item-particles:
+      type: GALAXY
+      particle: SPELL_WITCH
+    set: ARCANE
+ARCANE_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: '&5Arcane Tunic'
+    tier: RARE
+    required-level: 4.0
+    max-mana: 10.0
+    dye-color: 100 100 255
+    armor: 6.0
+    magic-damage: 15.0
+    ability:
+      on-hit:
+        type: WITHER
+        mode: DAMAGED
+        cooldown: 9.0
+        amplifier: 2.0
+    item-particles:
+      type: GALAXY
+      particle: SPELL_WITCH
+    lore:
+    - '&2Enemies trying to attack you'
+    - '&2will be violently inflicted a wither'
+    - '&2effect for a short period of time.'
+    set: ARCANE
+ARCANE_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: '&5Arcane Leggings'
+    tier: RARE
+    required-level: 4.0
+    max-mana: 10.0
+    dye-color: 100 100 255
+    armor: 5.0
+    magic-damage: 15.0
+    item-particles:
+      type: GALAXY
+      particle: SPELL_WITCH
+    gem-sockets:
+    - Blue
+    - Green
+    set: ARCANE
+ARCANE_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: '&5Arcane Boots'
+    tier: RARE
+    required-level: 4.0
+    max-mana: 10.0
+    dye-color: 100 100 255
+    armor: 2.0
+    magic-damage: 15.0
+    item-particles:
+      type: GALAXY
+      particle: SPELL_WITCH
+    lore:
+    - '&2Greatly increases your'
+    - '&2fall damage reduction.'
+    fall-damage-reduction:
+      base: 45.0
+      spread: 0.033
+      max-spread: 0.1
+    set: ARCANE
+GINGERBREAD_HELM:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 255 150 100
+    name: '&cGingerbread Helmet'
+    required-level: 2.0
+    lore:
+    - '&eEarned during X-Mas 2018!'
+    set: GINGERBREAD
+    parry-rating: 5.0
+    max-health: 2.0
+    armor: 2.0
+    item-particles:
+      type: OFFSET
+      particle: REDSTONE
+      color:
+        red: 255
+        green: 100
+        blue: 100
+GINGERBREAD_TUNIC:
+  base:
+    material: LEATHER_CHESTPLATE
+    dye-color: 255 130 130
+    name: '&cGingerbread Tunic'
+    required-level: 2.0
+    lore:
+    - '&eEarned during X-Mas 2018!'
+    set: GINGERBREAD
+    parry-rating: 5.0
+    max-health: 2.0
+    armor: 6.0
+    item-particles:
+      type: OFFSET
+      particle: REDSTONE
+      color:
+        red: 255
+        green: 100
+        blue: 100
+GINGERBREAD_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    dye-color: 255 140 120
+    name: '&cGingerbread Leggings'
+    required-level: 2.0
+    lore:
+    - '&eEarned during X-Mas 2018!'
+    set: GINGERBREAD
+    parry-rating: 5.0
+    max-health: 2.0
+    armor: 5.0
+    item-particles:
+      type: OFFSET
+      particle: REDSTONE
+      color:
+        red: 255
+        green: 100
+        blue: 100
+GINGERBREAD_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    dye-color: 255 150 150
+    name: '&cGingerbread Boots'
+    required-level: 2.0
+    lore:
+    - '&eEarned during X-Mas 2018!'
+    set: GINGERBREAD
+    parry-rating: 5.0
+    max-health: 2.0
+    armor: 2.0
+    item-particles:
+      type: OFFSET
+      particle: REDSTONE
+      color:
+        red: 255
+        green: 100
+        blue: 100
+DEAD_PHARAOH_HELMET:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGU1NWRmOTc5YWI3OTc0OWY4YjU1MWI0MjM5YTQ2OWFhNzY5ZDliNDYwNTBhYWJkOWY2ZDFjZWU1M2VkMzYifX19
+      uuid: 852deb36-af4a-412f-ac76-2b06dc123ed2
+    name: '&cDead Pharaoh Helmet'
+    disable-interaction: true
+    item-particles:
+      type: FIREFLIES
+      particle: SMOKE_NORMAL
+    fire-damage-reduction: 30.0
+    armor: 4.0
+    undead-damage: 30.0
+    lore:
+    - '&7This powerful forgotten helmet'
+    - '&7will greatly increase your power'
+    - '&7against undead creatures.'
+    required-level: 9.0
+MOSSY_SKELETON_SKULL:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWE2MzE0ZWFjMzQ0MTZjZTEwYWIyMmMyZTFjNGRjYjQ3MmEzZmViOThkNGUwNGQzZmJiYjg1YTlhNDcxYjE4In19fQ
+      uuid: f455a085-3f09-43ac-8be1-175204d1a6ad
+    name: '&8Mossy Skeleton Skull'
+    required-level: 6.0
+    armor: 3.5
+    knockback-resistance: 0.1
+    movement-speed: -0.01
+    disable-interaction: true
+SKELETON_CROWN:
+  base:
+    material: PLAYER_HEAD
+    skull-texture:
+      value: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOGM3OGQyMTAyZGI3NWYxYjM3NDRhNWU3ZTliYWNjZjg4ZmRhNGNjNDk3OWViYzBhODFiN2Q5ZWI1NzIxYzAifX19
+      uuid: ccb901e7-0919-463d-9bdd-ee9acae8e0e2
+    name: '&eSkeleton Crown'
+    required-level: 9.0
+    armor: 3.0
+    movement-speed: 0.01
+    ability:
+      ability1:
+        type: LIFE_ENDER
+        mode: DAMAGED
+        damage: 3.0
+        cooldown: 9.0
+    lore:
+    - '&7Every 9 seconds, summons a'
+    - '&cdeadly meteor&7 at your attacker,'
+    - '&7dealing &c4&7 damage while briefly'
+    - '&7knocking them away.'
+    disable-interaction: true
+WYVERN_CAP:
+  base:
+    material: GOLDEN_HELMET
+    name: '&fWyvern Cap'
+    required-level: 10.0
+    hide-enchants: false
+    enchants:
+      unbreaking: 9
+    armor: 2.5
+    fall-damage-reduction: 70.0
+    perm-effects:
+      JUMP: 2
+    lore:
+    - '&7Grants permanent jump boost II'
+    crafting:
+      shaped:
+        '1':
+        - TOME.WYVERN_FEATHER TOME.WYVERN_SOUL TOME.WYVERN_FEATHER
+        - TOME.WYVERN_FEATHER AIR TOME.WYVERN_FEATHER
+        - AIR AIR AIR
+        '2':
+        - AIR AIR AIR
+        - TOME.WYVERN_FEATHER TOME.WYVERN_SOUL TOME.WYVERN_FEATHER
+        - TOME.WYVERN_FEATHER AIR TOME.WYVERN_FEATHER
+TRAVEL_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §fTravel boots
+    movement-speed: 0.005
+    dye-color: 187 118 126
+    will-break: true
+    max-durability: 100.0
+    armor: 2.0
+    fall-damage-reduction: 5.0
+SHADOWVEIL:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 0 0 0
+    name: '&cDark Veil'
+    tier: RARE
+    unbreakable: true
+    max-durability: 1000.0
+    enchants:
+      protection: 4
+      unbreaking: 3
+    hide-enchants: false
+    disable-enchanting: true
+    disable-repairing: true
+    ability:
+      ability1:
+        type: SHADOW_VEIL
+        mode: SHIFT_LEFT_CLICK
+        duration: 5.0
+        cooldown: 20.0
+    lore:
+    - '&7&oObtained from the depths of bedrock'
+    max-health: 10.0
+    armor: 3.0
+    armor-toughness: 2.0
+SHADOWROBE:
+  base:
+    material: LEATHER_CHESTPLATE
+    lore:
+    - '&7&oObtained from the depths of bedrock'
+    name: '&cShadow Robe'
+    max-durability: 1000.0
+    disable-repairing: true
+    disable-enchanting: true
+    enchants:
+      unbreaking: 3
+      protection: 4
+    tier: RARE
+    unbreakable: true
+    magic-damage-reduction: 25.0
+    armor-toughness: 2.0
+    armor: 8.0
+    dye-color: 0 0 0
+    max-health: 16.0
+    ability:
+      ability1:
+        type: CORRUPT
+        mode: DAMAGED
+        duration: 4.0
+        damage: 12.0
+        cooldown: 15.0
+        amplifier: 1.0
+SHADOWLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    lore:
+    - '&7&oObtained from the depths of bedrock'
+    name: '&cShadow Leggings'
+    enchants:
+      unbreaking: 3
+      protection: 4
+    disable-repairing: true
+    disable-enchanting: true
+    magic-damage-reduction: 25.0
+    unbreakable: true
+    tier: RARE
+    armor-toughness: 2.0
+    armor: 6.0
+    max-health: 14.0
+    dye-color: 0 0 0
+SHADOWBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: '&cShadow Boots'
+    lore:
+    - '&7&oObtained from the depths of bedrock'
+    enchants:
+      unbreaking: 3
+      protection: 4
+    disable-repairing: true
+    disable-enchanting: true
+    max-durability: 1000.0
+    unbreakable: true
+    tier: RARE
+    fall-damage-reduction: 15.0
+    armor-toughness: 2.0
+    armor: 3.0
+    max-health: 8.0
+    movement-speed: 0.01
+    dye-color: 0 0 0
+SPELLBREAKSTART:
+  base:
+    material: LEATHER_HELMET
+    name: §lDusty Hood
+    max-mana: 2.0
+    unbreakable: true
+    armor: 1.0
+    max-health: -2.0
+SPELLCASTERROBE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §lBasic Robe
+    unbreakable: true
+    max-mana: 5.0
+    armor: 2.0
+SPELLCASTERLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §lMagic-Infused Pants
+    unbreakable: true
+    max-mana: 4.0
+    armor: 2.0
+FEATHER_LACED_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    fall-damage-reduction: 90.0
+    perm-effects:
+      JUMP: 7.0
+      SPEED: 3.0
+    unbreakable: true
+    name: §lFeather-Laced Boots
+    armor: 1.0
+    movement-speed: 0.05
+DUALITY:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §5§lVesture o§c§lf Duality
+    cooldown-reduction: 20.0
+    armor: 2.0
+    unbreakable: true
+    dye-color: 255 0 0
+    max-health: -10.0
+    max-mana: 30.0
+    mana-regeneration: 2.5
+    skill-damage: 30.0
+WRAITH_HOOD:
+  base:
+    material: LEATHER_HELMET
+    name: §8§lWraith Hood
+    dodge-cooldown-reduction: 50.0
+    dodge-rating: 20.0
+    armor: -1.0
+    unbreakable: true
+JUGGERNAUTHELM:
+  base:
+    material: IRON_HELMET
+    armor: 5.0
+    knockback-resistance: 0.3
+    mana-regeneration: -4.0
+    max-health: 3.0
+    movement-speed: -0.1
+    unbreakable: true
+    name: §7§lJuggernaut Helmet
+FANCYPANTS:
+  base:
+    material: GOLDEN_LEGGINGS
+    name: §6§lFancy Pants
+    unbreakable: true
+    lore:
+    - §6For the flex
+    - §6Doesn't do anything...
+QUICKSILVER:
+  base:
+    material: IRON_BOOTS
+    name: §7§lQuicksilver
+    parry-rating: 15.0
+    parry-cooldown-reduction: 25.0
+    fall-damage-reduction: 70.0
+    unbreakable: true
+    movement-speed: 0.03
+    perm-effects:
+      JUMP: 7.0
+      SPEED: 4.0
+HYDRASKINTUNIC:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §2§lHydra Skin Tunic
+    dye-color: 0 255 0
+    armor: 8.0
+    max-mana: -15.0
+    unbreakable: true
+OVERALLS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §1§lOveralls
+    dye-color: 0 0 255
+    armor: 2.0
+    knockback-resistance: 0.2
+    movement-speed: -0.02
+NIKEAIRS:
+  base:
+    material: LEATHER_BOOTS
+    name: §lNike Airs
+    dye-color: 255 255 255
+    perm-effects:
+      JUMP: 13.0
+      SPEED: 5.0
+    movement-speed: 0.05
+    fall-damage-reduction: 60.0
+FLURRICHOOD:
+  base:
+    material: LEATHER_HELMET
+    name: §f§lFlurric Hood
+    lore:
+    - §f§oMade from pure Flurric Essence, this hood feels lighter than a feather!
+    skill-damage:
+      base: 15.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    parry-rating:
+      base: 7.0
+      scale: 3.0
+      spread: 0.1
+      maxSpread: 0.1
+    tier: LEGENDARY
+    knockback-resistance:
+      base: 0.5
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    weapon-damage:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    unbreakable: true
+    magic-damage-reduction:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    fire-damage-reduction:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    movement-speed:
+      base: 0.025
+      scale: 0.005
+      spread: 0.1
+      maxSpread: 0.1
+    max-health:
+      base: 2.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    dye-color: 255 255 255
+    attack-speed: 1.0
+    ability:
+      ability1:
+        type: BUNNY_MODE
+        jump-force: 2.0
+        duration: 2.0
+        mode: WHEN_HIT
+    damage-reduction:
+      base: 10.0
+      scale: 2.0
+      spread: 0.1
+      maxSpread: 0.1
+    gem-sockets:
+    - WHITE
+    element:
+      wind:
+        defense: 25.0
+    set: FLURRIC
+FLURICROBE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §f§lFlurric Robe
+    lore:
+    - §f§oMade from pure Flurric Essence, the robe allows disappearance on hit.
+    parry-rating:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    cooldown-reduction:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    weapon-damage:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    fire-damage-reduction:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    magic-damage-reduction:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    tier: LEGENDARY
+    knockback-resistance: 25.0
+    ability:
+      ability1:
+        type: STUN
+        mode: WHEN_HIT
+        cooldown: 25.0
+    gem-sockets:
+    - WHITE
+    dye-color: 255 255 255
+    max-health:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    unbreakable: true
+    damage-reduction:
+      base: 10.0
+      scale: 2.0
+      spread: 0.1
+      maxSpread: 0.1
+    element:
+      wind:
+        defense: 25.0
+    movement-speed:
+      base: 0.025
+      scale: 0.005
+      spread: 0.1
+      maxSpread: 0.1
+    set: FLURRIC
+FLURRICLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    weapon-damage:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    critical-strike-chance:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    critical-strike-power:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    parry-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    fire-damage-reduction:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    magic-damage-reduction:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    damage-reduction:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    knockback-resistance: 25.0
+    movement-speed:
+      base: 0.025
+      scale: 0.005
+      spread: 0.1
+      maxSpread: 0.1
+    ability:
+      ability1:
+        type: SHOCK
+        mode: WHEN_HIT
+        cooldown: 25.0
+    cooldown-reduction:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    name: §f§lFlurric Trousers
+    tier: LEGENDARY
+    max-health:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    gem-sockets:
+    - WHITE
+    dye-color: 255 255 255
+    element:
+      wind:
+        defense: 25.0
+    set: FLURRIC
+    unbreakable: true
+    lore:
+    - §f§oIt's literally air
+FLURRICBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §f§lFlurric Boots
+    lore:
+    - §f§oRunning on air.
+    movement-speed:
+      base: 0.025
+      scale: 0.005
+      spread: 0.1
+      maxSpread: 0.1
+    damage-reduction:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    fire-damage-reduction:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    magic-damage-reduction:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    parry-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    cooldown-reduction:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    skill-damage:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    weapon-damage:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    knockback-resistance: 25.0
+    tier: LEGENDARY
+    unbreakable: true
+    max-health:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    ability:
+      ability1:
+        type: BLIND
+        mode: WHEN_HIT
+        cooldown: 5.0
+        duration: 2.0
+    gem-sockets:
+    - WHITE
+    dye-color: 255 255 255
+    element:
+      wind:
+        defense: 25.0
+    set: FLURRIC
+ASSASSIN'S:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 0 125 0
+    armor: 1.0
+    unbreakable: true
+    dodge-rating:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-cooldown-reduction:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    name: §2§lAssassin's Cap
+    skull-texture:
+      value: '1962'
+      uuid: 4a2ce0db-873b-4397-a98b-2dc4a2c7a852
+    tier: RARE
+2ASSASSIN'S:
+  base:
+    material: LEATHER_CHESTPLATE
+    dodge-rating:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-cooldown-reduction:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    dye-color: 0 125 0
+    tier: RARE
+    armor: 2.0
+    unbreakable: true
+    name: §2§lAssassin's Robe
+3ASSASSIN'S:
+  base:
+    material: LEATHER_LEGGINGS
+    dodge-cooldown-reduction:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-rating:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    name: §2§lAssassin's Trousers
+    tier: RARE
+    armor: 1.0
+    dye-color: 0 125 0
+    unbreakable: true
+4ASSASSIN'S:
+  base:
+    material: LEATHER_BOOTS
+    dye-color: 0 125 0
+    fall-damage-reduction: 50.0
+    unbreakable: true
+    dodge-rating:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-cooldown-reduction:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    armor: 1.0
+    tier: RARE
+    movement-speed: 0.035
+    name: §2§lAssassin's Running Shoes
+DUSTY_HOOD:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 17 181 50
+    unbreakable: true
+    disable-repairing: true
+    name: §2§l§oDusty Hood
+    lore:
+    - §f§oTime can weaken even the strongest things.
+    item-particles:
+      particle: COMPOSTER
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-advanced-enchants: true
+    armor: 3.5
+    tier: COMMON
+SILK_HOOD:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 17 181 35
+    unbreakable: true
+    tier: RARE
+    disable-enchanting: true
+    disable-advanced-enchants: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-repairing: true
+    name: §2§l§oSilk Hood
+    lore:
+    - §f§oOne of the few luxuries an adventurer can have.
+    armor: 7.0
+    parry-rating: 10.0
+LIGHT_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §2§l§oLightweight Boots
+    lore:
+    - §f§oDash with the wind.
+    disable-repairing: true
+    unbreakable: true
+    disable-advanced-enchants: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    dye-color: 17 181 35
+    armor: 6.0
+    tier: RARE
+WORNOUTHOOD:
+  base:
+    material: LEATHER_HELMET
+    unbreakable: true
+    tier: COMMON
+    dodge-rating:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    name: §8§lWorn-Out Hood
+    lore:
+    - §8§oPassed down by many generations, this hood has been worn for countless of
+      centuries.
+WORNOUTCAPE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §8§lWorn-Out Hood
+    lore:
+    - §8§oWho knows who has used this cape?
+    tier: COMMON
+    unbreakable: true
+    armor:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-rating:
+      base: 1.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+WORNOUTPANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §8§lWorn-Out Pants
+    dodge-rating:
+      base: 1.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    armor:
+      base: 1.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    tier: COMMON
+    unbreakable: true
+    lore:
+    - §8§oThere are some brown stains on the pants...
+    - §8§oYou should probably get new ones.
+WORNOUTBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    movement-speed: 0.02
+    tier: COMMON
+    name: §8§lWorn-Out Boots
+    dodge-rating:
+      base: 2.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    lore:
+    - §8§oThe shoes feel damp.
+    unbreakable: true
+WINDSWEPT:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 17 181 50
+    unbreakable: true
+    tier: VERY_RARE
+    parry-rating: 15.0
+    name: §2§l§oWindswept Hood
+    lore:
+    - §f§oTouched by the wind.
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 9.0
+    movement-speed: 0.015
+TURBULENT:
+  base:
+    material: LEATHER_BOOTS
+    dye-color: 17 181 50
+    unbreakable: true
+    tier: VERY_RARE
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    name: §2§l§oTurbulent Greaves
+    lore:
+    - §f§oThe wind grows stronger
+    - §f§owith every victorious battle.
+    armor: 9.0
+    fall-damage-reduction: 25.0
+CULTISTSHOOD:
+  base:
+    material: LEATHER_HELMET
+    name: §7§lCultist's Hood
+    dye-color: 0 0 0
+    dodge-rating:
+      base: 4.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    damage-reduction:
+      base: 4.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    tier: RARE
+    unbreakable: true
+    set: CULTIST
+    lore:
+    - §7§oThe hood of a past cultist. Who knows what secrets it holds?
+§7§LCULTIST'S_ROBE:
+  base:
+    material: LEATHER_CHESTPLATE
+    lore:
+    - §7§oWhat does this cape hold?
+    - §7§oMagic? Hate? Or even something more sinnister...
+    dye-color: 0 0 0
+    dodge-rating:
+      base: 4.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    tier: RARE
+    unbreakable: true
+    set: CULTIST
+    damage-reduction:
+      base: 4.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    name: §7§lCultist's Robe
+CULTISTLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §7§lCultist's Leggings
+    lore:
+    - §7§oMagical pants...interesting...
+    dye-color: 0 0 0
+    tier: RARE
+    unbreakable: true
+    damage-reduction:
+      base: 4.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-rating:
+      base: 4.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    set: CULTIST
+§7§LCULTIST'S_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §7§lCultist's Boots
+    lore:
+    - §7§oWhy do these feel like nothing?
+    dye-color: 0 0 0
+    unbreakable: true
+    tier: RARE
+    set: CULTIST
+    damage-reduction:
+      base: 4.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-rating:
+      base: 4.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+MAGICGLIDERS:
+  base:
+    material: LEATHER_CHESTPLATE
+    perm-effects:
+      SLOW_FALLING: 1.0
+    name: §f§lMagic Gliders
+    lore:
+    - §f§oAllows you to fall slowly.
+    dye-color: 255 255 255
+    unbreakable: true
+    tier: COMMON
+SPRINGSHOES:
+  base:
+    material: IRON_BOOTS
+    tier: COMMON
+    unbreakable: true
+    armor: 1.0
+    perm-effects:
+      JUMP: 1.0
+    knockback-resistance: -0.1
+    name: §7§lSpring Shoes
+    lore:
+    - §7§oWhoever made these used poorly casted iron to make them...
+    ability:
+      ability1:
+        type: BUNNY_MODE
+        duration: 3.0
+        mode: WHEN_HIT
+        cooldown: 0.1
+Π:
+  base:
+    material: GOLDEN_LEGGINGS
+    name: §6§lΠ
+    damage-reduction: 100.0
+    unbreakable: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-repairing: true
+    disable-enchanting: true
+    ability:
+      ability1: {}
+    knockback-resistance: 1.0
+SHADOWHOOD:
+  base:
+    material: LEATHER_HELMET
+    tier: VERY_RARE
+    dye-color: 150 150 150
+CLOAKINGROBE:
+  base:
+    material: ELYTRA
+    name: §7§lStealth Wings
+    unbreakable: true
+    lore:
+    - §7How do you use these things?
+    tier: VERY_RARE
+    dodge-rating:
+      base: 10.0
+      scale: 0.01
+      spread: 0.1
+      maxSpread: 0.1
+    knockback-resistance: -0.1
+    ability:
+      ability1:
+        type: SHADOW_VEIL
+        mode: SHIFT_RIGHT_CLICK
+    dodge-cooldown-reduction: 25.0
+PRECISIONGOGGLES:
+  base:
+    material: IRON_HELMET
+    revision-id: 1
+    name: §7§lPrecision Goggles
+    lore:
+    - §7Scout, lock-in, confirm kill...
+    unbreakable: true
+    tier: VERY_RARE
+    armor: 2.0
+    critical-strike-chance:
+      base: 25.0
+      scale: 0.01
+      spread: 0.1
+      maxSpread: 0.1
+    critical-strike-power:
+      base: 50.0
+      scale: 0.01
+      spread: 0.1
+      maxSpread: 0.1
+    perm-effects:
+      NIGHT_VISION: 1.0
+ROCKETSHOES:
+  base:
+    material: IRON_BOOTS
+    unbreakable: true
+    tier: VERY_RARE
+    movement-speed: 0.05
+    ability:
+      ability1:
+        type: MAGICAL_PATH
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+        duration: 3.0
+    armor: 2.0
+    knockback-resistance: -0.2
+    perm-effects:
+      JUMP: 3.0
+      SLOW_FALLING: 1.0
+    item-particles:
+      type: GALAXY
+      height: 0.5
+      particle: FLAME
+      speed: 0.1
+      amount: 2.0
+      rotation-speed: 0.2
+    lore:
+    - §7Fly with rocket propellant
+    - §7or crash into the ground...
+    name: §7§lRocket Boots
+DULUTHTRADINGPANTS:
+  base:
+    material: IRON_LEGGINGS
+    name: §7§lDuluth Pants
+    lore:
+    - §7These pants are made with the finest fibers and the sturdiest of minerals.
+    tier: VERY_RARE
+    armor: 6.0
+    armor-toughness: 2.0
+    fire-damage-reduction: 20.0
+    magic-damage-reduction: 20.0
+    unbreakable: true
+TORN_HOOD:
+  base:
+    material: LEATHER_HELMET
+    name: §7Torn Hood
+    lore:
+    - §8The hood of a gunslinger who lost their way.
+    unbreakable: true
+    tier: COMMON
+    projectile-damage-reduction: 1.0
+    armor: 0.75
+TORN_VEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §7Torn Vest
+    lore:
+    - §8A tattered vest for traveling.
+    armor: 1.5
+    unbreakable: true
+    tier: COMMON
+    projectile-damage-reduction: 3.0
+TORN_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §7Torn Pants
+    lore:
+    - §8No matter how much you re-strap them, they always seem to fall apart.
+    armor: 1.0
+    projectile-damage-reduction: 2.0
+    unbreakable: true
+    tier: COMMON
+TORN_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §7Torn Boots
+    lore:
+    - §8They've held themselves together for as long as you can remember.
+    armor: 0.75
+    projectile-damage-reduction: 1.0
+    unbreakable: true
+    tier: COMMON
+BRUISED_CAP:
+  base:
+    material: LEATHER_HELMET
+    name: §7Bruised Cap
+    lore:
+    - §8Protection for your noggin.
+    armor: 1.0
+    unbreakable: true
+    tier: COMMON
+BRUISED_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §7Bruised Chestplate
+    lore:
+    - §8Sturdy, yet doesn't withstand strong blows.
+    max-health: 2.0
+    armor: 2.0
+    unbreakable: true
+    tier: COMMON
+BRUISED_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §7Bruised Leggings
+    lore:
+    - §8They've seen you through your battles.
+    armor: 2.0
+    unbreakable: true
+    tier: COMMON
+BRUISED_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §7Bruised Boots
+    lore:
+    - §8Lightweight to outmaneuver your enemies at close range.
+    armor: 1.0
+    unbreakable: true
+    tier: COMMON
+    movement-speed: 0.0075
+PADDED_HELMET:
+  base:
+    material: LEATHER_HELMET
+    name: §7Padded Helmet
+    lore:
+    - §8You can take most any hit to the head.
+    unbreakable: true
+    tier: COMMON
+    armor: 1.5
+PADDED_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §7Padded Chestplate
+    lore:
+    - §8Strong and durable, standard-issue armor.
+    block-power: 50.0
+    block-rating: 35.0
+    unbreakable: true
+    tier: COMMON
+    armor: 2.0
+PADDED_GREAVES:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §7Padded Greaves
+    lore:
+    - §8You can actually move around quite well in them.
+    armor: 2.0
+    unbreakable: true
+    tier: COMMON
+PADDED_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §7Padded Boots
+    lore:
+    - §8It has a plate around the ankles to prevent
+    - §8your feet getting swept out from under you.
+    armor: 1.0
+    unbreakable: true
+    tier: COMMON
+JERSEY:
+  base:
+    material: IRON_CHESTPLATE
+    ability:
+      ability1:
+        type: FIREBOLT
+        mode: SHIFT_LEFT_CLICK
+MINER1_HELMET:
+  base:
+    material: LEATHER_HELMET
+    armor: 1.0
+    unbreakable: true
+    tier: COMMON
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    perm-effects:
+      NIGHT_VISION: 1.0
+    name: §rHardy Helmet
+    lore:
+    - §8Comes with a night light.
+    - §8Protects your head from
+    - §8falling rocks.
+MINER1_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    disable-interaction: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    name: §rHardy Vest
+    armor: 2.0
+    tier: COMMON
+    unbreakable: true
+    disable-crafting: true
+    lore:
+    - §8Saftey is a first on the site.
+MINER1_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §rHardy Trousers
+    disable-interaction: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    tier: COMMON
+    armor: 1.0
+    unbreakable: true
+    disable-crafting: true
+MINER1_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §rHardy Boots
+    disable-interaction: true
+    disable-smelting: true
+    disable-enchanting: true
+    disable-repairing: true
+    tier: COMMON
+    armor: 0.5
+    unbreakable: true
+    disable-smithing: true
+    disable-crafting: true
+SHATTERER1_HELMET:
+  base:
+    material: LEATHER_HELMET
+    tier: COMMON
+    armor: 1.0
+    name: §rTattered Cap
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+SHATTERER1_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    tier: COMMON
+    armor: 2.0
+    name: §rTattered Coat
+    unbreakable: true
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+SHATTERER1_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §rTattered Slacks
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    tier: COMMON
+    armor: 2.0
+SHATTERER1_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §rTattered Shoes
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    tier: COMMON
+    unbreakable: true
+    armor: 0.5
+SILVERLINENCAP:
+  base:
+    material: LEATHER_HELMET
+    name: §9§lSilver Linen Cap
+    dye-color: 182 203 212
+    tier: COMMON
+    armor: 1.0
+    unbreakable: true
+    set: SILVER
+    fire-damage-reduction: 2.0
+SILVERLINENTUNIC:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §9§lSilver Linen Tunic
+    unbreakable: true
+    tier: COMMON
+    set: SILVER
+    armor: 3.0
+    dye-color: 182 203 212
+    fire-damage-reduction: 3.0
+SILVERLINENLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §9§lSilver Linen Leggings
+    tier: COMMON
+    unbreakable: true
+    dye-color: 182 203 212
+    set: SILVER
+    armor: 2.0
+    fire-damage-reduction: 3.0
+SILVERLINENBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §9§lSilver Linen Boots
+    dye-color: 182 203 212
+    armor: 1.0
+    tier: COMMON
+    unbreakable: true
+    set: SILVER
+    fire-damage-reduction: 2.0
+    fall-damage-reduction: 3.0
+SNOWHELMET:
+  base:
+    material: LEATHER_HELMET
+    name: §f§lSnow Cap
+    dye-color: 255 255 255
+    tier: RARE
+    armor: 1.0
+    fall-damage-reduction: 2.0
+    unbreakable: true
+    projectile-damage-reduction: 5.0
+    fire-damage-reduction: 2.0
+    set: Snow Suit
+SNOW_VEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    unbreakable: true
+    dye-color: 255 255 255
+    tier: RARE
+    armor: 3.0
+    projectile-damage-reduction: 10.0
+    fire-damage-reduction: 3.0
+    set: Snow Suit
+    name: §f§lSnow Vest
+SNOW_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    unbreakable: true
+    dye-color: 255 255 255
+    tier: RARE
+    armor: 2.0
+    projectile-damage-reduction: 4.0
+    fire-damage-reduction: 5.0
+    set: Snow Suit
+    name: §f§lSnow Pants
+SNOW_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    unbreakable: true
+    dye-color: 255 255 255
+    tier: RARE
+    armor: 1.0
+    projectile-damage-reduction: 1
+    fire-damage-reduction: 2
+    set: Snow Suit
+    name: §f§lSnow Pants
+KEVLARVEST:
+  base:
+    material: IRON_CHESTPLATE
+    name: §2§lKevlar Vest
+    unbreakable: true
+    projectile-damage-reduction: 33.0
+    physical-damage-reduction: 33.0
+    knockback-resistance: 0.1
+    dye-color: 0 150 0
+    tier: RARE
+    armor: 3.0
+IMMORTALITY:
+  base:
+    material: IRON_CHESTPLATE
+    unbreakable: true
+    armor: 10000.0
+    physical-damage-reduction: 100.0
+    projectile-damage-reduction: 100.0
+    fall-damage-reduction: 100.0
+    damage-reduction: 100.0
+    defense: 100.0
+    fire-damage-reduction: 100.0
+    magic-damage-reduction: 100.0
+    pve-damage-reduction: 100.0
+    pvp-damage-reduction: 100.0
+    parry-rating: 1000000.0
+    parry-cooldown-reduction: 100000.0
+    dodge-rating: 10000.0
+    dodge-cooldown-reduction: 100000.0
+    block-rating: 100000.0
+    block-cooldown-reduction: 100000.0
+    block-power: 100000.0
+    armor-toughness: 10000.0
+    knockback-resistance: 1000.0
+    perm-effects:
+      DAMAGE_RESISTANCE: 4.0
+SECRET:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 250 147 2
+    name: §6§lFire Tiara
+    item-particles:
+      particle: FLAME
+      type: GALAXY
+      radius: 0.05
+      amount: 10.0
+      y-speed: 0.1
+      y-offset: 0.1
+      rotation-speed: 0.1
+      height: 0.05
+      speed: 0.0
+    unbreakable: true
+    tier: EPIC
+    lore:
+    - §7§oA golden tiara with a
+    - §7§oshiny, blue crystal in
+    - §7§othe middle.
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    fire-damage-reduction: 50.0
+    ability:
+      ability2:
+        type: BURNING_HANDS
+        cooldown: 3.5
+        damage: 4.0
+        mode: LEFT_CLICK
+        duration: 2.5
+      ability3:
+        type: FIREFLY
+        duration: 0.5
+        damage: 8.0
+        cooldown: 3.0
+        mode: RIGHT_CLICK
+    sounds:
+      on-right-click:
+        sound: entity.blaze.shoot
+        volume: 1.0
+        pitch: 1.0
+    perm-effects:
+      JUMP: 2.0
+SECRET_2:
+  base:
+    material: LEATHER_HELMET
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    unbreakable: true
+    tier: EPIC
+    ability:
+      ability1:
+        type: THRUST
+        mode: RIGHT_CLICK
+        cooldown: 2.0
+        damage: 6.5
+      ability2:
+        type: SKY_SMASH
+        mode: SHIFT_RIGHT_CLICK
+        damage: 10.0
+        cooldown: 5.0
+        knock-up: 1.3
+      ability3:
+        type: ITEM_THROW
+        cooldown: 1.5
+        mode: LEFT_CLICK
+        damage: 5.0
+        force: 1.5
+      ability4:
+        type: LEAP
+        cooldown: 5.0
+        force: 1.3
+        mode: SHIFT_RIGHT_CLICK
+      ability5:
+        type: LIGHT_DASH
+        mode: RIGHT_CLICK
+        cooldown: 2.0
+        length: 0.5
+    perm-effects:
+      JUMP: 2.0
+    dye-color: 252 197 100
+    name: §e§lCutter Cap
+SECRET_3:
+  base:
+    material: LEATHER_HELMET
+    name: §4§lJester's §r§6§lHat
+    lore:
+    - §7§oA common jester hat that's
+    - §7§ored and yellow with pom-poms
+    - §7§oat the end.
+    dye-color: 216 41 34
+    ability: {}
+    perm-effects:
+      JUMP: 2.0
+    unbreakable: true
+    tier: EPIC
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+STURDY_HELMET:
+  base:
+    material: CHAINMAIL_HELMET
+    name: §6§lSturdy Helm
+    lore:
+    - §8A reinforced helmet, which is a much-needed upgrade from your old one.
+    unbreakable: true
+    tier: UNCOMMON
+    armor: 2.0
+    projectile-damage-reduction: 7.5
+STURDY_CHESTPLATE:
+  base:
+    material: CHAINMAIL_CHESTPLATE
+    name: §6§lSturdy Chestplate
+    lore:
+    - §8Nice, solid body protection.
+    max-health: 3.0
+    armor: 3.0
+    unbreakable: true
+    tier: UNCOMMON
+STURDY_LEGGINGS:
+  base:
+    material: CHAINMAIL_LEGGINGS
+    name: §6§lSturdy Leggings
+    lore:
+    - §8A bit heavy, but otherwise they're great.
+    unbreakable: true
+    tier: UNCOMMON
+    armor: 2.0
+    fire-damage-reduction: 10.0
+STURDY_BOOTS:
+  base:
+    material: CHAINMAIL_BOOTS
+    name: §6§lSturdy Boots
+    lore:
+    - §8They're almost as lightweight as normal shoes.
+    armor: 1.0
+    tier: UNCOMMON
+    unbreakable: true
+    fall-damage-reduction: 10.0
+CRPG_HELMET_OF_COURAGE:
+  base:
+    material: IRON_HELMET
+    name: §7§nHelmet of Courage
+    displayed-type: §8Warrior's Headgear
+    unbreakable: true
+    armor: 5.0
+    critical-strike-chance: 5.0
+CRPG_SILVER_HELMET:
+  base:
+    material: IRON_HELMET
+    displayed-type: §8Warrior's Headgear
+    name: §7§nSilver Helmet
+    unbreakable: true
+    armor: 6.0
+    max-health: 2.0
+CHAINSAWMAN:
+  base:
+    material: CARVED_PUMPKIN
+    custom-model-data: 123456.0
+    name: §4§lChainsaw Man
+    tier: RARE
+    unbreakable: true
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v Iron_Ingot - 1.0..|v AIR 0 1..|v AIR 0 1..
+          - v AIR 0 1..|v Iron_Ingot - 1.0..|v Redstone - 1.0..
+          - v AIR 0 1..|v Redstone - 1.0..|v observer - 1.0..
+    perm-effects:
+      SPEED: 25.0
+      JUMP: 7.0
+      REGENERATION: 1000.0
+      SATURATION: 10.0
+      DAMAGE_RESISTANCE: 1000.0
+    ability:
+      ability1: {}
+    damage-reduction: 100.0
+    lifesteal: 100.0
+    knockback-resistance: 1.0
+    block-power: 100.0
+    block-cooldown-reduction: 100.0
+    dodge-rating: 100.0
+    dodge-cooldown-reduction: 100.0
+    parry-rating: 100.0
+    parry-cooldown-reduction: 100.0
+    block-rating: 100.0
+    enchants:
+      depth_strider: 10.0
+    defense: 1.0E48
+    fall-damage-reduction: 100.0
+    projectile-damage-reduction: 100.0
+    physical-damage-reduction: 100.0
+    fire-damage-reduction: 100.0
+    magic-damage-reduction: 100.0
+    pvp-damage-reduction: 100.0
+    armor-toughness: 100.0
+    armor: 100.0
+CRPG_LEATHER_HOOD:
+  base:
+    material: LEATHER_HELMET
+    name: §7§nLeather Hood
+    displayed-type: §8Rogue's Hood
+    hide-dye: true
+    dye-color: 40 40 140
+    armor: 2.0
+    movement-speed: 0.01
+    unbreakable: true
+    dodge-rating: 2.5
+CRPG_NIGHTSTRIKER_HOOD:
+  base:
+    material: LEATHER_HELMET
+    name: §7§nNightstriker Hood
+    displayed-type: §8Rogue's Hood
+    hide-dye: true
+    dye-color: 40 40 140
+    armor: 2.0
+    unbreakable: true
+    dodge-rating: 1.0
+    critical-strike-chance: 2.5
+
+CRPG_APPRENTICES_HAT:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 160 0 255
+    unbreakable: true
+    armor: 3.0
+    hide-dye: true
+    mana-regeneration: 0.4
+    displayed-type: §8Mage's Hat
+    name: §7§nApprentice's Hat
+CRPG_MANA_WELL_HAT:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 160 0 255
+    unbreakable: true
+    armor: 1.0
+    hide-dye: true
+    displayed-type: §8Mage's Hat
+    name: §7§nMana Well Hat
+    max-mana: 3.0
+MAGICHAT:
+  base:
+    material: CARVED_PUMPKIN
+    custom-model-data: 123460.0
+    name: §bCryomancer Hat
+    unbreakable: true
+    disable-interaction: true
+    disable-crafting: true
+    tier: RARE
+    unstackable: true
+    armor: 1.0
+FIRST_FOOL'S_FEDORA:
+  base:
+    material: LEATHER_HELMET
+    name: §l§5First Fool's Fedora
+    hide-dye: true
+    dye-color: 199 41 242
+FIRST_FOOL'S_AEGIS:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §5First Fool's Aegis
+    dye-color: 199 41 242
+    hide-dye: true
+FIRST_FOOL'S_GREAVES:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §5First Fool's Greaves
+    dye-color: 199 41 242
+    hide-dye: true
+FIRST_FOOL'S_TREADS:
+  base:
+    material: LEATHER_BOOTS
+    name: §5First Fool's Treads
+    dye-color: 199 41 242
+    hide-dye: true
+DOUBLEJUMP:
+  base:
+    material: LEATHER_BOOTS
+    name: §f§lAcrobat's Boots
+    unbreakable: true
+    ability:
+      ability1:
+        type: EXTRAJUMP
+        mode: LEFT_CLICK
+        cooldown: 3.0
+    hide-dye: true
+    dye-color: 255 255 255
+    fall-damage-reduction: 100.0
+CHESTPLATE:
+  base:
+    material: CARVED_PUMPKIN
+    ability:
+      ability1:
+        type: RETURN
+        mode: DEATH
+      ability2:
+        type: NEGATE
+        mode: DAMAGED
+    custom-model-data: 123459.0
+    damage-reduction: 100.0
+BARD_FEATHERED_HAT:
+  base:
+    material: CARVED_PUMPKIN
+    custom-model-data: 123461.0
+    name: §dBard's Feathered Hat
+    displayed-type: §7Helmet
+    armor: 3.0
+    disable-crafting: true
+    unstackable: true
+    disable-interaction: true
+BARD_RAIMENT:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §dBard Raiment
+    displayed-type: §7Chestplate
+    armor: 4.0
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-crafting: true
+    unbreakable: true
+    dye-color: 247 126 227
+    hide-dye: true
+    max-health: 10.0
+BARD_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §dBard Pants
+    displayed-type: §7Leggings
+    armor: 3.0
+    disable-crafting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    hide-dye: true
+    dye-color: 247 126 227
+BARD_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §dBard Boots
+    displayed-type: §7Boots
+    armor: 3.0
+    unbreakable: true
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-crafting: true
+    dye-color: 247 126 227
+    hide-dye: true
+    dodge-rating: 10.0
+    dodge-cooldown-reduction: 100.0
+WINGTIPS:
+  base:
+    material: IRON_BOOTS
+    name: §fWingtips
+    ability:
+      ability1:
+        type: LEAP
+        mode: SNEAK
+        cooldown: 4.0
+      ability2:
+        type: LIGHT_DASH
+        cooldown: 4.0
+        length: 0.1
+        mode: SHIFT_LEFT_CLICK
+PALADINHELMET:
+  base:
+    material: CARVED_PUMPKIN
+    name: §e§lPaladin Helmet
+    unbreakable: true
+    armor: 3.0
+    custom-model-data: 123464.0
+PALADINCHESTPLATE:
+  base:
+    material: GOLDEN_CHESTPLATE
+    name: §ePaladin Breastplate
+    unbreakable: true
+    armor: 5.0
+    max-health: 16.0
+PALADINLEGGINGS:
+  base:
+    material: GOLDEN_LEGGINGS
+    name: §ePaladin Tassets
+    unbreakable: true
+    armor: 4.0
+PALADINSHOES:
+  base:
+    material: GOLDEN_BOOTS
+    name: §ePaladin Greaves
+    unbreakable: true
+    armor: 3.0
+ARCHERHELM:
+  base:
+    material: CARVED_PUMPKIN
+    unbreakable: true
+    armor: 1.0
+    dodge-rating: 20.0
+    dodge-cooldown-reduction: 100.0
+    name: §aArcher Hat
+    dye-color: 134 232 109
+    hide-dye: true
+    custom-model-data: 123465.0
+    fall-damage-reduction: 20.0
+ARCHERCHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    armor: 4.0
+    unbreakable: true
+    name: §aArcher Tunic
+    hide-dye: true
+    dye-color: 134 232 109
+    max-health: 8.0
+ARCHERLEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    armor: 3.0
+    unbreakable: true
+    name: §aArcher Pants
+    hide-dye: true
+    dye-color: 134 232 109
+ARCHERBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    unbreakable: true
+    armor: 2.0
+    name: §aArcher Boots
+    dye-color: 134 232 109
+    hide-dye: true
+BERSERKERHELMET:
+  base:
+    material: CARVED_PUMPKIN
+    name: §cBerserker Helmet
+    max-health: 20.0
+    unbreakable: true
+    knockback-resistance: 1.0
+    armor: 1.0
+    custom-model-data: 123468.0
+    ability:
+      ability1:
+        type: SRT_DEATH
+        mode: DEATH
+KNIGHTHEAD:
+  base:
+    material: CARVED_PUMPKIN
+    unbreakable: true
+    armor: 3.0
+    name: §7Knight Helmet
+    custom-model-data: 123466.0
+KNIGHTCHEST:
+  base:
+    material: IRON_CHESTPLATE
+    unbreakable: true
+    armor: 5.0
+    name: §7Knight Chestplate
+    max-health: 18.0
+KNIGHTLEGS:
+  base:
+    material: IRON_LEGGINGS
+    unbreakable: true
+    knockback-resistance: 1.0
+    armor: 4.0
+    name: §7Knight Leggings
+KNIGHT_BOOT:
+  base:
+    material: IRON_BOOTS
+    unbreakable: true
+    armor: 3.0
+    name: §7Knight Boots
+ROGUE_HELM:
+  base:
+    material: CARVED_PUMPKIN
+    name: Rogue Cap
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 39 54 135
+    hide-dye: true
+    custom-model-data: 123469.0
+ROGUE_CHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §1Rogue Cloak
+    disable-enchanting: true
+    disable-smithing: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 39 54 135
+    hide-dye: true
+    max-health: 10.0
+ROGUE_PANT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: Rogue Pants
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    dodge-rating: 10.0
+    dodge-cooldown-reduction: 50.0
+    dye-color: 39 54 135
+    hide-dye: true
+ROGUE_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §1Rogue Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 39 54 135
+    hide-dye: true
+CLERIC_HOOD:
+  base:
+    material: CARVED_PUMPKIN
+    name: §fCleric Hood
+    custom-model-data: 123462.0
+    dodge-rating: 15.0
+    dodge-cooldown-reduction: 100.0
+    armor: 2.0
+    health-regeneration: 0.5
+MAGE_HAT:
+  base:
+    material: CARVED_PUMPKIN
+    name: Mage Hood
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 1.0
+    dye-color: 200 20 220
+    hide-dye: true
+    custom-model-data: 123470.0
+MAGE_ROBE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: Mage Robe
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 200 20 220
+    hide-dye: true
+    max-health: 6.0
+MAGE_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    dye-color: 200 20 220
+    hide-dye: true
+    name: §5Mage Trousers
+MAGE_SHOES:
+  base:
+    material: LEATHER_BOOTS
+    name: §5Mage Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    fall-damage-reduction: 20.0
+    dye-color: 200 20 220
+    hide-dye: true
+CLERICVESTMENT:
+  base:
+    material: LEATHER_CHESTPLATE
+    armor: 5.0
+    unbreakable: true
+    name: §fCleric Vestment
+    dye-color: 255 255 255
+    max-health: 10.0
+CLERIC_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    armor: 4.0
+    unbreakable: true
+    name: §fCleric Pants
+    dye-color: 255 255 255
+CLERICBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    unbreakable: true
+    armor: 3.0
+    name: §fCleric Boots
+    dye-color: 255 255 255
+SORCERER_MASK:
+  base:
+    material: CARVED_PUMPKIN
+    name: §4Sorcerer Circlet
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 1.0
+    dye-color: 163 20 50
+    hide-dye: true
+    custom-model-data: 123471.0
+SORCERER_CLOAK:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §4Sorcerer Garment
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 163 20 50
+    hide-dye: true
+    max-health: 6.0
+SORCERER_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    dye-color: 163 20 50
+    hide-dye: true
+    name: §4Sorcerer Greaves
+SORCERER_SHOES:
+  base:
+    material: LEATHER_BOOTS
+    name: §4Sorcerer Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    fall-damage-reduction: 20.0
+    dye-color: 163 20 50
+    hide-dye: true
+ASSASSINHELM:
+  base:
+    material: CARVED_PUMPKIN
+    name: §9Assassin Scarf
+    dye-color: 128 124 236
+    unbreakable: true
+    armor: 1.0
+    hide-dye: true
+    custom-model-data: 123472.0
+    max-health: 0
+ASSASSINCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §9Assassin Cloak
+    dye-color: 128 124 236
+    unbreakable: true
+    armor: 2.0
+    hide-dye: true
+    max-health: 8.0
+ASSASSINLEGG:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §9Assassin Pants
+    unbreakable: true
+    dye-color: 128 124 236
+    armor: 2.0
+    dodge-rating: 15.0
+    hide-dye: true
+    max-health: 0
+ASSASSINBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §9Assassin Boots
+    unbreakable: true
+    dye-color: 128 124 236
+    fall-damage-reduction: 50.0
+    armor: 1.0
+    hide-dye: true
+    max-health: 0
+PYROMANCERHELM:
+  base:
+    material: LEATHER_HELMET
+    name: §4Pyromancer Hood
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 1.0
+    dye-color: 245 146 24
+    hide-dye: true
+PYROMANCERCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §4Pyromancer Cloak
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 245 146 24
+    hide-dye: true
+    max-health: 8.0
+PYROMANCERLEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §4Pyromancer Leggings
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    dye-color: 245 146 24
+    hide-dye: true
+PYROMANCERBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §4Pyromancer Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    fall-damage-reduction: 20.0
+    dye-color: 245 146 24
+    hide-dye: true
+RIFLERHELM:
+  base:
+    material: CARVED_PUMPKIN
+    name: §bRifler Cap
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 170 250 250
+    hide-dye: true
+    custom-model-data: 123475.0
+RIFLERTUNIC:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §bRifler Jacket
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 170 250 250
+    dodge-cooldown-reduction: 100.0
+    dodge-rating: 10.0
+    hide-dye: true
+    max-health: 8.0
+RIFLERLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §bRifler Pants
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    dye-color: 170 250 250
+    perm-effects:
+      JUMP: 1.0
+    hide-dye: true
+    max-health: 0
+RIFLERBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §bRifler Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    fall-damage-reduction: 20.0
+    dye-color: 170 250 250
+    hide-dye: true
+    max-health: 0
+BERSERKER_PLATING:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §cBerserker Plating
+    hide-dye: true
+    dye-color: 255 121 94
+    armor: 1.0
+    unbreakable: true
+    max-health: 20.0
+BERSERKER_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §cBerserker Pants
+    hide-dye: true
+    dye-color: 255 121 94
+    armor: 1.0
+    unbreakable: true
+BERSERKER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §cBerserker Boots
+    hide-dye: true
+    dye-color: 255 121 94
+    armor: 1.0
+    unbreakable: true
+KSANTAHAIR:
+  base:
+    material: CARVED_PUMPKIN
+    custom-model-data: 123467.0
+    name: §6Luscious Beard
+    defense: 0.0
+    armor: 4.0
+KSANTECHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §6Bastion Tunic
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 6.0
+    dye-color: 245 146 24
+    hide-dye: true
+    knockback-resistance: 1.0
+    max-health: 6.0
+KSANTELEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §6Bastion Pants
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 5.0
+    unbreakable: true
+    dye-color: 245 146 24
+    hide-dye: true
+KSANTEBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §6Bastion Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    fall-damage-reduction: 50.0
+    dye-color: 245 146 24
+    hide-dye: true
+MAEVECAP:
+  base:
+    material: LEATHER_HELMET
+    name: §dThief Cap
+    dye-color: 255 85 255
+    unbreakable: true
+    armor: 1.0
+    max-health: 0
+MAEVECHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §dThief Chestplate
+    dye-color: 255 85 255
+    unbreakable: true
+    armor: 2.0
+    max-health: 8.0
+MAEVELEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §dThief Leggings
+    unbreakable: true
+    dye-color: 255 85 255
+    armor: 2.0
+    dodge-rating: 15.0
+    max-health: 0
+THIEF:
+  base:
+    material: LEATHER_BOOTS
+    name: §dThief Boots
+    unbreakable: true
+    dye-color: 255 85 255
+    fall-damage-reduction: 50.0
+    armor: 1.0
+    perm-effects:
+      SPEED: 3.0
+      JUMP: 3.0
+    max-health: 0
+SWORDSMANHELM:
+  base:
+    material: LEATHER_HELMET
+    name: §8Swordsman Helm
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 152 166 163
+    hide-dye: true
+SWORDSMANTUNIC:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §8Swordsman Tunic
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 4.0
+    dye-color: 152 166 163
+    hide-dye: true
+    parry-rating: 10.0
+    parry-cooldown-reduction: 100.0
+    max-health: 16.0
+SWORDSMANLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §8Swordsman Leggings
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 4.0
+    unbreakable: true
+    dye-color: 152 166 163
+    hide-dye: true
+SWORDSMANBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §8Swordsman Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    fall-damage-reduction: 15.0
+    dye-color: 152 166 163
+    hide-dye: true
+ALCHEMIST_HOOD:
+  base:
+    material: LEATHER_HELMET
+    disable-crafting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    name: §2Alchemist Hood
+    unbreakable: true
+    armor: 2.0
+    enchants:
+      blast_protection: 3.0
+    hide-enchants: true
+    hide-dye: true
+    dye-color: 57 97 47
+ALCHEMIST_COAT:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §2Alchemist Coat
+    enchants:
+      blast_protection: 3.0
+    disable-crafting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 4.0
+    hide-enchants: true
+    dye-color: 57 97 47
+    hide-dye: true
+    max-health: 18.0
+ALCHEMIST_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §2Alchemist Pants
+    disable-smithing: true
+    disable-repairing: true
+    disable-crafting: true
+    disable-enchanting: true
+    hide-enchants: true
+    enchants:
+      blast_protection: 3.0
+    dye-color: 57 97 47
+    hide-dye: true
+    armor: 4.0
+    unbreakable: true
+ALCHEMIST_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §2Alchemist Boots
+    disable-crafting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    enchants:
+      blast_protection: 3.0
+    hide-enchants: true
+    unbreakable: true
+    armor: 3.0
+    hide-dye: true
+    dye-color: 57 97 47
+CRYOHAT:
+  base:
+    material: CARVED_PUMPKIN
+    custom-model-data: 123460.0
+    armor: 1.0
+    name: §bCryomancer Hat
+    max-health: 0
+CRYOCLOAK:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §bCryomancer Cloak
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 184 224 255
+    hide-dye: true
+    max-health: 14.0
+CRYOLEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §bCryomancer Pants
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 184 224 255
+    hide-dye: true
+    max-health: 0
+CRYOSHOES:
+  base:
+    material: LEATHER_BOOTS
+    name: §bCryomancer Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    fall-damage-reduction: 20.0
+    dye-color: 184 224 255
+    hide-dye: true
+    max-health: 0
+BANANASUIT:
+  base:
+    material: STICK
+    name: §6§lGolden Banana
+    custom-model-data: 123487.0
+    max-health: -19.0
+    goop-hat: true
+    lore:
+    - You said it's not edible???
+HAZMAT_CHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: Hazmat Chestplate
+    unbreakable: true
+    dye-color: 255 225 160
+    hide-dye: true
+    ability:
+      ability1:
+        type: SCP_ARMOR
+        mode: DEATH
+    armor: 4.0
+HAZMAT_LEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: Hazmat Leggings
+    dye-color: 255 225 160
+    unbreakable: true
+    armor: 4.0
+HAZMATBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: Hazmat Boots
+    dye-color: 255 225 160
+    unbreakable: true
+    armor: 4.0
+HAZMAT_HELMET:
+  base:
+    material: CARVED_PUMPKIN
+    custom-model-data: 123457.0
+    name: Gas Mask
+    unbreakable: true
+    armor: 4.0
+DEFENDER_HELMET:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 179 133 43
+    armor: 2.0
+    name: §6Defender Helmet
+    unbreakable: true
+    hide-dye: true
+DEFENDER_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §6Defender Chestplate
+    dye-color: 179 133 43
+    armor: 5.0
+    unbreakable: true
+    hide-dye: true
+    max-health: 8.0
+DEFENDER_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §6Defender Leggings
+    armor: 3.0
+    dye-color: 179 133 43
+    unbreakable: true
+    hide-dye: true
+DEFENDER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §6Defender Boots
+    armor: 2.0
+    dye-color: 179 133 43
+    unbreakable: true
+    hide-dye: true
+JUGGERNAUT_HELMET:
+  base:
+    material: LEATHER_HELMET
+    name: §7Juggernaut Helmet
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 1.0
+    dye-color: 70 70 84
+    hide-dye: true
+    max-health: 6.0
+JUGGERNAUT_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §7Juggernaut Chestplate
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 7.0
+    dye-color: 70 70 84
+    hide-dye: true
+    block-rating: 10.0
+    block-cooldown-reduction: 100.0
+    damage-reduction: 15.0
+    max-health: 14.0
+JUGGERNAUT_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §7Juggernaut Leggings
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    dye-color: 70 70 84
+    hide-dye: true
+JUGGERNAUT_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §7Juggernaut Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    dye-color: 70 70 84
+    hide-dye: true
+    movement-speed: -0.01
+STEAMPUNKER_HAT:
+  base:
+    material: LEATHER_HELMET
+    dye-color: 209 192 98
+    armor: 2.0
+    name: §eSteampunker Hat
+    unbreakable: true
+    hide-dye: true
+STEAMPUNKER_COAT:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §eSteampunker Coat
+    dye-color: 209 192 98
+    armor: 5.0
+    unbreakable: true
+    hide-dye: true
+    max-health: 10.0
+STEAMPUNKER_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §eSteampunker Pants
+    armor: 3.0
+    dye-color: 209 192 98
+    unbreakable: true
+    hide-dye: true
+STEAMPUNKER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §eSteampunker Boots
+    armor: 2.0
+    dye-color: 209 192 98
+    unbreakable: true
+    hide-dye: true
+    movement-speed: 0.015
+HUNTER_HAT:
+  base:
+    material: LEATHER_HELMET
+    name: §4Hunter Hat
+    dye-color: 117 13 34
+    unbreakable: true
+    armor: 1.0
+    hide-dye: true
+HUNTER_CLOAK:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §4Hunter Cloak
+    dye-color: 117 13 34
+    unbreakable: true
+    armor: 2.0
+    hide-dye: true
+    max-health: 10.0
+HUNTER_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §4Hunter Pants
+    unbreakable: true
+    dye-color: 117 13 34
+    armor: 1.0
+    hide-dye: true
+    max-health: 0
+HUNTER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §4Hunter Boots
+    unbreakable: true
+    dye-color: 117 13 34
+    armor: 1.0
+    hide-dye: true
+MONKHELM:
+  base:
+    material: LEATHER_HELMET
+    name: §6Monk Helmet
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 117 89 38
+    hide-dye: true
+MONKCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §6Monk Chestplate
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 4.0
+    dye-color: 117 89 38
+    hide-dye: true
+    max-health: 16.0
+MONKLEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §6Monk Leggings
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 4.0
+    unbreakable: true
+    dye-color: 117 89 38
+    hide-dye: true
+MONKBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §6Monk Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    fall-damage-reduction: 15.0
+    dye-color: 117 89 38
+    hide-dye: true
+NINJA_HELMET:
+  base:
+    material: LEATHER_HELMET
+    name: §8§oNinja Helmet
+    dye-color: 0 0 0
+    armor: 1.0
+    unbreakable: true
+    max-health: 0
+NINJA_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §8§oNinja Chestplate
+    armor: 4.0
+    dye-color: 0 0 0
+    unbreakable: true
+    max-health: 10.0
+NINJA_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §8§oNinja Leggings
+    armor: 3.0
+    dye-color: 0 0 0
+    unbreakable: true
+    max-health: 0
+NINJA_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §8§oNinja Boots
+    armor: 1.0
+    dye-color: 0 0 0
+    dodge-rating: 2.0
+    unbreakable: true
+    max-health: 0
+DRUID_WREATH:
+  base:
+    material: LEATHER_HELMET
+    name: §aDruid Wreath
+    custom-model-data: 123462.0
+    dodge-cooldown-reduction: 100.0
+    armor: 1.0
+    dye-color: 159 201 143
+    hide-dye: true
+    dodge-rating: 10.0
+    unbreakable: true
+DRUID_COAT:
+  base:
+    material: LEATHER_CHESTPLATE
+    armor: 4.0
+    unbreakable: true
+    name: §aDruid Coat
+    dye-color: 159 201 143
+    hide-dye: true
+    max-health: 20.0
+DRUID_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    armor: 3.0
+    unbreakable: true
+    name: §aDruid Pants
+    dye-color: 159 201 143
+    hide-dye: true
+DRUID_SLIPPERS:
+  base:
+    material: LEATHER_BOOTS
+    unbreakable: true
+    armor: 2.0
+    name: §aDruid Slippers
+    dye-color: 159 201 143
+    hide-dye: true
+CAMELIER_HELMET:
+  base:
+    material: LEATHER_HELMET
+    name: §eCamelier Helmet
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 234 181 96
+    hide-dye: true
+    max-health: 0
+CAMELIER_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §eCamelier Chestplate
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 4.0
+    dye-color: 234 181 96
+    hide-dye: true
+    max-health: 10.0
+CAMELIER_LEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §eCamelier Leggings
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 1.0
+    unbreakable: true
+    dye-color: 234 181 96
+    hide-dye: true
+    max-health: 0
+CAMELIER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §eCamelier Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 1.0
+    unbreakable: true
+    dye-color: 234 181 96
+    hide-dye: true
+    movement-speed: -0.02
+    max-health: 0
+BRAWLER_BANDANA:
+  base:
+    material: CARVED_PUMPKIN
+    name: §cBrawler Bandana
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 152 166 163
+    hide-dye: true
+    custom-model-data: 123474.0
+BRAWLER_PLATING:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §cBrawler Plating
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 152 166 163
+    hide-dye: true
+    max-health: 18.0
+    ability:
+      ability1:
+        type: NINJALEAP
+        mode: SNEAK
+        cooldown: 0.0
+BRAWLER_SHORTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §cBrawler Shorts
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    dye-color: 117 89 38
+    hide-dye: true
+BRAWLER_SANDALS:
+  base:
+    material: LEATHER_BOOTS
+    name: §cBrawler Sandals
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    fall-damage-reduction: 15.0
+    dye-color: 117 89 38
+    hide-dye: true
+    movement-speed: 0.02
+BOMBERHELM:
+  base:
+    material: LEATHER_HELMET
+    name: §lBomber Helmet
+    unbreakable: true
+    armor: 1.0
+ENFORCER_HELMET:
+  base:
+    material: LEATHER_HELMET
+    name: Enforcer Helmet
+    armor: 1.0
+    unbreakable: true
+BOMBERCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §lBomber Chestplate
+    unbreakable: true
+    armor: 2.0
+    max-health: 10.0
+BOMBERLEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §lBomber Pants
+    unbreakable: true
+    armor: 2.0
+BOMBERSHOES:
+  base:
+    material: LEATHER_BOOTS
+    name: §lBomber Boots
+    unbreakable: true
+    armor: 1.0
+    fall-damage-reduction: 75.0
+ENFORCER_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: Enforcer Chestplate
+    armor: 3.0
+    unbreakable: true
+    max-health: 30.0
+    dye-color: 163 0 0
+ENFORCER_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: Enforcer Pants
+    armor: 1.0
+    unbreakable: true
+    dye-color: 163 0 0
+ENFORCER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    armor: 1.0
+    unbreakable: true
+    name: Enforcer Boots
+    dye-color: 163 0 0
+AATROXBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §8Swordsman Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    fall-damage-reduction: 15.0
+    dye-color: 91 0 0
+    hide-dye: true
+AATROXVEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §8Swordsman Tunic
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 4.0
+    dye-color: 91 0 0
+    hide-dye: true
+    parry-rating: 10.0
+    parry-cooldown-reduction: 100.0
+    max-health: 10.0
+AATROXLEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §8Swordsman Leggings
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 4.0
+    unbreakable: true
+    dye-color: 91 0 0
+    hide-dye: true
+AATROXHELM:
+  base:
+    material: LEATHER_HELMET
+    name: §7Swordsman Helmet
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 91 0 0
+    hide-dye: true
+LUXMASK:
+  base:
+    material: LEATHER_HELMET
+    name: §eLightbringer Helm
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 1.0
+    dye-color: 250 255 7
+    hide-dye: true
+    custom-model-data: 1.0
+LUXCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §eLightbringer Cloak
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 250 255 7
+    hide-dye: true
+    max-health: 6.0
+LUXPANKS:
+  base:
+    material: LEATHER_LEGGINGS
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    dye-color: 250 255 7
+    hide-dye: true
+    name: §eLightbringer Pants
+LUXSHOES:
+  base:
+    material: LEATHER_BOOTS
+    name: §eLightbringer Shoes
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    fall-damage-reduction: 20.0
+    dye-color: 250 255 7
+    hide-dye: true
+TEEMOARMOR:
+  base:
+    material: LEATHER_HELMET
+    name: §aTeemo Helm
+    dye-color: 60 201 0
+    armor: 1.0
+    unbreakable: true
+    max-health: 0
+TEEMOCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §aTeemo Chestplate
+    armor: 2.0
+    dye-color: 60 201 0
+    unbreakable: true
+    max-health: 8.0
+TEEMOLEGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §aTeemo Leggings
+    armor: 2.0
+    dye-color: 60 201 0
+    unbreakable: true
+TEEMOBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §aTeemo Boots
+    armor: 1.0
+    dye-color: 60 201 0
+    dodge-rating: 2.0
+    unbreakable: true
+    max-health: 0
+ESPER_BEANIE:
+  base:
+    material: CARVED_PUMPKIN
+    name: §x§b§4§9§c§d§bEsper Beanie
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 1.0
+    dye-color: 200 20 220
+    hide-dye: true
+    custom-model-data: 123476.0
+ESPER_ROBE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §x§b§4§9§c§d§bEsper Robe
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 180 156 219
+    hide-dye: true
+    max-health: 6.0
+ESPER_TROUSERS:
+  base:
+    material: LEATHER_LEGGINGS
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    dye-color: 180 156 219
+    name: §x§b§4§9§c§d§bEsper Trousers
+    hide-dye: true
+ESPER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §x§b§4§9§c§d§bEsper Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    fall-damage-reduction: 30.0
+    dye-color: 180 156 219
+    hide-dye: true
+JESTER_HAT:
+  base:
+    material: LEATHER_HELMET
+    name: Jester's Cap
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    unstackable: true
+    hide-dye: true
+    dye-color: 43 105 117
+    armor: 2.0
+    enchants:
+      infinity: 1.0
+    hide-enchants: true
+    ability: {}
+JESTER_CHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: Jester's Robe
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 4.0
+    max-health: 6.0
+    unstackable: true
+    dye-color: 43 105 117
+    hide-dye: true
+    unbreakable: true
+    enchants:
+      infinity: 1.0
+    hide-enchants: true
+JESTER_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: Jester's Trousers
+    enchants:
+      swift_sneak: 3.0
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unstackable: true
+    dye-color: 43 105 117
+    hide-dye: true
+    perm-effects:
+      JUMP: 2.0
+    unbreakable: true
+JESTER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: Jester's Pointy-Toed Shoes
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unstackable: true
+    perm-effects:
+      SPEED: 2.0
+    unbreakable: true
+    enchants:
+      depth_strider: 3.0
+    dye-color: 43 105 117
+    fall-damage-reduction: 50.0
+NUTCRACKER_CAP:
+  base:
+    material: LEATHER_HELMET
+    name: §x§8§7§2§3§3§9Nutcracker Cap
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 135 35 57
+    hide-dye: true
+NUTCRACKER_COAT:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §x§8§7§2§3§3§9Nutcracker Coat
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 135 35 57
+    hide-dye: true
+    parry-rating: 10.0
+    parry-cooldown-reduction: 100.0
+    max-health: 16.0
+NUTCRACKER_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §x§8§7§2§3§3§9Nutcracker Pants
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    dye-color: 135 35 57
+    hide-dye: true
+NUTCRACKER_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §x§8§7§2§3§3§9Nutcracker Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    fall-damage-reduction: 15.0
+    dye-color: 135 35 57
+    hide-dye: true
+BLADEMASTERBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §lBlademancer Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 39 155 155
+    hide-dye: true
+    trim-pattern: eye
+    trim-material: diamond
+    hide-armor-trim: true
+BLADEMANCERPANT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §lBlademancer Pants
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    dye-color: 39 155 155
+    hide-dye: true
+    trim-pattern: eye
+    trim-material: diamond
+    hide-armor-trim: true
+BLADEMASTERCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §lBlademancer Chestplate
+    disable-enchanting: true
+    disable-smithing: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 39 155 155
+    max-health: 10.0
+    hide-dye: true
+    trim-material: diamond
+    trim-pattern: eye
+    hide-armor-trim: true
+BLADEMANCERHELM:
+  base:
+    material: LEATHER_HELMET
+    name: §lBlademancer Helmet
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 39 155 155
+    hide-dye: true
+    custom-model-data: 123469.0
+    trim-pattern: eye
+    trim-material: diamond
+    hide-armor-trim: true
+    dodge-cooldown-reduction: 100.0
+    dodge-rating: 10.0
+DUELIST_CAP:
+  base:
+    material: CARVED_PUMPKIN
+    unbreakable: true
+    armor: 1.0
+    dodge-rating: 10.0
+    dodge-cooldown-reduction: 100.0
+    name: §x§4§7§9§5§c§1Duelist Cap
+    dye-color: 134 232 109
+    hide-dye: true
+    custom-model-data: 123477.0
+    fall-damage-reduction: 20.0
+DUELIST_JACKET:
+  base:
+    material: LEATHER_CHESTPLATE
+    armor: 4.0
+    unbreakable: true
+    name: §x§4§7§9§5§c§1Duelist Jacket
+    hide-dye: true
+    dye-color: 71 148 193
+    max-health: 8.0
+DUELIST_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    armor: 3.0
+    unbreakable: true
+    name: §x§4§7§9§5§c§1Duelist Pants
+    dye-color: 71 148 193
+    hide-dye: true
+DUELIST_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    unbreakable: true
+    armor: 2.0
+    name: §x§4§7§9§5§c§1Duelist Boots
+    dye-color: 71 148 193
+    hide-dye: true
+SPIRITHELM:
+  base:
+    material: LEATHER_HELMET
+    name: §lSpiritualist Helmet
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 255 255 255
+    hide-dye: true
+    custom-model-data: 123469.0
+    hide-armor-trim: true
+    trim-material: quartz
+    trim-pattern: dune
+SPIRITPANT:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §lSpiritualist Pants
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 3.0
+    unbreakable: true
+    dye-color: 255 255 255
+    hide-dye: true
+    hide-armor-trim: true
+    trim-material: quartz
+    trim-pattern: dune
+SPIRITBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §lSpiritualist Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 2.0
+    dye-color: 255 255 255
+    hide-armor-trim: true
+    hide-dye: true
+    trim-material: quartz
+    trim-pattern: dune
+SPIRTUALISTCHEST:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §lSpiritualist Chestplate
+    disable-enchanting: true
+    disable-smithing: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 255 255 255
+    max-health: 10.0
+    hide-dye: true
+    hide-armor-trim: true
+    trim-material: quartz
+    trim-pattern: dune
+EARTHSHAKER_HAT:
+  base:
+    material: LEATHER_HELMET
+    name: §x§b§0§7§6§4§dEarthshaker Hat
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+    armor: 1.0
+    dye-color: 199 128 78
+    hide-dye: true
+    trim-material: copper
+    trim-pattern: wayfinder
+    hide-armor-trim: true
+EARTHSHAKER_ROBE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §x§b§0§7§6§4§dEarthshaker Robe
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    unbreakable: true
+    armor: 3.0
+    dye-color: 199 128 78
+    hide-dye: true
+    max-health: 6.0
+    hide-armor-trim: true
+    trim-pattern: wayfinder
+    trim-material: copper
+EARTHSHAKER_PANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    dye-color: 199 128 78
+    hide-dye: true
+    name: §x§b§0§7§6§4§dEarthshaker Trousers
+    hide-armor-trim: true
+    trim-pattern: wayfinder
+    trim-material: copper
+EARTHSHAKER_SHOES:
+  base:
+    material: LEATHER_BOOTS
+    name: §x§b§0§7§6§4§dEarthshaker Boots
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    armor: 2.0
+    unbreakable: true
+    fall-damage-reduction: 20.0
+    dye-color: 199 128 78
+    hide-dye: true
+    hide-armor-trim: true
+    trim-pattern: wayfinder
+    trim-material: copper
+TEST_ARMOR:
+  base:
+    material: IRON_CHESTPLATE
+    element:
+      thunder:
+        defense: 1000.0
+      darkness:
+        defense: -1000.0
+        weakness: 100.0
+      ice:
+        defense: 10.0
+      fire:
+        defense: -10.0
+        weakness: 100.0
+SRT_WOODENCHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    dye-color: 112 87 0
+    unbreakable: true
+    armor: 3.0
+    max-health: 4.0
+    element:
+      earth:
+        defense: 5.0
+    hide-enchants: true
+    movement-speed: -0.03
+    name: §2§lWooden Chestplate
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v oak_log - 1.0..|v AIR 0 1.0..|v oak_log - 1.0..
+          - v oak_log - 1.0..|m material thornbark 1.0..|v oak_log - 1.0..
+          - v oak_log - 1.0..|v oak_log - 1.0..|v oak_log - 1.0..
+SRT_WOODENLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    dye-color: 112 87 0
+    unbreakable: true
+    element:
+      earth:
+        defense: 2.0
+    hide-enchants: true
+    armor: 2.0
+    name: §2§lWooden Leggings
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v oak_log - 1.0..|m material thornbark 1.0..|v oak_log - 1.0..
+          - v oak_log - 1.0..|v AIR 0 1.0..|v oak_log - 1.0..
+          - v oak_log - 1.0..|v AIR 0 1.0..|v oak_log - 1.0..
+SRT_WOODENBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    dye-color: 112 87 0
+    unbreakable: true
+    armor: 1.0
+    element:
+      earth:
+        defense: 1.0
+    hide-enchants: true
+    name: §2§lWooden Boots
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v oak_log - 1.0..|v AIR 0 1..|v oak_log - 1.0..
+          - v oak_log - 1.0..|v AIR 0 1..|v oak_log - 1.0..
+SRT_CALCITECHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §f§lCalcite Chestplate
+    disable-repairing: true
+    unbreakable: true
+    element:
+      earth: {}
+      wind:
+        defense: 5.0
+    dye-color: 234 234 234
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v calcite - 1.0..|v AIR 0 1..|v calcite - 1.0..
+          - v calcite - 1.0..|m material calcite_core 1.0..|v calcite - 1.0..
+          - v calcite - 1.0..|v calcite - 1.0..|v calcite - 1.0..
+    armor: 2.0
+    max-health: 2.0
+SRT_CALCITELEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §f§lCalcite Leggings
+    disable-repairing: true
+    unbreakable: true
+    element:
+      wind:
+        defense: 4.0
+    movement-speed: 0.01
+    dye-color: 234 234 234
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v calcite - 1.0..|m material calcite_core 1.0..|v calcite - 1.0..
+          - v calcite - 1.0..|v AIR 0 1..|v calcite - 1.0..
+          - v calcite - 1.0..|v AIR 0 1..|v calcite - 1.0..
+SRT_CALCITEBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §f§lCalcite Boots
+    disable-repairing: true
+    unbreakable: true
+    movement-speed: 0.02
+    element:
+      wind:
+        defense: 2.0
+    dye-color: 234 234 234
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v calcite - 1.0..|v AIR 0 1..|v calcite - 1.0..
+          - v calcite - 1.0..|v AIR 0 1..|v calcite - 1.0..
+HERMES_BOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: <gradient:#8ce3ed:#5560d9>Sailfish Boots</gradient>
+    hide-dye: true
+    dye-color: 23 225 237
+    movement-speed: 0.04
+    max-health: -4.0
+    armor: -4.0
+    gem-sockets:
+    - Stat
+    unbreakable: true
+SRT_GOLDFISHBOWL:
+  base:
+    material: BLUE_STAINED_GLASS
+    name: §9§lGoldfish Bowl
+    disable-smelting: true
+    disable-interaction: true
+    disable-crafting: true
+    disable-enchanting: true
+    disable-repairing: true
+    disable-droping: true
+    ability:
+      ability1:
+        type: GIVE_OXYGEN
+        mode: TIMER
+        timer: 20.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v glass - 1.0..|v glass - 1.0..|v glass - 1.0..
+          - v glass - 1.0..|v tropical_fish - 1.0..|v glass - 1.0..
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+SRT_PRISMARINECHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §9§lPrismarine Chestplate
+    unbreakable: true
+    armor: 2.0
+    max-health: 4.0
+    element:
+      water:
+        defense: 4.0
+    spell-vampirism: 10.0
+    lifesteal: 10.0
+    dye-color: 20 255 235
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v prismarine - 1.0..|v AIR 0 1.0..|v prismarine - 1.0..
+          - v dark_prismarine - 1.0..|m material swirly_shell 1.0..|v dark_prismarine
+            - 1.0..
+          - v prismarine - 1.0..|v dark_prismarine - 1.0..|v prismarine - 1.0..
+SRT_PRISMARINELEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §9§lPrismarine Leggings
+    max-health: 2.0
+    unbreakable: true
+    element:
+      water:
+        defense: 3.0
+    dye-color: 20 255 235
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v prismarine - 1.0..|m material swirly_shell 1.0..|v prismarine - 1.0..
+          - v dark_prismarine - 1.0..|v AIR 0 1.0..|v dark_prismarine - 1.0..
+          - v prismarine - 1.0..|v AIR 0 1.0..|v prismarine - 1.0..
+SRT_PRISMARINEBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §9§lPrismarine Boots
+    unbreakable: true
+    max-health: 2.0
+    element:
+      water:
+        defense: 3.0
+    dye-color: 20 255 235
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
+          - v prismarine - 1.0..|v AIR 0 1..|v prismarine - 1.0..
+          - v dark_prismarine - 1.0..|v AIR 0 1..|v dark_prismarine - 1.0..

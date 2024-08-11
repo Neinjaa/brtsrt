@@ -1,0 +1,8 @@
+    # The internal name of the MM skill.
+mythicmobs-skill-id: Slash   
+
+# Ability name displayed in lore.
+
+modifiers:
+- damage
+- duration

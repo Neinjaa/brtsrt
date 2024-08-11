@@ -1,0 +1,367 @@
+COMPOSITE_BOW:
+  base:
+    material: BOW
+    name: '&fComposite Bow'
+    critical-strike-chance: 30.0
+    attack-damage:
+      base: 7
+      scale: 0.3
+      spread: 0.1
+      max-spread: 0.3
+    required-level:
+      base: 0
+      scale: 1
+  modifiers:
+    swiftness:
+      weight: 3
+    heavy:
+      chance: 0.05
+      weight: 3
+    impending-doom:
+      weight: 5
+HELL_BOW:
+  base:
+    material: BOW
+    enchants:
+      unbreaking: 10
+      infinity: 1
+    hide-enchants: true
+    unbreakable: true
+    tier: RARE
+    attack-damage:
+      base: 11.5
+      spread: 0.038
+      max-spread: 0.12
+    critical-strike-chance:
+      base: 35.0
+      spread: 0.14
+      max-spread: 0.42
+    critical-strike-power:
+      base: 12.5
+      spread: 0.06
+      max-spread: 0.17
+    element:
+      fire:
+        damage: 14.0
+    ability:
+      right-click:
+        type: FIREBOLT
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 20.0
+        damage: 4.0
+        ignite: 6.0
+    gem-sockets:
+    - Red
+    - Red
+    - Green
+    name: '&cHell Bow'
+    pve-damage:
+      base: 25.0
+      spread: 0.06
+      max-spread: 0.17
+    arrow-particles:
+      amount: 5
+      offset: 0.05
+      particle: FLAME
+      speed: 0.08
+MARKING_BOW:
+  base:
+    material: BOW
+    enchants:
+      unbreaking: 3
+    name: '&8Marking Bow'
+    attack-damage: 7.0
+    arrow-particles:
+      particle: SMOKE_NORMAL
+      amount: 3
+      speed: 0.05
+    ability:
+      ability1:
+        type: WEAKEN_TARGET
+        mode: ATTACK
+        extra-damage: 60.0
+    dodge-rating: 10.0
+    damage-reduction: -5.0
+    required-level: 10.0
+    lore:
+    - '&7Shoot an entity to &cmark &7it. The'
+    - '&7next attack against this entity'
+    - '&7will deal &c60%&7 extra damage.'
+NETHERITE_BOW:
+  base:
+    material: BOW
+    max-durability: 8500.0
+    name: §c§lDark Netherite Bow
+    lore:
+    - §6§o"Bows made of metal can't work."
+    - §8§oBut it's a video game!
+    attack-damage: 25.0
+    arrow-velocity: 1.5
+    pvp-damage:
+      base: 25.0
+      scale: 0.1
+      spread: 0.2
+    projectile-damage:
+      base: 10.0
+      scale: 0.08
+      spread: 0.14
+    tier: RARE
+    ability:
+      ability1:
+        type: WITHER
+        mode: ATTACK
+        duration: 6.0
+        cooldown: 5.0
+        amplifier: 1.0
+    element:
+      darkness:
+        damage:
+          base: 60.0
+          scale: 0.2
+          spread: 0.35
+          max-spread: 0.0
+      fire:
+        damage:
+          base: 20.0
+          scale: 0.05
+          spread: 0.1
+          max-spread: 0.0
+    gem-sockets:
+    - Nether
+    - Nether
+    crafting:
+      smithing:
+        '1':
+          input: v bow - 1.0..|m material dark_netherite 1.0..
+    required-level: 14.0
+PRECISION_BOW:
+  base:
+    material: BOW
+    name: §7§lPrecision Bow
+    lore:
+    - §7The precision bow shoots much farther.
+    critical-strike-chance:
+      base: 15.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    critical-strike-power:
+      base: 40.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.2
+    required-level: 5.0
+    arrow-velocity: 2.0
+    attack-damage:
+      base: 16.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    projectile-damage:
+      base: 5.0
+      scale: 0.2
+      spread: 0.2
+      max-spread: 0.4
+    tier: RARE
+    max-durability: 2400.0
+    required-class:
+    - Archer
+RIOT_RECURVE:
+  base:
+    material: BOW
+    name: §6Riot Recurve
+    critical-strike-chance: 55.0
+    critical-strike-power: 40.0
+    attack-damage: 5.0
+    arrow-particles:
+      particle: REDSTONE
+      color:
+        red: 200
+        green: 80
+        blue: 0
+      offset: 0.1
+      amount: 10
+    arrow-velocity: 0.5
+    ability:
+      ability1:
+        type: ITEM_BOMB
+        radius: 2.0
+        cooldown: 6.0
+        damage: 7.0
+        mode: LEFT_CLICK
+    movement-speed: 0.01
+TRAVELLING_WONDER:
+  base:
+    material: BOW
+    attack-damage: 6.0
+    ability:
+      ability1:
+        type: SHULKER_MISSILE
+        mode: SHIFT_LEFT_CLICK
+    name: §fTravelling Wonder
+HEAVY_BOW:
+  base:
+    material: BOW
+    name: §7§lHeavy Bow
+    two-handed: true
+    movement-speed: -0.01
+    ability:
+      ability1:
+        type: STUN
+        mode: ON_HIT
+      ability2:
+        type: WEAKEN_TARGET
+        mode: ON_HIT
+    tier: COMMON
+    unbreakable: true
+    attack-speed: 2.0
+    attack-damage: 8.0
+TEMP_TEARFUL_ARC:
+  base:
+    material: BOW
+    name: §9Tearful Arc
+    displayed-type: Bow (Temp.)
+    critical-strike-chance: 10.0
+    arrow-velocity: 0.9
+    arrow-particles:
+      particle: REDSTONE
+      color:
+        red: 0
+        green: 100
+        blue: 250
+      offset: 0.1
+      amount: 10
+    perm-effects:
+      SLOW_FALLING: 1.0
+    ability:
+      ability1:
+        type: ARCANE_HAIL
+        mode: SHIFT_LEFT_CLICK
+        duration: 3.0
+    arrow-potion-effects:
+      SLOW:
+        duration: 4.0
+        amplifier: 0
+    element:
+      water:
+        damage: 6.0
+RAIN_RECURVE:
+  base:
+    material: BOW
+    name: §9Rain Recurve
+    displayed-type: §7Bow
+    ability:
+      ability1:
+        type: WINGSOFAMYSTIC
+        flaps: 3.0
+        damage: 7.0
+        mode: SHIFT_LEFT_CLICK
+    element:
+      water:
+        damage: 6.0
+    arrow-velocity: 1.2
+ARROWSONG_HARP:
+  base:
+    material: BOW
+    name: Arrowsong Harp
+    ability:
+      ability1:
+        type: SYMPHONICARROWS
+        mode: SHOOT_BOW
+        arrows: 4.0
+        damage: 12.0
+        cooldown: 5.0
+        mana: 0.0
+      ability2: {}
+    displayed-type: §7Bow
+    attack-damage: 10.0
+    dodge-rating: 4.0
+    arrow-velocity: 1.1
+    unbreakable: true
+    disable-repairing: true
+    disable-enchanting: true
+    disable-crafting: true
+    movement-speed: 0.005
+QUINCYBOW:
+  base:
+    material: BOW
+    name: Quincy
+    ability:
+      ability1:
+        type: QUINCYATTACK
+        damage: 1.0
+        distance: 10.0
+        range: 20.0
+        bounces: 2.0
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+        projectiles: 1.0
+        repeat: 0.0
+      ability2:
+        type: RAPIDFIREQ
+        bounces: 3.0
+        mode: LEFT_CLICK
+        damage: 1.0
+        repeat: 6.0
+        distance: 10.0
+        range: 20.0
+        cooldown: 60.0
+    disable-interaction: true
+PRECISION:
+  base:
+    material: BOW
+    name: §x§8§6§e§8§6§dWindborne Longbow
+    arrow-velocity: 1.3
+    unbreakable: true
+    ability:
+      ability2:
+        type: SNIPERSHOT
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+      ability3:
+        type: ARROWRAIN
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 12.0
+      ability4:
+        type: WITHDRAW
+        mode: LEFT_CLICK
+        cooldown: 3.0
+      ability1:
+        type: WEAKENINGSHOT
+        mode: SHOOT_BOW
+        cooldown: 5.0
+    attack-damage: 10.0
+    custom-model-data: 102999.0
+    hide-enchants: true
+    enchants:
+      infinity: 1.0
+    arrow-particles:
+      particle: VILLAGER_HAPPY
+      amount: 5
+      offset: 0.3
+BOUNTY_COLLECTOR:
+  base:
+    material: BOW
+    name: §lBounty Collector
+    unbreakable: true
+    ability:
+      ability1:
+        type: CLUSTERARROWS
+        mode: RIGHT_CLICK
+        cooldown: 0.75
+      ability2:
+        type: HOOKEDARROW
+        mode: LEFT_CLICK
+        cooldown: 1.0
+      ability3:
+        type: NETSHOT
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 10.0
+      ability4:
+        type: BOUNCINGARROW
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+    attack-damage: 0.01
+    arrow-velocity: 0.01
+    enchants:
+      infinity: 1.0

@@ -1,0 +1,690 @@
+#BLOON SKILLS----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+QuincyAttack:
+  Conditions:
+    - targetwithin{d="<modifier.range">} true
+  TargetConditions:
+    - hastag{t=Bloon} true
+    - hastag{t=Lead} false
+    - hastag{t=Camo} false
+  Skills:
+    - chain{
+        bounces="<modifier.bounces>";
+        r="<modifier.distance>";
+        hitPlayers=true;
+        hitNonPlayers=true;
+        hitTarget=true;
+        hitSelf=false;
+        onBounce=[
+          - damage{a="<modifier.damage>"}
+          - effect:particleline{p=crit;fromOrigin=true;syo=1;tyo=1}
+        ];
+        conditions=[
+          - hastag{t=Bloon} true
+          - hastag{t=Lead} false
+          - hastag{t=Camo} false
+        ];
+        repeat="<modifier.repeat>";
+        repeatI=15
+      } @Target
+
+RapidFireQ:
+  TargetConditions:
+    - hastag{t=Bloon} true
+    - hastag{t=Lead} false
+    - hastag{t=Camo} false
+  Skills:
+    - chain{
+        bounces="<modifier.bounces>";
+        r="<modifier.distance>";
+        hitPlayers=true;
+        hitNonPlayers=true;
+        hitTarget=true;
+        hitSelf=false;
+        onBounce=[
+          - damage{a="<modifier.damage>"}
+          - effect:particleline{p=crit;fromOrigin=true;syo=1;tyo=1}
+        ];
+        conditions=[
+          - hastag{t=Bloon} true
+          - hastag{t=Lead} false
+          - hastag{t=Camo} false
+        ];
+        repeat="<modifier.repeat>";
+        repeatI=10
+      } @EntitiesNearOrigin{r="<modifier.range>";limit=1;sort=NEAREST}
+
+StormOfArrowsQ:
+  Skills:
+    - 
+
+GwendolinAttack:
+  Skills:
+  - projectile{hr="<modifier.spread>";vr=0.5;sb=true;v=12;mr="<modifier.range>";i=2;hnp=true;hp=true;se=false; 
+    onTick=[
+      - particles{p=flame;vs=0.5;hs="<modifier.spread>";a=30} @origin
+    ];
+    onHit=[
+      - damage{a="<modifier.damage>"} 
+    ];
+    hitConditions=[
+        - hastag{t=Bloon} true
+        - hastag{t=Purple} false
+        - hastag{t=Camo} false
+        ];
+    } @targetLocation
+
+StrikerAttack:
+  Skills:
+  - projectile{sb=true;v=32;mr="<modifier.range>";i=2;hnp=true;hp=true;se=true; 
+    onTick=[
+      - particles{p=cloud;vs=0.1;hs=0.1;a=10} @origin
+    ];
+    onEnd=[
+      - damage{a="<modifier.damage>"} @ENO{r=2;limit="<modifier.pierce>";sort=NEAREST;conditions=[
+                                                                                      - hastag{t=Bloon} true
+                                                                                      - hastag{t=Black} false
+                                                                                      - hastag{t=Camo} false]}
+      - particles{p=explosion_large;vs=2;hs=2;a=15} @origin
+    ]} @targetLocation
+
+ObynAttack:
+  Skills:
+  - chainmissile{b="<modifier.pierce>";r=10;inertia=2;hr=0.25;vr=0.25;sb=false;v=8;mr="<modifier.range>";md="<modifier.duration>";i=2;hnp=true;hp=true;se=false; 
+      onTick=[
+       - particles{p=reddust;color=#00FFFF;vs=0.25;hs=0.25;a=50} @origin
+     ];
+      onHit=[
+        - damage{a="<modifier.damage>"} 
+      ];
+      hitConditions=[
+          - hastag{t=Bloon} true
+          - hastag{t=Purple} false
+          - hastag{t=Camo} false
+          ];
+      bounceConditions=[
+          - hastag{t=Bloon} true
+          - hastag{t=Purple} false
+          - hastag{t=Camo} false
+          ]
+      } @EntitiesNearOrigin{r="<modifier.range>";limit=1;sort=NEAREST}
+
+ChurchillAttack:
+  Skills:
+  - projectile{sb=true;v=24;mr="<modifier.range>";i=2;hnp=true;hp=true;se=false; 
+    onTick=[
+      - particles{p=cloud;vs=0.1;hs=0.1;a=10} @origin
+    ];
+    onHit=[
+      - damage{a="<modifier.damage>"} @EntitiesNearOrigin{r=2;limit="<modifier.pierce>";sort=NEAREST;conditions=[
+                                                                                      - hastag{t=Bloon} true
+                                                                                      - hastag{t=Black} false
+                                                                                      - hastag{t=Camo} false]}
+      - particles{p=explosion_large;vs=2;hs=2;a=15} @origin
+    ];
+    hitConditions=[
+        - hastag{t=Bloon} true
+        - hastag{t=Black} false
+        - hastag{t=Camo} false
+        ];
+    } @targetLocation
+
+#ALCHEMIST SKILLS----------------------------------------------------------------------------------------------------------------------------------------------------------
+AlchDrinkFire:
+  Skills:
+  - skill{s=AlchDrinkFire1;repeat=10;repeatInterval=20} @self
+AlchDrinkFire1:
+  Skills:
+  - setNoDamageTicks{ticks=0;delay=0} @EIR{r=5;conditions=[  - hastag{t=adventuring} false]}
+  - sound{s=item.firecharge.use} @Origin
+  - ignite{t=40} @EIR{r=5;conditions=[  - hastag{t=adventuring} false]}
+  - damage{a=1.5;ia=true;pkb=true} @EIR{r=5;conditions=[  - hastag{t=adventuring} false]}
+  - setNoDamageTicks{ticks=0;delay=0} @EIR{r=5;conditions=[  - hastag{t=adventuring} false]}
+  - effect:particlering{particle=flame;radius=5;hs=0.1;points=50;amount=2;y=0.5} @self
+
+AlchDrinkFireEarth:
+  Skills:
+  - onDamaged{auraName=IFrames;d=200;damagemultiplier=0.6} @PIR{r=5}
+  - onDamaged{auraName=IFrames;d=200;damagemultiplier=0.6} @Self
+  - effect:particlering{particle=flame;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+  - effect:particlering{particle=block_crack;m=DIRT;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+
+AlchDrinkFireWater:
+  Skills:
+  - sound{s=entity.player.splash.high_speed;sc=master;v=3;p=1.5} @origin
+  - sound{s=block.lava.extinguish;v=4} @self
+  - effect:particlering{particle=flame;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+  - effect:particlering{particle=drip_water;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+  - lunge{velocity=1.5;vy=2} @targetLocation
+  - potion{type=SLOW_FALLING;duration=100;lvl=2;p=false} @self
+
+AlchDrinkFireAir:
+  Skills:
+  - onDamaged{auraName=AlchStr;d=200;damageSub=-2} @EIR{r=20;conditions=[  - hastag{t=adventuring} false} 
+  - effect:particlering{particle=flame;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+  - effect:particlering{particle=cloud;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+
+AlchDrinkEarth:
+  Skills:
+  - stun{d=60;f=true} @EIR{r=6.5;conditions=[  - hastag{t=adventuring} false} 
+  - damage{a=8} @EIR{r=6.5;conditions=[  - hastag{t=adventuring} false} 
+  - effect:particlering{particle=block_crack;m=DIRT;radius=6.5;hs=0.1;points=80;amount=2;y=0.5} @Origin
+
+AlchDrinkEarthWater:
+  Skills:
+  - potion{type=ABSORPTION;d=100;l=0;p=false} @PIR{r=5}
+  - potion{type=ABSORPTION;d=100;l=0;p=false} @Self
+  - effect:particlering{particle=block_crack;m=DIRT;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+  - effect:particlering{particle=drip_water;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+
+AlchDrinkEarthAir:
+  Skills:
+  - potion{type=JUMP;d=200;l=2;p=false} @PIR{r=5}
+  - potion{type=SPEED;d=200;l=2;p=false} @PIR{r=5}
+  - potion{type=JUMP;d=200;l=2;p=false} @Self
+  - potion{type=SPEED;d=200;l=2;p=false} @Self
+  - effect:particlering{particle=block_crack;m=DIRT;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+  - effect:particlering{particle=cloud;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+
+AlchDrinkWater:
+  Skills:
+  - potion{type=REGENERATION;d=200;l=1;p=false} @PIR{r=5}
+  - potion{type=REGENERATION;d=200;l=1;p=false} @Self
+  - effect:particlering{particle=drip_water;radius=5;hs=0.1;points=50;amount=2;y=0.5} @Origin
+
+AlchDrinkWaterAir:
+  Skills:
+  - throw{v=12;vy=4} @EIR{r=5}
+  - damage{a=6} @EIR{r=5}
+  - potion{type=SPEED;d=200;l=1;p=false} @PIR{r=5}
+  - potion{type=SPEED;d=200;l=1;p=false} @Self
+  - effect:particlering{particle=drip_water;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+  - effect:particlering{particle=cloud;radius=5;hs=0.1;points=25;amount=2;y=0.5} @Origin
+
+AlchDrinkAir:
+  Skills:
+  - potion{type=SLOW_FALLING;d=200;l=1;p=false} @PIR{r=5}
+  - potion{type=SLOW_FALLING;d=200;l=1;p=false} @Self
+  - effect:particlering{particle=cloud;radius=5;hs=0.1;points=50;amount=2;y=0.5} @Origin
+
+AlchThrowFire:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchFireBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=fire;amount=1;speed=0;hS=0.3;vS=0.3}
+    ];
+    onEnd=[
+      - ignite{t=40;repeat=10;repeatInterval=20} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - damage{pkb=true;a=2;ia=true;repeat=10;repeatInterval=20} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - effect:particles{particle=flame;hs=2.5;vs=0;a=60;repeat=40;repeatInterval=5;y=0.1} @Origin
+      - sound{s=block.fire.extinguish} @Origin
+    ]} @targetLocation
+
+AlchThrowFireEarth:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchMagmaBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=magma_block;amount=1;speed=0;hS=0.3;vS=0.3}
+    ];
+    onEnd=[
+      - explosion{y=2.7;bd=false} @Origin{conditions=[  - hastag{t=adventuring} false]}
+      - effect:particles{particle=flame;hs=2;vs=2;a=30;y=0.1;speed=0.5} @Origin
+      - effect:particles{particle=smoke;hs=1;vs=1;a=30;y=0.1;speed=0} @Origin
+      - effect:particles{particle=block_crack;m=DIRT;hs=2.5;vs=0;a=30;y=0.1} @Origin
+    ]} @targetLocation
+
+AlchThrowFireWater:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchWhiteConcretePowderBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=white_concrete_powder;amount=1;speed=0;hS=0.3;vS=0.3}
+    ];
+    onEnd=[
+      - summon{m=AlchThrowFireWater_Toss} @Origin
+      - effect:particles{particle=flame;hs=2;vs=2;a=30;y=0.1;speed=0.5} @Origin
+      - effect:particles{particle=drip_water;hs=2;vs=2;a=30;y=0.1;speed=0.5} @Origin
+      - effect:particles{particle=campfire_cosy_smoke;hs=1;vs=1;a=30;y=0.1;speed=0} @Origin
+    ]} @targetLocation
+
+AlchTFW_TS:
+  Skills:
+  - throw{v=32;vy=4} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+  - damage{a=8;pkb=true} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+  - sound{s=block.lava.extinguish} @origin
+  - delay 1
+  - suicide
+
+AlchThrowFireAir:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchHoneyBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=honey_block;amount=1;speed=0;hS=0.3;vS=0.3}
+    ];
+    onEnd=[
+      - onDamaged{auraName=FWVuln;d=200;damagemultiplier=1.5} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - ignite{d=100} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - effect:particles{particle=flame;hs=2;vs=2;a=30;y=0.1;speed=0.5} @Origin
+      - effect:particles{particle=cloud;hs=2;vs=2;a=30;y=0.1;speed=0.5} @Origin
+      - effect:particles{particle=cloud;hs=1;vs=1;a=30;y=0.1;speed=0} @Origin
+      - sound{s=entity.phantom.flap;v=3} @Origin
+    ]} @targetLocation
+
+AlchThrowEarth:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchCobblestoneBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=cobblestone;amount=1;speed=0;hS=0.3;vS=0.3}
+    ];
+    onEnd=[
+      - stun{d=35} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - damage{a=6} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - effect:particles{particle=block_crack;m=DIRT;hs=2.5;vs=0.3;a=30;y=0.1;speed=0} @Origin
+      - sound{s=entity.zombie.break_wooden_door;v=2} @Origin
+    ]} @targetLocation
+
+AlchThrowEarthWater:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchMudBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=mud;amount=1;speed=0;hS=0.3;vS=0.3} @Origin
+    ];
+    onEnd=[
+      - potion{type=SLOW;d=200;l=1;p=false} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - potion{type=CONFUSION;d=300;l=1;p=false} @ENO{r=5}
+      - damage{a=3;ia=true;pkb=true} @ENO{r=5}
+      - aura{auraName=YuckyAssPoison;i=20;d=200;ot=[  - damage{a=1;pkb=true;ia=true}    - effect:particles{p=mobspell;color=#84fa52;vs=0.3;hs=0.3;y=0.5;speed=0.2} @Origin]} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - effect:particles{particle=block_crack;m=DIRT;hs=2.5;vs=0.3;a=30;y=0.1;speed=0} @Origin
+      - effect:particles{particle=drip_water;hs=2.5;vs=0.5;a=30;y=0.4;speed=0} @Origin
+      - sound{s=block.honey_block.place;v=2;p=0} @Origin
+    ]} @targetLocation
+
+AlchThrowEarthAir:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchGravelBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=gravel;amount=1;speed=0;hS=0.3;vS=0.3} @Origin
+    ];
+    onEnd=[
+      - potion{type=SLOW;d=40;l=1;p=false;repeat=10;repeatInterval=20} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - potion{type=BLINDNESS;d=40;l=0;p=false;repeat=10;repeatInterval=20} @ENO{r=5}
+      - damage{a=3;repeat=10;repeatInterval=20;pkb=true} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - effect:particles{particle=block_crack;m=DIRT;hs=2.5;vs=0.3;a=30;y=0.1;speed=0;repeat=40;repeatInterval=5} @Origin
+      - effect:particlesphere{particle=cloud;r=5;a=400;speed=0;repeat=40;repeatInterval=5} @Origin
+      - effect:particles{particle=cloud;hs=2.5;vs=2.5;a=400;speed=0;repeat=40;repeatInterval=5} @Origin
+      - effect:particles{particle=block_crack;m=sand;hs=2.5;vs=2.5;a=400;speed=0;repeat=40;repeatInterval=5} @Origin
+      - sound{s=block.sand.place;v=2;p=0;repeat=10;repeatInterval=20} @Origin
+    ]} @targetLocation
+
+AlchThrowWater:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchLapisBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=lapis_block;amount=1;speed=0;hS=0.3;vS=0.3}
+    ];
+    onEnd=[
+      - summon{m=AlchThrowWater_Toss} @Origin
+      - effect:particles{particle=drip_water;hs=2;vs=2;a=60;y=0.1;speed=0.5} @Origin
+      - effect:particles{particle=reddust;color=#0000FF;hs=1;vs=1;a=30;y=0.1;speed=0} @Origin
+    ]} @targetLocation
+
+AlchTW_TS:
+  Skills:
+  - pull{v=8;to=true;repeat=10;repeatInterval=3} @ENO{r=10;conditions=[  - hastag{t=adventuring} false]}
+  - damage{a=7;ia=true} @ENO{r=10;conditions=[  - hastag{t=adventuring} false]}
+  - sound{s=entity.player.splash;sc=master;v=4} @origin
+  - delay 1
+  - suicide
+
+AlchThrowWaterAir:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchBlueStainedGlassBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=blue_stained_glass;amount=1;speed=0;hS=0.3;vS=0.3}
+    ];
+    onEnd=[
+      - onDamaged{auraName=AlchStr;d=200;damageSub=3} @ENO{r=20;conditions=[  - hastag{t=adventuring} true]} 
+      - effect:particles{particle=cloud;hs=2;vs=2;a=30;y=0.1;speed=0} @Origin
+      - effect:particles{particle=drip_water;hs=2;vs=2;a=30;y=0.1;speed=0} @Origin
+      - sound{s=entity.phantom.flap;v=3} @Origin
+    ]} @targetLocation
+    
+AlchThrowAir:
+  Skills:
+  - sound{s=entity.splash_potion.throw;v=2} @origin  
+  - projectile{hr=1;vr=1;sb=true;tyo=2;syo=2;sso=0;mr=10000;v=32;hp=true;hnp=true;bulletType=mob;mob=AlchGlassBlock;g=1;
+    onTick=[        
+      - effect:particles{p=block_crack;m=glass;amount=1;speed=0;hS=0.3;vS=0.3}
+    ];
+    onEnd=[
+      - potion{type=LEVITATION;d=80;l=1;p=false} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - damage{a=5} @ENO{r=5;conditions=[  - hastag{t=adventuring} false]}
+      - effect:particles{particle=cloud;hs=2;vs=2;a=60;y=0.1;speed=0} @Origin
+      - sound{s=entity.phantom.flap;v=3} @Origin
+    ]} @targetLocation
+
+AlchElementRotate:
+  Skills:
+  - switch{condition=hastag{t=<case>};cases=
+        case AlchFire=[
+          - addtag{t=AlchEarth} @self
+          - sound{s=block.grass.place;sc=master;v=3;p=1} @origin
+          - removetag{t=AlchFire} @self
+          - actionmessage{m="&a&lSwitched to EARTH"} @self
+          - particlering{p=block_crack;m=DIRT;points=5;r=1;size=1.35;y=0.5;speed=0} @origin
+          ]
+        case AlchEarth=[
+          - addtag{t=AlchWater} @self
+          - sound{s=entity.player.splash;sc=master;v=3;p=1} @origin
+          - removetag{t=AlchEarth} @self
+          - actionmessage{m="&9&lSwitched to WATER"} @self
+          - particlering{p=drip_water;points=5;r=1;size=1.35;y=0.5;speed=0} @origin
+          ]
+        case AlchWater=[
+          - addtag{t=AlchAir} @self
+          - sound{s=entity.phantom.flap;sc=master;v=3;p=1} @origin
+          - removetag{t=AlchWater} @self
+          - actionmessage{m="&e&lSwitched to AIR"} @self
+          - particlering{p=cloud;points=5;r=1;size=1.35;y=0.5;speed=0} @origin
+          ]
+        case AlchAir=[
+          - addtag{t=AlchFire} @self
+          - sound{s=item.firecharge.use;sc=master;v=3;p=1} @origin
+          - removetag{t=AlchAir} @self
+          - actionmessage{m="&c&lSwitched to FIRE"} @self
+          - particlering{p=flame;points=5;r=1;size=1.35;y=0.5;speed=0} @origin
+          ]
+      } @self
+
+AlchElementSelect:
+  Skills:
+  - sound{s=item.bottle.fill;v=3} @origin
+  - switch{condition=hastag{t=<case>};cases=
+        case AlchFire=[       
+          - addtag{t=AlchPotionFire} @self
+          - actionmessage{m="&c&lAdded FIRE to Potion"} @self
+          - effect:particlesphere{particle=flame;r=1;a=10;speed=0;y=0.5}
+          ]
+        case AlchEarth=[         
+          - addtag{t=AlchPotionEarth} @self
+          - actionmessage{m="&a&lAdded EARTH to Potion"} @self
+          - effect:particlesphere{particle=block_crack;m=DIRT;r=1;a=10;speed=0;y=0.5}
+          ]
+        case AlchWater=[         
+          - addtag{t=AlchPotionWater} @self
+          - actionmessage{m="&9&lAdded WATER to Potion"} @self
+          - effect:particlesphere{particle=drip_water;m=DIRT;r=1;a=10;speed=0;y=0.5}
+          ]
+        case AlchAir=[
+          - addtag{t=AlchPotionAir} @self
+          - actionmessage{m="&e&lAdded AIR to Potion"} @self
+          - effect:particlesphere{particle=cloud;m=DIRT;r=1;a=10;speed=0;y=0.5}
+          ]
+    } @Self
+
+AlchFire:
+  Skills:
+  - sound{s=item.bottle.fill;v=3} @origin
+  - addtag{t=AlchPotionFire} @self
+  - actionmessage{m="&c&lAdded FIRE to Potion"} @self
+  - effect:particlesphere{particle=flame;r=1;a=10;speed=0;y=0.5} @self
+
+AlchEarth:
+  Skills:
+  - sound{s=item.bottle.fill;v=3} @origin
+  - addtag{t=AlchPotionEarth} @self
+  - actionmessage{m="&a&lAdded EARTH to Potion"} @self
+  - effect:particlesphere{particle=block_crack;m=DIRT;r=1;a=10;speed=0;y=0.5} @self
+
+AlchWater:
+  Skills:
+  - sound{s=item.bottle.fill;v=3} @origin
+  - addtag{t=AlchPotionWater} @self
+  - actionmessage{m="&9&lAdded WATER to Potion"} @self
+  - effect:particlesphere{particle=drip_water;m=DIRT;r=1;a=10;speed=0;y=0.5} @self
+
+AlchAir:
+  Skills:
+  - sound{s=item.bottle.fill;v=3} @origin
+  - addtag{t=AlchPotionAir} @self
+  - actionmessage{m="&e&lAdded AIR to Potion"} @self
+  - effect:particlesphere{particle=cloud;m=DIRT;r=1;a=10;speed=0;y=0.5} @self
+
+AlchClear:
+  - command{c="tag @s remove AlchPotionFire";op=true} @self
+  - command{c="tag @s remove AlchPotionEarth";op=true} @self
+  - command{c="tag @s remove AlchPotionWater";op=true} @self
+  - command{c="tag @s remove AlchPotionAir";op=true} @self
+  - sound{s=item.bucket.empty;v=3} @origin
+  - actionmessage{m="Potion Cleared"} @self
+
+AlchTriple:
+  Skills:
+  - explosion{y=2.7} @self
+  - sound{s=custom.wetfart;v=4} @origin
+
+AlchQuad:
+  Skills:
+  - effect:lightning{repeat=15;repeatInterval=3} @self
+  - setNoDamageTicks{ticks=0;delay=0;repeat=45;repeatInterval=1} @self
+  - setNoDamageTicks{ticks=0;delay=0;repeat=45;repeatInterval=1} @EIR{r=5}
+  - damage{a=2;ia=true;pkb=true;repeat=15;repeatInterval=3} @EIR{r=5}
+  - damage{a=10;ia=true;pkb=true;repeat=15;repeatInterval=3} @self
+  - delay 45
+  - suicide
+
+AlchDrink:
+  Skills:
+  - skill{s=AlchQuad} @self ?hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchTriple} @self ?!hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchTriple} @self ?hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchTriple} @self ?hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchTriple} @self ?hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkFire} @self ?!hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkFireEarth} @self ?!hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkFireWater} @self ?!hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkFireAir} @self ?hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkEarth} @self ?!hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkEarthWater} @self ?!hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkEarthAir} @self ?hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkWater} @self ?!hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkWaterAir} @self ?hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchDrinkAir} @self ?hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - sound{s=block.note_block.bass;p=0} @self ?!hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - removetag{t=AlchPotionFire} @self
+  - removetag{t=AlchPotionEarth} @self
+  - removetag{t=AlchPotionWater} @self
+  - removetag{t=AlchPotionAir} @self
+  
+AlchThrow:
+  Skills:
+  - skill{s=AlchQuad} @self ?hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchTriple} @self ?!hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchTriple} @self ?hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchTriple} @self ?hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchTriple} @self ?hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowFire} @self ?!hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowFireEarth} @self ?!hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowFireWater} @self ?!hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowFireAir} @self ?hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowEarth} @self ?!hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowEarthWater} @self ?!hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowEarthAir} @self ?hastag{t=AlchPotionAir} ?hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowWater} @self ?!hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowWaterAir} @self ?hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?hastag{t=AlchPotionWater}
+  - skill{s=AlchThrowAir} @self ?hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - sound{s=block.note_block.bass;p=0} @self ?!hastag{t=AlchPotionAir} ?!hastag{t=AlchPotionEarth} ?!hastag{t=AlchPotionFire} ?!hastag{t=AlchPotionWater}
+  - removetag{t=AlchPotionFire} @self
+  - removetag{t=AlchPotionEarth} @self
+  - removetag{t=AlchPotionWater} @self
+  - removetag{t=AlchPotionAir} @self
+
+AlchVisualise:
+  Skills:
+  - effect:particlering{particle=block_crack;m=DIRT;radius=1;hs=0.1;points=10;amount=2;y=0.25;speed=0} @origin ?hastag{t=AlchPotionEarth}
+  - effect:particlering{particle=flame;radius=1;hs=0.1;points=10;amount=2;y=0.5;speed=0} @origin ?hastag{t=AlchPotionFire}
+  - effect:particlering{particle=cloud;radius=1;hs=0.1;points=10;amount=2;y=0.75;speed=0} @origin ?hastag{t=AlchPotionAir}
+  - effect:particlering{particle=drip_water;radius=1;hs=0.1;points=10;amount=2;y=1;speed=0} @origin ?hastag{t=AlchPotionWater}
+#DRUID SKILLS----------------------------------------------------------------------------------------------------------------------------------------------------------
+DruidThorns:
+  Skills:
+  - skill{s=DruidThornsH} @Forward{f=10;eul=true}
+  - effect:particleline{so=<random.float.-1.2to1.2>;pitch=<random.-3to3>;zzo=0.4;pitch=<random.-3to3>;zz=true;p=villager_happy;a=5;fo=true;syo=1.5;maxdistance=10} @TL{d=10}
+
+DruidThornsH:
+  Skills:
+  - damage{a=6} @EIL{r=1;conditions=[  - hastag{t=adventuring} false ]}
+  - aura{auraName=DruidPoison;ot=DruidPoisonT;d=100;i=20} @EIL{r=1;conditions=[  - hastag{t=adventuring} false ]}
+
+DruidRoots:
+  Skills:
+  - projectile{hr=1.5;vr=1.5;oT=DruidRootsT;oH=DruidRootsH;mr=32;v=5;fo=true;hnp=true;hs=true;hfs=0.25;v=16} @TL
+
+DruidRootsT:
+  Skills:
+  - effect:particles{p=block_crack;m=DIRT;amount=7;hs=0.3;vs=0.2}
+  - sound{s=block.grass.place}
+
+DruidRootsH:
+  Skills:
+  - damage{a=5;pkb=true} @target{conditions=[  - hastag{t=adventuring} false ]}
+  - stun{d=60;f=true;nokb=true} @target{conditions=[  - hastag{t=adventuring} false ]}
+  - sound{s=block.grass.break} @target
+  - effect:particlering{p=block_crack;m=DIRT;radius=1;points=32;amount=1} @target
+#Needs work
+DruidVines:
+  Skills:
+  - projectile{b=BLOCK;material=OAK_LEAVES;v=32;dd=0;onTick=[
+    - sound{s=block.grass.break;v=2;p=2} @origin
+    ];sE=false;hp=false;hnp=false;g=0.5;oE=[  - summon{m=DruidVinesP}]} @TL
+
+DruidVinesL:
+  Skills:
+  - damage{a=3;pkb=true} @EIR{r=5;conditions=[  - hastag{t=adventuring} false ]}
+  - sound{s=block.grass.break;v=3;p=2} @origin
+  - onDamaged{auraName=DruidPoison;ot=DruidPoisonT;d=200;i=20;damagemultiplier=1.2} @EIR{r=5;conditions=[  - hastag{t=adventuring} false ]}
+  - particles{p=block_crack;m=OAK_LEAVES;hs=5;vs=0.3;a=60;y=0.3} @origin
+
+DruidPoisonT:
+  Skills:
+  - damage{a=3;ia=true;pkb=true;particles=false}
+  - potion{t=SLOW;d=50;l=1;particles=false} @target{conditions=[  - hastag{t=adventuring} false ]}
+  
+DruidRupture:
+  Skills:
+  - signal{s=DruidExplode} @EIR{r=128}
+  
+DruidExplodeX:
+  Skills:
+  - damage{a=12} @EIR{r=5;conditions=[  - hastag{t=adventuring} false ]}
+  - sound{s=entity.generic.explode;v=6;p=2} @origin
+  - sound{s=entity.blaze.death;p=2;v=6} @origin
+  - effect:particles{p=explosion_huge;amount=10;hs=1;vs=1} @origin
+  - suicide @self
+
+#JESTER SKILLS----------------------------------------------------------------------------------------------------------------------------------------------------------
+JesterAuto:
+  Skills:
+  - modifymobscore{obj=jesterMax;a=SET;v=0}
+  - skill{s=JesterAutoR} @self
+
+JesterAutoR:
+  Skills:
+  - modifymobscore{obj=jesterMax;a=ADD;v=1}
+  - projectile{hitself=true;oT=JesterAutoT;oH=JesterAutoH;mr=16;v=48;hp=true;hnp=true;i=1;sE=false;a=0.95;ti=2} @TL
+  - sound{s=entity.snowball.throw} @origin
+  - sendactionmessage{m="Current Combo: <caster.score.jesterMax>"} @self
+  - sudoskill{s=JesterAuto;delay=2.5} @self 0.5
+
+JesterAutoT:
+  Skills:
+  - effect:particles{particle=crit_magic} @origin
+
+JesterAutoH:
+  Skills:
+  - setnodamageticks{ticks=0;delay=0} @Target
+  - damage{a=2.5;pkb=true} @Target{conditions=[  - hastag{t=adventuring} false ]}
+  - setnodamageticks{ticks=0;delay=0} @Target
+  - damage{a=2;ia=true;pkb=true} @Target{conditions=[  - hastag{t=adventuring} false ]}
+
+JesterLeap:
+  Skills:
+  - modifymobscore{obj=jesterMax;a=SET;v=0}
+  - skill{s=JesterLeapR} @self
+
+JesterLeapR:
+  Skills:
+  - modifymobscore{obj=jesterMax;a=ADD;v=1}
+  - leap{v=250} @TL
+  - particlering{p=crit_magic;points=15;r=5;size=1.35;y=0.5;speed=0} @self
+  - setnodamageticks{ticks=0;delay=1} @EIR{r=5}
+  - damage{a=3;pkb=true} @EIR{r=5;conditions=[  - hastag{t=adventuring} false ]}
+  - sound{s=entity.sheep.shear} @self
+  - sendactionmessage{m="Current Combo: <caster.score.jesterMax>"} @self
+  - skill{s=JesterLeap;delay=5} @self 0.66
+
+JesterSwap:
+  Skills:
+  - particles{p=crit;hs=1;vs=1;a=60;y=1} @self
+  - forcepull @target{r=5}
+  - sound{s=entity.enderman.teleport} @self
+  - teleport{delay=1} @TL{max=20}
+  - particles{p=crit_magic;hs=1;vs=1;a=60;y=1;delay=1} @self
+  - sound{s=entity.enderman.teleport;delay=1} @self
+
+JesterDodge:
+  Skills:
+  - onDamaged{auraName=JesterDodgeAura;onHit=JesterDodgeProc;onTick=JesterDodgeT;duration=60;cE=true;i=5} @self
+
+JesterDodgeProc:
+  Skills:
+  - sound{s=entity.enderman.teleport} @self
+  - teleport{spreadh=3;spreadv=0} @self
+
+JesterDodgeT:
+  Skills:
+  - particlering{p=cloud;points=10;r=1;size=0.5;y=0.5;speed=0}
+  
+#---------------------
+DruidThorns:
+  Skills:
+    - projectile{mr=16;v=48;hp=true;hnp=true;i=1;sE=false;a=0.95;ti=2;oT=[
+      - particles{p=villager_happy;a=10} @origin];oH=DruidThornsH} @TL
+    - projectile{mr=16;v=48;hp=true;hnp=true;i=1;sE=false;a=0.95;ti=2;oT=[
+      - particles{p=villager_happy;a=10} @origin];oH=DruidThornsH} @TL
+    - projectile{mr=16;v=48;hp=true;hnp=true;i=1;sE=false;a=0.95;ti=2;oT=[
+      - particles{p=villager_happy;a=10} @origin];oH=DruidThornsH} @TL
+    - projectile{mr=16;v=48;hp=true;hnp=true;i=1;sE=false;a=0.95;ti=2;oT=[
+      - particles{p=villager_happy;a=10} @origin];oH=DruidThornsH} @TL
+    - projectile{mr=16;v=48;hp=true;hnp=true;i=1;sE=false;a=0.95;ti=2;oT=[
+      - particles{p=villager_happy;a=10} @origin];oH=DruidThornsH} @TL
+
+DruidThornsH:
+  Skills:
+  - setnodamageticks{ticks=0} @Target
+  - damage{a=2} @Target
+  - sudoskill{s=DruidPoison} @Target
+
+DruidPoison:
+  Skills:
+  - aura{i=20;d=100;auraName=DruidPoisonA;ms=25;onStart=[
+    - setvariable{var=caster.poisonstacks;type=INTEGER;val=0} @self
+    ];
+    onTick=[
+    - setvariable{var=caster.poisonstacks;type=INTEGER;val=<skill.var.aura-stacks>} @self
+    - setnodamageticks{ticks=0} @self
+    - damage{a=0.1*<caster.var.poisonstacks>;ia=true;pkb=true} @self
+    - potion{type=SLOW;duration=40;level=(<caster.var.poisonstacks>/5-1)} @self
+    - actionmessage{m="<caster.var.poisonstacks>"} @PIR{r=20}
+    ];
+    onEnd=[
+    - setvariable{var=caster.poisonstacks;type=INTEGER;val=0} @self
+    ]} @self

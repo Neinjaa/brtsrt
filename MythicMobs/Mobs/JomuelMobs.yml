@@ -1,0 +1,94 @@
+# For more information, check out the plugin manual or join us on Discord:
+# http://www.mythicmobs.net
+#  
+
+Riftbearer:
+  Health: 30
+  Type: Allay
+  MovementSpeed: 8.3
+  Options:
+    Interactable: false
+  AIGoalSelectors:
+  - clear
+  - movetowardstarget
+  - gotoowner 4
+  AITargetSelectors:
+  - clear
+  - nearestIf{mr=true;ms=true;conditions=[(- stringequals{val1="<caster.var.team>";val2="<target.var.team>"} false] || variableisset{var=target.team} false)}
+  Skills:
+  - setvar{var=caster.team;type=string;val="spades"} @self ~onSpawn
+  - teleportto{r=true;location=0,0,0} @summoner ~onSignal:PsyArtActivation
+  - sound{s=entity.enderman.teleport} ~onSignal:PsyArtActivation
+  - damage{a=4} @EIR{r=3} ~onTimer:30
+  - throw{velocity=4;velocityY=3} @EIR{r=3} ~onTimer:30
+  - sound{s=block.bell.use;p=0.3} @self ~onTimer:30
+  - particlering{particle=reddust;color=#b49cdb;repeat=2;repeatI=2;radius=<skill.var.itr>;points=32;amount=1;size=1.5} @self ~onTimer:30
+  - particlering{particle=reddust;color=#e783eb;repeat=2;repeatI=2;delay=1;radius="<skill.var.itr> - 0.5";points=32;amount=1;size=1.5} @self ~onTimer:30
+  - setOwner @summoner ~onSpawn
+  - aura{duration=120;auraname=DieRiftbearer;oE=[- remove @self]} @self ~onSpawn
+
+Armorborne:
+  Health: 40
+  Type: Allay
+  MovementSpeed: 8.3
+  Options:
+    Interactable: false
+  AIGoalSelectors:
+  - clear
+  - meleeattacks
+  - gotoowner 4
+  AITargetSelectors:
+  - clear
+  - attackers
+  - monsters
+  - nearestIf{mr=true;ms=true;conditions=[(- stringequals{val1="<caster.var.team>";val2="<target.var.team>"} false || variableisset{var=target.team} false) true]}
+  Skills:
+  - setOwner @summoner ~onSpawn
+  - onAttack{cE=true;duration=120;auraname=DieArmorborne;oE=[- remove @self]} @self ~onSpawn
+  - slash{y=1;w=8;h=40;mpd=true;a=45;radius=0.4;rot=0,0,0;
+     oP=[- effect:particles{a=4;p=reddust;color=#b49cdb;size=2.2}];
+     oH=[- damage{a=2}];
+     oS=[- sound{s=entity.player.attack.sweep}];
+     fo=1;duration=5} @self ~onTimer:20
+  - slash{y=1;w=8;h=40;mpd=true;a=45;radius=1;rot=0,0,0;
+     oP=[- effect:particles{a=4;p=reddust;color=#bb9eff;size=2.2}];
+     fo=0.6;duration=5} @self ~onTimer:20
+  - shield{a=4;ma=10} @summoner ~onSignal:PsyArtActivation
+  - sound{s=block.amethyst_block.step} @self ~onSignal:PsyArtActivation
+
+Tetherlight:
+  Health: 20
+  Type: Allay
+  MovementSpeed: 8.3
+  Options:
+    Interactable: false
+  AIGoalSelectors:
+  - clear
+  - gotoowner 4
+  AITargetSelectors:
+  - clear
+  Skills:
+  - modifytargetscore{o=PsyfloatCD;a=divide;v=2} @summoner ~onTimer:30
+  - setOwner @summoner ~onSpawn
+  - onAttack{cE=true;duration=120;auraname=DieTetherlight;oE=[- remove @self]} @self ~onSpawn
+  - sudoskill{s=EsperMPLoss;repeat=2;repeatI=3} @summoner ~onSignal:PsyArtActivation
+  - remove{delay=15} @self ~onSignal:PsyArtActivation
+  - sound{s=block.amethyst_block.step} @self ~onSignal:PsyArtActivation
+
+SummonerTest:
+  Type: Wolf
+  Display: '&9Summon'
+  Health: 30
+  Disguise: player Blurry_Pixel setCustomNameVisible false
+  Equipment:
+   - DIAMOND_SWORD HAND
+  Skills:
+   - skill{s=setowner} @trigger ~onInteract
+  AIGoalSelectors:
+  - clear
+   - meleeattack
+   - gotoowner 4
+  AITargetSelectors:
+   - clear
+   - ownertarget
+   - ownerattacker

@@ -1,0 +1,173 @@
+{
+	"parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "minecraft:block/pumpkin_top",
+    "front": "minecraft:block/carved_pumpkin",
+    "side": "minecraft:block/pumpkin_side"
+  },
+
+	"overrides": [{
+			"predicate": {
+				"custom_model_data": 123456
+			},
+			"model": "item/ChainsawMan"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123457
+			},
+			"model": "item/HazmatSuit"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123458
+			},
+			"model": "item/KanekiMask"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123459
+			},
+			"model": "item/OctaneStim"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123460
+			},
+			"model": "item/rhat"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123461
+			},
+			"model": "item/bardhat"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123462
+			},
+			"model": "item/clerichood"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123463
+			},
+			"model": "item/HivemasterHelm"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123464
+			},
+			"model": "item/paladin_helm"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123465
+			},
+			"model": "item/archer_hood"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123466
+			},
+			"model": "item/knight_helmet"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123467
+			},
+			"model": "item/KsantaHair"
+		},
+		{
+			"predicate": {
+				"custom_model_data": 123468
+			},
+			"model": "item/berserker_helmet"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123469
+			},
+			"model": "item/rogue_hood"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123470
+			},
+			"model": "item/mage_magic_hat"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123471
+			},
+			"model": "item/sorcerer_circlet"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123472
+			},
+			"model": "item/assassin_scarf"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123473
+			},
+			"model": "item/VRheadset"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123474
+			},
+			"model": "item/brawler_bandana"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123475
+			},
+			"model": "item/rifler_cap"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123476
+			},
+			"model": "item/esper_beanie"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123477
+			},
+			"model": "item/duelist_cap"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123478
+			},
+			"model": "item/Blindfold"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123479
+			},
+			"model": "item/paletteer_beret"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123480
+			},
+			"model": "item/godslayerhelmet"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123481
+			},
+			"model": "item/vanguardsvisage"
+		},
+				{
+			"predicate": {
+				"custom_model_data": 123482
+			},
+			"model": "item/CreateGoggle"
+		}
+	]
+
+}

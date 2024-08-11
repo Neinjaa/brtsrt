@@ -1,0 +1,87 @@
+Dummy_Teemo_Red:
+  Type: GIANT
+  Display: Dummy Teemo
+  Health: 500
+  Damage: 0 
+  Options:
+    PreventOtherDrops: true
+    Silent: true
+    NoDamageTicks: 1
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - stun{d=60} @self ~onTimer:1
+  - model{mid=dummy_teemo_red;n=false} @self ~onSpawn
+  - state{mid=dummy_teemo_red;s=hit} @self ~onDamaged
+Dummy_Teemo_Blue:
+  Type: GIANT
+  Display: Dummy Teemo
+  Health: 99
+  Damage: 0 
+  BossBar:
+    Enabled: true
+    Title: '&2&lTHE DREADNOUGHT'
+    Range: 64
+    Color: GREEN
+    Style: SOLID
+    PlayMusic: true
+  Options:
+    PreventOtherDrops: true
+    Silent: true
+    NoDamageTicks: 1
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=dummy_teemo_blue;n=false} @self ~onSpawn
+  - state{mid=dummy_teemo_blue;s=hit} @self ~onDamaged
+  
+RespawningDummy_Teemo_Blue:
+  Type: GIANT
+  Display: Dummy Teemo
+  Health: 100
+  BossBar:
+    Enabled: true
+    Title: '<caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: GREEN
+    Style: SOLID
+    PlayMusic: true
+  Damage: 0 
+  Options:
+    PreventOtherDrops: true
+    Silent: true
+    Despawn: false
+    NoDamageTicks: 1
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=dummy_teemo_blue;n=false} @self ~onSpawn
+  - state{mid=dummy_teemo_blue;s=hit} @self ~onDamaged
+  - skill{s=RemoveDummy} @self ~onInteract
+  - summon{mob=RespawningDummy_Teemo_Blue;count=1} @origin ~onDeath
+
+RespawningDummy_Teemo_Red:
+  Type: GIANT
+  Display: Dummy Teemo
+  Health: 100000000
+  BossBar:
+    Enabled: true
+    Title: '<caster.hp{round=2}>/<caster.mhp>'
+    Range: 64
+    Color: GREEN
+    Style: SOLID
+    PlayMusic: true
+  Damage: 0 
+  Options:
+    PreventOtherDrops: true
+    Silent: true
+    Despawn: false
+    NoDamageTicks: 1
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - model{mid=dummy_teemo_red;n=false} @self ~onSpawn
+  - state{mid=dummy_teemo_red;s=hit} @self ~onDamaged
+  - summon{mob=RespawningDummy_Teemo_Red;count=1} @origin ~onDeath

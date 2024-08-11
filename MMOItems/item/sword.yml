@@ -1,0 +1,971 @@
+LONG_SWORD:
+  base:
+    material: IRON_SWORD
+    name: '&fLong Sword'
+    attack-speed: 1.6
+    attack-damage:
+      base: 6
+      scale: 1.2
+      spread: 0.1
+      max-spread: 0.3
+    required-level:
+      base: 0
+      scale: 1
+    element:
+      fire:
+        damage: 10
+  modifiers:
+    sharp:
+      chance: 0.5
+    fiery:
+      chance: 0.5
+CUTLASS:
+  base:
+    material: IRON_SWORD
+    attack-damage:
+      base: 7.0
+      spread: 0.04
+      max-spread: 0.13
+    attack-speed:
+      base: 1.7
+      spread: 0.02
+      max-spread: 0.05
+    lore:
+    - '&7Slightly better than an iron sword.'
+    required-level: 3.0
+    tier: COMMON
+    name: '&fSharp Cutlass'
+    max-durability: 300.0
+FALCON_BLADE:
+  base:
+    material: GOLDEN_SWORD
+    required-level: 10.0
+    attack-damage:
+      base: 8.0
+      spread: 0.04
+      max-spread: 0.11
+      maxSpread: 0.11
+    attack-speed:
+      base: 1.8
+      spread: 0.03
+      max-spread: 0.1
+    critical-strike-chance:
+      base: 60.0
+      spread: 0.05
+      max-spread: 0.14
+    gem-sockets:
+    - Blue
+    - Green
+    ability:
+      on-hit:
+        type: LIFE_ENDER
+        mode: ATTACK
+        damage:
+          base: 10.0
+          scale: 1
+          spread: 0.1
+          max-spread: 0.2
+    unbreakable: true
+    perm-effects:
+      SPEED: 1
+    disable-enchanting: true
+    tier: EPIC
+    crafting:
+      shaped:
+        '1':
+        - AIR MATERIAL.EPIC_WEAPON_ESSENCE AIR
+        - MATERIAL.EPIC_WEAPON_ESSENCE GOLDEN_SWORD MATERIAL.EPIC_WEAPON_ESSENCE
+        - AIR MATERIAL.EPIC_WEAPON_ESSENCE AIR
+    disable-repairing: true
+    name: '&eFalcon Blade'
+    upgrade:
+      workbench: false
+    hide-enchants: true
+KATANA:
+  base:
+    material: IRON_SWORD
+    attack-damage: 7.0
+    lore:
+    - '&7&oA very sharp & light sword'
+    - '&7&oforged by a hundred years'
+    - '&7&oof smithing mastery.'
+    attack-speed: 2.0
+    tier: RARE
+    movement-speed: 0.02
+    critical-strike-chance: 10.0
+    name: '&fKatana'
+    max-durability: 800.0
+SOULSTEALER:
+  base:
+    material: IRON_SWORD
+    enchants:
+      unbreaking: 9
+    name: '&cThe Soulstealer'
+    attack-damage:
+      base: 10.0
+      spread: 10.0
+      max-spread: 0.03
+      scale: 10.0
+      maxSpread: 10.0
+    attack-speed:
+      base: 1.65
+      spread: 0.01
+      max-spread: 0.03
+    mana-cost: 2.0
+    critical-strike-chance: 30.0
+    max-health: 2.0
+    required-level: 10.0
+    ability:
+      ability1:
+        type: VAMPIRISM
+        mode: ATTACK
+        cooldown: 7.0
+    crafting:
+      shaped:
+        '1':
+        - MISCELLANEOUS.HUMAN_SOUL MISCELLANEOUS.HUMAN_SOUL MISCELLANEOUS.HUMAN_SOUL
+        - MISCELLANEOUS.HUMAN_SOUL SWORD.SILVER_SWORD MISCELLANEOUS.HUMAN_SOUL
+        - MISCELLANEOUS.HUMAN_SOUL MISCELLANEOUS.HUMAN_SOUL MISCELLANEOUS.HUMAN_SOUL
+    lore:
+    - '&7Drains &c10%&7 of the damage'
+    - '&7dealt as health points.'
+STEEL_SWORD:
+  base:
+    material: IRON_SWORD
+    name: '&fSteel Sword'
+    attack-damage:
+      base: 6.5
+      spread: 0.02
+      max-spread: 0.07
+    attack-speed:
+      base: 1.625
+      spread: 0.006
+      max-spread: 0.02
+    lore:
+    - '&7May be upgraded.'
+    required-level: 6.0
+    upgrade:
+      template: weapon-default
+SILVER_SWORD:
+  base:
+    material: IRON_SWORD
+    name: '&fSilver Sword'
+    attack-damage: 6.0
+    attack-speed: 1.6
+    lore:
+    - '&7May be upgraded.'
+    required-level: 4.0
+    crafting:
+      shaped:
+        '1':
+        - AIR MATERIAL.SILVER_INGOT AIR
+        - AIR MATERIAL.SILVER_INGOT AIR
+        - AIR STICK AIR
+        '2':
+        - MATERIAL.SILVER_INGOT AIR AIR
+        - MATERIAL.SILVER_INGOT AIR AIR
+        - STICK AIR AIR
+        '3':
+        - AIR AIR MATERIAL.SILVER_INGOT
+        - AIR AIR MATERIAL.SILVER_INGOT
+        - AIR AIR STICK
+AMETHYST_SWORD:
+  base:
+    material: IRON_SWORD
+    name: §9§l§oAmethyst Sword
+    lore:
+    - §dA quite magical component
+    - §dmakes this sword special.
+    enchants:
+      sharpness: 3.0
+    max-durability: 2200.0
+    item-particles:
+      type: DOUBLE_RINGS
+      particle: REDSTONE
+      color:
+        red: 128
+        green: 0
+        blue: 128
+    attack-damage:
+      base: 30.0
+      scale: 0.08
+      spread: 0.1
+      max-spread: 0.15
+    critical-strike-chance:
+      base: 4.0
+      spread: 0.1
+      max-spread: 0.3
+    critical-strike-power:
+      base: 15.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.3
+    required-level: 50.0
+    tier: LEGENDARY
+    magic-damage:
+      base: 60.0
+      scale: 0.15
+      spread: 0.15
+      max-spread: 0.25
+    parry-rating:
+      base: 10.0
+      spread: 0.1
+      max-spread: 0.2
+    parry-cooldown-reduction:
+      base: 15.0
+      spread: 0.04
+      max-spread: 0.08
+    weapon-damage:
+      base: 15.0
+      scale: 0.04
+      spread: 0.09
+      max-spread: 0.16
+    element:
+      earth:
+        damage:
+          base: 10.0
+          scale: 0.0
+          spread: 0.02
+          max-spread: 0.3
+      water:
+        damage:
+          base: 20.0
+          scale: 0.0
+          spread: 0.02
+          max-spread: 0.3
+    perm-effects:
+      REGENERATION: 1.0
+    ability:
+      ability1:
+        type: GRAND_HEAL
+        mode: RIGHT_CLICK
+        mana: 5.0
+        cooldown: 20.0
+        heal: 60.0
+        radius: 8.0
+    crafting:
+      supershaped:
+        '1':
+          input:
+          - v AIR 0 1..|v amethyst_block - 1.0..|v diamond_block - 1.0..|v amethyst_block
+            - 1.0..|v AIR 0 1..
+          - v amethyst_shard - 1.0..|v amethyst_block - 1.0..|v nether_star - 1.0..|v
+            amethyst_block - 1.0..|v amethyst_shard - 1.0..
+          - v AIR 0 1..|v amethyst_block - 1.0..|v diamond_block - 1.0..|v amethyst_block
+            - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v stick - 1.0..|v blaze_rod - 1.0..|v stick - 1.0..|v AIR
+            0 1..
+          - v AIR 0 1..|v AIR 0 1..|v blaze_rod - 1.0..|v AIR 0 1..|v AIR 0 1..
+      shaped:
+        '1':
+          input:
+          - v amethyst_block - 1.0..|v nether_star - 1.0..|v amethyst_block - 1.0..
+          - v amethyst_block - 1.0..|v amethyst_shard - 1.0..|v amethyst_block - 1.0..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+    attack-speed: 1.6
+FROZEN_BLADE:
+  base:
+    material: DIAMOND_SWORD
+    lore:
+    - §bMade from ice so cold that
+    - §bit will never melt.
+    max-durability: 15000.0
+    tier: MYTHICAL
+    name: §b§lEternal Frozen Blade
+    weapon-damage:
+      base: 30.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.25
+    attack-damage:
+      base: 70.0
+      scale: 0.15
+      spread: 0.1
+      max-spread: 0.2
+    stamina-cost: 12.0
+    attack-speed: 1.6
+    critical-strike-chance:
+      base: 5.0
+      scale: 0.05
+      spread: 0.2
+      max-spread: 0.4
+    critical-strike-power:
+      base: 25.0
+      scale: 0.1
+      spread: 0.15
+      max-spread: 0.25
+    parry-rating:
+      base: 30.0
+      spread: 0.1
+      max-spread: 0.4
+    required-level: 70.0
+    element:
+      ice:
+        damage:
+          base: 60.0
+          scale: 0.0
+          spread: 0.1
+          max-spread: 0.2
+    gem-sockets:
+    - Blue
+    - Blue
+    ability:
+      ability1:
+        type: FROZEN_AURA
+        mode: RIGHT_CLICK
+        duration: 8.0
+        cooldown: 12.0
+        amplifier: 2.0
+        radius: 10.0
+    magic-damage:
+      base: 25.0
+      spread: 0.25
+      max-spread: 0.4
+    upgrade:
+      reference: weapon-default
+    disable-death-drop: true
+    two-handed: true
+    movement-speed: -0.01
+OMNIELEMENTAL_SWORD:
+  base:
+    material: IRON_SWORD
+    name: §c§lO§6§lm§e§ln§a§li§2§lE§3§ll§9§le§b§lm§f§le§e§ln§a§lt§6§la§c§ll §6§lS§e§lw§a§lo§2§lr§3§ld
+    attack-damage:
+      base: 30.0
+      scale: 0.12
+      spread: 0.1
+      max-spread: 0.2
+    attack-speed: 1.6
+    required-level: 34.0
+    magic-damage:
+      base: 70.0
+      scale: 0.08
+      spread: 0.08
+      max-spread: 0.15
+    tier: VERY_RARE
+    gem-sockets:
+    - Uncolored
+    - Uncolored
+    - Uncolored
+    ability:
+      ability1:
+        type: FIREBOLT
+        mode: RIGHT_CLICK
+        damage: 15.0
+        ignite: 3.0
+        cooldown: 5.0
+      ability2:
+        type: ICE_CRYSTAL
+        mode: RIGHT_CLICK
+        damage: 3.0
+        cooldown: 5.0
+        amplifier: 2.0
+        duration: 3.0
+      ability4:
+        type: CURSED_BEAM
+        duration: 3.0
+        cooldown: 5.0
+        damage: 12.0
+        mode: RIGHT_CLICK
+      ability3:
+        type: HOLY_MISSILE
+        duration: 4.0
+        mode: RIGHT_CLICK
+        damage: 5.0
+        cooldown: 5.0
+    element:
+      darkness:
+        damage: 25.0
+      lightness:
+        damage: 25.0
+      fire:
+        damage: 25.0
+      ice:
+        damage: 25.0
+    lore:
+    - §7Why limit yourself to one element?
+    hide-enchants: true
+    enchants:
+      luck_of_the_sea: 1.0
+YANISDARK_SWORD:
+  base:
+    material: GOLDEN_SWORD
+    name: §e§lYanisDark's Sword
+    magic-damage: 25.0
+    attack-damage: 12.0
+    attack-speed: 1.6
+    critical-strike-chance:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    critical-strike-power:
+      base: 5.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    required-level: 10.0
+    enchants:
+      fortune: 5.0
+      looting: 5.0
+    additional-experience: 30.0
+    element:
+      lightness:
+        damage: 30.0
+    gem-sockets:
+    - Yellow
+    tier: RARE
+    lore:
+    - §eHere's a special gift!
+    - §2It won't break!
+    unbreakable: true
+WHIRLWIND:
+  base:
+    material: STONE_SWORD
+    name: §2§l§oWhirlwind's Edge
+    lore:
+    - §f§oThe wind brings an ominous feeling...
+    disable-advanced-enchants: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-repairing: true
+    unbreakable: true
+    hide-enchants: true
+    enchants:
+      knockback: 1.0
+    movement-speed: 0.015
+    attack-damage: 6.5
+    ability:
+      ability1:
+        type: CIRCULAR_SLASH
+        mode: RIGHT_CLICK
+        damage: 7.5
+        knockback: 1.25
+        radius: 3.0
+        cooldown: 15.0
+    tier: RARE
+DANCING_CYCLONE:
+  base:
+    material: IRON_SWORD
+    name: §2§l§oDancing Cyclone
+    lore:
+    - §f§oA storm is brewing.
+    attack-damage: 9.0
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    enchants:
+      knockback: 2.0
+    unbreakable: true
+    ability:
+      ability1:
+        type: STUN
+        duration: 2.5
+        cooldown: 18.0
+        mode: RIGHT_CLICK
+      ability2:
+        type: SKY_SMASH
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+        knock-up: 1.2
+        damage: 5.0
+    hide-enchants: true
+    tier: VERY_RARE
+    item-particles:
+      particle: TOTEM
+      type: HELIX
+      amount: 2.0
+    movement-speed: 0.025
+JINYU:
+  base:
+    material: WOODEN_SWORD
+    name: §8§l§oJinyu's Hacks
+    max-durability: 1.0
+    lore:
+    - §f§oWow, these really suck.
+    attack-damage: 1.0E-7
+    tier: TRASH
+    will-break: true
+    ability:
+      ability1:
+        type: THROW_UP
+        mode: RIGHT_CLICK
+        duration: 5.0
+        cooldown: 10.0
+    commands:
+      cmd0:
+        format: effect give @p instant_damage 1 0 true
+        delay: 0.0
+INFERNOBLADE:
+  base:
+    material: NETHERITE_SWORD
+    name: §fInferno Blade
+    attack-damage: 5.0
+    hide-enchants: true
+    unbreakable: true
+    lore:
+    - §8A sword that has been enchanted
+    - §8to be perpetually set ablaze.
+    attack-speed: 1.0
+    tier: EARLYGAME
+    enchants:
+      fire_aspect: 1.0
+    critical-strike-power: 5.0
+    critical-strike-chance: 10.0
+MERCILESS:
+  base:
+    material: STONE_SWORD
+    attack-damage: 7.0
+    attack-speed: 0.65
+    critical-strike-chance: 10.0
+    critical-strike-power: 5.0
+    name: §r§fMerciless
+    lore:
+    - §8A sword that converts rage into
+    - §8power. Unleash it all.
+    tier: EARLYGAME
+    unbreakable: true
+RO_BLADE1:
+  base:
+    material: WOODEN_SWORD
+    name: §f§nPlank Sword
+    displayed-type: §7Common Blade
+    disable-smithing: true
+    disable-smelting: true
+    disable-enchanting: true
+    disable-repairing: true
+    disable-crafting: true
+    attack-damage: 5.0
+    attack-speed: 1.1
+    critical-strike-chance: 5.0
+    critical-strike-power: 15.0
+PRIMORDIALJC:
+  base:
+    material: IRON_SWORD
+    name: §5§lPrimordial Jade Cutter
+    attack-damage: 6.0
+    attack-speed: 1.75
+    critical-strike-power:
+      base: 50.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    critical-strike-chance: 17.0
+    parry-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    unbreakable: true
+    ability:
+      ability1:
+        type: BLINK
+        cooldown: 4.0
+        mode: RIGHT_CLICK
+      ability2:
+        type: OVERLOAD
+        mode: SHIFT_RIGHT_CLICK
+        damage: 25.0
+        cooldown: 25.0
+    commands: {}
+    sounds:
+      on-attack:
+        sound: minecraft:entity.player.attack.crit
+        volume: 2.0
+        pitch: 1.0
+    tier: VERY_RARE
+    item-particles:
+      particle: WHITE_ASH
+      type: HELIX
+SECRET:
+  base:
+    material: IRON_SWORD
+    lore:
+    - §7§oA study sword with a blue
+    - §7§ohilt and orange gem in
+    - §7§omiddle.
+    name: §f§lNoble Sword
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    unbreakable: true
+    tier: EPIC
+    custom-nbt: []
+    ability:
+      ability1: {}
+    attack-speed: 3.0
+DARK_DRINKER:
+  base:
+    material: IRON_SWORD
+    name: §5§l§n§oDark-Drinker
+    lore:
+    - §d§l§oWith your own hands you forged the mighty Dark-Drinker.
+    - §d§l§oNow take it in hand and slake its thirst.
+    - '§6§lRight Click: Unique Spin Attack'
+    - §612 Damage
+    - §62 Radius
+    - §62s Cooldown
+    disable-enchanting: true
+    disable-repairing: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    attack-damage: 12.0
+    attack-speed: 2.0
+    parry-rating: 35.0
+    unbreakable: true
+    tier: ENDGAME
+    fire-damage-reduction: 0.0
+    enchants:
+      sweeping: 1.0
+    hide-enchants: true
+    element:
+      thunder:
+        defense: 45.0
+      fire:
+        defense: 45.0
+    commands:
+      cmd0:
+        format: tag @p add DarkDrinker
+        delay: 0.0
+BOLT_CASTER:
+  base:
+    material: DIAMOND_SWORD
+    name: §9§l§n§oBolt-Caster
+    lore:
+    - §b§l§oWith your own hands you forged the mighty Bolt-Caster.
+    - §b§l§oNow take it in hand and unleash its thunder.
+    - '§6§lRight Click: Aura Thunderstorm'
+    - §67-14 Damage
+    - '§6Range: Exactly 4 blocks in all four directions'
+    - §62s cooldown
+    - '§eWARNING: Thunderstorm attack is very loud'
+    enchants:
+      sweeping: 1.0
+    hide-enchants: true
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    disable-crafting: true
+    disable-interaction: true
+    attack-damage: 10.0
+    attack-speed: 2.2
+    dodge-rating: 40.0
+    unbreakable: true
+    element:
+      fire:
+        defense: 45.0
+      earth:
+        defense: 45.0
+    commands:
+      cmd0:
+        format: tag @p add BoltCaster
+        delay: 0.0
+    tier: ENDGAME
+RAZE_LIGHTER:
+  base:
+    material: NETHERITE_SWORD
+    name: §4§l§n§oRaze-Lighter
+    lore:
+    - §c§l§oWith your own hands you forged the mighty Raze-Lighter.
+    - §c§l§oNow take it in hand and feed its flames.
+    - '§6§lRight Click: Flaming Uppercut'
+    - §612 + Burn Damage
+    - '§6Range: 3 blocks, frontal'
+    - §62s cooldown
+    attack-damage: 14.0
+    attack-speed: 1.8
+    block-power: 50.0
+    block-rating: 80.0
+    unbreakable: true
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    element:
+      thunder:
+        defense: 45.0
+      earth:
+        defense: 45.0
+    commands:
+      cmd0:
+        format: tag @p add RazeLighter
+        delay: 0.0
+    enchants:
+      sweeping: 1.0
+    hide-enchants: true
+    tier: ENDGAME
+COOLS:
+  base:
+    material: IRON_SWORD
+    name: §b§lCool Steel
+    attack-damage: 6.0
+    attack-speed: 1.5
+    unbreakable: true
+    tier: VERY_RARE
+    fire-damage-reduction:
+      base: 15.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    ability:
+      ability3:
+        type: SLOW
+        mode: ON_HIT
+        duration: 2.0
+        cooldown: 0.1
+      ability4:
+        type: GROUNDBREAKER
+        mode: SHIFT_LEFT_CLICK
+      ability5:
+        type: GHOSTSLASH
+        mode: RIGHT_CLICK
+      ability2:
+        type: SLOWASSFIREBALL
+        mode: SHIFT_RIGHT_CLICK
+      ability1:
+        type: DRAGONMODE
+        mode: WHEN_HIT
+    dodge-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    sounds:
+      on-attack:
+        sound: minecraft:entity.player.attack.crit
+        volume: 2.0
+        pitch: 1.0
+    item-particles:
+      type: AURA
+      particle: CLOUD
+OLIVER_SWORD:
+  base:
+    material: DIAMOND_SWORD
+    name: Cyberverse Disintegrator
+    lore:
+    - §7Oliver's sword for testing.
+    - Legends claim that this sword is the
+    - physical manifestation of the processing
+    - power of the famed "organic artificial
+    - intelligence, currently residing in a
+    - vessel referred to as "The Gaming Complex."
+    - Be wary while using it, as some speculate
+    - that every swing takes away a part of
+    - your human reasoning and turns it into
+    - so-called "bot logic."
+    unbreakable: true
+    ability:
+      ability1:
+        type: BLINK
+        mode: RIGHT_CLICK
+        range: 32.0
+        cooldown: 1.0
+      ability2:
+        type: CIRCULAR_SLASH
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+        knockback: 1.5
+        damage: 10.0
+      ability3:
+        type: BLACK_HOLE
+        cooldown: 20.0
+        mode: SHIFT_LEFT_CLICK
+        radius: 5.0
+        duration: 5.0
+      ability4:
+        type: CONTAMINATION
+        cooldown: 20.0
+        damage: 8.0
+        duration: 10.0
+        mode: SHIFT_LEFT_CLICK
+      ability5:
+        type: VAMPIRISM
+        mode: ON_HIT
+        cooldown: 1.0
+      ability7:
+        type: GRAND_HEAL
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+        heal: 10.0
+      ability6:
+        type: ARCANE_HAIL
+        duration: 2.0
+        cooldown: 20.0
+        damage: 8.0
+        radius: 5.0
+        mode: SHIFT_RIGHT_CLICK
+    sounds:
+      on-right-click:
+        sound: entity.zombie.break_wooden_door
+        volume: 1.0
+        pitch: 2.0
+    durability: 0.0
+    attack-damage: 8.0
+BP_SPLINTER_BLADE:
+  base:
+    material: WOODEN_SWORD
+    name: §fSplinter Blade
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-interaction: true
+    disable-repairing: true
+    attack-damage: 5.0
+    attack-speed: 1.0
+    critical-strike-chance: 4.0
+    unbreakable: true
+    lore:
+    - §8A standard wooden sword.
+    - §8Every great warrior
+    - §8starts somewhere.
+    tier: COMMON
+BP_THORNSWORD:
+  base:
+    material: GOLDEN_SWORD
+    name: §fThornsword
+    attack-damage: 6.0
+    attack-speed: 1.2
+    lore:
+    - §8Slash at them, it's gonna hurt.
+    - §8Parry their attacks to brush
+    - §8them off.
+    tier: UNCOMMON
+    parry-rating: 7.5
+    unbreakable: true
+    ability:
+      ability1: {}
+    critical-strike-chance: 6.0
+BP_SEETHING_BLADE:
+  base:
+    material: STONE_SWORD
+    name: §r§fSeething Blade
+    unbreakable: true
+    tier: UNCOMMON
+    lore:
+    - §8You can feel the rage used to
+    - §8forge this sword, like an aura
+    - §8surrounding your body.
+    attack-damage: 7.0
+    attack-speed: 1.0
+    ability:
+      ability1:
+        type: SWIFTNESS
+        mode: WHEN_HIT
+        duration: 5.0
+        cooldown: 12.0
+    sounds:
+      on-attack:
+        sound: entity.wither.break_block
+        volume: 0.1
+        pitch: 1.0
+BP_RUNIC_EDGE:
+  base:
+    material: WOODEN_SWORD
+    attack-damage: 5.5
+    attack-speed: 1.25
+    ability:
+      ability1:
+        type: HEAL
+        mode: ON_HIT
+        cooldown: 10.0
+        heal: 4.0
+    name: §r§fRunic Edge
+    lore:
+    - §8An admittedly worn-down sword,
+    - §8but has a storage of spells in it.
+    unbreakable: true
+    tier: UNCOMMON
+CRPG_WILD_BLADE:
+  base:
+    material: IRON_SWORD
+    name: §7§nWild Blade
+    displayed-type: §8Sword
+    ability:
+      ability1:
+        type: SWIFTNESS
+        cooldown: 15.0
+        duration: 4.0
+        mode: SHIFT_LEFT_CLICK
+    attack-damage: 3.0
+    critical-strike-chance: 5.0
+    attack-speed: 1.1
+    unbreakable: true
+    required-level: 0.0
+CHAINSAWBLADE:
+  base:
+    material: STICK
+    custom-model-data: 123464.0
+    item-damage: 0.0
+    max-durability: 10000.0
+    attack-damage: 0.0
+    attack-speed: 100.0
+    weapon-damage: 0.0
+    skill-damage: 0.0
+    projectile-damage: 0.0
+    magic-damage: 0.0
+    physical-damage: 0.0
+    name: ChainsawBlade
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v Iron_bars - 1.0..|v Iron_bars - 1.0..
+          - v Iron_bars - 1.0..|v Iron_ingot - 1.0..|v Iron_ingot - 1.0..
+          - v AIR 0 1..|v Iron_bars - 1.0..|v Iron_bars - 1.0..
+          output:
+          - v AIR 0 1.0..|v AIR 0 1.0..|v AIR 0 1.0..
+          - v AIR 0 1.0..|m sword ChainsawBlade 1.0..|v AIR 0 1.0..
+          - v AIR 0 1.0..|v AIR 0 1.0..|v AIR 0 1.0..
+    ability:
+      ability1:
+        type: KILLBEAM
+        mode: RIGHT_CLICK
+    enchants:
+      knockback: 1000.0
+SAUDA_SWORD:
+  base:
+    material: IRON_SWORD
+    attack-damage: 1.0
+    attack-speed: 2.5
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    unbreakable: true
+STICK:
+  base:
+    material: STICK
+    hide-enchants: true
+    enchants:
+      knockback: 255.0
+THUNDERBREAKER:
+  base:
+    material: GOLDEN_SWORD
+    element:
+      lightness:
+        damage: 2.0
+      thunder:
+        damage: 2.0
+      water:
+        damage: 2.0
+      darkness:
+        damage: 2.0
+      ice:
+        damage: 2.0
+      fire:
+        damage: 2.0
+      earth:
+        damage: 2.0
+      wind:
+        damage: 2.0

@@ -1,0 +1,716 @@
+STEEL_DAGGER:
+  base:
+    material: IRON_SWORD
+    name: '&fSteel Dagger'
+    attack-damage:
+      base: 4.75
+      spread: 0.017
+      max-spread: 0.05
+    attack-speed:
+      base: 1.9
+      spread: 0.017
+      max-spread: 0.05
+    pvp-damage:
+      base: 17.5
+      spread: 0.042
+      max-spread: 0.13
+    movement-speed: 0.02
+    critical-strike-chance:
+      base: 55.0
+      spread: 0.028
+      max-spread: 0.08
+    gem-sockets:
+    - Uncolored
+    - Blue
+    ability:
+      right-click:
+        type: THRUST
+        mode: RIGHT_CLICK
+        damage: 4.3
+        cooldown: 5.0
+        stamina: 20.0
+    tier: COMMON
+    required-level: 5.0
+    required-class:
+    - Rogue
+    - Archer
+DRACULA_DAGGER:
+  base:
+    material: IRON_SWORD
+    tier: RARE
+    required-level: 15.0
+    attack-damage:
+      base: 7.5
+      spread: 0.02
+      max-spread: 0.06
+    name: '&fDracula''s Dagger'
+    attack-speed:
+      base: 1.65
+      spread: 0.01
+      max-spread: 0.03
+    critical-strike-chance: 15.0
+    fall-damage-reduction: 43.0
+    gem-sockets:
+    - Uncolored
+    - Red
+    ability:
+      on-hit:
+        type: VAMPIRISM
+        mode: ATTACK
+        drain: 3.0
+        cooldown: 4.0
+    lore:
+    - '&7Every 4sec, hitting an'
+    - '&7enemy &cdrains&7 his health,'
+    - '&7healing you for &c1.5 heart&7.'
+    enchants:
+      unbreaking: 10
+    hide-enchants: true
+VERY_SHARP_DAGGER:
+  base:
+    material: IRON_SWORD
+    tier: RARE
+    max-durability: 1800.0
+    will-break: true
+    name: §7§l§oVery Sharp Dagger
+    displayed-type: §cSharp Dagger
+    required-level: 12.0
+    required-class:
+    - Assassin
+    attack-damage:
+      base: 10.0
+      scale: 0.13
+      spread: 0.1
+      max-spread: 0.23
+    attack-speed: 1.9
+    critical-strike-chance:
+      base: 30.0
+      scale: 0.05
+      spread: 0.1
+      max-spread: 0.23
+    critical-strike-power:
+      base: 80.0
+      scale: 0.09
+      spread: 0.08
+      max-spread: 0.2
+    weapon-damage:
+      base: 15.0
+      scale: 0.2
+      spread: 0.2
+      max-spread: 0.3
+    movement-speed: 0.02
+    gem-sockets:
+    - White
+    upgrade:
+      template: weapon-default
+    physical-damage:
+      base: 30.0
+      scale: 0.1
+      spread: 0.3
+      max-spread: 0.6
+    lore:
+    - §f§oExtremely sharp due to a very long
+    - §f§oprocess of refining.
+POISONOUS_DAGGER:
+  base:
+    material: WOODEN_SWORD
+    name: §2§l§oPoisonous Dagger
+    lore:
+    - §7Who knows what infected it...
+    max-durability: 4500.0
+    attack-damage:
+      base: 22.0
+      scale: 0.15
+      spread: 0.15
+      max-spread: 0.25
+    attack-speed: 1.75
+    critical-strike-chance:
+      base: 25.0
+      scale: 0.05
+      spread: 0.08
+      max-spread: 0.13
+    critical-strike-power:
+      base: 40.0
+      scale: 0.09
+      spread: 0.11
+      max-spread: 0.18
+    pvp-damage:
+      base: 15.0
+      scale: 0.03
+      spread: 0.15
+      max-spread: 0.2
+    weapon-damage:
+      base: 10.0
+      spread: 0.1
+      max-spread: 0.2
+    tier: LEGENDARY
+    gem-sockets:
+    - Green
+    - Green
+    magic-damage:
+      base: 12.0
+      spread: 0.1
+      max-spread: 0.2
+    required-level: 32.0
+    upgrade:
+      template: weapon-default
+    break-downgrade: true
+    element:
+      earth:
+        damage:
+          base: 30.0
+          scale: 0.0
+          spread: 0.1
+          max-spread: 0.2
+    ability:
+      ability1:
+        type: POISON
+        mode: ATTACK
+        duration: 4.0
+        stamina: 0.0
+        cooldown: 6.0
+        amplifier: 2.0
+SNEAKY_DAGGER:
+  base:
+    material: STONE_SWORD
+    name: §8§lSneaky Dagger
+    lore:
+    - §7This dagger is very sneaky.
+    - §8§oWhat dagger?
+    tier: UNCOMMON
+    attack-damage: 5.0
+    attack-speed: 2.2
+    critical-strike-chance:
+      base: 9.0
+      scale: 0.1
+      spread: 0.01
+      max-spread: 0.05
+    critical-strike-power:
+      base: 20.0
+      scale: 0.1
+      spread: 0.01
+      max-spread: 0.05
+    required-level: 5.0
+    ability:
+      ability1:
+        type: BACKSTAB
+        mode: ATTACK
+        cooldown: 3.0
+        extra: 50.0
+WOODENNEEDLE:
+  base:
+    material: WOODEN_SWORD
+    attack-damage: 3.0
+    attack-speed: 2.0
+    critical-strike-chance: 25.0
+    movement-speed: 0.025
+    name: §r§fWooden Needle
+    lore:
+    - §8Leave a mark with this
+    - §8sharp wooden bark.
+    unbreakable: true
+    tier: COMMON
+    ability:
+      ability1:
+        type: ITEM_THROW
+        cooldown: 3.0
+        mode: RIGHT_CLICK
+        damage: 4.0
+        force: 1.5
+    sounds:
+      on-attack:
+        sound: sweeping_attack
+        volume: 1.0
+        pitch: 1.0
+KILLER:
+  base:
+    material: IRON_SWORD
+    name: §8§lThe Killer
+    block-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    block-power: 25.0
+    tier: RARE
+    attack-damage: 5.0
+    attack-speed: 2.0
+    critical-strike-chance:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    critical-strike-power:
+      base: 25.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    unbreakable: true
+    ability:
+      ability1:
+        type: BLINK
+        cooldown: 10.0
+        range: 16.0
+        mode: SHIFT_LEFT_CLICK
+      ability2:
+        type: SHADOW_VEIL
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 30.0
+        duration: 7.5
+      ability3:
+        type: ITEM_THROW
+        damage: 6.0
+        mode: RIGHT_CLICK
+        force: 3.0
+    lore:
+    - §8§oThis is the reason many people on Bingus Island are dead...
+RUSTED_KNIFE:
+  base:
+    material: IRON_SWORD
+    name: §8§lRusted Knife
+    lore:
+    - §8§oThis blade has been left in the dirt for decades until discovered by you!
+    attack-damage: 4.0
+    attack-speed: 2.0
+    ability:
+      ability1:
+        type: ITEM_THROW
+        mode: RIGHT_CLICK
+        damage: 5.0
+      ability2:
+        type: BLINK
+        mode: SHIFT_LEFT_CLICK
+        range: 12.0
+      ability3:
+        type: SHADOW_VEIL
+        mode: SHIFT_RIGHT_CLICK
+    unbreakable: true
+    tier: COMMON
+POISONTIPPEDBLADE:
+  base:
+    material: IRON_SWORD
+    name: §2§lPoison Tipped Blade
+    lore:
+    - §2§oA blade tipped with poison.
+    - §2§oDid you think it was anything special?
+    attack-speed: 1.5
+    attack-damage: 5.0
+    unbreakable: true
+    tier: COMMON
+    ability:
+      ability1:
+        type: POISON
+        mode: ON_HIT
+        amplifier: 1.0
+        cooldown: 1.0
+TOYSWORD:
+  base:
+    material: WOODEN_SWORD
+    name: §6§lToy Sword
+    lore:
+    - §6§oAn outstandingly sharp toy sword.
+    attack-damage: 4.0
+    attack-speed: 1.5
+    unbreakable: true
+    tier: COMMON
+STACKOFKNIVES:
+  base:
+    material: IRON_SWORD
+    name: §7§lStack of Knives
+    lore:
+    - §7§oA bundle of knives that can be thrown.
+    unbreakable: true
+    attack-damage: 2.5
+    attack-speed: 1.5
+    ability:
+      ability1:
+        type: ITEM_THROW
+        mode: RIGHT_CLICK
+        damage: 2.5
+        cooldown: 0.5
+        force: 2.0
+    tier: COMMON
+THEHIDDEN:
+  base:
+    material: IRON_SWORD
+    name: §f§lThe Hidden
+    lore:
+    - '§f§oThe dagger is engraved with symbols from before the war. It says:'
+    - §f§oFlurs, Oyd, §kFlurris
+    attack-damage: 4.5
+    attack-speed: 5.0
+    dodge-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    unbreakable: true
+    tier: RARE
+    movement-speed: 0.02
+    ability:
+      ability1:
+        type: BLINK
+        cooldown: 5.0
+        mode: RIGHT_CLICK
+      ability2:
+        type: SHADOW_VEIL
+        cooldown: 15.0
+        mode: SHIFT_RIGHT_CLICK
+      ability3:
+        type: SWIFTNESS
+        mode: SHIFT_RIGHT_CLICK
+        duration: 5.0
+ROGUE'SGAMBIT:
+  base:
+    material: IRON_SWORD
+    name: §7§lRogue's Gambit
+    lore:
+    - §7The pride of a great rogue.
+    item-particles:
+      particle: ENCHANTMENT_TABLE
+      type: AURA
+    attack-damage:
+      base: 7.0
+      scale: 0.01
+      spread: 0.1
+      maxSpread: 0.1
+    tier: VERY_RARE
+    unbreakable: true
+    ability:
+      ability1:
+        type: ITEM_THROW
+        mode: RIGHT_CLICK
+        force: 5.0
+        damage: 7.0
+        cooldown: 0.33
+      ability2:
+        type: BLINK
+        mode: SHIFT_LEFT_CLICK
+        range: 16.0
+    critical-strike-chance:
+      base: 25.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    critical-strike-power:
+      base: 25.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+STAGGERDAGGER:
+  base:
+    material: STONE_SWORD
+    unbreakable: true
+    tier: UNCOMMON
+    attack-damage: 4.0
+    critical-strike-chance: 25.0
+    attack-speed: 2.0
+    movement-speed: 0.025
+    ability:
+      ability1:
+        type: ITEM_THROW
+        damage: 7.0
+        cooldown: 4.0
+        force: 1.5
+        mode: RIGHT_CLICK
+      ability2:
+        type: LEAP
+        cooldown: 2.5
+        mode: SHIFT_RIGHT_CLICK
+    name: §fStagger Dagger
+    lore:
+    - §8Outmaneuver your foes into finding
+    - §8themselves dizzy before they know it.
+POISONPERFORATION:
+  base:
+    material: GOLDEN_SWORD
+    name: §fPoison Perforation
+    attack-damage: 4.0
+    unbreakable: true
+    tier: UNCOMMON
+    ability:
+      ability1:
+        type: POISON
+        mode: ON_HIT
+        cooldown: 0.01
+        duration: 2.0
+        amplifier: 2.0
+      ability2:
+        type: ITEM_THROW
+        cooldown: 3.0
+        force: 1.5
+        mode: RIGHT_CLICK
+        damage: 4.0
+    movement-speed: 0.025
+    attack-speed: 2.0
+    critical-strike-chance: 25.0
+    lore:
+    - §8A stab with extra sting. They will
+    - §8be bleeding green before they know it.
+BANTAMKNIFE:
+  base:
+    material: FEATHER
+    name: §fBantamknife
+    unbreakable: true
+    unstackable: true
+    movement-speed: 0.03
+    attack-damage: 4.0
+    attack-speed: 2.25
+    critical-strike-chance: 10.0
+    parry-rating: 5.0
+    disable-interaction: true
+    ability:
+      ability1:
+        type: ITEM_THROW
+        cooldown: 1.5
+        force: 2.0
+        damage: 3.0
+        mode: RIGHT_CLICK
+    lore:
+    - §8Light as a feather, sharp as a sword.
+    - §8Attacks insanely fast!
+    tier: UNCOMMON
+ATHAME:
+  base:
+    material: NETHERITE_SWORD
+    attack-damage: 5.0
+    attack-speed: 1.5
+    ability:
+      ability1:
+        type: ITEM_THROW
+        cooldown: 1.4
+        force: 1.2
+        damage: 6.0
+        mode: RIGHT_CLICK
+    unbreakable: true
+    tier: EARLYGAME
+    critical-strike-chance: 30.0
+    name: §fAthame
+    lore:
+    - §8A ceremonial dagger made of many
+    - §8different materials. Its edge is honed
+    - §8quite sharply.
+    revision-id: 1
+THOUSAND_SCARS:
+  base:
+    material: STONE_SWORD
+    enchants:
+      unbreaking: 1.0
+    hide-enchants: true
+    disable-interaction: true
+    unbreakable: true
+    name: §fThousand Scars
+    attack-damage: 5.0
+    attack-speed: 1.1
+    ability:
+      ability1:
+        type: ITEM_THROW
+        cooldown: 0.8
+        force: 2.0
+        damage: 6.0
+        mode: RIGHT_CLICK
+    lore:
+    - §8A knife that was named for a reason,
+    - §8having especially great throwing power.
+    movement-speed: 0.009
+    tier: EARLYGAME
+TESTBLADE:
+  base:
+    material: STONE_SWORD
+    ability:
+      ability1: {}
+SURVIVALDAGGER:
+  base:
+    material: IRON_SWORD
+    name: §2§lSurvival Knife
+    lore:
+    - §2Standard-issue knife.
+    attack-damage: 5.0
+    attack-speed: 1.0
+    unbreakable: true
+KARMATIC_CHARGE:
+  base:
+    material: DIAMOND_SWORD
+    name: §d§l§nKa§f§l§nrm§d§l§natic Charge
+    displayed-type: §9Weaponsmith's Favor
+    ability:
+      ability1:
+        type: ITEM_BOMB
+        radius: 3.0
+        cooldown: 4.0
+        mode: RIGHT_CLICK
+      ability2:
+        type: ARCANE_HAIL
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 7.5
+    unbreakable: true
+    attack-damage: 6.0
+    attack-speed: 1.35
+    item-particles:
+      particle: REDSTONE
+      color:
+        red: 220
+        green: 111
+        blue: 222
+      type: HELIX
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    disable-repairing: true
+    disable-enchanting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-crafting: true
+    disable-interaction: true
+TEST_HABI:
+  base:
+    material: NETHERITE_HOE
+    unbreakable: true
+    ability:
+      ability1:
+        type: BLACK_HOLE
+        mode: RIGHT_CLICK
+        duration: 5.0
+        cooldown: 15.0
+        radius: 2.0
+    name: §e§lHabi's Test Hoe
+    lore:
+    - §8lol this is for testing
+    - yeah habi can make items what about it
+    commands:
+      cmd0:
+        format: title SansMLGDunker title "WOOOOOOOOOOOOOOOO"
+        delay: 0.0
+    enchants:
+      knockback: 10000.0
+SECRET:
+  base:
+    material: NETHERITE_SWORD
+    item-cooldown: 2.0
+    ability:
+      ability1: {}
+    name: your mother
+    commands:
+      cmd0:
+        format: title @a title "OMG IS THAT"
+        delay: 0.0
+      cmd1:
+        format: title @a subtitle "A HECKING PALADINS REFERENCE?!?!"
+        delay: 0.0
+BOOMERANG:
+  base:
+    material: STONE_SWORD
+    commands:
+      cmd0:
+        format: tag %player% add %player%Test
+        delay: 0.0
+CRPG_RUSTY_KNIFE:
+  base:
+    material: STONE_SWORD
+    unbreakable: true
+    attack-damage: 3.0
+    attack-speed: 1.3
+    dodge-rating: 4.0
+    critical-strike-chance: 5.0
+    required-level: 0.0
+    movement-speed: 0.02
+    displayed-type: §8Dagger
+    name: §7§nRusty Knife
+    ability:
+      ability1:
+        type: ITEM_THROW
+        damage: 4.0
+        cooldown: 6.0
+        mode: RIGHT_CLICK
+    custom-model-data: 220002.0
+CRPG_MYSTIC_CUTTER:
+  base:
+    material: STONE_SWORD
+    displayed-type: §5Dagger §5§o(Darkness)
+    name: §f§nMystic Cutter
+    required-level: 1.0
+    attack-damage: 5.0
+    attack-speed: 1.1
+    critical-strike-chance: 5.0
+    movement-speed: 0.01
+    ability:
+      ability1:
+        type: ARCANE_RIFT
+        mana: 6.0
+        cooldown: 8.0
+        mode: RIGHT_CLICK
+        damage: 6.0
+        duration: 2.0
+    mana-regeneration: 0.1
+    unbreakable: true
+    disable-interaction: true
+ACROBAT:
+  base:
+    material: IRON_SWORD
+    name: §f§lAcrobat's Blade
+    ability:
+      ability1:
+        type: LIGHT_DASH
+        mode: RIGHT_CLICK
+        damage: 5.0
+        cooldown: 3.0
+        length: 0.1
+    unbreakable: true
+GLIMMEREYE:
+  base:
+    material: STONE_SWORD
+    name: §fGlimmereye
+    displayed-type: §7Dagger
+ASSASSINDAGGER:
+  base:
+    material: STICK
+    name: §1Eye Of Night
+    attack-damage: 4.0
+    attack-speed: 1.8
+    ability:
+      ability1:
+        type: ASSASSINSLASH
+        mode: LEFT_CLICK
+        cooldown: 0.2
+      ability2:
+        type: DAGGERTHROW
+        mode: RIGHT_CLICK
+        cooldown: 5.0
+      ability3:
+        type: EBLINK
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 3.0
+      ability4:
+        type: CALTROPS
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 15.0
+    unbreakable: true
+    custom-model-data: 123492.0
+    perm-effects:
+      WEAKNESS: 254.0
+ALCHEMIST_PEN:
+  base:
+    material: FEATHER
+    name: §aAlchemist's Quill
+    disable-interaction: true
+    disable-crafting: true
+    attack-damage: 3.0
+    attack-speed: 2.0
+    commands: {}
+    ability:
+      ability1:
+        type: ALCHCLEAR
+        mode: RIGHT_CLICK
+        cooldown: 0.1
+      ability2:
+        type: ALCHTHROW
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 3.0
+      ability3:
+        type: ALCHDRINK
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 3.0
+      ability4:
+        type: ALCHVISUALISE
+        mode: SNEAK
+        cooldown: 0.1

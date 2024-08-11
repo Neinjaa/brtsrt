@@ -1,0 +1,77 @@
+BOOK_OF_STRENGTH:
+  base:
+    material: BOOK
+    name: §cBook of Strength
+    lore:
+    - §7Will give you stats even when
+    - §7in §9inventory§7!
+    tier: RARE
+    projectile-damage: 15.0
+    physical-damage: 10.0
+    magic-damage: 10.0
+    weapon-damage: 10.0
+    damage-reduction: 5.0
+    required-class:
+    - Warrior
+    required-level: 15.0
+GANQING:
+  base:
+    material: STICK
+    custom-model-data: 123494.0
+MUSHROOMWHISTLE:
+  base:
+    material: RED_MUSHROOM
+    ability:
+      ability1:
+        type: MUSHROOMSTAND
+        mode: LEFT_CLICK
+      ability2:
+        type: MUSHROOMSIT
+        mode: RIGHT_CLICK
+INVISIBLE_HAND:
+  base:
+    material: STICK
+    name: Invisible Hand
+    custom-model-data: 123513.0
+    attack-damage: 1.0E7
+    attack-speed: 1.0E7
+BODYPILLOW:
+  base:
+    material: STICK
+    custom-model-data: 123469.0
+BODY2:
+  base:
+    material: STICK
+    custom-model-data: 123495.0
+AMONGUSKEY:
+  base:
+    material: STICK
+    name: Key
+    custom-model-data: 123505.0
+    ability:
+      ability1:
+        type: VENT
+        mode: LEFT_CLICK
+      ability2:
+        type: VENTLOCATION
+        mode: RIGHT_CLICK
+ADDTEAMS:
+  base:
+    material: NETHER_STAR
+    will-break: true
+    name: §lAdd Teams
+    ability:
+      ability1:
+        type: ADDTEAMS
+        mode: RIGHT_CLICK
+CHANGETEAM:
+  base:
+    material: NETHER_STAR
+    will-break: true
+    name: §lChange Teams
+    ability:
+      ability1:
+        type: CYCLEJOINTEAM
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+    amphibian: NORMAL

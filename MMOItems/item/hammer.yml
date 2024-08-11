@@ -1,0 +1,214 @@
+SANTAMMER:
+  base:
+    material: IRON_AXE
+    item-particles:
+      particle: REDSTONE
+      type: HELIX
+      color:
+        red: 50
+        green: 255
+        blue: 50
+    name: '&7S&fa&7n&ft&fa&7m&fm&7e&fr'
+    attack-damage: 9.7
+    attack-speed: 0.6
+    enchants:
+      unbreaking: 3
+    required-level: 15.0
+    critical-strike-power: 10.0
+    ability:
+      on-hit:
+        type: STUN
+        mode: ATTACK
+        cooldown: 15.0
+    lore:
+    - '&eEarned during X-Mas 2018!'
+THOR_HAMMER:
+  base:
+    material: IRON_AXE
+    max-durability: 80000.0
+    name: §b§lThor's Hammer
+    lore:
+    - §bUse the power of the storm!
+    - §ePlays a custom sound when attacking!
+    - §aWill not drop on death!
+    element:
+      thunder:
+        damage: 150.0
+    magic-damage:
+      base: 15.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    attack-speed: 1.4
+    required-level: 60.0
+    attack-damage:
+      base: 80.0
+      scale: 0.15
+      spread: 0.1
+      max-spread: 0.2
+    tier: MYTHICAL
+    stamina-cost: 15.0
+    mana-cost: 10.0
+    blunt-power: 6.0
+    blunt-rating: 75.0
+    gem-sockets:
+    - Thunder
+    sounds:
+      on-attack:
+        sound: entity.lightning_bolt.thunder
+        volume: 2.0
+        pitch: 0.2
+    enchants:
+      sharpness: 3.0
+      fire_aspect: 3.0
+    ability:
+      ability1:
+        type: SMITE
+        mode: RIGHT_CLICK
+        damage: 100.0
+        cooldown: 12.0
+    additional-experience: 15.0
+    unbreakable: true
+    disable-death-drop: true
+HEAVY_HAMMER:
+  base:
+    material: IRON_AXE
+    name: §7§lHeavy Hammer
+    max-durability: 3650.0
+    lore:
+    - §fA very heavy hammer.
+    - §7You almost can't move, but it's
+    - §7worth it!
+    perm-effects:
+      SLOW: 4.0
+    attack-damage:
+      base: 35.0
+      scale: 0.15
+      spread: 0.1
+      max-spread: 0.2
+    critical-strike-chance:
+      base: 10.0
+      scale: 0.15
+      spread: 0.1
+      max-spread: 0.2
+    critical-strike-power:
+      base: 20.0
+      scale: 0.15
+      spread: 0.1
+      max-spread: 0.2
+    required-level: 10.0
+    required-class:
+    - Warrior
+    stamina-cost: 4.0
+    blunt-power: 5.0
+    blunt-rating: 85.0
+    tier: RARE
+GROUND&POUND:
+  base:
+    material: STICK
+    name: §4§lGround and Pound
+    lore:
+    - §4§oSaid by many, this hammer is as heavy as 5 humans.
+    attack-damage:
+      base: 20.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    attack-speed:
+      base: 0.75
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    blunt-power:
+      base: 2.0
+      scale: 10.0
+      spread: 0.1
+      maxSpread: 0.1
+    ability:
+      ability1:
+        type: EARTHQUAKE
+        mode: SHIFT_LEFT_CLICK
+        damage: 10.0
+        amplifier: 5.0
+      ability2:
+        type: LEAP
+        mode: RIGHT_CLICK
+      ability3:
+        type: SHOCKWAVE
+        mode: ON_HIT
+        length: 7.5
+        knock-up: 2.0
+    unbreakable: true
+    tier: VERY_RARE
+    two-handed: true
+    movement-speed: -0.04
+    custom-model-data: 123468.0
+TERRA_MAULER:
+  base:
+    material: GOLDEN_AXE
+    name: §6Terra Mauler
+    displayed-type: §6Hammer
+    unbreakable: true
+    attack-damage: 9.0
+    attack-speed: 0.9
+    critical-strike-chance: 10.0
+    damage-reduction: 10.0
+    ability:
+      ability1:
+        type: MAGICAL_SHIELD
+        mode: RIGHT_CLICK
+        duration: 8.0
+        mana: 8.0
+HERALDIC_BEARING:
+  base:
+    material: IRON_SHOVEL
+    custom-model-data: 222222.0
+    ability:
+      ability1:
+        type: FIREBOLT
+        cooldown: 5.0
+        mode: SHIFT_LEFT_CLICK
+CRPG_WEAK_SLEDGE:
+  base:
+    material: IRON_SHOVEL
+    custom-model-data: 222222.0
+    name: §7§nWeak Sledge
+    displayed-type: §8Hammer
+    attack-damage: 6.0
+    attack-speed: 0.8
+    critical-strike-chance: 5.0
+    movement-speed: -0.02
+    two-handed: true
+    ability:
+      ability1:
+        type: EARTHQUAKE
+        mode: SHIFT_RIGHT_CLICK
+        duration: 1.0
+        amplifier: 0.8
+        cooldown: 9.0
+    disable-interaction: true
+    unbreakable: true
+    required-level: 0.0
+TEST:
+  base:
+    material: IRON_AXE
+    name: TEST ITEM
+    crafting:
+      shaped:
+        '1':
+          input:
+          - m material steel_ingot 10.0..|m material steel_ingot 10.0..|m material
+            steel_ingot 10.0..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v stick - 1.0..|v AIR 0 1..
+          hidden: false
+      blast:
+        '1':
+          input: []
+          amount: 45
+          item: v coal - 1.0..
+      smoker:
+        '1':
+          input: []
+          item: m material rare_weapon_essence 1.0..
+          time: 60.0

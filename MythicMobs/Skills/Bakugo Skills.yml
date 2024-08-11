@@ -1,0 +1,288 @@
+BakugoMain:
+  Skills:
+  - projectile{onTick=BakugoMain-Tick;onHit=BakugoMain-Hit;onEnd=BakugoMain-Hit;v=96;i=1;hR=3;vR=3;d=5;sE=true;sB=true;hnp=true} @targetLocation
+  - leap{velocity=-200} @targetLocation
+
+BakugoMain-Tick:
+  Skills:
+  - effect:particles{p=FLAME;amount=100;speed=0;hS=1.5;vS=1.5} @origin
+  - effect:particles{p=SMOKE_LARGE;amount=100;speed=0;hS=1.5;vS=1.5} @origin
+  - effect:particles{p=EXPLOSION;amount=100;speed=0;hS=1.5;vS=1.5} @origin
+  - explosion{yield=1}
+
+BakugoMain-Hit:
+  Skills:
+  - explosion{yield=2}
+  
+BakugoPunch:
+  Conditions:
+  - hasaura ExplosivePunches true
+  Skills:
+  - effect:particles{p=FLAME;amount=50;speed=0;hS=1;vS=1} @Forward{f=2;y=0.0} 
+  - effect:particles{p=SMOKE_LARGE;amount=50;speed=0;hS=1.5;vS=1} @Forward{f=2;y=0.0} 
+  - effect:particles{p=EXPLOSION_SMALL;amount=50;speed=0;hS=1.5;vS=1} @Forward{f=2;y=0.0}
+  - delay 1
+  - explosion{yield=0.5} @Target
+  - effect:particles{p=EXPLOSION_LARGE;amount=10;speed=0;hS=1.5;vS=1} @Target
+  - pull{v=6;to=true} @Target
+  - sound{s=minecraft:block.campfire.crackle;v=3} @self
+  
+BakugoBarrage:
+  Skills:
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=1.1;sso=4} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=2.2;sso=2.3} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=3.6;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=3.4;sso=-4.5} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=2;sso=3.5} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=3.1;sso=2.2} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=1.5;sso=-3.6} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=4.2;sso=-2.2} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=0.3;sso=1.4} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=-6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=-2.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=4.9;sso=-3.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=2.9;sso=4.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=-1.9;sso=6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=3.9;sso=-3.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=2.9;sso=2.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=5.9;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=2.9;sso=-4.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=0.9;sso=4.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=5.1;sso=4} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=0.2;sso=2.3} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=1.6;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=3.4;sso=-4.5} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=1;sso=3.5} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=3.1;sso=2.2} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=1.5;sso=-3.6} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=4.2;sso=-2.2} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=0.3;sso=1.4} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=3.9;sso=-6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=6.9;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=2.9;sso=-2.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=0.9;sso=-3.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=2.9;sso=4.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=4.9;sso=6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=3.9;sso=-3.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=2.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=-4.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=4.9;sso=6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=3.9;sso=4.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=0.1;sso=4} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=2.2;sso=2.3} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=3.6;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=3.4;sso=-4.5} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=2;sso=3.5} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=3.1;sso=2.2} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=1.5;sso=-3.6} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=4.2;sso=-2.2} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hr=1;vr=1;mr=80;tyo=0.5;syo=0.3;sso=1.4} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=-6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=3.9;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=-2.1} @targetLocation
+  - delay 
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=2.9;sso=-3.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=4.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=3.9;sso=-3.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=2.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=4.9;sso=-1.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=-4.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=2.9;sso=6.1} @targetLocation
+  - delay 1
+  - leap{velocity=-25} @targetLocation
+  - projectile{os=BakugoBarrageS;ot=BakugoBarrageT;oh=BakugoBarrageHIT;se=true;sb=true;hnp=true;oe=BakugoBarrageHIT;v=128;i=1;hR=1;vR=1;mr=40;tyo=0.5;syo=1.9;sso=4.1} @targetLocation
+  - delay 1
+  
+  
+    
+  
+ 
+BakugoBarrageS:
+  - sound{s=minecraft:entity.blaze.shoot;v=3} @self
+BakugoBarrageT:
+   Skills:
+   - effect:particles{p=FLAME;a=3;hS=0.5;vS=0.5}
+   - effect:particles{p=SMOKE_LARGE;a=1;hS=0.5;vS=0.5}
+   - effect:particles{p=EXPLOSION_SMALL;a=1;hS=0.5;vS=0.5}
+   - sound{s=entity.blaze.shoot;v=3} @self
+  
+BakugoBarrageHIT:
+   Skills:
+   - damage{a=10}
+   - explosion{yield=2}
+  
+ExplosivePunches:
+  Skills:
+  - aura{auraname=ExplosivePunches;onStart=BakugoBarrageS;i=1;duration=100;onTick=ExplosivePunchesT} @self
+  - sound{s=minecraft:entity.blaze.shoot;v=3} @self
+  - effect:particles{p=FLAME;amount=200;speed=1;hS=1;vS=1} @self    
+  
+ExplosivePunchesT:
+  - sound{s=minecraft:entity.blaze.shoot;v=3} @self
+  
+PropulsionBurst:
+   Skills:
+   - leap{velocity=250} @targetLocation
+   - effect:particles{p=FLAME;amount=50;speed=0;hS=1;vS=1} @Forward{f=-1;y=0.0} 
+   - effect:particles{p=SMOKE_LARGE;amount=50;speed=0;hS=1.5;vS=1} @Forward{f=-1;y=0.0} 
+   - effect:particles{p=EXPLOSION_SMALL;amount=50;speed=0;hS=1.5;vS=1} @Forward{f=-1;y=0.0}
+   - explosion{yield=0.2} @Forward{f=-1.5;y=0.0}
+   
+HowitzerImpact:
+  Skills:
+   - aura{auraname=HowitzerImpact;onTick=HowitzerImpactT;onEnd=HowitzerImpactEnd;duration=7} @self
+   - effect:particles{p=FLAME;amount=200;speed=1;hS=1;vS=1} @self
+   - potion{type=DAMAGE_RESISTANCE;duration=7;level=4} @self
+HowitzerImpactT:
+  Skills:
+  - effect:particles{p=FLAME;amount=100;speed=0;hS=1.5;vS=1.5} @self
+  - effect:particles{p=SMOKE_LARGE;amount=100;speed=0;hS=1.5;vS=1.5} @self
+  - effect:particles{p=SMOKE;amount=100;speed=0;hS=1.5;vS=1.5} @self
+  - explosion{yield=0.2} @Forward{f=-1.5;y=0.0}
+  - leap{velocity=2000} @targetLocation
+  
+HowitzerImpactEnd:
+  Conditions:
+  - targetwithin{d=2} true
+  - hasaura HowitzerImpact true
+  Skills:
+  - potion{type=DAMAGE_RESISTANCE;duration=5;level=4} @self
+  - explosion{yield=5} @self
+  - damage{a=10} @LivingEntitiesInRadius{r=6}
+  
+ExplosiveGrab:
+  Conditions:
+  - targetwithin{d=5} true
+  Skills:
+  - throw{velocity=20;velocityY=15} @LivingEntitiesInRadius{r=5;limit=1;sort=NEAR}
+  - explosion{yield=1} @LivingEntitiesInRadius{r=5;limit=1;sort=NEAR}
+  - effect:particles{p=FLAME;amount=50;speed=1;hS=1;vS=1} @LivingEntitiesInRadius{r=5;limit=1;sort=NEAR}
+  - effect:particles{p=SMOKE_LARGE;amount=100;speed=1;hS=2;vS=2} @LivingEntitiesInRadius{r=5;limit=1;sort=NEAR}
+  - effect:particles{p=EXPLOSION_SMALL;amount=50;speed=1;hS=1.5;vS=1} @LivingEntitiesInRadius{r=5;limit=1;sort=NEAR}
+  

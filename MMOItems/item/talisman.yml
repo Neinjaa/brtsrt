@@ -1,0 +1,210 @@
+THUNDER_BLESSING:
+  base:
+    material: BIRCH_SAPLING
+    disable-interaction: true
+    name: §bThunder's Blessing
+    attack-damage: 3.0
+    weapon-damage: 10.0
+    skill-damage: 50.0
+    tier: EPIC
+    perm-effects:
+      SPEED: 1.0
+    lore:
+    - §bThis talisman, when held in offhand,
+    - §ballows the user to greatly increase
+    - §bhis skill damage. §3It also gives Speed I.
+IMMUNITY:
+  base:
+    material: NAME_TAG
+    name: IMMUNITY IDK
+    damage-reduction: 100000.0
+SCAFFOLD:
+  base:
+    material: SCAFFOLDING
+    name: §6Litterally Scaffold
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    commands:
+      cmd0:
+        format: setblock ~ ~-1 ~ red_wool
+        delay: 0.0
+        op: true
+PICKLE_OF_JUSTICE:
+  base:
+    material: SEA_PICKLE
+    disable-interaction: true
+    disable-smelting: true
+    name: §aPickle of Justice
+    commands:
+      cmd0:
+        format: smite
+        delay: 0.0
+        op: true
+CASEY:
+  base:
+    material: WOODEN_SWORD
+    name: §fCasey
+    lore:
+    - §8A standard baseball bat, modified to hit bullets
+    - §8instead of balls. Launches enemy projectiles back
+    - §8with a vengeance!
+    - §8
+    - §8Nothing can happen until you swing the bat.
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    commands:
+      cmd0:
+        format: minecraft:gamemode survival @p[distance=0.1..5]
+        delay: 0.0
+        op: true
+    unbreakable: true
+    attack-speed: 1.0
+    attack-damage: 2.5
+    enchants:
+      knockback: 1000.0
+    tier: COMMON
+    projectile-damage-reduction: 100.0
+TELEPORT:
+  base:
+    material: BLAZE_ROD
+    name: §f§lTeleport
+    ability:
+      ability1:
+        type: BLINK
+        range: 5.0
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+BACON_ON_A_STICK:
+  base:
+    material: STICK
+    name: §dBacon on a Stick
+    custom-nbt: []
+    lore:
+    - §8Never lets you get hungry. Ever.
+    tier: LATEGAME
+    perm-effects:
+      SATURATION: 1.0
+PARTICLEFORLUIS:
+  base:
+    material: STICK
+    name: aoijsdfj
+    item-particles:
+      type: GALAXY
+      particle: SMOKE_LARGE
+      y-coord: -0.1
+      speed: 0.5
+      amount: 7.0
+      height: 0.0
+DEATH_STICK:
+  base:
+    material: BONE
+    name: §8Get Boned
+    commands:
+      cmd0:
+        format: minecraft:kill @e[distance=0.1..2]
+        delay: 0.0
+        op: true
+FIRE_FLOWER:
+  base:
+    material: ORANGE_TULIP
+    name: §6Fire Flower
+    ability:
+      ability1:
+        type: BOUNCY_FIREBALL
+        mode: RIGHT_CLICK
+        cooldown: 0.5
+        damage: 20.0
+        ignite: 40.0
+        radius: 4.0
+        speed: 1.0
+CRUGS_ROCK:
+  base:
+    material: BEDROCK
+    name: §5Crug's Rock
+    attack-speed: 4.0
+    attack-damage: 2.147483647E9
+    critical-strike-chance: 2.1474836147E10
+    critical-strike-power: 2.1474836147E10
+    skill-critical-strike-power: 2.1474836147E10
+    skill-critical-strike-chance: 2.1474836147E10
+    weapon-damage: 2.1474836147E10
+CRITICAL_BOTTLE:
+  base:
+    material: BELL
+    enchants:
+      knockback: 2.0
+    hide-enchants: true
+    name: §r§lCritical Bottle
+    lore:
+    - §8Each strike creates a sound
+    - §8which resonates across the world.
+    displayed-type: Memento
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    disable-smithing: true
+    disable-enchanting: true
+    disable-repairing: true
+    attack-damage: 15.0
+    attack-speed: 1.0
+    critical-strike-chance: 5.0
+    critical-strike-power: 100.0
+    tier: MYTHICAL
+    unstackable: true
+    two-handed: true
+    sounds:
+      on-attack:
+        sound: block.bell.use
+        volume: 1.0
+        pitch: 1.0
+BLOONTROJAN:
+  base:
+    material: TOTEM_OF_UNDYING
+    commands:
+      cmd0:
+        format: tag @e[tag=Bloon,limit=1,sort=nearest] add NoChildren
+        delay: 0.0
+        op: true
+    name: Blojan
+PARKOUR_RESTART:
+  base:
+    material: CARROT_ON_A_STICK
+    name: Restart
+    commands:
+      cmd0:
+        format: minecraft:tp @s -6200 72 -2537
+        delay: 0.0
+        op: true
+PASTE:
+  base:
+    material: BLAZE_ROD
+    name: §fPaste
+    commands:
+      cmd0:
+        format: /paste
+        delay: 0.0
+OPPENHEIM:
+  base:
+    material: TOTEM_OF_UNDYING
+    name: §7§lOppenheim
+    lore:
+    - §8§oIt's oppenheimin' time!
+    ability:
+      ability1:
+        type: OPPENHEIMER
+        mode: LEFT_CLICK
+JUG_OF_KNOTS:
+  base:
+    material: STICK
+    name: Jug of Knots
+    disable-interaction: true
+    disable-crafting: true
+    disable-smelting: true
+    max-health: 20.0
+    armor: 10.0
+    max-mana: 100.0
+    mana-regeneration: 10.0

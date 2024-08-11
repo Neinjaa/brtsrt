@@ -1,0 +1,45 @@
+ALCHEMIST_BOOK:
+  base:
+    material: STICK
+    name: Alchemy Journal
+    displayed-type: Literature
+    ability:
+      ability5:
+        type: ALCHVISUALISE
+        mode: SNEAK
+        cooldown: 0.1
+      ability1:
+        type: ALCHFIRE
+        mode: LEFT_CLICK
+        cooldown: 0.1
+      ability2:
+        type: ALCHEARTH
+        mode: RIGHT_CLICK
+        cooldown: 0.1
+      ability3:
+        type: ALCHWATER
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 0.1
+      ability4:
+        type: ALCHAIR
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 0.1
+    custom-model-data: 123480.0
+TEST:
+  base:
+    material: GRASS_BLOCK
+    name: TEST ITEM
+    crafting:
+      smoker:
+        '1':
+          input: []
+          item: m material steel_ingot 10.0..
+      shaped:
+        '1':
+          input:
+          - m material steel_ingot 10.0..|m material steel_ingot 10.0..|m material
+            steel_ingot 10.0..
+          - m material steel_ingot 10.0..|m material steel_ingot 10.0..|m material
+            steel_ingot 10.0..
+          - m material steel_ingot 10.0..|m material steel_ingot 10.0..|m material
+            steel_ingot 10.0..

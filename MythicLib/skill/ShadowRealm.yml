@@ -1,0 +1,5 @@
+# The internal name of the MM skill.
+mythicmobs-skill-id: ShadowRealm
+# Define the ability modifiers here (cooldown/mana/stamina are already implemented)
+modifiers:
+- duration

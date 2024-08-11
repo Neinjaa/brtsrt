@@ -1,0 +1,475 @@
+AMPLIFICATION_TOME:
+  base:
+    material: ENCHANTED_BOOK
+    name: '&9Amplification Tome'
+    required-level: 9.0
+    lore:
+    - '&7It emits a strong magical aura.'
+    - '&7Hold it to &5greatly enhance'
+    - '&7your magical powers.'
+    magic-damage:
+      base: 85.0
+      spread: 0.02
+      max-spread: 0.06
+WYVERN_FEATHER:
+  base:
+    material: FEATHER
+    disable-crafting: true
+    name: '&fWyvern Feather'
+    fall-damage-reduction: 65.0
+WYVERN_SOUL:
+  base:
+    material: ENDER_EYE
+    name: '&fWyvern Soul'
+    disable-interaction: true
+    disable-crafting: true
+    enchants:
+      unbreaking: 1
+    perm-effects:
+      LEVITATION: 2
+    hide-enchants: true
+TOME_OF_ACCURACY:
+  base:
+    material: ENCHANTED_BOOK
+    disable-repairing: true
+    name: '&eTome of Accuracy'
+    critical-strike-power:
+      base: 27.5
+      spread: 0.03
+      max-spread: 0.08
+    critical-strike-chance:
+      base: 7.5
+      spread: 0.08
+      max-spread: 0.25
+    lore:
+    - '&7Increases your critical power.'
+NAUGHTY_SPELL_BOOK:
+  base:
+    material: ENCHANTED_BOOK
+    disable-repairing: true
+    name: '&8Naughty Spell Book'
+    required-level: 20.0
+    ability:
+      right-click:
+        type: CURSED_BEAM
+        mode: RIGHT_CLICK
+        cooldown: 30.0
+        damage: 6.0
+    lore:
+    - '&7Right click to cast a &5cursed beam&7.'
+    - '&7This magic projectile deals &57'
+    - '&5damage &7to the first enemy it hits.'
+CELESTIAL_TOME:
+  base:
+    material: BOOK
+    enchants:
+      luck_of_the_sea: 1.0
+    disable-interaction: true
+    lore:
+      - §f§oFrom the angels themselves!
+      - §bThe gods shall not let others take
+      - §bthis from you. It can't drop on death.
+    name: §b§lCelestial Tome
+    tier: EPIC
+    ability:
+      ability1:
+        type: HOLY_MISSILE
+        mode: RIGHT_CLICK
+        duration: 5.0
+        damage: 9.0
+        cooldown: 8.0
+    disable-death-drop: true
+OMNIELEMENTAL_TOME:
+  base:
+    material: BOOK
+    name: §c§lO§6§lm§e§ln§a§li§2§lE§3§ll§9§le§b§lm§f§le§e§ln§a§lt§6§la§c§ll §6§lT§e§lo§a§lm§2§le
+    required-level: 30.0
+    tier: VERY_RARE
+    magic-damage:
+      base: 30.0
+      scale: 0.15
+      spread: 0.1
+      max-spread: 0.3
+    element:
+      wind:
+        damage: 25.0
+      earth:
+        damage: 25.0
+      thunder:
+        damage: 25.0
+      water:
+        damage: 25.0
+    lore:
+      - §7Chaos is the source of all creation.
+    ability:
+      ability1:
+        type: SWIFTNESS
+        duration: 6.0
+        amplifier: 1.0
+        cooldown: 10.0
+        mode: SHIFT_RIGHT_CLICK
+      ability2:
+        type: SHOCKWAVE
+        cooldown: 10.0
+        knock-up: 2.0
+        length: 5.0
+        mode: SHIFT_RIGHT_CLICK
+      ability3:
+        type: SMITE
+        mode: SHIFT_RIGHT_CLICK
+        damage: 8.0
+        cooldown: 10.0
+      ability4:
+        type: HEAL
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+        heal: 10.0
+CLOUDBURST:
+  base:
+    material: BOOK
+    name: §lCloud Burst
+    ability:
+      ability1:
+        type: CLOUDBURST
+        mode: LEFT_CLICK
+        cooldown: 2.0
+        mana: 30.0
+    lore:
+    - §8§oShoots a burst of air that
+    - §8§ocreates a flurry of air on contact.
+CLOUDJUMP:
+  base:
+    material: BOOK
+    name: §lCloud Jump
+    ability:
+      ability1:
+        type: CLOUDJUMP
+        mode: LEFT_CLICK
+        mana: 20.0
+        cooldown: 3.0
+    lore:
+    - §8§oLifts its user into the sky moderately.
+AIRVORTEX:
+  base:
+    material: BOOK
+    name: §lAir Vortex
+    ability:
+      ability1:
+        type: AIRVORTEX
+        mode: LEFT_CLICK
+        mana: 40.0
+        cooldown: 5.0
+    lore:
+    - §8§oFires an air projectile that
+    - §8§ocreates a vortex, dealing
+    - §8§oDOT to anyone inside it.
+AIRMISSILE:
+  base:
+    material: BOOK
+    name: §lAir Missile
+    ability:
+      ability1:
+        type: AIRMISSILE
+        mode: LEFT_CLICK
+        mana: 35.0
+        cooldown: 5.0
+    lore:
+    - §8§oSummons strikes of air from the sky.
+WINDPUSH:
+  base:
+    material: BOOK
+    name: §lWind Push
+    ability:
+      ability1:
+        type: WINDPUSH
+        mode: LEFT_CLICK
+        mana: 20.0
+        cooldown: 3.0
+    lore:
+    - §8§oLaunches a ray of wind that pushes
+    - §8§othe enemy towards its user.
+WINDPULL:
+  base:
+    material: BOOK
+    name: §lWind Pull
+    ability:
+      ability1:
+        type: WINDPULL
+        mode: LEFT_CLICK
+        mana: 20.0
+        cooldown: 3.0
+    lore:
+    - §8§oLaunches a ray of wind that pulls
+    - §8§othe enemy towards its user.
+CLOUD_PLATFORM:
+  base:
+    material: BOOK
+    name: §lCloud Platform
+    ability:
+      ability1:
+        type: CLOUDPLATFORM
+        mode: LEFT_CLICK
+        mana: 40.0
+        cooldown: 10.0
+    lore:
+    - §8§oCreates a cloud platform beneath the user.
+STATICBALL:
+  base:
+    material: BOOK
+    name: §5§lStatic Ball
+    ability:
+      ability1:
+        type: STATICBALL
+        mode: LEFT_CLICK
+        mana: 30.0
+        cooldown: 5.0
+    lore:
+    - §8§oFires a ball of electricity that
+    - §8§odoes contact damage and zaps
+    - §8§onearby enemies.
+FIRESWEEP:
+  base:
+    material: BOOK
+    name: §c§lFire Sweep
+    ability:
+      ability1:
+        type: FIRESWEEP
+        mana: 30.0
+        cooldown: 4.0
+        mode: LEFT_CLICK
+    lore:
+    - §8§oSends a wave of fire ahead of its user.
+ICEPRISON:
+  base:
+    material: BOOK
+    name: §b§lIce Prison
+    ability:
+      ability1:
+        type: ICEPRISON
+        mode: LEFT_CLICK
+        mana: 30.0
+        cooldown: 3.0
+    lore:
+    - §8§oSends a projectile that encases
+    - §8§oenemies in ice on contact.
+WATERWAVE:
+  base:
+    material: BOOK
+    name: §1§lWater Wave
+    ability:
+      ability1:
+        type: WATERWAVE
+        cooldown: 3.0
+        mana: 30.0
+        mode: LEFT_CLICK
+    lore:
+    - §8§oLaunches a ball of water that
+    - §8§odeals AOE damage on contact.
+RIFT:
+  base:
+    material: BOOK
+    ability:
+      ability1:
+        type: RIFT
+        mode: LEFT_CLICK
+        cooldown: 3.0
+        mana: 35.0
+    name: §2§lRift
+    lore:
+    - §8§oCreates tremors in the ground
+    - §8§oin a straight line that launches
+    - §8§oenemies into the air.
+SHOCKWAVE:
+  base:
+    material: BOOK
+    name: §2§lShockwave
+    ability:
+      ability1:
+        type: AURA
+        mode: LEFT_CLICK
+        cooldown: 2.0
+        mana: 20.0
+    lore:
+    - §8§oCreates tremors surrounding the player
+    - §8§othat stuns anything caught in it and damages enemies.
+STONEWALL:
+  base:
+    material: BOOK
+    name: §2§lStone Armor
+    ability:
+      ability1:
+        type: STONEARMOR
+        mode: LEFT_CLICK
+        cooldown: 10.0
+    lore:
+    - §8§oGrants the user 50% DR, but
+    - §8§oslows them for the duration of the skill.
+BOULDERSHOT:
+  base:
+    material: BOOK
+    name: §2§lBoulder Spell
+    ability:
+      ability1:
+        type: BOULDERSHOT
+        mode: LEFT_CLICK
+        mana: 30.0
+        cooldown: 2.0
+    lore:
+    - §o§8Fires a fast boulder projectile at your enemies.
+FIRESLAM:
+  base:
+    material: BOOK
+    name: §c§lFire Slam
+    ability:
+      ability1:
+        type: FIRESLAM
+        mode: LEFT_CLICK
+        mana: 40.0
+        cooldown: 5.0
+AIRVACUUM:
+  base:
+    material: BOOK
+    name: §lAir Vacuum
+    ability:
+      ability1:
+        type: AIRVACUUM
+        mode: LEFT_CLICK
+        mana: 35.0
+        cooldown: 10.0
+EARTHCHAR:
+  base:
+    material: BOOK
+    name: §2§lEarth Charge
+    ability:
+      ability1:
+        type: EARTHCHARGE
+        mode: LEFT_CLICK
+        mana: 35.0
+        cooldown: 7.0
+FIREBOLT:
+  base:
+    material: BOOK
+    name: §c§lFirebolt
+    ability:
+      ability1:
+        type: SMALLFIREBALL
+        mode: LEFT_CLICK
+        mana: 30.0
+        cooldown: 3.0
+EVADINGVAPORS:
+  base:
+    material: BOOK
+    ability:
+      ability1:
+        type: EVADINGVAPORS
+        mode: LEFT_CLICK
+        mana: 40.0
+        cooldown: 15.0
+    name: §1§lEvading Vapors
+RESTORRENT:
+  base:
+    material: BOOK
+    name: §1§lRestorrent
+    ability:
+      ability1:
+        type: RESTORRENT
+        mode: LEFT_CLICK
+        mana: 50.0
+        cooldown: 10.0
+    spell-vampirism: 200.0
+ROOTS:
+  base:
+    material: BOOK
+    name: §2§lRoots
+    ability:
+      ability1:
+        type: ROOTS
+        mode: LEFT_CLICK
+        mana: 35.0
+        cooldown: 7.0
+OVERHEAT:
+  base:
+    material: BOOK
+    name: §c§lOverheat
+    ability:
+      ability1:
+        type: OVERHEAT
+        mode: LEFT_CLICK
+        cooldown: 10.0
+        mana: 40.0
+FUSESPARK:
+  base:
+    material: BOOK
+    name: §5§lFuseSpark
+    ability:
+      ability1:
+        type: FUSESPARK
+        mode: LEFT_CLICK
+        cooldown: 5.0
+        mana: 30.0
+GREATFIREBALL:
+  base:
+    material: BOOK
+    name: §c§lGreat Fireball
+    ability:
+      ability1:
+        type: GREATFIREBALL
+        mode: LEFT_CLICK
+        mana: 40.0
+        cooldown: 5.0
+SONICPUNCH:
+  base:
+    material: BOOK
+    name: §lSonic Punch
+    ability:
+      ability1:
+        type: SONICPUNCH
+        mode: LEFT_CLICK
+        mana: 30.0
+        cooldown: 3.0
+WINDSHIELD:
+  base:
+    material: BOOK
+    ability:
+      ability1:
+        type: WINDSHIELD
+        mode: LEFT_CLICK
+        mana: 30.0
+        cooldown: 7.0
+    name: §lWindshield
+EARTH_LEAP:
+  base:
+    material: BOOK
+    name: §2§lEarth Leap
+    ability:
+      ability1:
+        type: EARTHLEAP
+        mode: LEFT_CLICK
+        cooldown: 4.0
+        mana: 25.0
+BLINKBURST:
+  base:
+    material: BOOK
+    name: §lBlinkburst
+    ability:
+      ability1:
+        type: BLINKBURST
+        mana: 25.0
+        cooldown: 5.0
+        mode: LEFT_CLICK
+GEYSERSPELL:
+  base:
+    material: BOOK
+    name: §c§lGeyser
+    ability:
+      ability1:
+        type: GEYSERSPELL
+        mode: LEFT_CLICK
+        mana: 30.0
+        cooldown: 6.0
+BOOK:
+  base:
+    material: BOOK
+    ability:
+      ability1: {}
+

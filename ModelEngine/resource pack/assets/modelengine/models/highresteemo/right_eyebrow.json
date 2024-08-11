@@ -1,0 +1,1 @@
+{"textures":{"2":"modelengine:entity/teemo"},"elements":[{"from":[7.1875324,7.7500095,8.0],"to":[8.812468,8.2499895,8.0],"faces":{"south":{"uv":[7.75,8.0,8.15625,8.125],"tintindex":0,"rotation":0,"texture":"#2"},"north":{"uv":[8.0,7.5,8.40625,7.625],"tintindex":0,"rotation":0,"texture":"#2"}}}],"display":{"gui":{"rotation":[30,225,0]}}}

@@ -1,0 +1,465 @@
+{
+  "custom.vine": {
+    "category": "master",
+    "sounds": [
+      "custom/vine"
+    ]
+  },
+  "custom.waterbolt": {
+    "category": "master",
+    "sounds": [
+      "custom/waterbolt"
+    ]
+  },
+  "custom.heheheha": {
+    "category": "master",
+    "sounds": [
+      "custom/heheheha"
+    ]
+  },
+  "custom.hellkitchen": {
+    "category": "master",
+    "sounds": [
+      "custom/hellkitchen"
+    ]
+  },
+  "custom.jpvinethud": {
+    "category": "master",
+    "sounds": [
+      "custom/jpvinethud"
+    ]
+  },
+  "custom.tacobell": {
+    "category": "master",
+    "sounds": [
+      "custom/tacobell"
+    ]
+  },
+  "custom.amongusrole": {
+    "category": "master",
+    "sounds": [
+      "custom/amongusrole"
+    ]
+  },
+  "custom.banditshift": {
+    "category": "master",
+    "sounds": [
+      "custom/banditshift"
+    ]
+  },
+  "custom.chamber": {
+    "category": "master",
+    "sounds": [
+      "custom/chamber"
+    ]
+  },
+  "custom.chamberult": {
+    "category": "master",
+    "sounds": [
+      "custom/chamberult"
+    ]
+  },
+  "custom.whopper": {
+    "category": "master",
+    "sounds": [
+      "custom/whopper"
+    ]
+  },
+  "custom.chugjug": {
+    "category": "master",
+    "sounds": [
+      "custom/chugjug"
+    ]
+  },
+  "rotmg.blunt_dagger": {
+    "category": "master",
+    "sounds": [
+      "rotmg/blunt_dagger"
+    ]
+  },
+  "rotmg.blunt_sword": {
+    "category": "master",
+    "sounds": [
+      "rotmg/blunt_sword"
+    ]
+  },
+  "rotmg.crossbow": {
+    "category": "master",
+    "sounds": [
+      "rotmg/crossbow"
+    ]
+  },
+  "rotmg.dirk": {
+    "category": "master",
+    "sounds": [
+      "rotmg/dirk"
+    ]
+  },
+  "rotmg.djinn_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/djinn_hit"
+    ]
+  },
+  "rotmg.double_bow": {
+    "category": "master",
+    "sounds": [
+      "rotmg/double_bow"
+    ]
+  },
+  "rotmg.dwarf_god_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/dwarf_god_hit"
+    ]
+  },
+  "rotmg.fire_bow": {
+    "category": "master",
+    "sounds": [
+      "rotmg/fire_bow"
+    ]
+  },
+  "rotmg.fire_nova": {
+    "category": "master",
+    "sounds": [
+      "rotmg/nova"
+    ]
+  },
+  "rotmg.fire_spray": {
+    "category": "master",
+    "sounds": [
+      "rotmg/fire_spray"
+    ]
+  },
+  "rotmg.fire_sword": {
+    "category": "master",
+    "sounds": [
+      "rotmg/fire_sword"
+    ]
+  },
+  "rotmg.fire_wand": {
+    "category": "master",
+    "sounds": [
+      "rotmg/fire_wand"
+    ]
+  },
+  "rotmg.glass_sword": {
+    "category": "master",
+    "sounds": [
+      "rotmg/glass_sword"
+    ]
+  },
+  "rotmg.golden_bow": {
+    "category": "master",
+    "sounds": [
+      "rotmg/golden_bow"
+    ]
+  },
+  "rotmg.golden_dagger": {
+    "category": "master",
+    "sounds": [
+      "rotmg/golden_dagger"
+    ]
+  },
+  "rotmg.heal_nova": {
+    "category": "master",
+    "sounds": [
+      "rotmg/heal_nova"
+    ]
+  },
+  "rotmg.hells_fire_wand": {
+    "category": "master",
+    "sounds": [
+      "rotmg/hells_fire_wand"
+    ]
+  },
+  "rotmg.light_heal": {
+    "category": "master",
+    "sounds": [
+      "rotmg/light_heal"
+    ]
+  },
+  "rotmg.magic_nova": {
+    "category": "master",
+    "sounds": [
+      "rotmg/magic_nova"
+    ]
+  },
+  "rotmg.major_heal": {
+    "category": "master",
+    "sounds": [
+      "rotmg/major_heal"
+    ]
+  },
+  "rotmg.oryx_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/oryx_hit"
+    ]
+  },
+  "rotmg.rocks_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/rocks_hit"
+    ]
+  },
+  "rotmg.sprite_wand": {
+    "category": "master",
+    "sounds": [
+      "rotmg/sprite_wand"
+    ]
+  },
+  "rotmg.wand_of_dark_magic": {
+    "category": "master",
+    "sounds": [
+      "rotmg/wand_of_dark_magic"
+    ]
+  },
+  "rotmg.arrowshoot": {
+    "category": "master",
+    "sounds": [
+      "rotmg/arrowshoot"
+    ]
+  },
+  "rotmg.bats_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/bats_hit"
+    ]
+  },
+  "rotmg.beholder_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/beholder_hit"
+    ]
+  },
+  "rotmg.bladeswing": {
+    "category": "master",
+    "sounds": [
+      "rotmg/bladeswing"
+    ]
+  },
+  "rotmg.blobs_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/blobs_hit"
+    ]
+  },
+  "rotmg.cubes_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/cubes_hit"
+    ]
+  },
+  "rotmg.daggerswing": {
+    "category": "master",
+    "sounds": [
+      "rotmg/daggerswing"
+    ]
+  },
+  "rotmg.default_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/default_hit"
+    ]
+  },
+  "rotmg.ghosts_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/ghosts_hit"
+    ]
+  },
+  "rotmg.goblins_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/goblins_hit"
+    ]
+  },
+  "rotmg.magicshoot": {
+    "category": "master",
+    "sounds": [
+      "rotmg/magicshoot"
+    ]
+  },
+  "rotmg.medusa_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/medusa_hit"
+    ]
+  },
+  "rotmg.sprites_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/sprites_hit"
+    ]
+  },
+  "rotmg.trees_hit": {
+    "category": "master",
+    "sounds": [
+      "rotmg/trees_hit"
+    ]
+  },
+  "custom.demacia": {
+    "category": "master",
+    "sounds": [
+      "custom/demacia"
+    ]
+  },
+  "custom.atomic": {
+    "category": "master",
+    "sounds": [
+      "custom/atomic"
+    ]
+  },
+  "custom.odm": {
+    "category": "master",
+    "sounds": [
+      "custom/odm"
+    ]
+  },
+  "custom.wetfart": {
+    "category": "master",
+    "sounds": [
+      "custom/wetfart"
+    ]
+  },
+  "custom.jayceaudio": {
+    "category": "master",
+    "sounds": [
+      "custom/jayceaudio"
+    ]
+  },
+  "custom.mercsword": {
+    "category": "master",
+    "sounds": [
+      "custom/mercsword"
+    ]
+  },
+  "custom.gojocharge": {
+    "category": "master",
+    "sounds": [
+      "custom/gojocharge"
+    ]
+  },
+  "custom.gojoshoot": {
+    "category": "master",
+    "sounds": [
+      "custom/gojoshoot"
+    ]
+  },
+  "custom.mercshiftend": {
+    "category": "master",
+    "sounds": [
+      "custom/mercshiftend"
+    ]
+  },
+  "custom.mercr": {
+    "category": "master",
+    "sounds": [
+      "custom/mercr"
+    ]
+  },
+  "custom.mercheavysword": {
+    "category": "master",
+    "sounds": [
+      "custom/mercheavysword"
+    ]
+  },
+  "custom.mercshiftstart": {
+    "category": "master",
+    "sounds": [
+      "custom/mercshiftstart"
+    ]
+  },
+  "custom.breezedeath": {
+    "category": "master",
+    "sounds": [
+      "custom/breezedeath"
+    ]
+  },
+  "custom.breezeshoot": {
+    "category": "master",
+    "sounds": [
+      "custom/breezeshoot"
+    ]
+  },
+  "custom.breezehurt": {
+    "category": "master",
+    "sounds": [
+      "custom/breezehurt"
+    ]
+  },
+  "custom.breezecharge": {
+    "category": "master",
+    "sounds": [
+      "custom/breezecharge"
+    ]
+  },
+  "custom.jayceaudio2": {
+    "category": "master",
+    "sounds": [
+      "custom/jayceaudio2"
+    ]
+  },
+  "custom.flightlooph": {
+    "category": "master",
+    "sounds": [
+      "custom/flightlooph"
+    ]
+  },
+  "custom.engiloop": {
+    "category": "master",
+    "sounds": [
+      "custom/engiloop"
+    ]
+  },
+  "custom.hollowpurple": {
+    "category": "master",
+    "sounds": [
+      "custom/hollowpurple"
+    ]
+  },
+  "custom.domainexpansion": {
+    "category": "master",
+    "sounds": [	
+      "custom/domainexpansion"
+    ]
+  },
+  "custom.shieldgen": {
+    "category": "master",
+    "sounds": [	
+      "custom/shieldgen"
+    ]
+  },
+  "custom.thruster3": {
+    "category": "master",
+    "sounds": [	
+      "custom/thruster3"
+    ]
+  },
+  "custom.sniper1": {
+    "category": "master",
+    "sounds": [	
+      "custom/sniper1"
+    ]
+  },
+  "custom.empthrow": {
+    "category": "master",
+    "sounds": [	
+      "custom/empthrow"
+    ]
+  },
+  "custom.empexplosion": {
+    "category": "master",
+    "sounds": [	
+      "custom/empexplosion"
+    ]
+  },
+  "custom.dronesummon": {
+    "category": "master",
+    "sounds": [	
+      "custom/dronesummon"
+    ]
+  }
+  
+}

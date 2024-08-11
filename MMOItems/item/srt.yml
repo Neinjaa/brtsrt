@@ -1,0 +1,15 @@
+SRT_QUARTZCUTTER:
+  base:
+    material: STICK
+    name: §b§lFrost§f§lbitten Blade
+    displayed-type: Katana
+    lore:
+    - §f§oForged from a forgotten technique, this katana's true power
+    - §f§ois proportional to how well the user synchronizes with the blade's
+    - §f§o§lown movements
+    custom-nbt: []
+    ability:
+      ability1:
+        type: WIND_SLASH
+        mode: LEFT_CLICK
+    unstackable: true

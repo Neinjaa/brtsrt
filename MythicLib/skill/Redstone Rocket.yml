@@ -1,0 +1,7 @@
+# The internal name of the MM skill.
+mythicmobs-skill-id: RedstoneMissile
+# Define the ability modifiers here (cooldown/mana/stamina are already implemented)
+modifiers:
+- radius
+- damage
+- velocity

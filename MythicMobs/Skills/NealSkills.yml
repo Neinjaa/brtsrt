@@ -1,0 +1,29 @@
+Oppenheimer:
+  Skills:
+  - damagepercent{percent=10;ia=true} @ENO{r=10}
+  - explosion{yield=5;bd=false} @self
+  - sound{s=minecraft:entity.generic.explode;v=10;p=1}
+  - suicide 
+
+Patriarchy:
+  Skills:
+  - summon{type=HORSE;amount=5;radius=1} @self
+  - potion{type=CONFUSION;duration=50;level=1} @self
+  - potion{type=SLOW;duration=50;level=2} @self
+  - potion{type=WEAKNESS;duration=50;level=1} @self
+  - potion{type=UNLUCK;duration=50;level=1} @self
+  - potion{type=HEAL;duration=1;level=1} @self
+  - sound{s=minecraft:entity.villager.ambient;v=1;p=0.2} @self
+  - delay 1
+  - sound{s=minecraft:entity.villager.ambient;v=1;p=0.4} @self
+  - delay 1
+  - sound{s=minecraft:entity.villager.ambient;v=1;p=0.6} @self
+  - delay 1
+  - sound{s=minecraft:entity.villager.ambient;v=1;p=0.8} @self
+  - delay 1
+  - sound{s=minecraft:entity.villager.ambient;v=1;p=1} @self
+  - delay 1
+  - sound{s=minecraft:entity.villager.ambient;v=1;p=2} @self
+  - delay 1
+
+    

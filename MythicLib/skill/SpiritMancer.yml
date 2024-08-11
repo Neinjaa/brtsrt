@@ -1,0 +1,645 @@
+Spiritualist Auto:
+  mythicmobs-skill-id: SpiritMancerAuto
+  modifiers:
+  - cooldown
+Spiritualist Movement:
+  mythicmobs-skill-id: SpiritMancerR
+  modifiers:
+  - cooldown
+Spiritualist Transition:
+  mythicmobs-skill-id: SpiritMancerSL
+  modifiers:
+  - cooldown
+Spiritualist Ultimate:
+  mythicmobs-skill-id: SpiritMancerSR
+  modifiers:
+  - cooldown
+Adaptive Armor:
+  mythicmobs-skill-id: AdaptiveArmor
+  modifiers:
+  - cooldown
+  
+Joker L:
+  mythicmobs-skill-id: TricksterShoot
+  modifiers:
+  - cooldown
+  
+Joker R:
+  mythicmobs-skill-id: TricksterCloneSummon
+  modifiers:
+  - cooldown
+  
+Joker SL:
+  mythicmobs-skill-id: TricksterTrap
+  modifiers:
+  - cooldown
+  
+Joker SR:
+  mythicmobs-skill-id: TricksterSwap
+  modifiers:
+  - cooldown
+  
+SCP Armor:
+  mythicmobs-skill-id: SCPArmor
+  modifiers:
+  - cooldown
+  
+Teletubby Kick:
+  mythicmobs-skill-id: TeletubbiesKick
+  modifiers:
+  - cooldown
+  
+Forcefield:
+  mythicmobs-skill-id: Forcefield
+  modifiers:
+  - cooldown
+  
+SCP Disguise:
+  mythicmobs-skill-id: SCPDisguise
+  modifiers:
+  - cooldown
+  
+SCP Kill:
+  mythicmobs-skill-id: SCPKill
+  modifiers:
+  - cooldown
+  
+Invisibility Cloak:
+  mythicmobs-skill-id: InvisibilityCloak
+  modifiers:
+  - cooldown
+  
+Clone:
+  mythicmobs-skill-id: SCPCloneSummon
+  modifiers:
+  - cooldown
+  
+  
+Slicing Winds:
+  mythicmobs-skill-id: SlashingWinds
+  modifiers:
+  - cooldown
+  
+Focused Assault:
+  mythicmobs-skill-id: MercShift
+  modifiers:
+  - cooldown
+ 
+Laser Sword:
+  mythicmobs-skill-id: MercSword
+  modifiers:
+  - cooldown
+  
+Whirlwind:
+  mythicmobs-skill-id: MercRightClick
+  modifiers:
+  - cooldown
+  
+Touch Rock:
+  mythicmobs-skill-id: SRT_RockSigil
+  modifiers:
+  - cooldown
+  
+Touch Sigil:
+  mythicmobs-skill-id: SRT_WaterSigil
+  modifiers:
+  - cooldown
+Touch Sludge:
+  mythicmobs-skill-id: SRT_TerraSlime
+  modifiers:
+  - cooldown
+
+Repel:
+  mythicmobs-skill-id: SRT_Repel
+  modifiers:
+  - cooldown
+  
+Heal Spell:
+  mythicmobs-skill-id: SRT_Heal
+  modifiers:
+  - cooldown
+  
+Dash:
+  mythicmobs-skill-id: SRT_Dash
+  modifiers:
+  - cooldown  
+  
+Block:
+  mythicmobs-skill-id: SRT_Block
+  modifiers:
+  - cooldown    
+
+Swing Stick:
+  mythicmobs-skill-id: SRT_SharpenedStick   
+  modifiers:
+  - cooldown    
+  
+Throw Rock:
+  mythicmobs-skill-id: SRT_RockThrow
+  modifiers:
+  - cooldown
+  
+Wind Slash:
+  mythicmobs-skill-id: SRT_WindSword
+  modifiers:
+  - cooldown
+
+Rising Winds:
+  mythicmobs-skill-id: SRT_RisingWind
+  modifiers:
+  - cooldown
+    
+Charging Breeze:
+  mythicmobs-skill-id: SRT_ChargingBreeze
+  modifiers:
+  - cooldown
+
+Sharp Winds:
+  mythicmobs-skill-id: SRT_SharpWinds
+  modifiers:
+  - cooldown
+  
+Air Current:
+  mythicmobs-skill-id: SRT_AirCurrent
+  modifiers:
+  - cooldown
+       
+Downdraft:
+  mythicmobs-skill-id: SRT_Downdraft
+  modifiers:
+  - cooldown
+  
+Billowing Smoke:
+  mythicmobs-skill-id: SRT_BillowingSmoke
+  modifiers:
+  - cooldown
+  
+Reverse Curse Technique:
+  mythicmobs-skill-id: SRT_ReverseCurseTechnique
+  modifiers:
+  - cooldown
+Whirlpool:
+  mythicmobs-skill-id: SRT_Whirlpool
+  modifiers:
+  - cooldown  
+Gojo Punch:
+  mythicmobs-skill-id: SRT_GojoPunch
+  modifiers:
+  - cooldown  
+Dredge Line:
+  mythicmobs-skill-id: SRT_Dredgeline
+  modifiers:
+  - cooldown
+SRT Death:
+  mythicmobs-skill-id: SRT_Death
+  modifiers:
+  - cooldown
+  
+Blinding Slash:
+  mythicmobs-skill-id: SRT_NealAuto
+  modifiers:
+  - cooldown
+  
+Dye Collector:
+  mythicmobs-skill-id: PassiveDyeCollectionA
+  modifiers:
+  - cooldown
+Color Composition:
+  mythicmobs-skill-id: PassiveDyeCollectionB
+  modifiers:
+  - cooldown
+Splash Clash:
+  mythicmobs-skill-id: SplashClash
+  modifiers:
+  - cooldown
+Whirling Hues:
+  mythicmobs-skill-id: WhirlingHues
+  modifiers:
+  - cooldown
+Running Rainbow:
+  mythicmobs-skill-id: RunningRainbow
+  modifiers:
+  - cooldown
+Serene Splash:
+  mythicmobs-skill-id: SereneSplash
+  modifiers:
+  - cooldown
+Serene Splash:
+  mythicmobs-skill-id: SereneSplash
+  modifiers:
+  - cooldown
+
+Touch Engraving:
+  mythicmobs-skill-id: SRT_CursedBlade
+  modifiers:
+  - cooldown
+  
+Summon Shark:
+  mythicmobs-skill-id: SummonMountShark
+  modifiers:
+  - cooldown
+Summon Deer:
+  mythicmobs-skill-id: SummonDeerMount
+  modifiers:
+  - cooldown
+  
+Shark Whistle:
+  mythicmobs-skill-id: SharkWhistle
+  modifiers:
+  - cooldown
+Retrieve Deer:
+  mythicmobs-skill-id: DeerCrackers
+  modifiers:
+  - cooldown
+Fighting Jam:
+  mythicmobs-skill-id: DamageBoostJam1
+  modifiers:
+  - cooldown
+  
+Plague Poison:
+  mythicmobs-skill-id: SRT_PlaguePoison
+  modifiers:
+  - cooldown
+  
+Charge Focus:
+  mythicmobs-skill-id: FocusCharge
+  modifiers:
+  - cooldown
+  
+Berserker Brew:
+  mythicmobs-skill-id: BerserkerBrew
+  modifiers:
+  - cooldown
+  
+Scrap Charge:
+  mythicmobs-skill-id: ScrapCharge
+  modifiers:
+  - cooldown
+Scrap Stab:
+  mythicmobs-skill-id: SRT_LTMainAttack1
+  modifiers:
+  - cooldown
+Scrap Stab Mk2:
+  mythicmobs-skill-id: SRT_LTMainAttack2
+  modifiers:
+  - cooldown
+Fortify:
+  mythicmobs-skill-id: Fortify
+  modifiers:
+  - cooldown
+  
+Wall Construct:
+  mythicmobs-skill-id: WallConstruct
+  modifiers:
+  - cooldown
+
+Scrap Shot:
+  mythicmobs-skill-id: ScrapShot
+  modifiers:
+  - cooldown
+  
+Energy Charge:
+  mythicmobs-skill-id: CursedEnergyCharge
+  modifiers:
+  - cooldown
+  
+Inspiring Breeze:
+  mythicmobs-skill-id: InspiringBreeze
+  modifiers:
+  - cooldown
+  
+Equip Weapons:
+  mythicmobs-skill-id: TestMecha  
+  modifiers:
+  - cooldown
+  
+Jet Propulsion:
+  mythicmobs-skill-id: Dodgetest
+  modifiers:
+  - cooldown
+  
+Rocket Pods Mk1:
+  mythicmobs-skill-id: BackRocketPods
+  modifiers:
+  - cooldown
+  
+Minigun Mk1:
+  mythicmobs-skill-id: MechaMinigunMk1
+  modifiers:
+  - cooldown
+  
+Shield Generator Mk1:
+  mythicmobs-skill-id: SturdyBarrier
+  modifiers:
+  - cooldown
+  
+Mecha Fuel:
+  mythicmobs-skill-id: MechaFuel
+  modifiers:
+  - cooldown
+  
+Taunt Enemy:
+  mythicmobs-skill-id: HumanDecoy
+  modifiers:
+  - cooldown
+  
+Fleetful Breeze:
+  mythicmobs-skill-id: FleetfulBreeze
+  modifiers:
+  - cooldown
+  
+Water Pulse:
+  mythicmobs-skill-id: WaterPulse
+  modifiers:
+  - cooldown
+  
+Wind Kunai:
+  mythicmobs-skill-id: WindKunai
+  modifiers:
+  - cooldown
+
+Wind Dash:
+  mythicmobs-skill-id: WindPerforate
+  modifiers:
+  - cooldown
+  
+Frag Grenade:
+  mythicmobs-skill-id: FragGrenade
+  modifiers:
+  - cooldown
+  
+Overclock:
+  mythicmobs-skill-id: DanwooOverclock
+  modifiers:
+  - cooldown
+Orbital Strike:
+  mythicmobs-skill-id: OrbitalStrikeFlare
+  modifiers:
+  - cooldown
+  
+Aquatic Surge:
+  mythicmobs-skill-id: AquaticSurge
+  modifiers:
+  - cooldown
+  
+Slime Whistle:
+  mythicmobs-skill-id: SlimeGel
+  modifiers:
+  - cooldown
+  
+#end of tier 1#  
+Slime Gel:
+  mythicmobs-skill-id: SummonSlimeMount
+  modifiers:
+  - cooldown
+  
+Reinforce:
+  mythicmobs-skill-id: Reinforce
+  modifiers:
+  - cooldown
+  
+Flash Cannon:
+  mythicmobs-skill-id: FlashCannon
+  modifiers:
+  - cooldown
+  
+Turret Construct:
+  mythicmobs-skill-id: TurretConstruct
+  modifiers:
+  - cooldown
+  
+Scrap Cannon:
+  mythicmobs-skill-id: ScrapCannon
+  modifiers:
+  - cooldown
+  
+Artificer Blink:
+  mythicmobs-skill-id: ArtificerBlink
+  modifiers:
+  - cooldown
+  
+Flash of Genius:
+  mythicmobs-skill-id: FlashOfGenius
+  modifiers:
+  - cooldown
+  
+Black Flash:
+  mythicmobs-skill-id: SRT_BlackFlash
+  modifiers:
+  - cooldown
+  
+Murasaki:
+  mythicmobs-skill-id: SRT_Murasaki
+  modifiers:
+  - cooldown
+  
+Ao:
+  mythicmobs-skill-id: SRT_AO
+  modifiers:
+  - cooldown
+  
+Muryoukuusho:
+  mythicmobs-skill-id: Muryoukuusho
+  modifiers:
+  - cooldown
+  
+  
+Maximum Energy Output:
+  mythicmobs-skill-id: SRT_MaximumEnergyOutput
+  modifiers:
+  - cooldown
+  
+Over Overclock:
+  mythicmobs-skill-id: DanwooOverOverclock
+  modifiers:
+  - cooldown
+  
+Icicle Smash:
+  mythicmobs-skill-id: IcicleSmash
+  modifiers:
+  - cooldown
+  
+Fury Slashes:
+  mythicmobs-skill-id: SRT_FurySlashes
+  modifiers:
+  - cooldown
+  
+Deflection:
+  mythicmobs-skill-id: SRT_Deflect
+  modifiers:
+  - cooldown
+  
+Glacial Storm:
+  mythicmobs-skill-id: GlacialStorm
+  modifiers:
+  - cooldown
+  
+Freezing Gust:
+  mythicmobs-skill-id: FreezingGust
+  modifiers:
+  - cooldown
+  
+Ice Sword:
+  mythicmobs-skill-id: IceSword
+  modifiers:
+  - cooldown
+Ice Dash:
+  mythicmobs-skill-id: IceDash
+  modifiers:
+  - cooldown
+Dye Restock:
+  mythicmobs-skill-id: DyeRestock
+  modifiers:
+  - cooldown
+  
+Increase Golf Power:
+  mythicmobs-skill-id: AddGolfPower
+  modifiers:
+  - cooldown
+Decrease Golf Power:
+  mythicmobs-skill-id: RemoveGolfPower
+  modifiers:
+  - cooldown
+  
+Putt Golf Ball:
+  mythicmobs-skill-id: GolfBall
+  modifiers:
+  - cooldown
+
+Putt Tracking Golf Ball:
+  mythicmobs-skill-id: TrackingGolfBall
+  modifiers:
+  - cooldown
+Teleport To Last Stroke:
+  mythicmobs-skill-id: TeleportToLastStroke
+  modifiers:
+  - cooldown
+ 
+Throw Dynamite:
+  mythicmobs-skill-id: ThrowDynamite
+  modifiers:
+  - cooldown
+  
+Throw Bomb:
+  mythicmobs-skill-id: ThrowBomb
+  modifiers:
+  - cooldown  
+  
+Glock Shoot:
+  mythicmobs-skill-id: SRT_Glock
+  modifiers:
+  - cooldown
+  
+  
+Quartz Slash:
+  mythicmobs-skill-id: Quartz_Cutter
+  modifiers:
+  - cooldown
+  
+  
+Water Bolt:
+  mythicmobs-skill-id: SRT_Waterbolt
+  modifiers:
+  - cooldown
+  
+Shoot Dirt:
+  mythicmobs-skill-id: SRT_Dirt
+  modifiers:
+  - cooldown
+  
+Give Oxygen:
+  mythicmobs-skill-id: SRT_GoldfishBowl
+  modifiers:
+  - cooldown
+  
+Spiky Ball Throw:
+  mythicmobs-skill-id: SRT_SpikyBall
+  modifiers:
+  - cooldown
+Shoot Flare:
+  mythicmobs-skill-id: SRT_Flaregun
+  modifiers:
+  - cooldown
+Shoot Sand:
+  mythicmobs-skill-id: SandGun
+  modifiers:
+  - cooldown
+Shoot Confetti:
+  mythicmobs-skill-id: ConfettiGun
+  modifiers:
+  - cooldown
+  
+Lasso:
+  mythicmobs-skill-id: SRT_Lasso
+  modifiers:
+  - cooldown
+  
+Open Bronze Gambling Box:
+  mythicmobs-skill-id: SRT_GamblingBox1
+  modifiers:
+  - cooldown
+  
+Shoot Big Gun:
+  mythicmobs-skill-id: BigGunBullet
+  modifiers:
+  - cooldown
+  
+Throw Molotov:
+  mythicmobs-skill-id: Molotov
+  modifiers:
+  - cooldown
+  
+Spiky Ball Storm:
+  mythicmobs-skill-id: SRT_SpikyBallStorm
+  modifiers:
+  - cooldown
+  
+Summon Dummy:
+  mythicmobs-skill-id: SummonDummy
+  modifiers:
+  - cooldown
+  
+Throw Grenade:
+  mythicmobs-skill-id: ThrowGrenade
+  modifiers:
+  - cooldown
+  
+Swift Retreat:
+  mythicmobs-skill-id: SRT_SwiftRetreat
+  modifiers:
+  - cooldown
+  
+Raining Blades:
+  mythicmobs-skill-id: SRT_RainingBlades
+  modifiers:
+  - cooldown
+  
+Recursive Ray:
+  mythicmobs-skill-id: SRT_RecursiveRay
+  modifiers:
+  - cooldown
+  
+Shock Leap:
+  mythicmobs-skill-id: SRT_ShockLeap
+  modifiers:
+  - cooldown
+  
+Battalion Banner:
+  mythicmobs-skill-id: SRT_BattallionBanner
+  modifiers:
+  - cooldown
+  
+Updraft:
+  mythicmobs-skill-id: SRT_Updraft
+  modifiers:
+  - cooldown
+  
+Electric Smoke:
+  mythicmobs-skill-id: SRT_ElectricSmoke
+  modifiers:
+  - cooldown
+  
+Gojo Boost:
+  mythicmobs-skill-id: SRT_GojoBoost
+  modifiers:
+  - cooldown

@@ -1,0 +1,489 @@
+FLOWING_KATANA:
+  base:
+    material: IRON_SWORD
+    max-durability: 2400.0
+    tier: RARE
+    element:
+      earth:
+        defense:
+          base: 15.0
+          scale: 0.0
+          spread: 0.02
+          max-spread: 0.1
+      water:
+        defense:
+          base: 30.0
+          scale: 0.0
+          spread: 0.05
+          max-spread: 0.12
+    gem-sockets:
+    - White
+    - White
+    name: §3§lFlowing Katana
+    lore:
+    - §7§oA weapon made of water? This is stupid!
+    attack-damage:
+      base: 9.0
+      scale: 0.08
+      spread: 0.03
+      max-spread: 0.1
+    attack-speed: 1.6
+    critical-strike-chance:
+      base: 20.0
+      spread: 0.04
+      max-spread: 0.11
+    critical-strike-power:
+      base: 39.0
+      spread: 0.03
+      max-spread: 0.7
+    parry-rating:
+      base: 12.0
+      spread: 0.04
+      max-spread: 0.085
+    parry-cooldown-reduction:
+      base: 7.0
+      spread: 0.04
+      max-spread: 0.085
+    weapon-damage:
+      base: 8.0
+      spread: 0.04
+      max-spread: 0.06
+    required-level: 4.0
+    movement-speed: 0.035
+MASTER_KATANA:
+  base:
+    material: IRON_SWORD
+    name: §f§l§oMaster's Katana
+    required-dexterity: 20.0
+    required-level: 20.0
+    tier: EPIC
+    attack-damage:
+      base: 20.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    critical-strike-chance: 30.0
+    critical-strike-power:
+      base: 30.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    weapon-damage:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      max-spread: 0.2
+    pvp-damage: 25.0
+    max-durability: 9000.0
+    gem-sockets:
+    - Cyan
+    - Cyan
+    disable-enchanting: true
+    disable-repairing: true
+    lore:
+    - §7A §bperfect§7 katana that can't be
+    - §7used if you don't have enough §bdexterity.
+    - §7It can't §bbreak§7 or be §benchanted§7.
+    durability-bar: true
+    unbreakable: true
+    enchants:
+      sharpness: 3.0
+      sweeping: 3.0
+FLURRICMATERIALIZER:
+  base:
+    material: IRON_SWORD
+    name: §b§lFlurric Materializer
+    lore:
+    - §b§oForged from air, this
+    - §b§oblade allows the user to materialize
+    - §b§ointo the Flurris around them.
+    attack-damage: 8.0
+    attack-speed: 2.0
+    critical-strike-chance:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    critical-strike-power:
+      base: 33.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    parry-rating: 10.0
+    unbreakable: true
+    movement-speed: 0.05
+    two-handed: true
+    element:
+      wind:
+        damage: 100.0
+    gem-sockets:
+    - WHITE
+    - WHITE
+    - WHITE
+    ability:
+      ability3:
+        type: SWIFTNESS
+        duration: 10.0
+        cooldown: 20.0
+        mode: SHIFT_RIGHT_CLICK
+      ability4:
+        type: LIGHT_DASH
+        mode: RIGHT_CLICK
+        damage: 8.0
+        length: 1.0
+        cooldown: 5.0
+      ability2:
+        type: CIRCULAR_SLASH
+        mode: LEFT_CLICK
+        damage: 5.0
+        cooldown: 7.5
+        radius: 3.0
+      ability5:
+        type: CONFUSE
+        mode: ON_HIT
+        cooldown: 5.0
+      ability6:
+        type: STUN
+        cooldown: 5.0
+        mode: ON_HIT
+      ability1:
+        type: BLINK
+        mode: SHIFT_LEFT_CLICK
+        range: 24.0
+        cooldown: 2.0
+      ability7: {}
+    perm-effects:
+      FAST_DIGGING: 1.0
+    fall-damage-reduction: 100.0
+    tier: LEGENDARY
+    disable-enchanting: true
+    disable-smithing: true
+    disable-smelting: true
+    skill-damage: 15.0
+    item-particles:
+      particle: EXPLOSION_NORMAL
+      type: AURA
+      radius: 3.0
+    parry-cooldown-reduction: 50.0
+    set: FLURRIC
+    crafting:
+      shaped:
+        '1':
+        - AIR AIR AIR
+        - AIR AIR AIR
+        - AIR AIR AIR
+      shapeless:
+        '1':
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+        - AIR
+FEAR'SGAMBIT:
+  base:
+    material: STONE_SWORD
+    name: §8§lFear's Gambit
+    lore:
+    - '§8It whispers to you:'
+    - §8§o§kKurai Unmei
+    attack-damage:
+      base: 9.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    block-power: 100.0
+    block-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    unbreakable: true
+    tier: VERY_RARE
+    attack-speed: 2.5
+    two-handed: true
+    ability:
+      ability1:
+        type: LIGHT_DASH
+        damage: 10.0
+        cooldown: 5.0
+        mode: RIGHT_CLICK
+      ability2:
+        type: SHADOW_VEIL
+        cooldown: 30.0
+        mode: SHIFT_RIGHT_CLICK
+      ability3:
+        type: CIRCULAR_SLASH
+        knockback: 0.1
+        damage: 10.0
+        mode: ON_HIT
+RUSTEDKATANA:
+  base:
+    material: IRON_SWORD
+    name: §7§lRusted Katana
+    lore:
+    - §7There are many cracks on the blade, you should find a replacement soon.
+    attack-damage: 4.0
+    attack-speed: 1.0
+    critical-strike-power:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+    critical-strike-chance:
+      base: 5.0
+      scale: 1.0
+      spread: 0.1
+    unbreakable: true
+    tier: COMMON
+    two-handed: true
+    sounds:
+      on-attack:
+        sound: entity.iron_golem.hurt
+        volume: 100.0
+        pitch: 2.0
+    movement-speed: -0.01
+    ability:
+      ability1:
+        type: LIGHT_DASH
+        mode: RIGHT_CLICK
+        damage: 5.0
+        length: 1.0
+SONICBOOM:
+  base:
+    material: IRON_SWORD
+    name: §b§lSonic Boom
+    lore:
+    - §b§oTraveling faster than the speed of sound is a privelage...
+    attack-speed: 10.0
+    attack-damage: 4.0
+    critical-strike-chance:
+      base: 10.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    critical-strike-power:
+      base: 15.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-rating:
+      base: 5.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    dodge-cooldown-reduction:
+      base: 20.0
+      scale: 1.0
+      spread: 0.1
+      maxSpread: 0.1
+    unbreakable: true
+    tier: EPIC
+    perm-effects:
+      SPEED: 2.0
+    sounds:
+      on-attack:
+        sound: entity.ender_dragon.hurt
+        volume: 100.0
+        pitch: 1.0
+      on-left-click:
+        sound: entity.enderman.teleport
+        volume: 100.0
+        pitch: 1.0
+    gem-sockets:
+    - WHITE
+    ability:
+      ability1:
+        type: BLINK
+        cooldown: 10.0
+        mode: ON_HIT
+        range: 32.0
+      ability2:
+        type: MINOR_EXPLOSION
+        damage: 20.0
+        cooldown: 10.0
+        mode: ON_HIT
+        knockback: 2.0
+        radius: 7.0
+    disable-attack-passive: 0.05
+CHUNCHUNMARU:
+  base:
+    material: IRON_SWORD
+    name: §6§lChunchunmaru
+    lore:
+    - §6"It's name is Chunchunmaru."
+    attack-damage: 6.0
+    attack-speed: 1.0
+    parry-rating:
+      base: 10.0
+      scale: 0.1
+      spread: 0.1
+    unbreakable: true
+    tier: RARE
+    ability:
+      ability1:
+        type: CIRCULAR_SLASH
+        mode: SHIFT_RIGHT_CLICK
+        radius: 5.0
+      ability2:
+        type: LIGHT_DASH
+        length: 0.5
+        damage: 7.0
+        mode: RIGHT_CLICK
+      ability3: {}
+      ability4: {}
+FINISHINGB:
+  base:
+    material: IRON_SWORD
+    name: §6§lFinishing Blow
+    attack-damage:
+      base: 12.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    attack-speed: 0.5
+    critical-strike-chance:
+      base: 25.0
+      scale: 0.1
+      spread: 0.1
+      maxSpread: 0.1
+    unbreakable: true
+    ability:
+      ability1:
+        type: CONFUSE
+        mode: ON_HIT
+        cooldown: 5.0
+      ability2:
+        type: BLIND
+        mode: ON_HIT
+        cooldown: 5.0
+        duration: 2.0
+      ability3:
+        type: STUN
+        cooldown: 5.0
+        mode: ON_HIT
+      ability4:
+        type: SHOCK
+        mode: ON_HIT
+        duration: 2.0
+        cooldown: 5.0
+      ability5:
+        type: WEAKEN_TARGET
+        mode: ON_HIT
+        duration: 3.0
+        extra-damage: 5.0
+        cooldown: 0.1
+      ability6:
+        type: LIGHT_DASH
+        damage: 10.0
+        length: 0.25
+        mode: RIGHT_CLICK
+    gem-sockets:
+    - RED
+    tier: EPIC
+    lore:
+    - §6Capable of cutting through the toughest shields
+    movement-speed: -0.03
+    two-handed: true
+    sounds:
+      on-left-click:
+        sound: minecraft:entity.player.attack.strong
+        volume: 100.0
+        pitch: 0.5
+      on-attack:
+        sound: minecraft:entity.zombie.break_wooden_door
+        volume: 100.0
+        pitch: 0.5
+SACRIFICIALK:
+  base:
+    material: IRON_SWORD
+    name: §4§lBloodthirsty Blade
+    ability:
+      ability1:
+        type: LIGHT_DASH
+        length: 0.5
+        mode: RIGHT_CLICK
+        damage: 7.0
+        cooldown: 5.0
+      ability2:
+        type: VAMPIRISM
+        mode: ON_HIT
+    attack-damage: 6.0
+    attack-speed: 1.0
+    critical-strike-power: 5.0
+    tier: RARE
+    unbreakable: true
+MUSOU_NO_HITOTACHI:
+  base:
+    material: STICK
+    name: §D§LMusou no Hitotachi
+    lore:
+    - §dThough reserved for divine punishment, Baal has perfected
+    - §da sword-art known as the Musou no Hitotachi
+    ability:
+      ability1:
+        type: ELECTROSLASH
+        mode: LEFT_CLICK
+      ability2:
+        type: BLINK
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+    attack-damage: 15.0
+    attack-speed: 2.0
+    unbreakable: true
+    custom-model-data: 123493.0
+    disable-interaction: true
+WEATHERED:
+  base:
+    material: STICK
+    custom-model-data: 123478.0
+    name: §f§lWeathered
+    ability:
+      ability1:
+        type: SWORDSLASH
+        mode: LEFT_CLICK
+        cooldown: 0.55
+      ability2:
+        type: DEFLECT
+        mode: RIGHT_CLICK
+        cooldown: 7.0
+      ability3:
+        type: SWORDSMASH
+        cooldown: 10.0
+        mode: SHIFT_LEFT_CLICK
+      ability4:
+        type: TRIPLESTRIKE
+        cooldown: 10.0
+        mode: SHIFT_RIGHT_CLICK
+    attack-speed: 1.7
+    perm-effects:
+      WEAKNESS: 254.0
+NINJAKATANA:
+  base:
+    material: STICK
+    custom-model-data: 123512.0
+    name: §lKatana
+    ability:
+      ability1:
+        type: NINJASLASH
+        mode: LEFT_CLICK
+        cooldown: 0.35
+      ability2:
+        type: NINJAGO
+        mode: RIGHT_CLICK
+        cooldown: 7.0
+      ability3:
+        type: NINJASHURIKENS
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 3.0
+      ability5:
+        type: NINJALEAP
+        mode: SNEAK
+      ability4:
+        type: NINJARECALL
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 25.0
+    perm-effects:
+      WEAKNESS: 254.0
