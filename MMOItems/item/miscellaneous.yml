@@ -231,3 +231,90 @@ CYCLETEAM:
         delay: 0.0
     crafting:
       shaped: {}
+SNOWNUS:
+  base:
+    material: GHAST_TEAR
+    name: §f§lSnownus
+    crafting:
+      shapeless: {}
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v coal - 1.0..|v AIR 0 1..
+          - v coal - 1.0..|v coal - 1.0..|v coal - 1.0..
+          - v AIR 0 1..|v coal - 1.0..|v AIR 0 1..
+DASH:
+  base:
+    material: FEATHER
+    name: §f§lDash
+    ability:
+      ability1:
+        type: DASH
+        mode: RIGHT_CLICK
+        cooldown: 10.0
+    disable-death-drop: true
+DROP_PRESENT:
+  base:
+    material: PAPER
+    name: §lSupply Drop
+    ability:
+      ability1:
+        type: DROP_CHRISTMAS_PRESENT
+        mode: RIGHT_CLICK
+        cooldown: 120.0
+    disable-death-drop: true
+FROSTWALL:
+  base:
+    material: BLUE_ICE
+    name: §b§lFrost Wall
+    ability:
+      ability1:
+        type: FROST_BARRIER
+        mode: RIGHT_CLICK
+        cooldown: 60.0
+    disable-interaction: true
+    disable-death-drop: true
+FROSTWARD:
+  base:
+    material: SOUL_LANTERN
+    name: §b§lFrost Ward
+    ability:
+      ability1:
+        type: DEPLOY_FROST_WARD
+        mode: RIGHT_CLICK
+        cooldown: 60.0
+    disable-interaction: true
+    disable-death-drop: true
+CHIMNEY:
+  base:
+    material: BRICKS
+    name: §c§lChimney
+    ability:
+      ability1:
+        type: DEPLOY_CHIMNEY
+        mode: RIGHT_CLICK
+    disable-death-drop: true
+    disable-interaction: true
+GRINCHSTEAEL:
+  base:
+    material: BARRIER
+    name: §a§lSteal Snowballs
+    ability:
+      ability1:
+        type: STEAL_SNOWBALLS
+        mode: RIGHT_CLICK
+        cooldown: 45.0
+    disable-interaction: true
+    disable-death-drop: true
+ESSENCEOFFROSTBITE:
+  base:
+    material: SMOOTH_QUARTZ
+    name: §lEssence of Frostbite
+    crafting:
+      shapeless: {}
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v coal - 1.0..|v AIR 0 1..
+          - v coal - 1.0..|v coal - 1.0..|v coal - 1.0..
+          - v AIR 0 1..|v coal - 1.0..|v AIR 0 1..

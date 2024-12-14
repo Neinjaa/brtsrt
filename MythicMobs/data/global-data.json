@@ -1,3 +1,34 @@
 {
-  "entries": {}
+  "entries": {
+    "chimney": {
+      "value": {
+        "world": {
+          "uuid": "2ce19b47-1f68-4ee5-9061-558a97b1045e",
+          "name": "world"
+        },
+        "x": -4943.715652848244,
+        "y": 139.0,
+        "z": -6901.55499673298,
+        "yaw": 4.5152683,
+        "pitch": 24.101545
+      },
+      "expirationTime": 1,
+      "type": "Location"
+    },
+    "chimney2": {
+      "value": {
+        "world": {
+          "uuid": "2ce19b47-1f68-4ee5-9061-558a97b1045e",
+          "name": "world"
+        },
+        "x": -4943.715652848244,
+        "y": 139.0,
+        "z": -6901.55499673298,
+        "yaw": 1.7436504,
+        "pitch": 24.040405
+      },
+      "expirationTime": 1,
+      "type": "Location"
+    }
+  }
 }

@@ -1,7 +1,7 @@
 Dummy_Teemo_Red:
   Type: GIANT
   Display: Dummy Teemo
-  Health: 500
+  Health: 200
   Damage: 0 
   Options:
     PreventOtherDrops: true

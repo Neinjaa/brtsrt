@@ -1468,3 +1468,57 @@ GRENADE:
           - v AIR 0 1..|v white_wool - 1.0..|v AIR 0 1..
           - v white_wool - 1.0..|v tnt - 1.0..|v white_wool - 1.0..
           - v AIR 0 1..|v white_wool - 1.0..|v AIR 0 1..
+CRACKCOCAINE:
+  base:
+    material: SUGAR
+    name: §f§lCrack Cocaine
+    lore:
+    - You thought this was snow
+    cooldown-reference: Snowball
+    item-cooldown: 5.0
+    effects:
+      SPEED:
+        duration: 3.0
+        amplifier: 3.0
+ROBOTICARM:
+  base:
+    material: IRON_HORSE_ARMOR
+    name: §7§lRobotic Arm
+    item-cooldown: 10.0
+    ability:
+      ability1:
+        type: ACTIVATE_ROBOTIC_ARM
+        mode: RIGHT_CLICK
+        cooldown: 10.0
+EGGMOG:
+  base:
+    material: POTION
+    name: §6§lEggmog
+    effects:
+      CONFUSION:
+        duration: 10.0
+        amplifier: 1.0
+      DAMAGE_RESISTANCE:
+        duration: 10.0
+        amplifier: 1.0
+    potion-color: 255 80 0
+    item-cooldown: 10.0
+FROSTBARRIER:
+  base:
+    material: BLUE_ICE
+    name: §b§lFrost Barrier
+    item-cooldown: 20.0
+    ability:
+      ability1:
+        type: FROST_BARRIER
+        mode: RIGHT_CLICK
+        cooldown: 20.0
+CHRISTMAS_PRESENT:
+  base:
+    material: CHEST
+    name: §f§lChristmas Present
+    ability:
+      ability1:
+        type: OPEN_PRESENT
+        mode: RIGHT_CLICK
+    item-cooldown: 0.2

@@ -4014,3 +4014,22 @@ SRT_STATCRYSTAL9:
         type: WATER_PULSE
         mode: DAMAGED_BY_ENTITY
     armor: 2.0
+FROZEN_HEART:
+  base:
+    material: DIAMOND
+    name: §b§lFrozen Heart Augment
+    max-health: 2.0
+    gem-color: Freezing
+FROSTBITTEN:
+  base:
+    material: IRON_INGOT
+    name: §f§lFrostbitten Augment
+    disable-repairing: true
+    gem-color: Freezing
+    movement-speed: 0.02
+JOYFULAUGMENT:
+  base:
+    material: EMERALD
+    name: §a§lJoyful Augment
+    disable-repairing: true
+    gem-color: Freezing

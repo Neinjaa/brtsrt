@@ -1,3 +1,841 @@
+Redbull:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.egg.throw;v=4} @self
+  - vskill{s=Redbull_<caster.var.team>} @self
+
+
+Redbull_naughty:
+  Skills:
+  - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=potion;bulletscale=0.3;onEnd=[
+    - potion{type=JUMP;lvl=3;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=naughty} true ]} 
+    - potion{type=SPEED;lvl=5;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - particles{p=fireworks;a=10;hs=1;vs=1} @origin
+    - sound{s=block.glass.break;v=4;p=1}
+    - sound{s=block.lava.extinguish;v=4;p=1}
+   ];g=1.2;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
+Redbull_nice:
+  Skills:
+  - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=potion;bulletscale=0.3;onEnd=[
+    - potion{type=JUMP;lvl=3;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - potion{type=SPEED;lvl=5;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - particles{p=fireworks;a=10;hs=1;vs=1} @origin
+    - sound{s=block.glass.break;v=4;p=1}
+    - sound{s=block.lava.extinguish;v=4;p=1}
+   ];g=1.2;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
+LiquidNitrogen:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=blue_ice;bulletscale=0.3;onEnd=[
+    - prison{d=50;material=BLUE_ICE;} @ENO{r=3;hitself=true}
+    - particles{p=fireworks;a=10;hs=1;vs=1;s=1} @origin
+    - sound{s=block.glass.break;v=4;p=2}
+   ];g=1.2;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
+
+
+DruggedConcoction:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.egg.throw;v=4} @self
+  - vskill{s=DruggedSnowball_<caster.var.team>} @self
+
+
+DruggedSnowball_naughty:
+  Skills:
+  - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=potion;bulletscale=0.3;onEnd=[
+    - heal{a=4} @Eno{r=3;conditions=[  - hastag{t=naughty} true ]} 
+    - potion{type=RESISTANCE;lvl=1;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=naughty} true ]} 
+    - particles{p=fireworks;a=10;hs=1;vs=1} @origin
+    - sound{s=item.hoe.till;v=4;p=2}
+    - sound{s=item.hoe.till;v=4;p=2}
+    - sound{s=item.hoe.till;v=4;p=2}
+   ];g=1.2;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
+DruggedSnowball_nice:
+  Skills:
+  - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=display;material=potion;bulletscale=0.3;onEnd=[
+    - heal{a=4} @Eno{r=3;conditions=[  - hastag{t=nice} true ]} 
+    - potion{type=RESISTANCE;lvl=2;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - particles{p=fireworks;a=10;hs=1;vs=1} @origin
+    - sound{s=item.hoe.till;v=4;p=2}
+    - sound{s=item.hoe.till;v=4;p=2}
+    - sound{s=item.hoe.till;v=4;p=2}
+   ];g=1.2;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
+
+HolyWater:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.player.splash.high_speed;sc=master;v=4} @self
+  - sound{s=block.lava.extinguish;sc=master} @self
+  - vskill{s=HolyWater_<caster.var.team>;repeat=1;repeatInterval=5} @self
+  - vskill{s=HolyWater_<caster.var.team>;repeat=1;repeatInterval=5} @self
+  - vskill{s=HolyWater_<caster.var.team>;repeat=1;repeatInterval=5} @self
+  - vskill{s=HolyWater_<caster.var.team>;repeat=1;repeatInterval=5} @self
+  - vskill{s=HolyWater_<caster.var.team>;repeat=1;repeatInterval=5} @self
+
+HolyWater_naughty:
+  Skills:
+  - projectile{v=<caster.score.SnowballThrowingPower>;ot=WaterBoltT;onHit=[
+    - heal{a=1} @Eno{r=2;conditions=[  - hastag{t=naughty} true ]} 
+    - sound{s=entity.experience_orb.pickup;v=1;p=2}
+    - sound{s=entity.experience_orb.pickup;v=1;p=2} @self
+    - effect:particles{particle=dust_color_transition;color1=#80a4ff;color2=#;hs=0.3;vs=1;a=20;y=1;speed=0}
+   ];hn=40;vn=8;g=1;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
+
+HolyWater_nice:
+  Skills:
+  - projectile{v=<caster.score.SnowballThrowingPower>;ot=WaterBoltT;onHit=[
+    - heal{a=1} @Eno{r=2;conditions=[  - hastag{t=nice} true ]} 
+    - sound{s=entity.experience_orb.pickup;v=1;p=2}
+    - sound{s=entity.experience_orb.pickup;v=1;p=2} @self
+    - effect:particles{particle=dust_color_transition;color1=#80a4ff;color2=#;hs=0.3;vs=1;a=20;y=1;speed=0}
+   ];hn=40;vn=8;g=1;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
+BlueBuffAttack:
+  Skills:
+  - particlering{p=block_crack;p=snow;r=<skill.var.itr>*0.4;repeat=20;repeatInterval=1;points=<skill.var.itr>*1.5 + 12;} @self
+    - damage{a=5;pkb=true} @entitiesInRadius{r=1}
+    - delay 5
+  - damage{a=5;pkb=true} @entitiesInRing{min=1;max=4}
+  - delay 10
+  - damage{a=5;pkb=true} @entitiesInRing{min=4;max=7} 
+  
+
+Chimney23:
+  Cooldown: 30
+  OnCooldownSkill: CooldownSound
+  Skills:
+  - sound{s=block.anvil.use;p=2} @self
+  - setvarloc{var=caster.chimney2;v=@self} @self
+  - summon{mob=Chimney1;noise=0;a=1} @variablelocation{var=caster.chimney} 
+  - summon{mob=Chimney2;noise=0;a=1} @origin
+  - setvarloc{var=global.chimney;v=@variablelocation{var=caster.chimney}} @self
+  - setvarloc{var=global.chimney2;v=@variablelocation{var=caster.chimney2}} @self
+  - aura{i=1;duration=<caster.skill.Chimney.cooldown>*20;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LChimney"} @self
+  
+Chimney2:
+  Skills:
+  - skill{s=Chimney23} @self  
+  
+Chimney:
+  Cooldown: 30
+  OnCooldownSkill: Chimney2
+  Skills:
+  - sound{s=block.wooden_button.click_on;p=2} @self
+  - setvarloc{var=caster.chimney;v=@self} @self
+  - setSkillCooldown{skill=Chimney2;seconds=0.1} @self
+
+
+GrinchSteal:
+  Skills:
+  - sound{s=entity.ender_dragon.growl;p=1.5;v=8}
+  - takeitem{i=snowball;a=5} @NearestPlayer{r=10}
+  - skill{s=[
+    - dropitem{i=SnowShovelT2;} @self
+    ];repeat=2;repeatInterval=1} @nearestPlayer{r=10}
+
+Frostward:
+  Cooldown: 1
+  Skills:
+  - sound{s=entity.pig.saddle} @self
+  - vskill{s=Frostward_<caster.var.team>} @self
+
+BreakConcrete:
+  Skills:
+  - vskill{s=BreakConcrete_<caster.var.team>} @self
+BreakConcrete_nice:
+  Conditions:
+  - stringequals{val1=LIGHT_BLUE_CONCRETE_POWDER;val2=<caster.raytrace.4>} true 
+  Skills:
+  - sound{s=block.sand.place} @origin
+  - setblock{m=WHITE_CONCRETE_POWDER} @TargetBlock
+BreakConcrete_naughty:
+  Conditions:
+  - stringequals{val1=WHITE_CONCRETE_POWDER;val2=<caster.raytrace.4>} true 
+  Skills:
+  - sound{s=block.sand.place} @origin
+  - setblock{m=LIGHT_BLUE_CONCRETE_POWDER} @TargetBlock
+
+Frostward_naughty:
+  Cooldown: 1
+  Skills:
+  - projectile{i=1;syo=1;d=1200;mr=10000;v=0;g=1;sb=true;se=false;bounce=true;bouncevelocity=0;onTick=[
+    - particles{p=reddust;color=#FF0000;a=10;hs=0;vs=2;audience=@Eno{r=100;targetself=true;conditions=[  - hastag{t=naughty} true ]} } @Origin
+    - potion{type=glowing;d=60;lvl=0;particles=false;hasIcon=false} @Eno{r=10;conditions=[  - hastag{t=naughty} false ]} 
+    ];i=1} @targetlocation
+    
+Frostward_nice:
+  Cooldown: 1
+  Skills:
+  - projectile{i=1;syo=1;d=1200;mr=10000;v=0;g=1;sb=true;se=false;bounce=true;bouncevelocity=0;onTick=[
+    - particles{p=reddust;color=#FF0000;a=10;hs=0;vs=2;audience=@Eno{r=100;targetself=true;conditions=[  - hastag{t=nice} true ]} } @Origin
+    - potion{type=glowing;d=60;lvl=0;particles=false;hasIcon=false} @Eno{r=10;conditions=[  - hastag{t=nice} false ]} 
+    ];i=1} @targetlocation
+ConvertCoal:
+  Cooldown: 1.1
+  TargetConditions:
+  - hasitem{i=coal;amount=2to1000}
+  Skills:
+  - takeitem{i=coal;a=2} @nearestPlayer{r=10}
+  - cast{skillName="&f&lSnownus Conversus";duration=20;onCast=[
+    - dropitem{i=Snownus} @self
+    - sound{s=block.anvil.use;p=2} @self
+    ];showCastBar=true} @self
+
+DropChristmasPresent:
+  Skills:
+  - sound{s=entity.firework_rocket.launch;v=4} @self
+  - dropitem{i=ChristmasPresent} @self
+
+ColdRebirth:
+  Skills:
+  - delay 5
+  - command{c="back";ac=true} @self
+  - delay 1
+  - command{c="title @s title <&dq>§4§lWiped Out!<&dq>";ac=true;op=true} @self
+  - command{c="title @s subtitle <&dq>§7Respawning in 5 seconds...<&dq>";ac=true;op=true} @self
+  - delay 5
+  - command{c="gmsp";ac=true} @self
+  - delay 100
+  - command{c="back";ac=true} @self
+  - command{c="gma";ac=true} @self
+  - potion{d=100;type=resistance;lvl=254} @self
+
+SnowShovelMk1:
+  Cooldown: 3
+  Conditions:
+  - hasitem{i=snowball;amount=5to10} false
+  - onBlock{m=snow_block,snow} TRUE
+  Skills:
+  - particles{p=block_crack;p=snow;a=1;repeat=5;repeatInterval=6;y=0.3} @self
+  - sound{s=block.snow.step;v=4;repeat=5;repeatInterval=6} @self
+  - aura{i=1;duration=60;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LDig"} @self
+  - stun{d=10;f=true} @self
+  - delay 30
+  - sound{s=entity.item.pickup} @self
+  - dropitem{i=SnowShovelT1} @self
+
+SnowShovelMk2:
+  Cooldown: 2
+  Conditions:
+  - hasitem{i=snowball;amount=7to10} false
+  - onBlock{m=snow_block,snow} TRUE
+  Skills:
+  - particles{p=block_crack;p=snow;a=1;repeat=5;repeatInterval=3;y=0.3} @self
+  - sound{s=block.snow.step;v=4;repeat=5;repeatInterval=3} @self
+  - aura{i=1;duration=40;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LDig"} @self
+  - stun{d=10;f=true} @self
+  - delay 20
+  - sound{s=entity.item.pickup} @self
+  - dropitem{i=SnowShovelT2} @self
+
+SnowShovelMk3:
+  Cooldown: 1
+  Conditions:
+  - hasitem{i=snowball;amount=9to10} false
+  - onBlock{m=snow_block,snow} TRUE
+  Skills:
+  - particles{p=block_crack;p=snow;a=1;repeat=5;repeatInterval=2;y=0.3} @self
+  - sound{s=block.snow.step;v=4;repeat=5;repeatInterval=2} @self
+  - aura{i=1;duration=20;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LDig"} @self
+  - stun{d=10;f=true} @self
+  - delay 10
+  - sound{s=entity.item.pickup} @self
+  - dropitem{i=SnowShovelT2} @self
+  - delay 3
+  - skill{s=SnowShovelExtraDrop} @self 0.25
+
+
+SupportShovel:
+  Cooldown: 5
+  Conditions:
+  - hasitem{i=POTION;amount=2to10} false
+  - onBlock{m=snow_block,snow} TRUE
+  Skills:
+  - particles{p=block_crack;p=snow;a=1;repeat=25;repeatInterval=3;y=0.3} @self
+  - sound{s=block.snow.step;v=4;repeat=25;repeatInterval=3} @self
+  - aura{i=1;duration=100;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LDig"} @self
+  - stun{d=75;f=true} @self
+  - delay 75
+  - sound{s=entity.item.pickup} @self
+  - dropitem{i=SupportShovel} @self
+BillowingSnowball:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - onDamaged{auraName=ODM;d=100;damageMods="FALL 0"} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.egg.throw;v=4} @self
+  - projectile{bulletType=tracking;material=snowball;v=<caster.score.SnowballThrowingPower>;se=true;hnp=true;sb=true;g=1;onTick=[
+    - particles{p=block_crack;material=snow_block;a=1;y=0}
+    ];
+    onEnd=[
+    - summon{mob=BillowingSnowball;noise=0;a=1} @origin
+    - particles{p=flash;hs=0;vs=0} 
+    - sound{s=entity.firework_rocket.blast;v=6;p=0.5}
+    - sound{s=entity.firework_rocket.blast;v=6;p=0.5}
+    ];i=1} @targetLocation 
+SnowballFightKill:
+  Skills:
+  - sound{s=entity.enderman.teleport;p=0;} @self 
+  - modifytargetscore{objective=SnowballCurrency;action=add;v=2} @self
+  - particles{p=firework;a=24;speed=1} @self 
+  - heal{a=1;repeatInterval=5;repeat=3} @self
+SnownusConversion:
+  Cooldown: 0.2
+  Skills:
+  - setvariable{var=caster.SnowballCurrency;type=INTEGER;val=<caster.score.SnowballCurrency>} @self
+  - skill{s=SnownusConversion2} @Self
+  
+  
+SnownusConversion2:
+  Conditions:
+  - variableInRange{var=caster.SnowballCurrency;value=1to32}
+  Skills:
+  - sound{s=entity.item.pickup;audience=@self} @self
+  - giveitem{i=Snownus} @self
+  - modifytargetscore{objective=SnowballCurrency;action=add;v=-1} @self
+ 
+SnowShovelExtraDrop:
+  Conditions:
+  - hasitem{i=snowball;amount=7to10} false
+  - onBlock{m=snow_block,snow} TRUE
+  Skills:
+  - sound{s=entity.item.pickup} @self
+  - dropitem{i=SnowShovelT2} @self
+
+Blizzard:
+  Cooldown: 1
+  Skills:
+  - sound{s=ambient.soul_sand_valley.additions;v=8;p=2;} @self
+  - sound{s=ambient.soul_sand_valley.additions;v=8;p=2;} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.egg.throw;v=4} @self
+  - projectile{se=false;sb=true;ti=2;mr=40;syo=1.5;g=0;repeat=20;repeatInterval=1;hn=45;vn=5;bulletType=mob;mob=IceBullet;ot=IceBulletT;oh=[
+    - setnodamageticks{ticks=0;delay=0}
+    - freeze{ticks=30}
+    - potion{type=SLOW;lvl=10;d=20}
+    - damage{a=0.1;pkb=true}
+    ];hnp=true;hp=true;v=72;i=1;d=200;hr=0.5;vr=0.5;sb=true;se=true} @Forward{f=5;y=1.5;sideOffset=0.0}
+  - projectile{se=false;sb=true;ti=2;mr=40;syo=1.5;g=0;repeat=20;repeatInterval=1;hn=45;vn=5;bulletType=mob;mob=IceBullet;ot=IceBulletT;oh=[
+    - setnodamageticks{ticks=0;delay=0}
+    - freeze{ticks=30}
+    - potion{type=SLOW;lvl=10;d=20}
+    - damage{a=0.3;pkb=true}
+    ];hnp=true;hp=true;v=72;i=1;d=200;hr=0.5;vr=0.5;sb=true;se=true} @Forward{f=5;y=1.5;sideOffset=0.0}
+RoboticArm:
+  Cooldown: 1
+  Skills:
+  - aura{i=1;duration=600;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&LIncreased Throwing Power"} @self
+  - sound{s=custom.dronesummon;v=4} @self
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=48} @self
+  - delay 600
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=24} @self
+  - sound{s=block.beacon.deactivate;v=4;p=2} @self
+  
+FrostyBarrier:
+  Skills:
+  - projectile{sso=5;d=37;syo=0;hs=true;hfs=0.3;hr=0.5;vr=1;tyo=1;i=1;mr=29;v=28;hnp=true;hp=true;onTick=[
+    - setprojectiledirection @forward{f=30;rot=330}
+    - fawePaste{d=400;schematic=frostpillar.schem;id=frostpillar;y=0;delay=3} @origin
+    - sound{s=block.glass.break;p=2} @origin
+    ];} @targetlocation
+
+ThoseWhoSnow:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=T;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=H;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=h;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=o;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=o;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=s;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=S;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=e;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;vn=8;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=W;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+  - projectile{g=1.2;hn=30;v=8n;backgroundColor=0,0,0,0;bulletscale=2,2,2;bulletBillboard=center;bulletType=TEXT;bulletMaterial=stick;bulletText=w;mr=10000;hnp=true;hp=true;v=<caster.score.SnowballThrowingPower>;i=1;hR=0.5;vr=1;sb=true;se=false;syo=1.5;d=1000;
+    onhit=[
+      - setNoDamageTicks{ticks=0;delay=0}
+      - damage{a=3}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];
+    ]} @targetLocation
+
+RollingSnowball:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.egg.throw;v=4} @self
+  - projectile{MaxClimbHeight=1;rotationspeed=1,1,1;bulletscale=0.5;hs=true;hfs=0;hr=1;vr=1;g=1.2;d=40;i=1;mr=1000;bulletType=display;material=snow_block;bounce=true;bouncevelocity=1;v=<caster.score.SnowballThrowingPower>/2;vo=0.2;hp=false;hnp=false;se=false;sb=true;onTick=[
+    - pull{v=8;to=true} @ENO{r=3}
+    - sound{s=block.snow.break;v=1} 
+    - particles{p=block_crack;material=snow_block;a=1;y=0}
+    ];
+    onEnd=[
+    - sound{s=entity.blaze.death;p=2;v=4}
+    - particles{p=FIREWORKS_SPARK;a=30;speed=0.5}
+    - damage{a=2;pkb=true} @ENO{r=3}
+    ];} @targetlocation
+
+HailBall:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{hn=30;vn=6;rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - setnodamageticks{delay=0;ticks=0}
+      - damage{a=1.5} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=block.glass.break;v=1;p=1.5} @origin
+    ];} @targetLocation
+  - projectile{hn=30;vn=6;rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - setnodamageticks{delay=0;ticks=0}
+      - damage{a=1.5} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=block.glass.break;v=1;p=1.5} @origin
+    ];} @targetLocation
+  - projectile{hn=30;vn=6;rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - setnodamageticks{delay=0;ticks=0}
+      - damage{a=1.5} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=block.glass.break;v=1;p=1.5} @origin
+    ];} @targetLocation
+  - projectile{hn=30;vn=6;rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - setnodamageticks{delay=0;ticks=0}
+      - damage{a=1.5} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=block.glass.break;v=1;p=1.5} @origin
+    ];} @targetLocation
+  - projectile{hn=30;vn=6;rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - setnodamageticks{delay=0;ticks=0}
+      - damage{a=1.5} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=block.glass.break;v=1;p=1.5} @origin
+    ];} @targetLocation
+  - projectile{hn=30;vn=6;rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - setnodamageticks{delay=0;ticks=0}
+      - damage{a=1.5} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=block.glass.break;v=1;p=1.5} @origin
+    ];} @targetLocation
+SnowballBasicBounce:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{bounce=true;bouncevelocity=1;rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=0.5;vr=0.5;sb=true;g=0.4;ti=1;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - damage{a=4} 
+      - freeze{ticks=30}
+      - potion{type=slow;lvl=2;particles=false;d=30} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+      - effect:sound{s=block.snow.step;v=1;p=0.5} @origin
+    ];} @targetLocation
+    
+SnowballMine:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{bounce=true;bouncevelocity=0.2;rotationspeed=1,1,1;bulletType=display;material=TNT;bulletscale=0.3;hr=0.5;vr=0.5;sb=true;g=0.4;ti=1;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - damage{a=6} @eno{r=5}
+      - throw{v=6} @eno{r=5}
+      - sound{s=entity.generic.explode;v=8}
+      - e:particles{p=explosion_emitter;vs=1;hs=1;a=5} @origin
+      - potion{type=slow;lvl=2;particles=false;d=30} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+      - effect:sound{s=block.snow.step;v=1;p=0.5} @origin
+    ];} @targetLocation    
+    
+YellowSnowball:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{rotationspeed=1,1,1;bulletType=display;material=yellow_concrete;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - damage{a=2} 
+      - potion{type=NAUSEA;lvl=2;particles=false;d=60} 
+      - potion{type=POISON;lvl=0;particles=false;d=60} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+      - effect:sound{s=block.snow.step;v=1;p=0.5} @origin
+    ];} @targetLocation
+    
+LightningBall:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - damage{a=5} 
+      - ignite{d=20}
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - fakelightning
+      - effect:sound{s=block.snow.step;v=1;p=0.5} @origin
+    ];} @targetLocation    
+SnowballBasic:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - damage{a=4} 
+      - freeze{ticks=30}
+      - potion{type=slow;lvl=2;particles=false;d=30} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+      - effect:sound{s=block.snow.step;v=1;p=0.5} @origin
+    ];} @targetLocation
+    
+AntigravitySnowball:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.3;hr=1;vr=1;sb=true;syo=2;sso=0;mr=128;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - sound{s=block.beacon.activate;p=2;v=4} 
+      - damage{a=4} 
+      - potion{type=LEVITATION;lvl=2;particles=false;d=30} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+      - effect:sound{s=block.snow.step;v=1;p=0.5} @origin
+    ];} @targetLocation
+CoalBall:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{rotationspeed=1,1,1;bulletType=display;material=coal_block;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=coal_block;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - damage{a=2} 
+      - ignite{ticks=100}
+      ];
+    onEnd=[
+      - effect:particles{p=flame;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+      - effect:sound{s=block.fire.extinguish;v=3;p=0.5} @origin
+    ];} @targetLocation
+SnowballRock:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{rotationspeed=1,1,1;bulletType=display;material=stone;bulletscale=0.3;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=stone;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - throw{v=6;vy=6}
+      - damage{a=5.5} 
+      - potion{type=blindness;lvl=2;particles=false;d=10} 
+      - effect:particles{p=block_crack;m=redstone_block;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      ];
+    onEnd=[
+      - effect:sound{s=item.shield.break;v=3;p=2} @origin
+      - effect:sound{s=block.snow.step;v=1;p=0.5} @origin
+    ];} @targetLocation
+    
+IcySnowball:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.egg.throw;v=4} @self
+  - projectile{y=1;hr=0.5;vr=0.5;g=1.2;d=30;i=1;mr=1000;bulletType=item;material=blue_ice;bounce=true;bouncevelocity=0.4;v=<caster.score.SnowballThrowingPower>;vo=0.2;hp=false;hnp=false;se=false;sb=true;onEnd=[
+    - skill{s=IcySnowballFrag;fromorigin=true} @SELF
+    ];} @targetlocation
+IcyCluster:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.egg.throw;v=4} @self
+  - projectile{y=1;hr=0.5;vr=0.5;g=1.2;d=30;i=1;mr=1000;bulletType=item;material=blue_ice;bounce=true;bouncevelocity=0.4;v=<caster.score.SnowballThrowingPower>;vo=0.2;hp=false;hnp=false;se=false;sb=true;onEnd=[
+    - skill{s=IcySnowballFrag1;fromorigin=true} @SELF
+    ];} @targetlocation    
+Snowboulder:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=2;hr=1;vr=1;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=2;speed=0;hS=0.1;vS=0.1}
+    ];
+    onEnd=[
+      - damage{a=6.5} @ENO{r=5}
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=entity.generic.explode;v=2;p=2} @origin
+      - effect:sound{s=block.snow.step;v=1;p=0.5} @origin
+      - e:particles{p=explosion_emitter;vs=1;hs=1;a=5} @origin
+    ];} @targetLocation
+  
+IcySnowballFrag:
+  Skills:
+  - setnodamageticks{ticks=0} @ENO{r=5}
+  - particles{p=flash} @ORIGIN
+  - sound{s=block.glass.break;p=1;v=8} @origin
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=48;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - damage{a=2.4;pkb=true}
+    ];i=1;mr=100;d=10;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=3;r=10;y=-6}
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=48;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - damage{a=2.4;pkb=true}
+    ];i=1;mr=100;d=10;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=3;r=10;y=0}
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=48;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - damage{a=2.4;pkb=true}
+    ];i=1;mr=100;d=10;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=3;r=10;y=6}
+    
+IcySnowballFrag1:
+  Skills:
+  - setnodamageticks{ticks=0} @ENO{r=5}
+  - particles{p=flash} @ORIGIN
+  - sound{s=block.glass.break;p=1;v=8} @origin
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=24;ham=true;hnp=true;hp=true;se=false;sb=true;onEnd=[
+    - skill{s=IcySnowballFrag2} @origin
+    ];i=1;mr=100;d=<random.12to15>;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=1;r=10;y=-6}
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=24;ham=true;hnp=true;hp=true;se=false;sb=true;onEnd=[
+    - skill{s=IcySnowballFrag2} @origin
+    ];i=1;mr=100;d=<random.12to15>;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=1;r=10;y=0}
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=24;ham=true;hnp=true;hp=true;se=false;sb=true;onEnd=[
+    - skill{s=IcySnowballFrag2} @origin
+    ];i=1;mr=100;d=<random.12to15>;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=1;r=10;y=6}
+IcySnowballFrag2:
+  Skills:
+  - setnodamageticks{ticks=0} @ENO{r=5}
+  - particles{p=flash} @ORIGIN
+  - sound{s=block.glass.break;p=1;v=8} @origin
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=48;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - damage{a=1.8;pkb=true}
+    ];i=1;mr=100;d=10;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=3;r=10;y=-6}
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=48;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - damage{a=1.8;pkb=true}
+    ];i=1;mr=100;d=10;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=3;r=10;y=0}
+  - projectile{hr=2;vr=2;g=1;fromorigin=true;bounce=true;bouncevelocity=0.6;v=48;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - damage{a=1.8;pkb=true}
+    ];i=1;mr=100;d=10;onTick=[
+    - particles{p=block_crack;m=blue_ice;a=1;hs=0.1;vs=0.1}
+    ];}  @RandomLocationsNearOrigin{a=3;r=10;y=6}
+      
+SnowCaltrop:
+  Cooldown: 1
+  Skills:
+  - skill{s=SnowballCooldown} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - effect:sound{repeat=5;repeatInterval=1;s=entity.snowball.throw;v=1;p=0.5} @origin
+  - projectile{bounce=true;bouncevelocity=0.3;d=400;repeat=5;repeatInterval=1;hn=30;vn=8;rotationspeed=1,1,1;bulletType=display;material=snow_block;bulletscale=0.2;hr=0.2;vr=0.2;sb=true;g=1.2;syo=2;sso=0;mr=10000;v=<caster.score.SnowballThrowingPower>;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=block_crack;m=snow;amount=1;speed=0;hS=0.1;vS=0.1}
+    ];
+    onHit=[
+      - setnodamageticks{ticks=0;delay=0} 
+      - damage{a=3} 
+      - freeze{ticks=30}
+      - potion{type=slow;lvl=2;particles=false;d=30} 
+      ];
+    onEnd=[
+      - effect:particles{p=block_crack;m=snow;hs=0.2;vs=0.3;a=30;speed=1;y=0} @origin
+      - effect:sound{s=entity.snowball.throw;v=1;p=0.5} @origin
+      - effect:sound{s=block.glass.break;v=1;p=0.5} @origin
+    ];} @targetLocation
+
+SnowballCooldown:
+  Skills:
+  - aura{i=1;duration=20;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LSnowball Throw"} @self
+  - setSkillCooldown{skill=SnowballBasic;seconds=1} @self
+  - setSkillCooldown{skill=SnowballBasicBounce;seconds=1} @self
+  - setSkillCooldown{skill=SnowballRock;seconds=1} @self
+  - setSkillCooldown{skill=Snowboulder;seconds=1} @self
+  - setSkillCooldown{skill=IcySnowball;seconds=1} @self
+  - setSkillCooldown{skill=SnowCaltrop;seconds=1} @self
+  - setSkillCooldown{skill=IcyCluster;seconds=1} @self
+  - setSkillCooldown{skill=HailBall;seconds=1} @self
+  - setSkillCooldown{skill=RollingSnowball;seconds=1} @self
+  - setSkillCooldown{skill=YellowSnowball;seconds=1} @self
+  - setSkillCooldown{skill=ThoseWhoSnow;seconds=1} @self
+  - setSkillCooldown{skill=Blizzard;seconds=1} @self
+  - setSkillCooldown{skill=LightningBall;seconds=1} @self
+  - setSkillCooldown{skill=AntigravitySnowball;seconds=1} @self
+  - setSkillCooldown{skill=BillowingSnowball;seconds=1} @self
+  - setSkillCooldown{skill=SnowballMine;seconds=1} @self
+  - setSkillCooldown{skill=Redbull;seconds=1} @self
+  - setSkillCooldown{skill=LiquidNitrogen;seconds=1} @self
+  - setSkillCooldown{skill=DruggedConcoction;seconds=1} @self
+  - setSkillCooldown{skill=HolyWater;seconds=1} @self
+ 
+
+
 SRT_DynamoReactor:
   Cooldown: 20
   Skills:
@@ -94,6 +932,29 @@ Molotov:
       - sound{s=block.glass.break} @Origin
     ]} @targetLocation
 
+SnowyGambling:
+  Cooldown: 0.15
+  Skills:
+  - randomskill{s=SnowyGamblingW 5,SnowyGamblingL 5} @self
+
+SnowyGamblingL:
+  Skills:
+  - delay 2
+  - damage{a=15} @ENO{r=5}
+  - message{m="<caster.name> was on the naughty list"} @server
+  - message{m="<caster.name> was on the naughty list"} @self
+  - damage{a=50;ii=true;ieff=true;ir=true;ia=true;damagecause=MAGIC;na=true} @self
+  - sound{s=entity.generic.explode;v=8} @Self
+  - particles{p=explosion_emitter;vs=1;hs=1;a=5} @self
+  - sound{s=custom.wetfart;v=8} @self
+SnowyGamblingW:
+  Skills:
+  - dropitem{i=SnowGamblingW} @self
+  - message{m="<caster.name> was on the nice list"} @server
+  - message{m="<caster.name> was on the nice list"} @self
+  - effect:firework{t=BALL;d=1;f=true;tr=true} @self 
+  - effect:firework{t=BALL;d=1;f=true;tr=true} @self{so=-3}
+  - effect:firework{t=BALL;d=1;f=true;tr=true} @self{so=3} 
 SRT_GamblingBox1:
   Cooldown: 0.2
   Skills:
@@ -4164,6 +5025,7 @@ InvisibilityCloak:
   Skills:
   - sound{s=entity.blaze.shoot;p=0;v=12} @self 
   - hide{d=100} @server
+  - potion{type=Invisibility;d=100;particles=false} @self
 
 SupplierCooldown:
   Skills:
@@ -6109,6 +6971,30 @@ HuntingRifleShoot:
       ]}
       ];g=0;hnp=true;hp=true;mr=128;i=1;d=200;hr=0.5;vr=0.5;se=true;ti=3} @targetLocation
 
+
+FrostbiteCycleJoinTeam:
+  Skills:
+  - switch{condition=stringequals{val1="<caster.var.team>";val2="<case>"};cases=
+        case naughty=[
+        - setvar{var=caster.team;type=string;val="nice";save=true} @self
+        - command{ac=true;c="minecraft:team join nice"} @self
+        - command{ac=true;c="minecraft:tag @s add nice"} @self
+        - command{ac=true;c="minecraft:tag @s remove naughty"} @self
+        - particlering{particle=reddust;color=#71bceb;radius=1;points=32;amount=1;y=0.5;size=1.5}]
+        case nice=[
+        - setvar{var=caster.team;type=string;val="naughty";save=true} @self
+        - command{ac=true;c="minecraft:team join naughty"} @self
+        - command{ac=true;c="minecraft:tag @s add naughty"} @self
+        - command{ac=true;c="minecraft:tag @s remove nice"} @self
+        - particlering{particle=reddust;color=#eb71ac;radius=1;points=32;amount=1;y=0.5;size=1.5}]
+        case DEFAULT=[
+        - setvar{var=caster.team;type=string;val="naughty";save=true} @self
+        - command{ac=true;c="minecraft:tag @s remove nice"} @self
+        - command{ac=true;c="minecraft:team join naughty"} @self
+        - command{ac=true;c="minecraft:tag @s add naughty"} @self
+        - particlering{particle=reddust;color=#71bceb;radius=1;points=32;amount=1;y=0.5;size=1.5}]
+    } @self
+
 CycleJoinTeam:
   Skills:
   - switch{condition=stringequals{val1="<caster.var.team>";val2="<case>"};cases=
@@ -6140,22 +7026,32 @@ AddTeams:
   - command{op=true;c="minecraft:team add hearts"} @self
   - command{op=true;c="minecraft:team add diamonds"} @self
   - command{op=true;c="minecraft:team add clubs"} @self
+  - command{op=true;c="minecraft:team add naughty"} @self
+  - command{op=true;c="minecraft:team add nice"} @self
   - command{op=true;cmd="minecraft:team modify spades prefix <&dq><&lc>♠<&rc> <&dq>"} @self
   - command{op=true;cmd="minecraft:team modify hearts prefix <&dq>(♥) <&dq>"} @self
   - command{op=true;cmd="minecraft:team modify diamonds prefix <&dq><♦> <&dq>"} @self
   - command{op=true;cmd="minecraft:team modify clubs prefix <&dq><&lb>♣<&rb> <&dq>"} @self
+  - command{op=true;cmd="minecraft:team modify naughty prefix <&dq><&lb>💀<&rb> <&dq>"} @self
+  - command{op=true;cmd="minecraft:team modify nice prefix <&dq><&lb>🎁<&rb> <&dq>"} @self
   - command{op=true;cmd="minecraft:team modify spades color aqua"} @self
   - command{op=true;cmd="minecraft:team modify hearts color light_purple"} @self
   - command{op=true;cmd="minecraft:team modify diamonds color gold"} @self
   - command{op=true;cmd="minecraft:team modify clubs color green"} @self
+  - command{op=true;cmd="minecraft:team modify naughty color aqua"} @self
+  - command{op=true;cmd="minecraft:team modify nice color white"} @self
   - command{op=true;cmd="minecraft:team modify spades friendlyFire false"} @self
   - command{op=true;cmd="minecraft:team modify hearts friendlyFire false"} @self
   - command{op=true;cmd="minecraft:team modify diamonds friendlyFire false"} @self
   - command{op=true;cmd="minecraft:team modify clubs friendlyFire false"} @self
+  - command{op=true;cmd="minecraft:team modify naughty friendlyFire false"} @self
+  - command{op=true;cmd="minecraft:team modify nice friendlyFire false"} @self
   - command{op=true;cmd="minecraft:team modify spades nametagVisibility hideForOtherTeams"} @self
   - command{op=true;cmd="minecraft:team modify hearts nametagVisibility hideForOtherTeams"} @self
   - command{op=true;cmd="minecraft:team modify diamonds nametagVisibility hideForOtherTeams"} @self
   - command{op=true;cmd="minecraft:team modify clubs nametagVisibility hideForOtherTeams"} @self
+  - command{op=true;cmd="minecraft:team modify naughty nametagVisibility hideForOtherTeams"} @self
+  - command{op=true;cmd="minecraft:team modify nice nametagVisibility hideForOtherTeams"} @self
 InsanityPotion:
   Skills:
   - sound{s=entity.egg.throw;p=<random.float.1.3to1.6>;v=3} @self
@@ -7109,7 +8005,13 @@ TheBigOne:
     - sound{s=entity.generic.explode;v=6;p=1}
     - sound{s=entity.firework_rocket.blast;v=12;p=0}
     ];i=1} @targetLocation
-
+BillowingSnowballSkill:
+  Conditions:
+  - offgcd
+  Skills:
+  - throw{velocity=12;velocityY=10} @ENO{r=5.5}
+  - delay 1
+  - remove @self
 SatchelMobSkill:
   Conditions:
   - offgcd

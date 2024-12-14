@@ -643,3 +643,180 @@ Gojo Boost:
   mythicmobs-skill-id: SRT_GojoBoost
   modifiers:
   - cooldown
+  
+Throw Basic Snowball:
+  mythicmobs-skill-id: SnowballBasic
+  modifiers:
+  - cooldown
+
+Throw Bouncy Snowball:
+  mythicmobs-skill-id: SnowballBasicBounce
+  modifiers:
+  - cooldown
+
+Throw Coal:
+  mythicmobs-skill-id: CoalBall
+  modifiers:
+  - cooldown
+Throw Snowy Rock:
+  mythicmobs-skill-id: SnowballRock
+  modifiers:
+  - cooldown
+  
+Throw Icy Snowball:
+  mythicmobs-skill-id: IcySnowball
+  modifiers:
+  - cooldown
+  
+Throw Snow Boulder:
+  mythicmobs-skill-id: Snowboulder
+  modifiers:
+  - cooldown
+  
+Deploy Snow Caltrops:
+  mythicmobs-skill-id: SnowCaltrop
+  modifiers:
+  - cooldown
+  
+Throw Icy Cluster:
+  mythicmobs-skill-id: IcyCluster
+  modifiers:
+  - cooldown
+  
+Throw Hail:
+  mythicmobs-skill-id: HailBall
+  modifiers:
+  - cooldown
+
+Roll Snowball:
+  mythicmobs-skill-id: RollingSnowball
+  modifiers:
+  - cooldown
+
+Throw Yellow Snowball:
+  mythicmobs-skill-id: YellowSnowball
+  modifiers:
+  - cooldown
+  
+Cast Blizzard:
+  mythicmobs-skill-id: Blizzard
+  modifiers:
+  - cooldown
+  
+Those Who Snow:
+  mythicmobs-skill-id: ThoseWhoSnow
+  modifiers:
+  - cooldown
+  
+Throw Electric Snowball:
+  mythicmobs-skill-id: LightningBall
+  modifiers:
+  - cooldown
+  
+Throw Antigravity Snowball:
+  mythicmobs-skill-id: AntigravitySnowball
+  modifiers:
+  - cooldown
+Throw Billowing Snowball:
+  mythicmobs-skill-id: BillowingSnowball
+  modifiers:
+  - cooldown
+Throw Snowball Mine:
+  mythicmobs-skill-id: SnowballMine
+  modifiers:
+  - cooldown
+
+Cold Rebirth:
+  mythicmobs-skill-id: ColdRebirth
+  modifiers:
+  - cooldown
+  
+Open Present:
+  mythicmobs-skill-id: SnowyGambling
+  modifiers:
+  - cooldown
+
+Scoop Snow:
+  mythicmobs-skill-id: SnowShovelMk1
+  modifiers:
+  - cooldown
+  
+Dig Snow:
+  mythicmobs-skill-id: SnowShovelMk2
+  modifiers:
+  - cooldown
+  
+Excavate Snow:
+  mythicmobs-skill-id: SnowShovelMk3
+  modifiers:
+  - cooldown
+  
+Snowy Elimination:
+  mythicmobs-skill-id: SnowballFightKill
+  modifiers:
+  - cooldown
+  
+Frost Conversion:
+  mythicmobs-skill-id: SnownusConversion
+  modifiers:
+  - cooldown
+  
+Frost Barrier:
+  mythicmobs-skill-id: FrostyBarrier
+  modifiers:
+  - cooldown
+  
+Activate Robotic Arm:
+  mythicmobs-skill-id: RoboticArm
+  modifiers:
+  - cooldown
+  
+Drop Christmas Present:
+  mythicmobs-skill-id: DropChristmasPresent
+  modifiers:
+  - cooldown
+
+Deploy Frost Ward:
+  mythicmobs-skill-id: Frostward
+  modifiers:
+  - cooldown
+ 
+Deploy Chimney:
+  mythicmobs-skill-id: Chimney
+  modifiers:
+  - cooldown
+ 
+Steal Snowballs:
+  mythicmobs-skill-id: GrinchSteal
+  modifiers:
+  - cooldown
+  
+Break Block:
+  mythicmobs-skill-id: BreakConcrete
+  modifiers:
+  - cooldown
+
+Throw Holy Water:
+  mythicmobs-skill-id: HolyWater
+  modifiers:
+  - cooldown
+
+Throw Drugged Concoction:
+  mythicmobs-skill-id: DruggedConcoction
+  modifiers:
+  - cooldown
+
+Throw Liquid Nitrogen:
+  mythicmobs-skill-id: LiquidNitrogen
+  modifiers:
+  - cooldown
+
+Throw Redbull:
+  mythicmobs-skill-id: Redbull
+  modifiers:
+  - cooldown
+
+Dig for Consumables:
+  mythicmobs-skill-id: SupportShovel
+  modifiers:
+  - cooldown

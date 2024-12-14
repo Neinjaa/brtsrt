@@ -1,6 +1,212 @@
 # For more information, check out the plugin manual or join us on Discord:
 # http://www.mythicmobs.net
 
+FROST_BlueBuff:
+  Type: Zombie
+  Health: <random.40to60>
+  Display: '&2Ogre'
+  Damage: 6
+  Modules:
+    ThreatTable: true
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: true
+    Silent: true
+    MovementSpeed: 0.32
+    PreventSunburn: true
+    FollowRange: 48
+  Skills:
+  - randomskill{s=OgreA2,OgreA3} @self ~onTimer:60 0.4
+  - model{mid=ogre;n=false;step=1} @self ~onSpawn 
+  - model{mid=ogre;n=false;step=1} @self ~onTimer:100
+
+CoalGenerator:
+  Type: Zombie
+  Damage: 4
+  Display: Coal Spirit
+  Health: 7
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    FollowRange: 24
+    Silent: true
+    ApplyInvisibility: true
+    Invisible: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    baby: false
+    Despawn: true
+    MovementSpeed: 0.2
+    KnockbackResistance: 1
+  Drops:
+  - coal 1-2
+  Equipment:
+  - coal_ore HEAD
+Chimney2:
+  Type: IRON_GOLEM
+  Display: '&2&lChimney'
+  Options:
+    Silent: true
+    Despawn: false
+    MovementSpeed: 0
+    Invisible: true
+    LockPitch: true
+    KnockbackResistance: 1
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - remove{delay=600} @self ~onSpawn
+  - stun{d=10000;f=true} @self ~onSpawn
+  - cancelEvent ~onDamaged  
+  - particles{p=dust_color_transition;color1=#FFFFFF;color2=#9BC4FF;vs=2;a=10} @self ~onTimer:1
+  - setvarloc{var=caster.destination;v=@variablelocation{var=global.chimney};delay=1} @self ~onSpawn
+  - teleportto{cooldown=5;location=@variablelocation{var=caster.destination} } @nearestplayer ~onInteract
+  - sound{s=entity.enderman.teleport;sc=master;cooldown=5} @variablelocation{var=caster.destination} ~onInteract
+  - particles{p=fireworks_spark;a=15;speed=1;cooldown=5} @variablelocation{var=caster.destination} ~onInteract
+Chimney1:
+  Type: IRON_GOLEM
+  Display: '&2&lChimney'
+  Options:
+    Silent: true
+    Despawn: false
+    MovementSpeed: 0
+    Invisible: true
+    KnockbackResistance: 1
+    Despawn: false
+    LockPitch: true
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - remove{delay=600} @self ~onSpawn
+  - stun{d=10000;f=true} @self ~onSpawn
+  - cancelEvent ~onDamaged 
+  - particles{p=dust_color_transition;color1=#FFFFFF;color2=#9BC4FF;vs=2;a=10} @self ~onTimer:1
+  - setvarloc{var=caster.destination;v=@variablelocation{var=global.chimney2};delay=1} @self ~onSpawn
+  - teleportto{cooldown=5;location=@variablelocation{var=caster.destination} } @nearestplayer ~onInteract
+  - sound{s=entity.enderman.teleport;sc=master;cooldown=5} @variablelocation{var=caster.destination} ~onInteract
+  - particles{cooldown=5;p=fireworks_spark;a=15;speed=1} @variablelocation{var=caster.destination} ~onInteract
+
+
+SnownusConverter:
+  Type: VILLAGER
+  Display: '&2&lSnownus Converter'
+  Options:
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Profession: ARMORER
+    Level: 5
+    Type: SNOW
+  Trades:
+    1:
+      Item1: 2 COAL
+      Result: mmoitems.MISCELLANEOUS.SNOWNUS
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Skills:
+  - stun{d=10000;f=true} @self ~onSpawn
+  - cancelEvent ~onDamaged  
+  - potion{type=WEAKNESS;lvl=254;d=10000000;particles=false} @self ~onSpawn
+SnownusTrader2:
+  Type: VILLAGER
+  Display: '&2&lAugment Trader'
+  Options:
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Profession: ARMORER
+    Type: SNOW
+    Level: 5
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Trades:
+    1:
+      Item1: 16  mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.GEM_STONE.FROZEN_HEART
+    2:
+      Item1: 8 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.GEM_STONE.FROSTBITTEN
+  Skills:
+  - stun{d=10000;f=true} @self ~onTimer:20
+  - cancelEvent ~onDamaged  
+  - potion{type=WEAKNESS;lvl=254;d=10000000;particles=false} @self ~onSpawn
+
+SnownusTrader3:
+  Type: VILLAGER
+  Display: '&2&lTavernkeep'
+  Options:
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Profession: ARMORER
+    Type: SNOW
+    Level: 5
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Trades:
+    1:
+      Item1: 4 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.CONSUMABLE.MOLOTOV
+    2:
+      Item1: 2 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.CONSUMABLE.EGGMOG
+    3:
+      Item1: 2 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.CONSUMABLE.CRACKCOCAINE
+  Skills:
+  - stun{d=10000;f=true} @self ~onTimer:20
+  - cancelEvent ~onDamaged  
+  - potion{type=WEAKNESS;lvl=254;d=10000000;particles=false} @self ~onSpawn
+SnownusTrader:
+  Type: VILLAGER
+  Display: '&2&lSnownus Trader'
+  Options:
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Profession: ARMORER
+    Type: SNOW
+    Level: 5
+    VisibleByDefault: true
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Trades:
+    1:
+      Item1: 16 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.SPEAR.SNOWSHOVELMK2
+    2:
+      Item1: 64 mmoitems.MISCELLANEOUS.SNOWNUS
+      Item2: 64 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.MISCELLANEOUS.ESSENCEOFFROSTBITE
+    3:
+      Item1: 24 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.SPEAR.ASSASSINSHOVEL
+    4:
+      Item1: 64 mmoitems.MISCELLANEOUS.SNOWNUS
+      Item2: 64 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.SPEAR.SNOWSHOVELMK3
+    5:
+      Item1: 8 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.CONSUMABLE.INVISIBILITYCLOAK
+    6:
+      Item1: 4 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.CONSUMABLE.CHRISTMAS_PRESENT
+    7:
+      Item1: 4 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.CONSUMABLE.ROBOTICARM
+  Skills:
+  Skills:
+  - stun{d=10000;f=true} @self ~onTimer:20
+  - cancelEvent ~onDamaged  
+  - potion{type=WEAKNESS;lvl=254;d=10000000;particles=false} @self ~onSpawn
+
+
 ArtificerGunTurret: 
   Type: GIANT
   Display: ArtificerGunTurret
@@ -3200,9 +3406,7 @@ SkillTester2:
   - attacker  
   - villagers
   Skills:
-  - MountModel{m=Flying;drive=true;force=true} @EIR{r=10} ~onDamaged
-  - model{mid=pixieslime;n=false;ride=true} @self ~onSpawn 
-
+  - speak{m='<caster.raytrace.4>'} @eno{r=20} ~onInteract
 
 
 PortalMob:
@@ -3286,7 +3490,20 @@ DisableMob:
     FollowRange: 48
   Skills:
   - skill{s=DisableMobS} @self ~onSpawn
-
+BillowingSnowball:
+  Type: Wolf
+  Health: 30
+  Display: 'Satchel'
+  Damage: 5
+  Options:
+    PreventRandomEquipment: true
+    ShowHealth: false
+    Invisible: true
+    Silent: true
+    MovementSpeed: 0.3
+    FollowRange: 48
+  Skills:
+  - skill{s=BillowingSnowballSkill} @self ~onSpawn
 SatchelMob:
   Type: Wolf
   Health: 30

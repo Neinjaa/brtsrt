@@ -1939,3 +1939,362 @@ CONFETTI_GUN:
     custom-model-data: 123535.0
     crafting:
       shapeless: {}
+SNOWBALLBASIC:
+  base:
+    material: SNOWBALL
+    name: §f§lBasic Snowball
+    ability:
+      ability1:
+        type: THROW_BASIC_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+SNOWSHOVELMK1:
+  base:
+    material: STONE_SHOVEL
+    name: §f§lSnow Shovel Mk1
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 3.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability1:
+        type: SCOOP_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        mode: RIGHT_CLICK
+        cooldown: 1.5
+    disable-interaction: true
+    disable-death-drop: true
+SNOWBALLROCK:
+  base:
+    material: SNOWBALL
+    name: §8§lSnowy Rock
+    ability:
+      ability1:
+        type: THROW_SNOWY_ROCK
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+SNOWBALLICE:
+  base:
+    material: SNOWBALL
+    name: §b§lIcy Snowball
+    ability:
+      ability1:
+        type: THROW_ICY_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+SNOWSHOVELMK2:
+  base:
+    material: IRON_SHOVEL
+    name: §f§lSnow Shovel Mk2
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 4.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability1:
+        type: DIG_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+    disable-interaction: true
+    disable-death-drop: true
+SNOWBALLBOULDER:
+  base:
+    material: SNOWBALL
+    name: §7§lSnow Boulder
+    ability:
+      ability1:
+        type: THROW_SNOW_BOULDER
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+SNOWCALTROPS:
+  base:
+    material: SNOWBALL
+    name: §f§lSnow Caltrops
+    ability:
+      ability1:
+        type: DEPLOY_SNOW_CALTROPS
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+SNOWBALLICECLUSTER:
+  base:
+    material: SNOWBALL
+    name: §b§lIcy Cluster
+    ability:
+      ability1:
+        type: THROW_ICY_CLUSTER
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+HAILBALL:
+  base:
+    material: SNOWBALL
+    name: §b§lHail Ball
+    ability:
+      ability1:
+        type: THROW_HAIL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+ROLLINGSNOWBALL:
+  base:
+    material: SNOWBALL
+    name: §f§lRolling Snowball
+    ability:
+      ability1:
+        type: ROLL_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+SNOWSHOVELMK3:
+  base:
+    material: GOLDEN_SHOVEL
+    name: §6§lSnow Shovel Mk3
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 5.0
+    attack-speed: 0.5
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability1:
+        type: EXCAVATE_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        mode: RIGHT_CLICK
+        cooldown: 0.5
+    disable-interaction: true
+SNOWBALLBOUNCY:
+  base:
+    material: SNOWBALL
+    name: §d§lBouncy Snowball
+    ability:
+      ability1:
+        type: THROW_BOUNCY_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+COALBALL:
+  base:
+    material: SNOWBALL
+    name: §7§lLump of Coal
+    ability:
+      ability1:
+        type: THROW_COAL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+THOSEWHOKNOW:
+  base:
+    material: SNOWBALL
+    name: §f§lThose Who Know 💀
+    ability:
+      ability1:
+        type: THOSE_WHO_SNOW
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+BLIZZARD:
+  base:
+    material: SNOWBALL
+    name: §b§lBlizzard
+    ability:
+      ability1:
+        type: CAST_BLIZZARD
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+YELLOWSNOWBALL:
+  base:
+    material: SNOWBALL
+    name: §e§lYellow Snowball
+    ability:
+      ability1:
+        type: THROW_YELLOW_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+STATICSNOWBALL:
+  base:
+    material: SNOWBALL
+    name: §e§lStatic Snowball
+    ability:
+      ability1:
+        type: THROW_ELECTRIC_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+SNOWBALLMINE:
+  base:
+    material: SNOWBALL
+    name: §c§lSnowball Mine
+    ability:
+      ability1:
+        type: THROW_SNOWBALL_MINE
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+ANTIGRAVITYSNOWBALL:
+  base:
+    material: SNOWBALL
+    name: §5§lAnti-gravity Snowball
+    ability:
+      ability1:
+        type: THROW_ANTIGRAVITY_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+BILLOWINGSNOWBALL:
+  base:
+    material: SNOWBALL
+    name: §lBillowing Snowball
+    ability:
+      ability1:
+        type: THROW_BILLOWING_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+ASSASSINSHOVEL:
+  base:
+    material: IRON_SWORD
+    name: §f§lSharp Shovel
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 7.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    ability:
+      ability1:
+        type: DIG_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+    disable-interaction: true
+    disable-death-drop: true
+    enchants:
+      unbreaking: 1.0
+    attack-speed: 1.0
+    hide-enchants: true
+    max-health: -8.0
+THROWABLEHOLYWATER:
+  base:
+    material: POTION
+    name: §e§lHoly Water
+    ability:
+      ability1:
+        type: THROW_HOLY_WATER
+        mode: RIGHT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+    hide-potion-effects: true
+    potion-color: 128 156 255
+DRUGGEDCONCOCTION:
+  base:
+    material: POTION
+    name: §5§lDrugged Concoction
+    ability:
+      ability1:
+        type: THROW_DRUGGED_CONCOCTION
+        mode: RIGHT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+    hide-potion-effects: true
+    potion-color: 156 72 156
+LIQUID:
+  base:
+    material: POTION
+    name: §b§lLiquid Nitrogen
+    ability:
+      ability1:
+        type: THROW_LIQUID_NITROGEN
+        mode: RIGHT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+    hide-potion-effects: true
+    potion-color: 128 255 255
+REDBULL:
+  base:
+    material: POTION
+    name: §c§lRedbull
+    ability:
+      ability1:
+        type: THROW_REDBULL
+        mode: RIGHT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+    hide-potion-effects: true
+    potion-color: 255 64 156
+SUPPORTSHOVEL:
+  base:
+    material: WOODEN_SHOVEL
+    name: §2§lJolly Spade
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 2.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+      ability1:
+        type: DIG_FOR_CONSUMABLES
+        mode: SNEAK
+        cooldown: 5.0
+    disable-interaction: true
+    disable-death-drop: true

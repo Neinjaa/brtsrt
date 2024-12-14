@@ -2675,18 +2675,6 @@ SILVERLINENBOOTS:
     set: SILVER
     fire-damage-reduction: 2.0
     fall-damage-reduction: 3.0
-SNOWHELMET:
-  base:
-    material: LEATHER_HELMET
-    name: §f§lSnow Cap
-    dye-color: 255 255 255
-    tier: RARE
-    armor: 1.0
-    fall-damage-reduction: 2.0
-    unbreakable: true
-    projectile-damage-reduction: 5.0
-    fire-damage-reduction: 2.0
-    set: Snow Suit
 SNOW_VEST:
   base:
     material: LEATHER_CHESTPLATE
@@ -4994,3 +4982,112 @@ SRT_PRISMARINEBOOTS:
           - v AIR 0 1..|v AIR 0 1..|v AIR 0 1..
           - v prismarine - 1.0..|v AIR 0 1..|v prismarine - 1.0..
           - v dark_prismarine - 1.0..|v AIR 0 1..|v dark_prismarine - 1.0..
+
+FROZENHELMET:
+  base:
+    material: LEATHER_HELMET
+    name: §f§lFrozen Helmet
+    unbreakable: true
+    dye-color: 155 196 255
+    hide-dye: true
+    armor: 2.0
+    disable-death-drop: true
+    gem-sockets:
+    - Freezing
+FROZENCHESTPLATE:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §f§lFrozen Chestplate
+    unbreakable: true
+    dye-color: 155 196 255
+    hide-dye: true
+    armor: 3.0
+    ability:
+      ability1:
+        type: SNOWY_ELIMINATION
+        mode: KILL_PLAYER
+      ability2:
+        type: FROST_CONVERSION
+        mode: TIMER
+      ability3:
+        type: COLD_REBIRTH
+        mode: DEATH
+    disable-death-drop: true
+    gem-sockets:
+    - Freezing
+FROZENLEGGINGS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §f§lFrozen Pants
+    unbreakable: true
+    dye-color: 155 196 255
+    hide-dye: true
+    armor: 2.0
+    disable-death-drop: true
+    gem-sockets:
+    - Freezing
+FROZENBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §f§lFrozen Boots
+    unbreakable: true
+    dye-color: 155 196 255
+    hide-dye: true
+    armor: 1.0
+    disable-death-drop: true
+    gem-sockets:
+    - Freezing
+SNOWHELMET:
+  base:
+    material: LEATHER_HELMET
+    name: §b§lSnow Helmet
+    unbreakable: true
+    dye-color: 255 255 255
+    hide-dye: true
+    armor: 2.0
+    disable-death-drop: true
+    gem-sockets:
+    - Freezing
+SNOWTUNIC:
+  base:
+    material: LEATHER_CHESTPLATE
+    name: §b§lSnow Tunic
+    unbreakable: true
+    dye-color: 255 255 255
+    hide-dye: true
+    armor: 3.0
+    ability:
+      ability1:
+        type: SNOWY_ELIMINATION
+        mode: KILL_PLAYER
+      ability2:
+        type: FROST_CONVERSION
+        mode: TIMER
+      ability3:
+        type: COLD_REBIRTH
+        mode: DEATH
+    disable-death-drop: true
+    gem-sockets:
+    - Freezing
+SNOWPANTS:
+  base:
+    material: LEATHER_LEGGINGS
+    name: §b§lSnow Pants
+    unbreakable: true
+    dye-color: 255 255 255
+    hide-dye: true
+    armor: 2.0
+    disable-death-drop: true
+    gem-sockets:
+    - Freezing
+SNOWBOOTS:
+  base:
+    material: LEATHER_BOOTS
+    name: §b§lSnow Shoes
+    unbreakable: true
+    dye-color: 255 255 255
+    hide-dye: true
+    armor: 1.0
+    disable-death-drop: true
+    gem-sockets:
+    - Freezing
