@@ -4033,3 +4033,11 @@ JOYFULAUGMENT:
     name: §a§lJoyful Augment
     disable-repairing: true
     gem-color: Freezing
+SHARPICE:
+  base:
+    material: NETHERITE_INGOT
+    name: §7§lBlack Ice Augment
+    disable-repairing: true
+    gem-color: Freezing
+    weapon-damage: 25.0
+    max-health: -2.0

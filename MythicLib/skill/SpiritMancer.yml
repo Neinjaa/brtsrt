@@ -816,7 +816,22 @@ Throw Redbull:
   modifiers:
   - cooldown
 
+Throw Eggmog:
+  mythicmobs-skill-id: ThrowEggmog
+  modifiers:
+  - cooldown
+
 Dig for Consumables:
   mythicmobs-skill-id: SupportShovel
+  modifiers:
+  - cooldown
+
+Find Consumables:
+  mythicmobs-skill-id: SupportShovelMK2
+  modifiers:
+  - cooldown
+
+Use Blue Buff:
+  mythicmobs-skill-id: BlueBuffPowers
   modifiers:
   - cooldown

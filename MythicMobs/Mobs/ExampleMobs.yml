@@ -1,11 +1,39 @@
 # For more information, check out the plugin manual or join us on Discord:
 # http://www.mythicmobs.net
 
+FROST_PowerUp1:
+  Type: HUSK
+  Damage: 0
+  Display: Coal Spirit
+  Health: 100
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    FollowRange: 24
+    Age: -1
+    Silent: true
+    ApplyInvisibility: true
+    Invisible: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    Baby: true
+    Despawn: true
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Equipment:
+  - chest HEAD
+  Skills:
+  - cancelevent ~onDamaged 
+  - skill{s=FROST_PowerUpAbility} @self ~onTimer:1
+  - remove{delay=1200} @self ~onSpawn
+
+
 FROST_BlueBuff:
   Type: Zombie
   Health: <random.40to60>
   Display: '&2Ogre'
-  Damage: 6
+  Damage: 50
   Modules:
     ThreatTable: true
   Options:
@@ -130,6 +158,9 @@ SnownusTrader2:
     2:
       Item1: 8 mmoitems.MISCELLANEOUS.SNOWNUS
       Result: mmoitems.GEM_STONE.FROSTBITTEN
+    3:
+      Item1: 8 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.GEM_STONE.SHARPICE
   Skills:
   - stun{d=10000;f=true} @self ~onTimer:20
   - cancelEvent ~onDamaged  
@@ -185,22 +216,52 @@ SnownusTrader:
       Item2: 64 mmoitems.MISCELLANEOUS.SNOWNUS
       Result: mmoitems.MISCELLANEOUS.ESSENCEOFFROSTBITE
     3:
-      Item1: 24 mmoitems.MISCELLANEOUS.SNOWNUS
-      Result: mmoitems.SPEAR.ASSASSINSHOVEL
-    4:
       Item1: 64 mmoitems.MISCELLANEOUS.SNOWNUS
       Item2: 64 mmoitems.MISCELLANEOUS.SNOWNUS
       Result: mmoitems.SPEAR.SNOWSHOVELMK3
-    5:
+    4:
       Item1: 8 mmoitems.MISCELLANEOUS.SNOWNUS
       Result: mmoitems.CONSUMABLE.INVISIBILITYCLOAK
-    6:
+    5:
       Item1: 4 mmoitems.MISCELLANEOUS.SNOWNUS
       Result: mmoitems.CONSUMABLE.CHRISTMAS_PRESENT
-    7:
+  Skills:
+  - stun{d=10000;f=true} @self ~onTimer:20
+  - cancelEvent ~onDamaged  
+  - potion{type=WEAKNESS;lvl=254;d=10000000;particles=false} @self ~onSpawn
+
+SnownusTrader4:
+  Type: VILLAGER
+  Display: '&2&lBlacksmith'
+  Options:
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+    Profession: ARMORER
+    Type: SNOW
+    Level: 5
+    VisibleByDefault: true
+    Despawn: false
+    MovementSpeed: 0
+    KnockbackResistance: 1
+  Trades:
+    1:
+      Item1: 24 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.SPEAR.ASSASSINSHOVEL
+    2:
+      Item1: 1 mmoitems.SPEAR.ASSASSINSHOVEL
+      Item2: 6 mmoitems.CONSUMABLE.INVISIBILITYCLOAK
+      Result: mmoitems.SPEAR.GHOSTSHOVEL
+    3:
+      Item1: 12 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.SPEAR.SUPPORTSHOVEL
+    4:
+      Item1: 1 mmoitems.SPEAR.SUPPORTSHOVEL
+      Item2: 16 mmoitems.CONSUMABLE.EGGMOG
+      Result: mmoitems.SPEAR.ENHANCEDSUPPORTSHOVEL
+    5:
       Item1: 4 mmoitems.MISCELLANEOUS.SNOWNUS
       Result: mmoitems.CONSUMABLE.ROBOTICARM
-  Skills:
   Skills:
   - stun{d=10000;f=true} @self ~onTimer:20
   - cancelEvent ~onDamaged  

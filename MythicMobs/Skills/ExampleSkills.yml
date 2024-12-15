@@ -1,3 +1,35 @@
+
+
+
+FROST_PowerUpAbility:
+  Conditions:
+  - playerwithin{d=3} true
+  Cooldown: 10
+  Skills:
+  - heal{a=6} @NearestPlayer{r=5}
+  - sound{s=entity.firework_rocket.launch;v=4}
+  - particle{p=firework;s=1;a=20}
+  - delay 5
+  - remove @self 
+
+  
+
+BlueBuffPowers:
+  Skills:
+  - sound{s=custom.banditshift;p=2;v=8} @self
+  - orbital{d=1200;oy=1;rotate=true;rX=<random.-3to3>;rY=<random.-3to3>;rZ=<random.-3to3>;r=1;points=32;t=200;i=1;onTick=[
+    - particles{p=dust_color_transition;color1=#2776FF;color2=#82C4FF} @origin  
+    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @self
+  - orbital{d=1200;oy=1;rotate=true;rX=<random.-3to3>;rY=<random.-3to3>;rZ=<random.-3to3>;r=1;points=32;t=200;i=1;onTick=[
+    - particles{p=dust_color_transition;color1=#2776FF;color2=#82C4FF} @origin  
+    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @self
+  - aura{i=1;duration=1200;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&LBlue Buff"} @self
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=36} @self
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=24;delay=1200} @self
+  - potion{d=20;repeat=59;repeatInterval=20;type=SPEED;lvl=2;particles=false} @self
+  - potion{d=20;repeat=59;repeatInterval=20;type=Jump;lvl=2;particles=false} @self
+  - potion{d=1200;type=ABSORPTION;lvl=4;particles=false} @self
+
 Redbull:
   Cooldown: 1
   Skills:
@@ -10,8 +42,8 @@ Redbull:
 Redbull_naughty:
   Skills:
   - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=potion;bulletscale=0.3;onEnd=[
-    - potion{type=JUMP;lvl=3;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=naughty} true ]} 
-    - potion{type=SPEED;lvl=5;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - potion{type=JUMP;lvl=3;d=200;particles=false} @Eno{target=self,monster,player;r=3;conditions=[  - hastag{t=naughty} true ]} 
+    - potion{type=SPEED;lvl=4;d=200;particles=false} @Eno{target=self,monster,player;r=3;conditions=[  - hastag{t=naughty} true ]} 
     - particles{p=fireworks;a=10;hs=1;vs=1} @origin
     - sound{s=block.glass.break;v=4;p=1}
     - sound{s=block.lava.extinguish;v=4;p=1}
@@ -19,8 +51,8 @@ Redbull_naughty:
 Redbull_nice:
   Skills:
   - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=potion;bulletscale=0.3;onEnd=[
-    - potion{type=JUMP;lvl=3;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=nice} true ]} 
-    - potion{type=SPEED;lvl=5;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - potion{type=JUMP;lvl=3;d=200;particles=false} @Eno{target=self,monster,player;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - potion{type=SPEED;lvl=4;d=200;particles=false} @Eno{target=self,monster,player;r=3;conditions=[  - hastag{t=nice} true ]} 
     - particles{p=fireworks;a=10;hs=1;vs=1} @origin
     - sound{s=block.glass.break;v=4;p=1}
     - sound{s=block.lava.extinguish;v=4;p=1}
@@ -31,11 +63,41 @@ LiquidNitrogen:
   - consumeslot{slot=HAND;amount=1} @self
   - skill{s=SnowballCooldown} @self
   - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=blue_ice;bulletscale=0.3;onEnd=[
-    - prison{d=50;material=BLUE_ICE;} @ENO{r=3;hitself=true}
+    - prison{d=50;material=BLUE_ICE;} @ENO{r=3}
     - particles{p=fireworks;a=10;hs=1;vs=1;s=1} @origin
     - sound{s=block.glass.break;v=4;p=2}
    ];g=1.2;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
 
+
+ThrowEggmog:
+  Cooldown: 1
+  Skills:
+  - consumeslot{slot=HAND;amount=1} @self
+  - skill{s=SnowballCooldown} @self
+  - sound{s=entity.egg.throw;v=4} @self
+  - vskill{s=ThrowEggmog_<caster.var.team>} @self
+
+
+ThrowEggmog_naughty:
+  Skills:
+  - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=potion;bulletscale=0.3;onEnd=[
+    - heal{a=4} @Eno{r=3;conditions=[  - hastag{t=naughty} true ]} 
+    - potion{type=REGENERATION;lvl=0;d=200;particles=false} @Eno{target=self,monster,player;r=3;conditions=[  - hastag{t=naughty} true ]} 
+    - particles{p=heart;a=10;hs=1;vs=1} @origin
+    - sound{s=item.hoe.till;v=4;p=2}
+    - sound{s=item.hoe.till;v=4;p=2}
+    - sound{s=item.hoe.till;v=4;p=2}
+   ];g=1.2;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
+ThrowEggmog_nice:
+  Skills:
+  - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=display;material=potion;bulletscale=0.3;onEnd=[
+    - heal{a=4} @Eno{r=3;conditions=[  - hastag{t=nice} true ]} 
+    - potion{type=REGENERATION;lvl=0;d=200;particles=false} @Eno{target=self,monster,player;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - particles{p=heart;a=10;hs=1;vs=1} @origin
+    - sound{s=item.hoe.till;v=4;p=2}
+    - sound{s=item.hoe.till;v=4;p=2}
+    - sound{s=item.hoe.till;v=4;p=2}
+   ];g=1.2;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
 
 DruggedConcoction:
   Cooldown: 1
@@ -50,7 +112,7 @@ DruggedSnowball_naughty:
   Skills:
   - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=item;material=potion;bulletscale=0.3;onEnd=[
     - heal{a=4} @Eno{r=3;conditions=[  - hastag{t=naughty} true ]} 
-    - potion{type=RESISTANCE;lvl=1;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=naughty} true ]} 
+    - potion{type=RESISTANCE;lvl=0;d=200;particles=false} @Eno{target=self,monster,player;r=3;conditions=[  - hastag{t=naughty} true ]} 
     - particles{p=fireworks;a=10;hs=1;vs=1} @origin
     - sound{s=item.hoe.till;v=4;p=2}
     - sound{s=item.hoe.till;v=4;p=2}
@@ -60,7 +122,7 @@ DruggedSnowball_nice:
   Skills:
   - projectile{v=<caster.score.SnowballThrowingPower>;bulletType=display;material=potion;bulletscale=0.3;onEnd=[
     - heal{a=4} @Eno{r=3;conditions=[  - hastag{t=nice} true ]} 
-    - potion{type=RESISTANCE;lvl=2;d=100;particles=false} @Eno{targetself=true;r=3;conditions=[  - hastag{t=nice} true ]} 
+    - potion{type=RESISTANCE;lvl=0;d=200;particles=false} @Eno{target=self,monster,player;r=3;conditions=[  - hastag{t=nice} true ]} 
     - particles{p=fireworks;a=10;hs=1;vs=1} @origin
     - sound{s=item.hoe.till;v=4;p=2}
     - sound{s=item.hoe.till;v=4;p=2}
@@ -83,19 +145,17 @@ HolyWater:
 HolyWater_naughty:
   Skills:
   - projectile{v=<caster.score.SnowballThrowingPower>;ot=WaterBoltT;onHit=[
-    - heal{a=1} @Eno{r=2;conditions=[  - hastag{t=naughty} true ]} 
+    - heal{a=1} @Eno{target=self,monster,player;r=2;conditions=[  - hastag{t=naughty} true ]} 
     - sound{s=entity.experience_orb.pickup;v=1;p=2}
     - sound{s=entity.experience_orb.pickup;v=1;p=2} @self
-    - effect:particles{particle=dust_color_transition;color1=#80a4ff;color2=#;hs=0.3;vs=1;a=20;y=1;speed=0}
    ];hn=40;vn=8;g=1;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
 
 HolyWater_nice:
   Skills:
   - projectile{v=<caster.score.SnowballThrowingPower>;ot=WaterBoltT;onHit=[
-    - heal{a=1} @Eno{r=2;conditions=[  - hastag{t=nice} true ]} 
+    - heal{a=1} @Eno{target=self,monster,player;r=2;conditions=[  - hastag{t=nice} true ]} 
     - sound{s=entity.experience_orb.pickup;v=1;p=2}
     - sound{s=entity.experience_orb.pickup;v=1;p=2} @self
-    - effect:particles{particle=dust_color_transition;color1=#80a4ff;color2=#;hs=0.3;vs=1;a=20;y=1;speed=0}
    ];hn=40;vn=8;g=1;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
 BlueBuffAttack:
   Skills:
@@ -167,7 +227,7 @@ Frostward_naughty:
   Skills:
   - projectile{i=1;syo=1;d=1200;mr=10000;v=0;g=1;sb=true;se=false;bounce=true;bouncevelocity=0;onTick=[
     - particles{p=reddust;color=#FF0000;a=10;hs=0;vs=2;audience=@Eno{r=100;targetself=true;conditions=[  - hastag{t=naughty} true ]} } @Origin
-    - potion{type=glowing;d=60;lvl=0;particles=false;hasIcon=false} @Eno{r=10;conditions=[  - hastag{t=naughty} false ]} 
+    -    @Eno{r=10;conditions=[  - hastag{t=naughty} false ]} 
     ];i=1} @targetlocation
     
 Frostward_nice:
@@ -251,18 +311,33 @@ SnowShovelMk3:
   - delay 3
   - skill{s=SnowShovelExtraDrop} @self 0.25
 
+SupportShovelMK2:
+  Cooldown: 2.5
+  Conditions:
+  - hasitem{i=snowball;amount=1to10} false
+  - hasitem{i=POTION;amount=5to10} false
+  - onBlock{m=snow_block,snow} TRUE
+  Skills:
+  - particles{p=block_crack;p=snow;a=1;repeat=10;repeatInterval=3;y=0.3} @self
+  - sound{s=block.snow.step;v=4;repeat=10;repeatInterval=3} @self
+  - aura{i=1;duration=50;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LDig"} @self
+  - stun{d=35;f=true} @self
+  - delay 35
+  - sound{s=entity.item.pickup} @self
+  - dropitem{i=SupportShovel} @self
+
 
 SupportShovel:
-  Cooldown: 5
+  Cooldown: 4
   Conditions:
-  - hasitem{i=POTION;amount=2to10} false
+  - hasitem{i=POTION;amount=3to10} false
   - onBlock{m=snow_block,snow} TRUE
   Skills:
   - particles{p=block_crack;p=snow;a=1;repeat=25;repeatInterval=3;y=0.3} @self
   - sound{s=block.snow.step;v=4;repeat=25;repeatInterval=3} @self
-  - aura{i=1;duration=100;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LDig"} @self
-  - stun{d=75;f=true} @self
-  - delay 75
+  - aura{i=1;duration=80;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LDig"} @self
+  - stun{d=60;f=true} @self
+  - delay 60
   - sound{s=entity.item.pickup} @self
   - dropitem{i=SupportShovel} @self
 BillowingSnowball:
@@ -833,6 +908,7 @@ SnowballCooldown:
   - setSkillCooldown{skill=LiquidNitrogen;seconds=1} @self
   - setSkillCooldown{skill=DruggedConcoction;seconds=1} @self
   - setSkillCooldown{skill=HolyWater;seconds=1} @self
+  - setSkillCooldown{skill=ThrowEggmog;seconds=1} @self
  
 
 
@@ -5026,6 +5102,7 @@ InvisibilityCloak:
   - sound{s=entity.blaze.shoot;p=0;v=12} @self 
   - hide{d=100} @server
   - potion{type=Invisibility;d=100;particles=false} @self
+  - potion{type=STRENGTH;d=100;lvl=0;particles=false} @self
 
 SupplierCooldown:
   Skills:

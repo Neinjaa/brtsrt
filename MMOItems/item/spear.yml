@@ -2218,9 +2218,11 @@ ASSASSINSHOVEL:
     disable-death-drop: true
     enchants:
       unbreaking: 1.0
-    attack-speed: 1.0
+    attack-speed: 1.6
     hide-enchants: true
     max-health: -8.0
+    critical-strike-chance: 1.0
+    critical-strike-power: 1000.0
 THROWABLEHOLYWATER:
   base:
     material: POTION
@@ -2295,6 +2297,84 @@ SUPPORTSHOVEL:
       ability1:
         type: DIG_FOR_CONSUMABLES
         mode: SNEAK
-        cooldown: 5.0
+        cooldown: 4.0
     disable-interaction: true
     disable-death-drop: true
+ENHANCEDSUPPORTSHOVEL:
+  base:
+    material: NETHERITE_SHOVEL
+    name: §b§lEnhanced Support Shovel
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 6.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+      ability1:
+        type: FIND_CONSUMABLES
+        mode: SNEAK
+        cooldown: 2.5
+    disable-interaction: true
+    disable-death-drop: true
+    max-health: -4.0
+GHOSTSHOVEL:
+  base:
+    material: DIAMOND_SWORD
+    name: §b§lAssassin's Shovel
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 7.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    ability:
+      ability1:
+        type: DIG_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+      ability3:
+        type: INVISIBILITY_CLOAK
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 30.0
+    disable-interaction: true
+    disable-death-drop: true
+    enchants:
+      unbreaking: 1.0
+    attack-speed: 1.6
+    hide-enchants: true
+    max-health: -8.0
+    critical-strike-chance: 2.0
+    critical-strike-power: 1000.0
+EGGMOG:
+  base:
+    material: POTION
+    name: §6§lThrowable Egg Mog
+    ability:
+      ability1:
+        type: THROW_EGGMOG
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+    disable-interaction: true
+    displayed-type: Snowball
+    hide-potion-effects: true
+    potion-color: 255 156 0
