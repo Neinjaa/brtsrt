@@ -29,21 +29,42 @@ TankingMode:
   - potion{d=400;type=ABSORPTION;lvl=2;particles=false} @self
   - potion{d=400;type=RESISTANCE;lvl=0;particles=false} @self
 
+
+
 BlueBuffPowers:
   Skills:
-  - sound{s=custom.banditshift;p=2;v=8} @self
+  - consumeslot{slot=HAND;amount=1} @self
+  - vskill{s=BlueBuffPowers_<caster.var.team>} @self
+BlueBuffPowers_naughty:
+  Skills:
+  - sound{s=custom.banditshift;p=2;v=8} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
   - orbital{d=1200;oy=1;rotate=true;rX=<random.-3to3>;rY=<random.-3to3>;rZ=<random.-3to3>;r=1;points=32;t=200;i=1;onTick=[
     - particles{p=dust_color_transition;color1=#2776FF;color2=#82C4FF} @origin  
-    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @self
+    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
   - orbital{d=1200;oy=1;rotate=true;rX=<random.-3to3>;rY=<random.-3to3>;rZ=<random.-3to3>;r=1;points=32;t=200;i=1;onTick=[
     - particles{p=dust_color_transition;color1=#2776FF;color2=#82C4FF} @origin  
-    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @self
-  - aura{i=1;duration=1200;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&LBlue Buff"} @self
-  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=36} @self
-  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=24;delay=1200} @self
-  - potion{d=20;repeat=59;repeatInterval=20;type=SPEED;lvl=2;particles=false} @self
-  - potion{d=20;repeat=59;repeatInterval=20;type=Jump;lvl=2;particles=false} @self
-  - potion{d=1200;type=ABSORPTION;lvl=4;particles=false} @self
+    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
+  - aura{i=1;duration=1200;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&LBlue Buff"} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=36} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=24;delay=1200} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
+  - potion{d=20;repeat=59;repeatInterval=20;type=SPEED;lvl=2;particles=false} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
+  - potion{d=20;repeat=59;repeatInterval=20;type=Jump;lvl=2;particles=false} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
+  - potion{d=1200;type=ABSORPTION;lvl=4;particles=false} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=naughty} true ]} 
+BlueBuffPowers_nice:
+  Skills:
+  - sound{s=custom.banditshift;p=2;v=8} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
+  - orbital{d=1200;oy=1;rotate=true;rX=<random.-3to3>;rY=<random.-3to3>;rZ=<random.-3to3>;r=1;points=32;t=200;i=1;onTick=[
+    - particles{p=dust_color_transition;color1=#2776FF;color2=#82C4FF} @origin  
+    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
+  - orbital{d=1200;oy=1;rotate=true;rX=<random.-3to3>;rY=<random.-3to3>;rZ=<random.-3to3>;r=1;points=32;t=200;i=1;onTick=[
+    - particles{p=dust_color_transition;color1=#2776FF;color2=#82C4FF} @origin  
+    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
+  - aura{i=1;duration=1200;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&LBlue Buff"} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=36} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=24;delay=1200} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
+  - potion{d=20;repeat=59;repeatInterval=20;type=SPEED;lvl=2;particles=false} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
+  - potion{d=20;repeat=59;repeatInterval=20;type=Jump;lvl=2;particles=false} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
+  - potion{d=1200;type=ABSORPTION;lvl=4;particles=false} @Eno{target=self,monster,player;r=250;conditions=[  - hastag{t=nice} true ]} 
 
 Redbull:
   Cooldown: 1
@@ -173,13 +194,19 @@ HolyWater_nice:
     - sound{s=entity.experience_orb.pickup;v=1;p=2} @self
    ];hn=40;vn=8;g=1;hnp=true;hp=true;mr=10000;i=1;d=200;hr=1;vr=1;se=true;y=1.5} @targetLocation
 BlueBuffAttack:
+  Cooldown: 5
+  Conditions:
+  - targetWithin{d=4} true
   Skills:
-  - particlering{p=block_crack;p=snow;r=<skill.var.itr>*0.4;repeat=20;repeatInterval=1;points=<skill.var.itr>*1.5 + 12;} @self
-    - damage{a=5;pkb=true} @entitiesInRadius{r=1}
-    - delay 5
-  - damage{a=5;pkb=true} @entitiesInRing{min=1;max=4}
+  - state{mid=bluebuff;s=attack} @self 
+  - delay 15
+  - sound{s=custom.gojoshoot;v=4} @self 
+  - particlering{p=block_crack;material=blue_ice;r=<skill.var.itr>*0.4;repeat=20;repeatInterval=1;points=<skill.var.itr>*1.5 + 12;} @self
+  - damage{a=7;pkb=true} @entitiesInRadius{r=1}
+  - delay 5
+  - damage{a=7;pkb=true} @entitiesInRing{min=1;max=4}
   - delay 10
-  - damage{a=5;pkb=true} @entitiesInRing{min=4;max=7} 
+  - damage{a=7;pkb=true} @entitiesInRing{min=4;max=7} 
   
 
 Chimney23:

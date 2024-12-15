@@ -1522,3 +1522,11 @@ CHRISTMAS_PRESENT:
         type: OPEN_PRESENT
         mode: RIGHT_CLICK
     item-cooldown: 0.2
+BLUEBUFF:
+  base:
+    material: HEART_OF_THE_SEA
+    name: §b§lBlue Buff
+    ability:
+      ability1:
+        type: USE_BLUE_BUFF
+        mode: RIGHT_CLICK

@@ -31,22 +31,26 @@ FROST_PowerUp1:
 
 FROST_BlueBuff:
   Type: Zombie
-  Health: <random.40to60>
-  Display: '&2Ogre'
-  Damage: 50
+  Health: 70
+  Display: '&b&lBlue Buff'
   Modules:
     ThreatTable: true
   Options:
     PreventRandomEquipment: true
     ShowHealth: true
     Silent: true
-    MovementSpeed: 0.32
+    MovementSpeed: 0.15
     PreventSunburn: true
     FollowRange: 48
+    KnockbackResistance: 1
+  Drops:
+  - mmoitems{type=CONSUMABLE;id=BLUEBUFF} 1 1 
   Skills:
-  - randomskill{s=OgreA2,OgreA3} @self ~onTimer:60 0.4
-  - model{mid=ogre;n=false;step=1} @self ~onSpawn 
-  - model{mid=ogre;n=false;step=1} @self ~onTimer:100
+  - skill{s=RockGolemH;cooldown=0.1} @self ~onDamaged
+  - potion{type=WEAKNESS;lvl=255;d=10000000} @self ~onSpawn
+  - model{mid=bluebuff;n=false;step=1} @self ~onSpawn 
+  - model{mid=bluebuff;n=false;step=1} @self ~onTimer:100
+  - skill{s=BlueBuffAttack} @self ~onTimer:50 0.5
 
 CoalGenerator:
   Type: Zombie

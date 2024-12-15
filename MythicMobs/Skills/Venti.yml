@@ -7,7 +7,6 @@ TargetWind:
     
 WhirlwindS:
     Skills:
-    - aura{auraname=Va;oT=Va
     - particlering{p=reddust;color=#77ffd3;r=4;points=128;amount=3;hS=1;vS=5} @self
     - projectile{v=16;sb=true;startyoffset=7;vO=90;mr=7;oT=WhirlwindT;i=1} @RLNTE{a=20;r=4;s=0.5}
     - velocity{m=set;x=0;y=1.5;z=0} @self
@@ -20,7 +19,3 @@ WhirlwindS:
 WhirlwindT:
     Sills:
     - effect:particlesphere{p=reddust;color=#FFFFFF;amount=3;radius=0.5}
-    
-Va:
-    Skills:
-    - 
