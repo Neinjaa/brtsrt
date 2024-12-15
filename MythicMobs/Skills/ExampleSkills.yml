@@ -12,7 +12,22 @@ FROST_PowerUpAbility:
   - delay 5
   - remove @self 
 
-  
+TankingMode:
+  Skills:
+  - sound{s=custom.gojocharge;p=2;v=8} @self
+  - sound{s=custom.gojocharge;p=2;v=8} @self
+  - orbital{d=1200;oy=1;rotate=true;rX=<random.-3to3>;rY=<random.-3to3>;rZ=<random.-3to3>;r=1;points=32;t=200;i=1;onTick=[
+    - particles{p=dust_color_transition;color1=#FFFFFF;color2=#afafaf} @origin  
+    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @self
+  - orbital{d=1200;oy=1;rotate=true;rX=<random.-3to3>;rY=<random.-3to3>;rZ=<random.-3to3>;r=1;points=32;t=200;i=1;onTick=[
+    - particles{p=dust_color_transition;color1=#FFFFFF;color2=#afafaf} @origin  
+    ];vx=<random.-2to2>;vy=<random.-2to2>;vz=<random.-2to2>} @self
+  - aura{i=1;duration=400;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&LTank Mode"} @self
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=18} @self
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=24;delay=400} @self
+  - potion{d=400;type=SLOWNESS;lvl=1;particles=false} @self
+  - potion{d=400;type=ABSORPTION;lvl=2;particles=false} @self
+  - potion{d=400;type=RESISTANCE;lvl=0;particles=false} @self
 
 BlueBuffPowers:
   Skills:
@@ -408,10 +423,10 @@ Blizzard:
 RoboticArm:
   Cooldown: 1
   Skills:
-  - aura{i=1;duration=600;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&LIncreased Throwing Power"} @self
+  - aura{i=1;duration=400;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&LIncreased Throwing Power"} @self
   - sound{s=custom.dronesummon;v=4} @self
-  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=48} @self
-  - delay 600
+  - modifytargetscore{objective=SnowballThrowingPower;action=set;v=36} @self
+  - delay 400
   - modifytargetscore{objective=SnowballThrowingPower;action=set;v=24} @self
   - sound{s=block.beacon.deactivate;v=4;p=2} @self
   

@@ -835,3 +835,8 @@ Use Blue Buff:
   mythicmobs-skill-id: BlueBuffPowers
   modifiers:
   - cooldown
+
+Tank Mode:
+  mythicmobs-skill-id: TankingMode
+  modifiers:
+  - cooldown

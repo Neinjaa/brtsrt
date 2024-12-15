@@ -2378,3 +2378,101 @@ EGGMOG:
     displayed-type: Snowball
     hide-potion-effects: true
     potion-color: 255 156 0
+SNOWPICK:
+  base:
+    material: DIAMOND_PICKAXE
+    name: §l§7Enhanced Snow Pickaxe
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 2.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability1:
+        type: DIG_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+      ability3:
+        type: TANK_MODE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 60.0
+    disable-interaction: true
+    disable-death-drop: true
+    armor: 4.0
+    armor-toughness: 3.0
+    max-health: 4.0
+SNOWPICK1:
+  base:
+    material: IRON_PICKAXE
+    name: §f§lSnow Pickaxe
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 2.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability1:
+        type: DIG_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+    disable-interaction: true
+    disable-death-drop: true
+    armor: 4.0
+    armor-toughness: 3.0
+    max-health: 4.0
+SNOWLAUNCHER:
+  base:
+    material: DIAMOND_SHOVEL
+    name: §b§lSnow Launcher
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 4.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability1:
+        type: DIG_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+      ability3:
+        type: ACTIVATE_ROBOTIC_ARM
+        cooldown: 40.0
+        mode: SHIFT_RIGHT_CLICK
+    disable-interaction: true
+    disable-death-drop: true
