@@ -1949,34 +1949,16 @@ SNOWBALLBASIC:
         mode: LEFT_CLICK
     disable-interaction: true
     displayed-type: Snowball
-SNOWSHOVELMK1:
+SNOWBALLGHOST:
   base:
-    material: STONE_SHOVEL
-    name: §f§lSnow Shovel Mk1
-    unbreakable: true
-    displayed-type: Shovel
-    attack-damage: 3.0
-    attack-speed: 1.0
-    blunt-power: 1.5
-    craft-permission: block.anvil.break 1 1
-    sounds:
-      on-attack:
-        sound: block.anvil.place
-        volume: 1.0
-        pitch: 1.0
-    enchants:
-      knockback: 1.0
-    hide-enchants: true
+    material: SNOWBALL
+    name: §7§lGhost Snowball
     ability:
       ability1:
-        type: SCOOP_SNOW
-        mode: SNEAK
-      ability2:
-        type: BREAK_BLOCK
-        mode: RIGHT_CLICK
-        cooldown: 1.5
+        type: THROW_GHOST_BALL
+        mode: LEFT_CLICK
     disable-interaction: true
-    disable-death-drop: true
+    displayed-type: Snowball
 SNOWBALLROCK:
   base:
     material: SNOWBALL
@@ -1997,34 +1979,6 @@ SNOWBALLICE:
         mode: LEFT_CLICK
     disable-interaction: true
     displayed-type: Snowball
-SNOWSHOVELMK2:
-  base:
-    material: IRON_SHOVEL
-    name: §f§lSnow Shovel Mk2
-    unbreakable: true
-    displayed-type: Shovel
-    attack-damage: 4.0
-    attack-speed: 1.0
-    blunt-power: 1.5
-    craft-permission: block.anvil.break 1 1
-    sounds:
-      on-attack:
-        sound: block.anvil.place
-        volume: 1.0
-        pitch: 1.0
-    enchants:
-      knockback: 1.0
-    hide-enchants: true
-    ability:
-      ability1:
-        type: DIG_SNOW
-        mode: SNEAK
-      ability2:
-        type: BREAK_BLOCK
-        cooldown: 1.0
-        mode: RIGHT_CLICK
-    disable-interaction: true
-    disable-death-drop: true
 SNOWBALLBOULDER:
   base:
     material: SNOWBALL
@@ -2075,33 +2029,6 @@ ROLLINGSNOWBALL:
         mode: LEFT_CLICK
     disable-interaction: true
     displayed-type: Snowball
-SNOWSHOVELMK3:
-  base:
-    material: GOLDEN_SHOVEL
-    name: §6§lSnow Shovel Mk3
-    unbreakable: true
-    displayed-type: Shovel
-    attack-damage: 5.0
-    attack-speed: 0.5
-    blunt-power: 1.5
-    craft-permission: block.anvil.break 1 1
-    sounds:
-      on-attack:
-        sound: block.anvil.place
-        volume: 1.0
-        pitch: 1.0
-    enchants:
-      knockback: 1.0
-    hide-enchants: true
-    ability:
-      ability1:
-        type: EXCAVATE_SNOW
-        mode: SNEAK
-      ability2:
-        type: BREAK_BLOCK
-        mode: RIGHT_CLICK
-        cooldown: 0.5
-    disable-interaction: true
 SNOWBALLBOUNCY:
   base:
     material: SNOWBALL
@@ -2152,6 +2079,21 @@ YELLOWSNOWBALL:
         mode: LEFT_CLICK
     disable-interaction: true
     displayed-type: Snowball
+BROWNSNOWBALL:
+  base:
+    material: SNOWBALL
+    name: §6§lBrown Snowball
+    ability:
+      ability1:
+        type: THROW_BROWN_SNOWBALL
+        mode: LEFT_CLICK
+      ability2:
+        type: AWFUL_STENCH
+        mode: TIMER
+        timer: 1.0
+        cooldown: 1
+    disable-interaction: true
+    displayed-type: Snowball
 STATICSNOWBALL:
   base:
     material: SNOWBALL
@@ -2159,6 +2101,16 @@ STATICSNOWBALL:
     ability:
       ability1:
         type: THROW_ELECTRIC_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+BLACKSNOWBALL:
+  base:
+    material: SNOWBALL
+    name: §8§lBlack Snowball
+    ability:
+      ability1:
+        type: THROW_SINGULARITY
         mode: LEFT_CLICK
     disable-interaction: true
     displayed-type: Snowball
@@ -2182,6 +2134,36 @@ ANTIGRAVITYSNOWBALL:
         mode: LEFT_CLICK
     disable-interaction: true
     displayed-type: Snowball
+SANDBALL:
+  base:
+    material: SNOWBALL
+    name: §6§lBall of Sand
+    ability:
+      ability1:
+        type: THROW_BALL_OF_SAND
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+EXPLODINGSNOWBALL:
+  base:
+    material: SNOWBALL
+    name: §c§lExploding Snowball
+    ability:
+      ability1:
+        type: THROW_EXPLODING_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+RAINING:
+  base:
+    material: SNOWBALL
+    name: §1§lRaining Snowball
+    ability:
+      ability1:
+        type: THROW_RAINING_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
 BILLOWINGSNOWBALL:
   base:
     material: SNOWBALL
@@ -2192,37 +2174,39 @@ BILLOWINGSNOWBALL:
         mode: LEFT_CLICK
     disable-interaction: true
     displayed-type: Snowball
-ASSASSINSHOVEL:
+STORMSNOWBALL:
   base:
-    material: IRON_SWORD
-    name: §f§lSharp Shovel
-    unbreakable: true
-    displayed-type: Shovel
-    attack-damage: 7.0
-    blunt-power: 1.5
-    craft-permission: block.anvil.break 1 1
-    sounds:
-      on-attack:
-        sound: block.anvil.place
-        volume: 1.0
-        pitch: 1.0
+    material: SNOWBALL
+    name: §lCondensed Snow Storm
     ability:
       ability1:
-        type: DIG_SNOW
-        mode: SNEAK
-      ability2:
-        type: BREAK_BLOCK
-        cooldown: 1.0
-        mode: RIGHT_CLICK
+        type: THROW_SNOW_STORM
+        mode: LEFT_CLICK
     disable-interaction: true
-    disable-death-drop: true
-    enchants:
-      unbreaking: 1.0
-    attack-speed: 1.6
-    hide-enchants: true
-    max-health: -8.0
-    critical-strike-chance: 1.0
-    critical-strike-power: 1000.0
+    displayed-type: Snowball
+SNIPINGBALL:
+  base:
+    material: SNOWBALL
+    name: §lHeavy Snowball
+    ability:
+      ability1:
+        type: THROW_SNIPER_SNOWBALL
+        mode: LEFT_CLICK
+    disable-interaction: true
+    displayed-type: Snowball
+EGGMOG:
+  base:
+    material: POTION
+    name: §6§lThrowable Egg Mog
+    ability:
+      ability1:
+        type: THROW_EGGMOG
+        mode: RIGHT_CLICK
+        cooldown: 1.0
+    disable-interaction: true
+    displayed-type: Snowball
+    hide-potion-effects: true
+    potion-color: 255 156 0
 THROWABLEHOLYWATER:
   base:
     material: POTION
@@ -2271,13 +2255,13 @@ REDBULL:
     displayed-type: Snowball
     hide-potion-effects: true
     potion-color: 255 64 156
-SUPPORTSHOVEL:
+SNOWSHOVELMK1:
   base:
-    material: WOODEN_SHOVEL
-    name: §2§lJolly Spade
+    material: STONE_SHOVEL
+    name: §f§lSnow Shovel Mk1
     unbreakable: true
     displayed-type: Shovel
-    attack-damage: 2.0
+    attack-damage: 3.0
     attack-speed: 1.0
     blunt-power: 1.5
     craft-permission: block.anvil.break 1 1
@@ -2290,24 +2274,51 @@ SUPPORTSHOVEL:
       knockback: 1.0
     hide-enchants: true
     ability:
+      ability1:
+        type: SCOOP_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        mode: RIGHT_CLICK
+        cooldown: 1.5
+    disable-interaction: true
+    disable-death-drop: true
+SNOWSHOVELMK2:
+  base:
+    material: IRON_SHOVEL
+    name: §f§lSnow Shovel Mk2
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 4.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability1:
+        type: DIG_SNOW
+        mode: SNEAK
       ability2:
         type: BREAK_BLOCK
         cooldown: 1.0
         mode: RIGHT_CLICK
-      ability1:
-        type: DIG_FOR_CONSUMABLES
-        mode: SNEAK
-        cooldown: 4.0
     disable-interaction: true
     disable-death-drop: true
-ENHANCEDSUPPORTSHOVEL:
+SNOWSHOVELMK3:
   base:
-    material: NETHERITE_SHOVEL
-    name: §b§lEnhanced Support Shovel
+    material: GOLDEN_SHOVEL
+    name: §6§lSnow Shovel Mk3
     unbreakable: true
     displayed-type: Shovel
     attack-damage: 6.0
-    attack-speed: 1.0
+    attack-speed: 0.5
     blunt-power: 1.5
     craft-permission: block.anvil.break 1 1
     sounds:
@@ -2319,24 +2330,53 @@ ENHANCEDSUPPORTSHOVEL:
       knockback: 1.0
     hide-enchants: true
     ability:
+      ability1:
+        type: EXCAVATE_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
+        mode: RIGHT_CLICK
+        cooldown: 0.5
+    disable-interaction: true
+ASSASSINSHOVEL:
+  base:
+    material: IRON_SWORD
+    name: §f§lSharp Shovel
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 9.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    ability:
+      ability1:
+        type: DIG_SNOW
+        mode: SNEAK
       ability2:
         type: BREAK_BLOCK
         cooldown: 1.0
         mode: RIGHT_CLICK
-      ability1:
-        type: FIND_CONSUMABLES
-        mode: SNEAK
-        cooldown: 2.5
     disable-interaction: true
     disable-death-drop: true
-    max-health: -4.0
+    enchants:
+      unbreaking: 1.0
+    attack-speed: 1.8
+    hide-enchants: true
+    max-health: -8.0
+    critical-strike-chance: 1.0
+    critical-strike-power: 1000.0
+    knockback-resistance: 1.0
 GHOSTSHOVEL:
   base:
-    material: DIAMOND_SWORD
+    material: STICK
     name: §b§lAssassin's Shovel
     unbreakable: true
     displayed-type: Shovel
-    attack-damage: 7.0
+    attack-damage: 9.0
     blunt-power: 1.5
     craft-permission: block.anvil.break 1 1
     sounds:
@@ -2360,24 +2400,44 @@ GHOSTSHOVEL:
     disable-death-drop: true
     enchants:
       unbreaking: 1.0
-    attack-speed: 1.6
+    attack-speed: 1.8
     hide-enchants: true
     max-health: -8.0
     critical-strike-chance: 2.0
     critical-strike-power: 1000.0
-EGGMOG:
+    custom-model-data: 123540.0
+    knockback-resistance: 1.0
+SNOWPICK1:
   base:
-    material: POTION
-    name: §6§lThrowable Egg Mog
+    material: IRON_PICKAXE
+    name: §f§lSnow Pickaxe
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 2.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
     ability:
       ability1:
-        type: THROW_EGGMOG
-        mode: RIGHT_CLICK
+        type: DIG_SNOW
+        mode: SNEAK
+      ability2:
+        type: BREAK_BLOCK
         cooldown: 1.0
+        mode: RIGHT_CLICK
     disable-interaction: true
-    displayed-type: Snowball
-    hide-potion-effects: true
-    potion-color: 255 156 0
+    disable-death-drop: true
+    armor: 2.0
+    armor-toughness: 2.0
+    max-health: 4.0
 SNOWPICK:
   base:
     material: DIAMOND_PICKAXE
@@ -2410,13 +2470,13 @@ SNOWPICK:
         cooldown: 60.0
     disable-interaction: true
     disable-death-drop: true
-    armor: 4.0
-    armor-toughness: 3.0
+    armor: 2.0
     max-health: 4.0
-SNOWPICK1:
+    armor-toughness: 2.0
+SNOWLAUNCHER:
   base:
-    material: IRON_PICKAXE
-    name: §f§lSnow Pickaxe
+    material: DIAMOND_SHOVEL
+    name: §b§lSnow Launcher
     unbreakable: true
     displayed-type: Shovel
     attack-damage: 2.0
@@ -2432,25 +2492,29 @@ SNOWPICK1:
       knockback: 1.0
     hide-enchants: true
     ability:
-      ability1:
-        type: DIG_SNOW
-        mode: SNEAK
       ability2:
         type: BREAK_BLOCK
         cooldown: 1.0
         mode: RIGHT_CLICK
+      ability3:
+        type: ACTIVATE_SNOWBALL_LAUNCHER
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 40.0
+      ability1:
+        type: SNOW_LAUNCHER_RELOAD
+        mode: SNEAK
+        cooldown: 2.0
     disable-interaction: true
     disable-death-drop: true
-    armor: 4.0
-    armor-toughness: 3.0
-    max-health: 4.0
-SNOWLAUNCHER:
+    custom-model-data: 123541.0
+
+SUPPORTSHOVEL:
   base:
-    material: DIAMOND_SHOVEL
-    name: §b§lSnow Launcher
+    material: WOODEN_AXE
+    name: §2§lJolly Spade
     unbreakable: true
     displayed-type: Shovel
-    attack-damage: 4.0
+    attack-damage: 2.0
     attack-speed: 1.0
     blunt-power: 1.5
     craft-permission: block.anvil.break 1 1
@@ -2463,16 +2527,44 @@ SNOWLAUNCHER:
       knockback: 1.0
     hide-enchants: true
     ability:
-      ability1:
-        type: DIG_SNOW
-        mode: SNEAK
       ability2:
         type: BREAK_BLOCK
         cooldown: 1.0
         mode: RIGHT_CLICK
-      ability3:
-        type: ACTIVATE_ROBOTIC_ARM
-        cooldown: 40.0
-        mode: SHIFT_RIGHT_CLICK
+      ability1:
+        type: DIG_FOR_CONSUMABLES
+        mode: SNEAK
+        cooldown: 4.0
     disable-interaction: true
     disable-death-drop: true
+ENHANCEDSUPPORTSHOVEL:
+  base:
+    material: DIAMOND_AXE
+    name: §b§lEnhanced Support Shovel
+    unbreakable: true
+    displayed-type: Shovel
+    attack-damage: 10.0
+    attack-speed: 1.0
+    blunt-power: 1.5
+    craft-permission: block.anvil.break 1 1
+    sounds:
+      on-attack:
+        sound: block.anvil.place
+        volume: 1.0
+        pitch: 1.0
+    enchants:
+      knockback: 1.0
+    hide-enchants: true
+    ability:
+      ability2:
+        type: BREAK_BLOCK
+        cooldown: 1.0
+        mode: RIGHT_CLICK
+      ability1:
+        type: FIND_CONSUMABLES
+        mode: SNEAK
+        cooldown: 2.0
+    disable-interaction: true
+    disable-death-drop: true
+    max-health: -4.0
+    movement-speed: 0.02

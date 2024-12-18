@@ -4033,6 +4033,11 @@ JOYFULAUGMENT:
     name: §a§lJoyful Augment
     disable-repairing: true
     gem-color: Freezing
+    ability:
+      ability1:
+        type: FLEETFUL_BREEZE
+        mode: DAMAGED
+        cooldown: 20.0
 SHARPICE:
   base:
     material: NETHERITE_INGOT
@@ -4041,3 +4046,14 @@ SHARPICE:
     gem-color: Freezing
     weapon-damage: 25.0
     max-health: -2.0
+BLIZZARDINABOTTLE:
+  base:
+    material: nether_star
+    name: §7§lBlizzard Augment
+    disable-repairing: true
+    gem-color: Freezing
+    ability:
+      ability1:
+        type: BLIZZARD_IN_A_BOTTLE
+        mode: SNEAK
+    armor: -2.0

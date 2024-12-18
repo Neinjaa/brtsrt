@@ -88,7 +88,9 @@
   { "predicate": {"custom_model_data": 123536}, "model": "item/BigMartinSniper"},
   { "predicate": {"custom_model_data": 123537}, "model": "item/FlareGun"},
   { "predicate": {"custom_model_data": 123538}, "model": "item/BigGun"},
-  { "predicate": {"custom_model_data": 123539}, "model": "item/Molotov"}
+  { "predicate": {"custom_model_data": 123539}, "model": "item/Molotov"},
+  { "predicate": {"custom_model_data": 123540}, "model": "item/AssassinShovel"},
+  { "predicate": {"custom_model_data": 123541}, "model": "item/SnowballLauncher"}
 
  ]
 

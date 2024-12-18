@@ -698,6 +698,21 @@ Throw Yellow Snowball:
   modifiers:
   - cooldown
   
+Throw Brown Snowball:
+  mythicmobs-skill-id: BrownSnowball
+  modifiers:
+  - cooldown
+
+Awful Stench:
+  mythicmobs-skill-id: BrownSnowballTick
+  modifiers:
+  - cooldown
+
+Throw Singularity:
+  mythicmobs-skill-id: SnowBlackHole2
+  modifiers:
+  - cooldown
+
 Cast Blizzard:
   mythicmobs-skill-id: Blizzard
   modifiers:
@@ -838,5 +853,70 @@ Use Blue Buff:
 
 Tank Mode:
   mythicmobs-skill-id: TankingMode
+  modifiers:
+  - cooldown
+
+Throw Raining Snowball:
+  mythicmobs-skill-id: SnowballRain
+  modifiers:
+  - cooldown
+
+Throw Exploding Snowball:
+  mythicmobs-skill-id: AreaAttackSnowball
+  modifiers:
+  - cooldown
+
+Throw Ball of Sand:
+  mythicmobs-skill-id: Sandball
+  modifiers:
+  - cooldown
+
+Throw Snow Storm:
+  mythicmobs-skill-id: SnowStormSnowball
+  modifiers:
+  - cooldown
+
+Blizzard In A Bottle:
+  mythicmobs-skill-id: BlizzardInABottle
+  modifiers:
+  - cooldown
+
+Snow Launcher Reload:
+  mythicmobs-skill-id: SnowShovelMk2Launcher
+  modifiers:
+  - cooldown
+
+Activate Snowball Launcher:
+  mythicmobs-skill-id: RoboticArmSnowball
+  modifiers:
+  - cooldown
+
+Throw Sniper Snowball:
+  mythicmobs-skill-id: SnowballSnipe
+  modifiers:
+  - cooldown
+
+Frost Slide:
+  mythicmobs-skill-id: FROST_Slide
+  modifiers:
+  - cooldown
+
+Extendo Grip:
+  mythicmobs-skill-id: FROST_ExtendoGrip
+  modifiers:
+  - cooldown
+
+Summon Frosty:
+  mythicmobs-skill-id: SummonFrosty
+  modifiers:
+  - cooldown
+
+Summon Wolves:
+  mythicmobs-skill-id: SummonHunterWolf
+  modifiers:
+  - cooldown
+
+Throw Ghost Ball:
+  mythicmobs-skill-id: SnowballBasicGHOST
   modifiers:
   - cooldown

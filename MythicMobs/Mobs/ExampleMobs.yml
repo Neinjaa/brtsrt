@@ -1,5 +1,44 @@
 # For more information, check out the plugin manual or join us on Discord:
 # http://www.mythicmobs.net
+HunterWolf:
+  Type: WOLF
+  Damage: 0
+  Display: Hunter Wolf
+  Health: 20
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    FollowRange: 48
+    Tamed: true
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    Despawn: true
+    MovementSpeed: 0.35
+    KnockbackResistance: 1
+  Skills:
+  - remove{delay=2400} @self ~onSpawn
+FrostyTheSnowman:
+  Type: Snowman
+  Damage: 0
+  Display: Frosty The Snowman
+  Health: 10
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    FollowRange: 24
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    Baby: true
+    Despawn: true
+    MovementSpeed: 0
+    KnockbackResistance: 0
+  Skills:
+  - dropitem{i=SnowShovelT2} @self ~onTimer:200 
+  - remove{delay=1200} @self ~onSpawn
 
 FROST_PowerUp1:
   Type: HUSK
@@ -30,8 +69,8 @@ FROST_PowerUp1:
 
 
 FROST_BlueBuff:
-  Type: Zombie
-  Health: 70
+  Type: Zombie_
+  Health: 100
   Display: '&b&lBlue Buff'
   Modules:
     ThreatTable: true
@@ -46,11 +85,15 @@ FROST_BlueBuff:
   Drops:
   - mmoitems{type=CONSUMABLE;id=BLUEBUFF} 1 1 
   Skills:
+  - message{m="<trigger.name> has slain the Blue Buff"} @server ~onDeath
+  - message{m="Blue Buff has spawned!"} @server ~onSpawn
   - skill{s=RockGolemH;cooldown=0.1} @self ~onDamaged
   - potion{type=WEAKNESS;lvl=255;d=10000000} @self ~onSpawn
   - model{mid=bluebuff;n=false;step=1} @self ~onSpawn 
+  - sound{s=entity.blaze.death;v=64;p=0} @origin ~onDeath
   - model{mid=bluebuff;n=false;step=1} @self ~onTimer:100
-  - skill{s=BlueBuffAttack} @self ~onTimer:50 0.5
+  - skill{s=BlueBuffAttack} @self ~onTimer:40
+  - summon{mob=FROST_BlueBuff;delay=2400} @location{location=-5001,127,-6935} ~onDeath
 
 CoalGenerator:
   Type: Zombie
@@ -123,7 +166,7 @@ Chimney1:
 
 SnownusConverter:
   Type: VILLAGER
-  Display: '&2&lSnownus Converter'
+  Display: '&2&lGiftany Giving'
   Options:
     Despawn: false
     MovementSpeed: 0
@@ -144,7 +187,7 @@ SnownusConverter:
   - potion{type=WEAKNESS;lvl=254;d=10000000;particles=false} @self ~onSpawn
 SnownusTrader2:
   Type: VILLAGER
-  Display: '&2&lAugment Trader'
+  Display: '&2&lAugustus Ment'
   Options:
     Despawn: false
     MovementSpeed: 0
@@ -165,6 +208,12 @@ SnownusTrader2:
     3:
       Item1: 8 mmoitems.MISCELLANEOUS.SNOWNUS
       Result: mmoitems.GEM_STONE.SHARPICE
+    4:
+      Item1: 12 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.GEM_STONE.JOYFULAUGMENT
+    5:
+      Item1: 24 mmoitems.MISCELLANEOUS.SNOWNUS
+      Result: mmoitems.GEM_STONE.BLIZZARDINABOTTLE
   Skills:
   - stun{d=10000;f=true} @self ~onTimer:20
   - cancelEvent ~onDamaged  
@@ -172,12 +221,12 @@ SnownusTrader2:
 
 SnownusTrader3:
   Type: VILLAGER
-  Display: '&2&lTavernkeep'
+  Display: '&2&lBart Qeep'
   Options:
     Despawn: false
     MovementSpeed: 0
     KnockbackResistance: 1
-    Profession: ARMORER
+    Profession: CLERIC
     Type: SNOW
     Level: 5
     Despawn: false
@@ -232,6 +281,9 @@ SnownusTrader:
     4:
       Item1: 4 mmoitems.MISCELLANEOUS.SNOWNUS
       Result: mmoitems.CONSUMABLE.CHRISTMAS_PRESENT
+    5:
+      Item1: 2 coal
+      Result: mmoitems.MISCELLANEOUS.SNOWNUS
   Skills:
   - stun{d=10000;f=true} @self ~onTimer:20
   - cancelEvent ~onDamaged  
@@ -239,7 +291,7 @@ SnownusTrader:
 
 SnownusTrader4:
   Type: VILLAGER
-  Display: '&2&lBlacksmith'
+  Display: '&2&lWill Black'
   Options:
     Despawn: false
     MovementSpeed: 0

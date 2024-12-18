@@ -318,3 +318,57 @@ ESSENCEOFFROSTBITE:
           - v AIR 0 1..|v coal - 1.0..|v AIR 0 1..
           - v coal - 1.0..|v coal - 1.0..|v coal - 1.0..
           - v AIR 0 1..|v coal - 1.0..|v AIR 0 1..
+SUMMONREINDEER:
+  base:
+    material: STICK
+    name: §f§lDeer Whistle
+    ability:
+      ability1:
+        type: SUMMON_DEER
+        mode: RIGHT_CLICK
+        cooldown: 60.0
+FROSTSLIDE:
+  base:
+    material: LEATHER_BOOTS
+    name: §f§lFrost Skates
+    ability:
+      ability1:
+        type: FROST_SLIDE
+        mode: RIGHT_CLICK
+        cooldown: 8.0
+    disable-interaction: true
+    disable-death-drop: true
+CLAWS:
+  base:
+    material: STICK
+    name: §f§lExtendo Grip
+    ability:
+      ability1:
+        type: EXTENDO_GRIP
+        mode: RIGHT_CLICK
+        cooldown: 10.0
+    disable-interaction: true
+    disable-death-drop: true
+    custom-model-data: 123541.0
+FROSTY:
+  base:
+    material: SNOW_BLOCK
+    name: §b§lPortable Snowman
+    ability:
+      ability1:
+        type: SUMMON_FROSTY
+        mode: RIGHT_CLICK
+        cooldown: 60.0
+    disable-interaction: true
+    disable-death-drop: true
+WOLVE:
+  base:
+    material: BONE
+    name: §lDog Treat
+    ability:
+      ability1:
+        type: SUMMON_WOLVES
+        mode: RIGHT_CLICK
+        cooldown: 30.0
+    disable-interaction: true
+    disable-death-drop: true

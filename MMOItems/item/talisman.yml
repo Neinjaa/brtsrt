@@ -208,3 +208,14 @@ JUG_OF_KNOTS:
     armor: 10.0
     max-mana: 100.0
     mana-regeneration: 10.0
+FROSTFIGHT_TEAMSWAP:
+  base:
+    material: POWDER_SNOW_BUCKET
+    ability: {}
+    commands:
+      cmd0:
+        format: mm test cast FrostbiteCycleJoinTeam
+        delay: 0.0
+        op: true
+    disable-interaction: true
+    name: Swap Teams
