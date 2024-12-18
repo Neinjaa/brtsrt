@@ -26,7 +26,7 @@ Patriarchy:
   - sound{s=minecraft:entity.villager.ambient;v=1;p=2} @self
   - delay 1
 
-MagicSurge:
+MagicSurge1:
   Skills:
   - aura{i=1;duration=<skill.mcd>;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&l Magic Surge";n=mcd1} @self
 
@@ -44,21 +44,17 @@ RecursiveRay:
   - hasaura{n=mcd1} false
   Skills:
   - skill{s=MagicSurge1;mcd=260}
-  - sound{s=block.beacon.deactivate;v=0.7;p=1.6}
-  - sound{s=block.beacon.deactivate;v=0.7;p=0.5}
-  - projectile{g=0;v=300;mr=11.5;hnp=true;
-    onHit=[
+  - sound{s=block.beacon.deactivate;v=0.7;p=1.6} @self
+  - sound{s=block.beacon.deactivate;v=0.7;p=0.5} @self
+  - projectile{ti=5;g=0;v=300;mr=11.5;hnp=true;onHit=[
     - damage{a=9}
     - setnodamageticks{ticks=0}
-    - skill{s=RecursiveRayChance}
+    - skill{s=RecursiveRayChance} @self 0.25
     ];
-    }
-  - particleline{db=0.1;amount=2;particle=dust{c=#ff6430,s=1.4}} @forward{f=11.5,uel=true}
+    } @targetLocation
+  - particleline{y=1;fromOrigin=true;db=0.1;amount=2;particle=reddust;color=#ff6430;s=1.4} @forward{f=11.5;y=1}
 
 RecursiveRayChance:
-  Conditions:
-  - chance{chance=0.25} true
-  - hasaura{n=mcd1} true
   Skills:
   - auraRemove{n=mcd1} @self
   - message{m="&e&lLucky roll! &r&fYour &9Magic Surge &fhas dissipated!"} @self
