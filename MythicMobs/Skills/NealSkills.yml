@@ -26,4 +26,39 @@ Patriarchy:
   - sound{s=minecraft:entity.villager.ambient;v=1;p=2} @self
   - delay 1
 
-    
+MagicSurge:
+  Skills:
+  - aura{i=1;duration=<skill.mcd>;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&l Magic Surge";n=mcd1} @self
+
+Media:
+  Conditions:
+  - hasaura{n=mcd1} false
+  Skills:
+  - skill{s=MagicSurge1;mcd=100}
+  - healpercent{m=0.2;oh=false} @ENO{r=5}
+  - particlesphere{p=happy_villager;a=300;r=5}
+  - sound{s=block.amethyst_block.resonate;v=0.7}
+
+RecursiveRay:
+  Conditions:
+  - hasaura{n=mcd1} false
+  Skills:
+  - skill{s=MagicSurge1;mcd=260}
+  - sound{s=block.beacon.deactivate;v=0.7;p=1.6}
+  - sound{s=block.beacon.deactivate;v=0.7;p=0.5}
+  - projectile{g=0;v=300;mr=11.5;hnp=true;
+    onHit=[
+    - damage{a=9}
+    - setnodamageticks{ticks=0}
+    - skill{s=RecursiveRayChance}
+    ];
+    }
+  - particleline{db=0.1;amount=2;particle=dust{c=#ff6430,s=1.4}} @forward{f=11.5,uel=true}
+
+RecursiveRayChance:
+  Conditions:
+  - chance{chance=0.25} true
+  - hasaura{n=mcd1} true
+  Skills:
+  - auraRemove{n=mcd1} @self
+  - message{m="&e&lLucky roll! &r&fYour &9Magic Surge &fhas dissipated!"} @self
