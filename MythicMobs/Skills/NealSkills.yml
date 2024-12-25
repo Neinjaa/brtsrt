@@ -32,7 +32,7 @@ ForceWave:
   - aura{i=1;duration=40;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&lForce Wave";n=fw} @self
   - projectile{sb=true;hr=2.5;vr=1;mr=6;v=12;i=1;onTick=[
     - skill{s=ForceWaveT} @projectileforward{f=0}
-  ]} @targetLocation
+  ];} @targetLocation
   - sound{s=entity.breeze.idle_air;v=0.5}
   - sound{s=entity.player.attack.sweep;v=0.5}
 ForceWaveT:
@@ -43,7 +43,7 @@ ForceWaveT:
     - throw{v=5;vy=2}
   ];oP=[
   effect:particle{a=1;p=dust_color_transition;spread=0.1;color1=#FFFFFF;color2=#BCBCBC;size=1.3;d=1}
-  ]}
+  ];}
 MagicSurge1:
   Skills:
   - aura{i=1;duration=<skill.mcd>;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&l Magic Surge";n=mcd1} @self
