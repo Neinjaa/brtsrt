@@ -1,3 +1,8 @@
+BouncyBallsNoita:
+  Cooldown: 0.8
+  Skills:
+  - projectile{repeat=2;repeatinterval=3;bounces=true;bouncevelocity=1;gravity=0.8}
+
 PistolShot:
   Skills:
   - switch{condition=score{o=moveStyle;v=<case>};cases=
@@ -853,3 +858,272 @@ Soundburst:
         ]
       } @self
       
+BRT-CycleJoinTeams:
+  Skills:
+  - removetag{t=BRT_spades} @self
+  - removetag{t=BRT_hearts} @self
+  - removetag{t=BRT_diamonds} @self
+  - removetag{t=BRT_clubs} @self
+  - switch{condition=stringequals{val1="<caster.var.team>";val2="<case>"};cases=
+    case clubs=[
+    - setvar{var=caster.team;type=string;val="spades";save=true} @self
+    - command{ac=true;c="minecraft:team join spades"} @self
+    - particlering{particle=reddust;color=#71bceb;radius=1;points=32;amount=1;y=0.5;size=1.5}]
+    case spades=[
+    - setvar{var=caster.team;type=string;val="hearts";save=true} @self
+    - command{ac=true;c="minecraft:team join hearts"} @self
+    - particlering{particle=reddust;color=#eb71ac;radius=1;points=32;amount=1;y=0.5;size=1.5}]
+    case hearts=[
+    - setvar{var=caster.team;type=string;val="diamonds";save=true} @self
+    - command{ac=true;c="minecraft:team join diamonds"} @self
+    - particlering{particle=reddust;color=#fad578;radius=1;points=32;amount=1;y=0.5;size=1.5}]
+    case diamonds=[
+    - setvar{var=caster.team;type=string;val="clubs";save=true} @self
+    - command{ac=true;c="minecraft:team join clubs"} @self
+    - particlering{particle=reddust;color=#55c96c;radius=1;points=32;amount=1;y=0.5;size=1.5}]
+    case DEFAULT=[
+    - setvar{var=caster.team;type=string;val="spades";save=true} @self
+    - command{ac=true;c="minecraft:team join spades"} @self
+    - particlering{particle=reddust;color=#71bceb;radius=1;points=32;amount=1;y=0.5;size=1.5}]
+    } @self
+
+BRT-Bard-EnchantingAria:
+  Skills:
+  - setvar{var=caster.brt-bard-chorus;val=0;type=integer} @self ?!varset{var=caster.brt-bard-chorus}
+  - setvar{var=caster.brt-bard-buff;val="Swiftness";type=string} @self ?!varset{var=caster.brt-bard-buff}
+  - aura{auraname=BRT-Bard-EnchantingAria;d=80;rd=true;i=60;
+    oT=[
+    - skill{s=[
+      - aura{d=1;oS=[
+        - skill{s=BRT-RunTeamCheck;
+          type=match;cast=Bard-EnchantingAriaEffect}]} @EIRR{min=0.1;max=(1.5 + <caster.var.brt-bard-chorus>)}
+      - particlering{pts=(20 + (<caster.var.brt-bard-chorus> * 10));p=reddust;c=<caster.var.brt-bard-color>;a=2;r=(1.5 + <caster.var.brt-bard-chorus>);y=0.5} @self
+      - switch{condition=vareq{var=caster.brt-bard-buff;val="<case>"};cases=
+        case Swiftness=[
+        - potion{t=SPEED;d=70;lvl=0;p=false;i=false} @self]
+        case JumpBoost=[
+        - potion{t=JUMP_BOOST;d=70;lvl=1;p=false;i=false} @self]
+        case Defense=[
+        - onDamaged{d=70;m=0.8} @self]
+        case DEFAULT=[]} @self
+      ]} @self
+    ]} @self
+  - aura{auraname=BRT-Bard-AuraBar;bt=true;
+    bartimertext="<caster.var.brt-bard-aurabar|Not found>";
+    bartimercolor=BLUE;
+    oT=[- skill{s=BRT-Bard-AuraBar} @self];
+    d=2000;i=2} @self ?!hastag{t=NoClassAuraBar}
+  - aura{d=10;oE=[- removeaura{n=BRT-Bard-AuraBar}]} @self
+BRT-Bard-EnchantingAriaEffect:
+  Skills:
+  - particlering{pts=5;a=1;p=entity_effect;c=<caster.var.brt-bard-color>;y=0.5;r=1.5}
+  - switch{condition=vareq{var=caster.brt-bard-buff;val="<case>"};cases=
+    case Swiftness=[
+    - potion{t=SPEED;d=70;lvl=1;p=false;i=false}]
+    case JumpBoost=[
+    - potion{t=JUMP_BOOST;d=70;lvl=2;p=false;i=false}]
+    case Defense=[
+    - onDamaged{d=70;m=0.65}]
+    case DEFAULT=[]}
+BRT-Bard-WindsongBolts:
+  Cooldown: 0.7
+  Conditions:
+  - hastag{t=BRTBardSongs} castInstead BardSongSequence
+  Skills:
+  - setskillcooldown{s=BRT-Bard-BardicSoothing;sec=0.7} @self
+  - setvar{var=skill.brt-windsong-color;val=<caster.var.brt-bard-color>;type=string} @self
+  - skill{repeat=(2 + ceil((max(0,(<caster.var.brt-bard-chorus> - 2))) / 2));repeatI=2;s=[
+    - sound{s=block.note_block.guitar;p=1} @self
+    - setvar{var=caster.brt-bard-notecolor;val=0;type=integer} @self ?!varrange{var=caster.brt-bard-notecolor;val=1to2}
+    - addvar{var=caster.brt-bard-notecolor;a=1} @self
+    - switch{condition=vareq{var=caster.brt-bard-notecolor;val=<case>};cases=
+      case 1=[
+      - missile{i=1;ti=2;d=50;mr=12;in=8;v=20;r=0.6;a=0.3;se=false;
+        sso=<random.float.-1.5to1.5>;syo=<random.float.0.9to1.1>;
+        oHb=[
+        - particle{p=dust_color_transition;c1=#FFFFFF;c2=#f198d7;size=1.5;a=5}
+        - sound{s=block.amethyst_block.place;p=<random.float.1to2>}];
+        oT=[- particle{p=reddust;c=#f198d7;size=1;a=2}];
+        oS=[- particle{p=dust_color_transition;c1=#FFFFFF;c2=#f198d7;size=1.5;a=5}];
+        oH=[
+        - skill{s=BRT-RunTeamCheck;
+          type=nomatch;cast=Bard-WindsongBoltsOH}]
+        } @Forward{uel=true;y=0.5;f=15}]
+      case 2=[
+      - missile{i=1;ti=2;d=50;mr=12;in=8;v=20;r=0.6;a=0.3;se=false;
+        sso=<random.float.-1.5to1.5>;syo=<random.float.0.9to1.1>;
+        oHb=[
+        - particle{p=dust_color_transition;c1=#FFFFFF;c2=#e3db6d;size=1.5;a=5}
+        - sound{s=block.amethyst_block.place;p=<random.float.1to2>}];
+        oT=[- particle{p=reddust;c=#e3db6d;size=1;a=2}];
+        oS=[- particle{p=dust_color_transition;c1=#FFFFFF;c2=#e3db6d;size=1.5;a=5}];
+        oH=[
+        - skill{s=BRT-RunTeamCheck;
+          type=nomatch;cast=Bard-WindsongBoltsOH}]
+        } @Forward{uel=true;y=0.5;f=15}]
+      case 3=[
+      - missile{i=1;ti=2;d=50;mr=12;in=8;v=20;r=0.6;a=0.3;se=false;
+        sso=<random.float.-1.5to1.5>;syo=<random.float.0.9to1.1>;
+        oHb=[
+        - particle{p=dust_color_transition;c1=#FFFFFF;c2=#7eb7e0;size=1.5;a=5}
+        - sound{s=block.amethyst_block.place;p=<random.float.1to2>}];
+        oT=[- particle{p=reddust;c=#7eb7e0;size=1;a=2}];
+        oS=[- particle{p=dust_color_transition;c1=#FFFFFF;c2=#7eb7e0;size=1.5;a=5}];
+        oH=[
+        - skill{s=BRT-RunTeamCheck;
+          type=nomatch;cast=Bard-WindsongBoltsOH}]
+        } @Forward{uel=true;y=0.5;f=15}]
+      } @self
+    ]}
+BRT-Bard-WindsongChorus:
+  Skills:
+  - setvar{var=caster.brt-bard-windsong-chorus;val=0;type=integer} @self ?!varset{var=caster.brt-bard-windsong-chorus}
+  - addvar{var=caster.brt-bard-windsong-chorus;a=1} @self
+  - skill{s=[
+    - setvar{var=caster.brt-bard-windsong-chorus;val=0;type=integer} @self
+    - skill{s=BRT-Bard-GainChorus} @self
+    ]} @self ?varrange{var=caster.brt-bard-windsong-chorus;val=>5}
+BRT-Bard-GainChorus:
+  Skills:
+  - removeaura{n=RemoveBardChorus} @self
+  - aura{auraname=BardChorus;d=1000;i=1;ms=5;
+    oT=[
+    - aura{desot=false;auraname=RemoveBardChorus;d=90;
+      oE=[
+      - removeaura{n=BardChorus;stacks=1}
+      - setvar{var=caster.brt-bard-windsong-chorus;val=0;type=integer} @self]
+      } @self ?!hasaura{n=RemoveBardChorus}
+    - setvar{var=caster.brt-bard-chorus;val=<skill.var.aura-stacks>;type=integer} ?hasaura{n=BardChorus}];
+    oE=[
+    - setvar{var=caster.brt-bard-chorus;val=0;type=integer}
+    - setvar{var=caster.brt-bard-windsong-chorus;val=0;type=integer}
+    - removeaura{n=RemoveBardChorus}]} @self
+BRT-Bard-WindsongBoltsOH:
+  Conditions:
+  - hastag{t=BRT_<caster.var.team>} false
+  Skills:
+  - basedamage{m=3;pkb=true;pi=true}
+  - sound{s=block.amethyst_block.break;p=<random.float.1to2>}
+  - skill{s=BRT-Bard-WindsongChorus} @self
+BRT-Bard-BardicSoothing:
+  Cooldown: 0.7
+  Conditions:
+  - hastag{t=BRTBardSongs} castInstead BardSongSequence
+  Skills:
+  - setskillcooldown{s=BRT-Bard-WindsongBolts;sec=0.7} @self
+  - skill{repeat=2;repeatI=2;s=[
+    - sound{s=block.note_block.guitar;p=1.44} @self
+    - missile{i=1;ti=2;d=50;mr=12;in=8;v=20;r=0.6;a=0.3;se=false;
+      sso=<random.float.-1.5to1.5>;syo=<random.float.0.9to1.1>;
+      oHb=[
+      - particle{p=dust_color_transition;c2=#4bd6b6;c1=#ffffff;size=1.5;a=5}
+      - sound{s=block.amethyst_block.place;p=<random.float.1to2>}];
+      oT=[- particle{p=dust_color_transition;c2=#4bd6b6;c1=#f0ffe8;size=1;a=2}];
+      oS=[- particle{p=dust_color_transition;c2=#4bd6b6;c1=#ffffff;size=1.5;a=5}];
+      oH=[
+      - skill{s=BRT-RunTeamCheck;
+        type=match;cast=Bard-BardicSoothingOH}]
+      } @Forward{uel=true;y=0.5;f=15}
+    ]}
+BRT-Bard-BardicSoothingOH:
+  Conditions:
+  - stringeq{val1=<caster.var.team>;val2=<target.var.team>}
+  Skills:
+  - particle{p=glow;a=4;speed=0.2;y=0.5}
+  - heal{a=(1 + ceil((max(0,(<caster.var.brt-bard-chorus> - 2))) / 2))}
+  - sound{s=block.amethyst_block.break;p=<random.float.1to2>}
+  - skill{s=BRT-Bard-WindsongChorus} @self
+BRT-Bard-SonorousBlast:
+  Cooldown: 9
+  Skills:
+  - aura{d=15;desot=false;
+    oS=[- sound{s=entity.warden.sonic_charge;p=1.7}];
+    oT=[- velocity{x=0.99;y=1;z=0.99;m=multiply}];
+    oE=[
+    - particlering{repeat=7;repeatI=1;pts=(30 + (<caster.var.brt-bard-chorus> * 10));p=dust_color_transition;c1=#FFFFFF;c2=<caster.var.brt-bard-color>;a=2;
+      r=((3.5 + (<caster.var.brt-bard-chorus> * 1.2)) - (2 ^ (2 - <skill.var.itr>)));y=0.35} @origin
+    - particlering{size=3;pts=(30 + (<caster.var.brt-bard-chorus> * 10));p=reddust;c=<caster.var.brt-bard-color>;a=2;
+      r=(3.5 + (<caster.var.brt-bard-chorus> * 1.2));y=0.5} @origin
+    - sound{s=entity.elder_guardian.curse;p=1.8;cd=1} @self
+    - aura{d=1;oS=[
+      - skill{s=BRT-RunTeamCheck;
+        type=nomatch;cast=Bard-SonorousBlastOH}]} @EIRR{min=(0.2 + (<caster.var.brt-bard-chorus> * 0.2));max=(3.5 + (<caster.var.brt-bard-chorus> * 1.2))}
+    - delay 10
+    - removeaura{n=BardChorus} @self
+    - setvar{var=caster.brt-bard-chorus;val=0;type=integer}
+    ]} @self
+BRT-Bard-SonorousBlastOH:
+  TargetConditions:
+  - lineofsight
+  - health{h=0} false
+  Skills:
+  - basedamage{m=5;pkb=true;ia=true;ii=true}
+  - delay 1
+  - throw{v=15;vy=7;origin=@self{y=-1}}
+  - sound{s=entity.firework_rocket.twinkle_far;p=1.2}
+  - particle{p=end_rod;a=8;spread=0.1;speed=0.4};y=0.5
+BRT-Bard-MedleyShift:
+  Conditions:
+  - hasaurastacks{n=BardMedleyShiftCD;s=>1} false
+  Cooldown: 0.1
+  Skills:
+  - aura{auraname=BardMedleyShiftCD;d=1000;i=1;ms=2;
+    oT=[
+    - aura{desot=false;auraname=RemoveBardMedleyShiftCD;d=60;
+      oE=[- removeaura{n=BardMedleyShiftCD;stacks=1}]
+      } @self ?!hasaura{n=RemoveBardMedleyShiftCD}
+    ]} @self
+  - velocity{x=0;y=0;z=0;m=multiply} @self
+  - velocity{x=0;y=0;z=0.8;m=add;relative=true} @self
+  - velocity{x=0;y=0.4;z=0;m=add} @self ?grounded
+  - potion{t=SLOW_FALLING;d=30;p=false;i=false} @self
+  - sound{s=item.armor.equip_leather} @self
+  - sound{s=item.armor.equip_leather} @self
+  - particle{p=spit;a=5;spread=0.1;speed=0.4} @self
+  - switch{condition=vareq{var=caster.brt-bard-buff;val="<case>"};cases=
+    case Swiftness=[
+    - setvar{var=caster.brt-bard-buff;val="JumpBoost";type=string}
+    - setvar{var=caster.brt-bard-color;val=#e3db6d;type=string}]
+    case JumpBoost=[
+    - setvar{var=caster.brt-bard-buff;val="Defense";type=string}
+    - setvar{var=caster.brt-bard-color;val=#7eb7e0;type=string}]
+    case Defense=[
+    - setvar{var=caster.brt-bard-buff;val="Swiftness";type=string}
+    - setvar{var=caster.brt-bard-color;val=#f198d7;type=string}]
+    case DEFAULT=[
+    - setvar{var=caster.brt-bard-buff;val="Swiftness";type=string}
+    - setvar{var=caster.brt-bard-color;val=#f198d7;type=string}]
+    } @self
+  - removeaura{n=BRT-Bard-EnchantingAria} @self
+BRT-Bard-AuraBar:
+  Skills:
+  - switch{condition=hasaurastacks{n=BardChorus;s=<case>};cases=
+    case 1=[- setvar{var=caster.brt-bard-aurabar-chorus;type=string;val="&f&lChorus&r&f<&co> &l1&r&7<&fs>5&r"}]
+    case 2=[- setvar{var=caster.brt-bard-aurabar-chorus;type=string;val="&f&lChorus&r&f<&co> &l2&r&7<&fs>5&r"}]
+    case 3=[- setvar{var=caster.brt-bard-aurabar-chorus;type=string;val="&f&lChorus&r&f<&co> &l3&r&7<&fs>5&r"}]
+    case 4=[- setvar{var=caster.brt-bard-aurabar-chorus;type=string;val="&f&lChorus&r&f<&co> &l4&r&7<&fs>5&r"}]
+    case 5=[- setvar{var=caster.brt-bard-aurabar-chorus;type=string;val="&f&lChorus&r&f<&co> &l5&r&7<&fs>5&r"}]
+    case DEFAULT=[- setvar{var=caster.brt-bard-aurabar-chorus;type=string;val="&f&lChorus&r&f<&co> &l0&r&7<&fs>5&r"}]}
+  - switch{condition=vareq{var=caster.brt-bard-buff;val="<case>"};cases=
+    case Swiftness=[- setvar{var=caster.brt-bard-aurabar-buff;type=string;val="&f&lBuff&r<&co> <#f198d7>Swiftness&r"}]
+    case JumpBoost=[- setvar{var=caster.brt-bard-aurabar-buff;type=string;val="&f&lBuff&r<&co> <#e3db6d>Jump Boost&r"}]
+    case Defense=[- setvar{var=caster.brt-bard-aurabar-buff;type=string;val="&f&lBuff&r<&co> <#7eb7e0>Defense&r"}]
+    case DEFAULT=[- setvar{var=caster.brt-bard-aurabar-buff;type=string;val="&f&lBuff&r<&co> <#f198d7>Swiftness&r"}]}
+  - switch{condition=hasaurastacks{n=BardMedleyShiftCD;s=<case>};cases=
+    case 1=[- setvar{var=caster.brt-bard-aurabar-SR-CD;type=string;val="&f&l<&lb>SR<&rb>&r<&co> ★&7☆&r"}]
+    case 2=[- setvar{var=caster.brt-bard-aurabar-SR-CD;type=string;val="&f&l<&lb>SR<&rb>&r<&co> &7☆☆&r"}]
+    case DEFAULT=[- setvar{var=caster.brt-bard-aurabar-SR-CD;type=string;val="&f&l<&lb>SR<&rb>&r<&co> ★★&r"}]}
+  - setvar{var=caster.brt-bard-aurabar-SL-CD;type=string;val="&f&l<&lb>SL<&rb>&r<&co> &7☆&r"} ?skilloncooldown{s=BRT-Bard-SonorousBlast}
+  - setvar{var=caster.brt-bard-aurabar-SL-CD;type=string;val="&f&l<&lb>SL<&rb>&r<&co> &f★&r"} ?!skilloncooldown{s=BRT-Bard-SonorousBlast}
+  - setvar{var=caster.brt-bard-aurabar;type=string;val="<caster.var.brt-bard-aurabar-chorus> || <caster.var.brt-bard-aurabar-buff> || <caster.var.brt-bard-aurabar-SL-CD> || <caster.var.brt-bard-aurabar-SR-CD>"}
+
+BRT-RunTeamCheck:
+  Skills:
+  - setvar{var=skill.teamcheck;val=<target.var.team|nothing2>;type=string}
+  - setvar{var=skill.teamcheckgoal;val=<skill.type|nomatch>;type=string}
+  - setvar{var=skill.teamcheckresult;val=match;type=string} @self ?stringeq{val1=<caster.var.team|nothing>;val2=<skill.var.teamcheck|nothing2>}
+  - setvar{var=skill.teamcheckresult;val=nomatch;type=string} @self ?!stringeq{val1=<caster.var.team|nothing>;val2=<skill.var.teamcheck|nothing2>}
+  - vskill{s=BRT-<skill.cast>} ?stringeq{val1=<skill.var.teamcheckresult|nothing>;val2=<skill.var.teamcheckgoal|nothing2>}
+  - endprojectile ?stringeq{val1=<skill.var.teamcheckresult|nothing>;val2=<skill.var.teamcheckgoal|nothing2>}
+
+

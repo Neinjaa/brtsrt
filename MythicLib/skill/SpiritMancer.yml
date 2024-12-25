@@ -920,3 +920,60 @@ Throw Ghost Ball:
   mythicmobs-skill-id: SnowballBasicGHOST
   modifiers:
   - cooldown
+
+Wall Run:
+  mythicmobs-skill-id: WallRun
+  modifiers:
+  - cooldown
+
+Recharge Booster:
+  mythicmobs-skill-id: DoubleJumps
+  modifiers:
+  - cooldown
+
+Boosters:
+  mythicmobs-skill-id: TitanfallDoubleJump
+  modifiers:
+  - cooldown
+
+Enchanting Aria:
+  mythicmobs-skill-id: BRT-Bard-EnchantingAria
+Windsong Bolts:
+  mythicmobs-skill-id: BRT-Bard-WindsongBolts
+Bardic Soothing:
+  mythicmobs-skill-id: BRT-Bard-BardicSoothing
+Sonorous Blast:
+  mythicmobs-skill-id: BRT-Bard-SonorousBlast
+Medley Shift:
+  mythicmobs-skill-id: BRT-Bard-MedleyShift
+
+Deploy Net:
+  mythicmobs-skill-id: NettingShot
+Shoot Shotgun:
+  mythicmobs-skill-id: ImprovisedShotgun
+Blow Back:
+  mythicmobs-skill-id: Blowback
+
+Supersonic:
+  mythicmobs-skill-id: FreezingDash
+Follow The Wind:
+  mythicmobs-skill-id: FollowTheWind
+Hypersonic Slug:
+  mythicmobs-skill-id: HypersonicSlug
+Use Jetpack:
+  mythicmobs-skill-id: UseJetpack
+Recharge Jetpack:
+  mythicmobs-skill-id: JetpackFuel
+Mini Fireball:
+  mythicmobs-skill-id: Minifireball
+Launch Black Hole:
+  mythicmobs-skill-id: Black_Hole
+Launch Heavy Fireball:
+  mythicmobs-skill-id: HeavyFireball
+
+Noxious Aerosol:
+  mythicmobs-skill-id: NoxiousGasAG
+Poisonous Dart:
+  mythicmobs-skill-id: PoisonDart2
+Poison Jump:
+  mythicmobs-skill-id: PoisonRocket

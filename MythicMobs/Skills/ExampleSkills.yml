@@ -1,3 +1,343 @@
+RandomSnowEvent:
+  Skills:
+  - teleport{spreadh=0} @origin{yoffset=20}
+  - randomskill{s=SnowstormEvent1,SnowstormEvent2,SnowstormEvent3} @self
+  - delay 1
+  - hide{d=1000} @server
+  - stun{d=1000} @self
+
+SnowstormEvent3:
+  Skills:
+  - skill{s=SnowstormEvent33;executeafterdeath=true} @self
+SnowstormEvent33:
+  Skills:
+  - sendtitle{title="&4&lWARNING";subtitle="&7The Grinch is coming to town...";d=60} @server
+  - delay 400
+  - fakelightning @playersonserver{conditions=[  - hastag{t=nice} true ]} 
+  - potion{type=BLINDNESSS;lvl=1;particles=false;d=200;hasicon=false} @playersonserver{conditions=[  - hastag{t=nice} true ]}  
+  - damagePercent{p=0.3} @playersonserver{conditions=[  - hastag{t=nice} true ]} 
+  - heal{a=10} @playersonserver{conditions=[  - hastag{t=naughty} true ]} 
+SnowstormEvent2:
+  Skills:
+  - skill{s=SnowstormEvent22;executeafterdeath=true} @self
+SnowstormEvent22:
+  Skills:
+  - sendtitle{title="&4&lWARNING";subtitle="&7Santa Claus is coming to town...";d=60} @server
+  - delay 400
+  - fakelightning @playersonserver{conditions=[  - hastag{t=naughty} true ]} 
+  - potion{type=BLINDNESSS;lvl=1;particles=false;d=200;hasicon=false} @playersonserver{conditions=[  - hastag{t=naughty} true ]}  
+  - damagePercent{p=0.3} @playersonserver{conditions=[  - hastag{t=naughty} true ]} 
+  - heal{a=10} @playersonserver{conditions=[  - hastag{t=nice} true ]} 
+
+SnowstormEvent1:
+  Conditions:
+  - sunny orElseCast RandomSnowEvent
+  Skills:
+  - sendtitle{title="&4&lWARNING";subtitle="&7A snowstorm approaches...";d=60} @server
+  - delay 400
+  - weather{type=storm;duration=2400} 
+  - delay 2400
+  - weather{type=SUNNY;duration=2400} 
+
+
+PoisonRocket:
+  Skills:
+  - sound{s=block.lava.extinguish;v=4} @self
+  - projectile{hr=2;vr=7;sb=true;syo=0.3;sso=0;v=8;hs=false;mr=8;i=2;hnp=true;hp=true;se=false; 
+    onTick=[
+      - particles{p=dust_color_transition;color1=#176b0a;color2=#1ca529;vs=0.4;hs=1;a=10} @origin
+    ];}  @Ring{radius=8;points=16}
+  - lunge{velocity=1;vy=2} @targetLocation
+  - particles{p=dust_color_transition;color1=#176b0a;color2=#1ca529;vs=0.2;hs=0.3;a=8;y=0;repeatInterval=1;repeat=79} @self
+
+
+
+PoisonDart2:
+  Skills:
+  - auraremove{aura=Vulnerability} @self 
+  - showEntity{} @server 
+  - sound{s=entity.llama.spit;p=<random.float.1.3to1.6>;v=3} @self
+  - projectile{syo=1.5;g=0.25;hr=0.9;vr=0.9;d=150;hnp=true;hp=true;v=36;ti=1;sb=true;se=true;onTick=[
+    - particles{p=reddust;color=#4c4c4c;hs=0.05;vs=0.05;a=4;size=0.4}
+    - delay 4
+    - particles{p=dust_color_transition;color1=#176b0a;color2=#1ca529;hs=0.05;vs=0.05;a=2;size=0.4}
+    ];
+    onEnd=[
+    - particles{p=spore_blossom_air;speed=0.1;a=8;hs=0.5;vs=0.5;size=10}
+    - sound{s=entity.arrow.hit;v=1.5;p=1.5} @origin
+    ];
+    onHit=[
+    - setNoDamageTicks{ticks=0;delay=0}
+    - damage{a=0.5;pkb=true}
+    - setNoDamageTicks{ticks=0;delay=0}
+    - potion{type=poison;lvl=0;duration=100;particles=false}
+    - damage{a=<target.var.poisonstacks>/5;pkb=true}
+    - sudoskill{s=[ 
+      - aura{d=200;auraname=poison;ms=10;onTick=[
+        - skill{s=[
+          - setvariable{var=caster.poisonstacks;type=INTEGER;val=<skill.var.aura-stacks>} @self
+            ];} @self
+        ];
+        onStart=[
+          - setvariable{var=caster.poisonstacks;type=INTEGER;val=0} @self 
+        ];
+        onEnd=[
+          - setvariable{var=caster.poisonstacks;type=INTEGER;val=0} @self 
+        ];i=1} @self
+      ]} @target
+    ];} @targetLocation
+
+
+NoxiousGasAG:
+  Skills:
+  - sound{s=custom.wetfart;v=4;p=0} @origin
+  - potion{type=speed;lvl=2;duration=90;particles=false} @self 
+  - projectile{HitSelf=true;repeat=8;repeatInterval=10;bounce=true;bouncevelocity=0.1;syo=3;g=0;hr=2;vr=2;d=200;hnp=true;hp=true;v=2;i=10;sb=true;se=false;onTick=[
+    - particles{p=dust_color_transition;color1=#176b0a;color2=#1ca529;size=2;a=60;hs=1.3;vs=1.3}
+    - setNoDamageTicks{ticks=0;delay=0} @ENO{r=5}
+    - potion{type=poison;lvl=0;duration=100;particles=false} @ENO{r=5}
+    - potion{type=Slow;lvl=0;duration=100;particles=false} @ENO{r=5}
+    - damage{a=<target.var.poisonstacks>/8;pkb=true} @ENO{r=5}
+    - sudoskill{s=[ 
+      - aura{d=200;auraname=poison;ms=10;onTick=[
+        - skill{s=[
+          - setvariable{var=caster.poisonstacks;type=INTEGER;val=<skill.var.aura-stacks>} @self
+            ];} @self
+        ];
+        onStart=[
+          - setvariable{var=caster.poisonstacks;type=INTEGER;val=0} @self 
+        ];
+        onEnd=[
+          - setvariable{var=caster.poisonstacks;type=INTEGER;val=0} @self 
+        ];i=1} @self
+      ]} @ENO{r=5}
+    ];} @targetLocation
+
+HeavyFireball:
+  Cooldown: 10
+  Skills:
+  - sound{s=rotmg.oryx_hit;p=2;v=8} @self
+  - sound{s=rotmg.oryx_hit;p=2;v=8} @self
+  - sound{s=rotmg.oryx_hit;p=2;v=8} @self
+  - projectile{bulletscale=2;rotationspeed=1,1,1;bulletType=display;bulletmaterial=MAGMA_BLOCK;g=0;hnp=true;g=0.8;hp=true;v=32;i=1;hR=2;vR=2;sb=true;se=true;syo=1;d=10000;mr=10000;onTick=[
+    - particles{p=flame;speed=0.1;a=5;hs=1;vs=1} @origin
+    ];
+    onEnd=[
+    - ignite{d=60} @ENO{r=5}
+    - sound{s=entity.generic.explode;v=8;p=1}
+    - particles{p=flame;speed=1;a=50} @origin
+    - damage{a=6} @ENO{r=5}  
+    - skill{s=HeavyFireballFrag;fromorigin=true} @origin
+    - e:particles{p=explosion_emitter;vs=1;hs=1;a=5} @origin
+    ]} @targetLocation
+HeavyFireballFrag:
+  Skills:
+  - setnodamageticks{ticks=0} @ENO{r=5}
+  - particles{p=flash} @ORIGIN
+  - projectile{bulletscale=0.5;rotationspeed=1,1,1;bulletType=display;bulletmaterial=MAGMA_BLOCK;hr=2;vr=2;g=1;fromorigin=true;v=32;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - damage{a=2;pkb=true;ia=true}
+    - particles{p=flash} @ORIGIN
+    ];i=1;mr=1000;d=1000;hr=0.5;vr=0.5}  @RandomLocationsNearOrigin{a=4;r=10;y=-6}
+  - projectile{bulletscale=0.5;rotationspeed=1,1,1;bulletType=display;bulletmaterial=MAGMA_BLOCK;hr=2;vr=2;g=1;fromorigin=true;v=32;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - damage{a=2;pkb=true;ia=true}
+    - particles{p=flash} @ORIGIN
+    ];i=1;mr=1000;d=1000;hr=0.5;vr=0.5}  @RandomLocationsNearOrigin{a=4;r=10;y=0}
+  - projectile{bulletscale=0.5;rotationspeed=1,1,1;bulletType=display;bulletmaterial=MAGMA_BLOCK;hr=2;vr=2;g=1;fromorigin=true;v=32;ham=true;hnp=true;hp=true;se=true;sb=true;onHit=[
+    - setnodamageticks{ticks=0}
+    - particles{p=flash} @ORIGIN
+    - damage{a=2;pkb=true;ia=true}
+    ];i=1;mr=1000;d=1000;hr=0.5;vr=0.5}  @RandomLocationsNearOrigin{a=4;r=10;y=6}
+Black_Hole:
+  Cooldown: 10
+  Skills:
+  - sound{s=rotmg.oryx_hit;p=0;v=8} @self
+  - sound{s=rotmg.oryx_hit;p=0;v=8} @self
+  - sound{s=rotmg.oryx_hit;p=0;v=8} @self
+  - projectile{bulletscale=2;rotationspeed=1,1,1;bulletType=display;bulletmaterial=black_concrete;g=0;hnp=true;ti=0;hp=true;v=16;i=1;hR=1;vR=1;sb=false;se=false;syo=1;d=400;onTick=[
+    - pull{v=4.5;to=true;} @ENO{r=7}
+    - particlesphere{p=dust_color_transition;color1=#000000;color2=#999999;hs=0.1;vs=0.1;a=64;size=0.5;r=7;} @origin
+    ];} @targetLocation
+
+JetpackFuel:
+  Skills:
+  - modifytargetscore{objective=JetpackFuel;action=add;v=1} @self ?!variableInRange{var=caster.JetpackFuel;value=>49}
+  - setvariable{var=caster.JetpackFuel;type=INTEGER;val=<caster.score.JetpackFuel>} @self
+  - aura{i=2;ms=100;auraname=JetpackFuel;duration=100000;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&l<caster.var.JetpackFuel>/50";onEnd=[
+    - modifytargetscore{objective=JetpackFuel;action=set;v=0} @self
+    ];} @self
+  - setskillcd{s=UseJetpack;seconds=1} @self ?!stringequals{val1=AIR;val2=<caster.raytrace.4>}
+UseJetpack:
+  Cooldown: 0.01
+  Conditions:
+  - stringequals{val1=AIR;val2=<caster.raytrace.3>} true 
+  - variableInRange{var=caster.JetpackFuel;value=>5}
+  Skills:
+  - sound{s=custom.flightlooph;v=2;cooldown=0.8;} @self
+  - modifytargetscore{objective=JetpackFuel;action=subtract;v=5} @self
+  - setvariable{var=caster.JetpackFuel;type=INTEGER;val=<caster.score.JetpackFuel>} @self
+  - velocity{repeat=4;repeatInterval=1;m=add;velocityy=0.09;velocityx=0;velocityz=0.02;relative=true} @self
+  - particlering{y=0.2;p=flame;a=1;hs=0.1;vs=0.1;color2=#FFFFFF;color1=#494949;a=2;size=1.5;r=0.25;points=4} @self
+  - particlering{y=0.2;p=flame;a=1;hs=0.1;vs=0.1;color2=#FFFFFF;color1=#494949;a=2;size=1.5;r=0.75;points=12} @self
+  - particlering{y=0.2;p=flame;a=1;hs=0.1;vs=0.1;color2=#FFFFFF;color1=#494949;size=1.5;r=1.25;points=24} @self
+Minifireball:
+  Cooldown: 0.8
+  Skills:
+  - sound{s=rotmg.oryx_hit;p=1;v=8;repeat=2;repeatInterval=3;} @self
+  - sound{s=rotmg.oryx_hit;p=1;v=8;repeat=2;repeatInterval=3;} @self
+  - sound{s=rotmg.oryx_hit;p=1;v=8;repeat=2;repeatInterval=3;} @self
+  - projectile{bulletType=display;bulletmaterial=magma_block;bulletscale=0.3;rotationspeed=1,1,1;hn=10;vn=2;repeat=2;repeatInterval=3;bounce=true;bouncevelocity=1;hr=1;vr=1;sb=true;g=0.4;ti=1;syo=2;sso=0;mr=200;d=100;v=32;hp=true;hnp=true;
+    onTick=[
+      - effect:particles{p=flame;amount=1;speed=0;hS=0.1;vS=0.1} @origin
+    ];
+    onHit=[
+      - setNoDamageTicks{ticks=0}
+      - damage{a=4} 
+      - sound{s=block.lava.extinguish}
+      - particles{p=flame;speed=1;a=5}
+      ];} @targetLocation
+FollowTheWind:
+  Skills:
+  - ondamaged{damagemultiplier=0.01;d=10;deflectProjectiles=true} @self
+  - setvarloc{var=caster.chargingbreeze;v=@targetlocation} @self
+  - sound{s=custom.banditshift;v=6} @self
+  - propel{v=1.3;repeat=7;repeatInterval=1} @VariableLocation{var=caster.chargingbreeze}
+  - projectile{ontick=[
+    - setprojectiledirection @forward{f=1}
+    - skill{s=SRT_ChargingBreezeT} @self
+    ];ti=3;v=100;g=0.04;hr=4;se=false;hnp=true;sb=false;d=7;i=1;vr=4;mr=1000;syo=1;onHit=[
+    - particles{p=fireworks_spark;a=2;speed=1} 
+    ];} @targetLocation
+
+HypersonicSlug:
+  Skills:
+  - sound{s=entity.generic.explode;v=8} @forward{f=1}
+  - particles{p=explosion_large;vs=0.1;hs=0.1;a=1} @forward{f=1;y=1}
+  - sound{s=block.lava.extinguish;sc=master} @self
+  - propel{v=-2} @forward{f=-3}
+  - projectile{ti=4;hnp=true;hp=true;v=256;i=1;hR=2;vR=2;sb=true;se=false;syo=1;mr=10000;
+    onTick=[
+      - effect:particles{p=smoke;amount=8;hS=0.3;vS=0.3;} @origin
+    ];
+    onHit=[
+      - damage{a=8}       
+      - effect:particles{p=smoke;hs=0.2;vs=0.3;a=50;speed=1;y=0;} @origin
+      - effect:sound{s=entity.generic.explode;v=6;p=1} 
+      - particles{p=explosion_large;vs=1.5;hs=1.5;a=30} 
+      - throw{velocity=100;velocityY=20} 
+    ];} @targetLocation
+
+FreezingDash:
+  Cooldown: 5
+  Skills:
+  - potion{type=SLOW;duration=6;lvl=100;particles=false} @Self
+  - delay 6
+  - particles{p=flash;hs=0;vs=0} @self
+  - onDamaged{d=20;damageMods="SUFFOCATION 0"} @self
+  - delay 1
+  - teleport{spreadh=0} @targetLocation{maxdistance=12}
+  - delay 1
+  - effect:particleline{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1;fo=true} @self
+  - sound{s=custom.mercshiftstart;sc=master;v=8} @self
+  - particlelinehelix{fo=true;p=dust_color_transition;a=2;hs=0.05;vs=0.05;color2=#C9FAFD;color1=#1D61E1;hl=2;db=0.05;hr=1.6;syo=0.5;tyo=0.5} @self
+  - particleline{fo=true;p=fireworks_spark;a=2;hs=0.05;vs=0.05;speed=0.5;syo=0.5;tyo=0.5} @self
+  - particles{p=flash;hs=0;vs=0} @self
+  - delay 1
+  - skill{s=FreezingDash2} @self
+  
+
+FreezingDash2:
+  Skills:
+  - sound{s=entity.allay.hurt;p=0;v=8;} @origin
+  - sound{s=entity.allay.item_taken;p=0;v=8} @self
+  - damage{a=7} @entitiesinline{r=3;fo=true}
+  - potion{type=Slow;particles=false;lvl=254;d=60} @entitiesinline{r=3;fo=true}
+
+Blowback:
+  Skills:
+  - sound{s=custom.breezeshoot;v=8;p=2} @forward{f=2}
+  - sound{s=entity.blaze.shoot;v=8;p=2} @forward{f=2}
+  - propel{v=-1.5} @forward{f=-10}
+  - throw{v=14;vy=14} @eir{r=6}
+  - particles{p=cloud;a=20;speed=1} @self
+NettingShot:
+  Skills:
+  - showplayer{} @self
+  - potionclear{types=INVISIBILITY} @self
+  - projectile{v=64;ot=[
+    - effect:particles{particle=cloud;hs=0.1;vs=0.1;a=1;y=1;speed=0;size=2}
+    - sound{s=entity.fishing_bobber.retrieve;p=1} @origin
+    ];
+    onHit=[
+    - sound{s=entity.fishing_bobber.retrieve;p=1} @self
+    - prison{material=COBWEB;duration=30;breakable=true} 
+   ];g=0.4;hnp=true;hp=true;mr=128;i=1;d=200;hr=1;vr=1;se=true;y=0.5;ti=1} @targetLocation
+
+ImprovisedShotgun:
+  Skills:
+  - showplayer{} @self
+  - potionclear{types=INVISIBILITY} @self
+  - sound{s=entity.generic.explode;v=8;p=2} @forward{f=2}
+  - sound{s=custom.breezeshoot;v=8;p=2} @forward{f=2}
+  - sound{s=entity.generic.extinguish_fire;v=8;p=2} @forward{f=2}
+  - sound{s=entity.firework_rocket.large_blast;v=8;p=2} @forward{f=2}
+  - skill{s=ImprovisedShotgunB;repeat=1} @self
+  - skill{s=ImprovisedShotgunB;repeat=1} @self
+  - skill{s=ImprovisedShotgunB;repeat=1} @self
+  - skill{s=ImprovisedShotgunB;repeat=1} @self
+  - skill{s=ImprovisedShotgunB;repeat=1} @self
+  - skill{s=ImprovisedShotgunB;repeat=1} @self
+  - skill{s=ImprovisedShotgunB;repeat=1} @self
+  - skill{s=ImprovisedShotgunB;repeat=1} @self
+  - delay 10
+  - sound{s=block.wooden_door.open;v=3;p=2} @forward{f=2}
+  - delay 4
+  - sound{s=block.wooden_door.close;v=3;p=2} @forward{f=2}
+ImprovisedShotgunB:
+  Skills:
+  - projectile{forwardoffset=0;v=64;ot=[
+    - effect:particles{particle=smoke;hs=0.1;vs=0.1;a=1;y=1;speed=0;size=0.5}
+    ];
+    onHit=[
+    - setNoDamageTicks{ticks=0;delay=0} 
+    - damage{a=4.5;pkb=true}
+    - setNoDamageTicks{ticks=0;delay=0} 
+   ];hn=30;vn=5;g=0.4;hnp=true;hp=true;mr=128;i=1;d=200;hr=1;vr=1;se=true;y=0.5;ti=1} @targetLocation
+WallRun:
+  Conditions:
+  - stringequals{val1=AIR;val2=<caster.raytrace.3>} false 
+  - altitude{a=4to1000}
+  Skills:
+  - potion{type=LEVITATION;lvl=255;d=2;particles=false} @self ?!crouching
+  - lunge{velocity=0.6;vy=0} @self ?!crouching
+  - modifytargetscore{objective=MechaFuel;action=add;v=1} @self ?!variableInRange{var=caster.MechaFuel;value=>4}
+  - setvariable{var=caster.MechaFuel;type=INTEGER;val=<caster.score.MechaFuel>} @self
+  - aura{i=2;ms=100;auraname=MechaFuel;duration=100000;bt=true;bartimercolor=Red;bartimerdisplay="&f&l<caster.var.MechaFuel>/5 Charges";onEnd=[
+    - modifytargetscore{objective=MechaFuel;action=set;v=0} @self
+    ];} @self
+DoubleJumps:
+  Conditions:
+  - altitude{a=4to1000} false
+  Skills:
+  - modifytargetscore{objective=MechaFuel;action=add;v=1} @self ?!variableInRange{var=caster.MechaFuel;value=>4}
+  - setvariable{var=caster.MechaFuel;type=INTEGER;val=<caster.score.MechaFuel>} @self
+  - aura{i=2;ms=100;auraname=MechaFuel;duration=100000;onEnd=[
+    - modifytargetscore{objective=MechaFuel;action=set;v=0} @self
+    ];} @self
+TitanfallDoubleJump:
+  Conditions:
+  - variableInRange{var=caster.MechaFuel;value=>0}
+  - altitude{a=1.6to1000} true
+  - stringequals{val1=AIR;val2=<caster.raytrace.3>} true 
+  Skills:
+  - sound{s=custom.breezeshoot;v=2;} @self 
+  - modifytargetscore{objective=MechaFuel;action=subtract;v=1} @self
+  - setvariable{var=caster.MechaFuel;type=INTEGER;val=<caster.score.MechaFuel>} @self
+  - lunge{velocity=1;vy=0.8} @self
+  - particlering{y=0.2;p=dust_color_transition;a=1;hs=0.1;vs=0.1;color2=#FFFFFF;color1=#494949;a=2;size=1.5;r=0.25;points=4} @self
+  - particlering{y=0.2;p=dust_color_transition;a=1;hs=0.1;vs=0.1;color2=#FFFFFF;color1=#494949;a=2;size=1.5;r=0.75;points=12} @self
+  - particlering{y=0.2;p=dust_color_transition;a=1;hs=0.1;vs=0.1;color2=#FFFFFF;color1=#494949;size=1.5;r=1.25;points=24} @self
 SummonHunterWolf:
   Skills:
   - summon{mob=HunterWolf} @self 
@@ -372,7 +712,8 @@ Frostward_naughty:
   Skills:
   - projectile{i=1;syo=1;d=1200;mr=10000;v=0;g=1;sb=true;se=false;bounce=true;bouncevelocity=0;onTick=[
     - particles{p=reddust;color=#FF0000;a=10;hs=0;vs=2;audience=@Eno{r=100;targetself=true;conditions=[  - hastag{t=naughty} true ]} } @Origin
-    - potion{type=glowing;d=60;lvl=0;particles=false;hasIcon=false} @PLAYERSNEARORIGIN{r=10;conditions=[  - hastag{t=naughty} false ]} 
+    - potion{type=glowing;d=60;lvl=0;particles=false;hasIcon=false} @PLAYERSNEARORIGIN{r=10;conditions=[  - hastag{t=naughty} false ]}
+    - showplayer{} @PLAYERSNEARORIGIN{r=10;conditions=[  - hastag{t=naughty} false ]}
     ];i=1} @targetlocation
     
 Frostward_nice:
@@ -381,6 +722,7 @@ Frostward_nice:
   - projectile{i=1;syo=1;d=1200;mr=10000;v=0;g=1;sb=true;se=false;bounce=true;bouncevelocity=0;onTick=[
     - particles{p=reddust;color=#FF0000;a=10;hs=0;vs=2;audience=@Eno{r=100;targetself=true;conditions=[  - hastag{t=nice} true ]} } @Origin
     - potion{type=glowing;d=60;lvl=0;particles=false;hasIcon=false} @PlayersNearOrigin{r=10;conditions=[  - hastag{t=nice} false ]} 
+    - showplayer{} @PLAYERSNEARORIGIN{r=10;conditions=[  - hastag{t=nice} false ]}
     ];i=1} @targetlocation
 ConvertCoal:
   Cooldown: 1.1
@@ -528,9 +870,13 @@ SnownusConversion:
   - setvariable{var=caster.SnowballCurrency;type=INTEGER;val=<caster.score.SnowballCurrency>} @self
   - skill{s=SnownusConversion2} @Self
   
-  
+
+Frostbite_DEBUFF:
+  Skills:
+  - potion{type=SLOWNESS;lvl=2;d=100;hasparticles=false;hasicon=false} @self
 SnownusConversion2:
   Conditions:
+  - raining cast Frostbite_DEBUFF
   - variableInRange{var=caster.SnowballCurrency;value=1to32}
   Skills:
   - sound{s=entity.item.pickup;audience=@self} @self
@@ -1251,11 +1597,10 @@ SnowballCooldown:
   - setSkillCooldown{skill=Sandball;seconds=1} @self
   - setSkillCooldown{skill=AreaAttackSnowball;seconds=1} @self
   - setSkillCooldown{skill=SnowStormSnowball;seconds=1} @self
+  -
   - setSkillCooldown{skill=BrownSnowball;seconds=1} @self
   - setSkillCooldown{skill=SnowballBasicGHOST;seconds=1} @self
   - setSkillCooldown{skill=SnowballSnipe;seconds=1} @self
- 
- 
 
 
 SRT_DynamoReactor:
@@ -3159,7 +3504,7 @@ MechaFuel:
   - modifytargetscore{objective=MechaFuel;action=add;v=1} @self ?!variableInRange{var=caster.MechaFuel;value=>2}
   - setvariable{var=caster.MechaFuel;type=INTEGER;val=<caster.score.MechaFuel>} @self
   - aura{i=2;ms=100;auraname=MechaFuel;duration=100000;bt=true;bartimercolor=Red;bartimerdisplay="&f&l<caster.var.MechaFuel>/3 Charges";onEnd=[
-    - modifytargetscore{objective=CursedEnergy;action=set;v=0} @self
+    - modifytargetscore{objective=CurseMechaFuelon=set;v=0} @self
     ];} @self
 
 Dodgetest:
@@ -4581,7 +4926,7 @@ SRT_Dredgeline:
   - aura{i=1;duration=40;bt=true;bartimercolor=BLUE;bartimerdisplay="<#5E9DCA>&LDredge Line</#5E9DCA>"} @self
   - sound{s=item.trident.riptide_1;v=8;p=0} @self
   - delay 5
-  - projectile{hr=2;vr=1;sfo=2;v=24;se=true;hnp=true;sb=true;d=13;onTick=[
+  - projectile{hr=2;vr=1;sfo=2;v=32;se=true;hnp=true;sb=true;d=13;onTick=[
     - variableadd{var=caster.GrappleStrength;amount=0.1} @self 
     - particleline{p=dust_color_transition;color1=#5E9DCA;color2=#ceeaff;a=1;size=1;hS=0.1;vS=0.1;fromorigin=true} @self 
     - slash{p=48;fo=0;y=0;w=2.7;h=2.7;r=1.5;mpd=true;a=135;oP=[ e:p{p=dust_color_transition;a=5;hs=0.2;vs=0.2;size=0.5;color1=#5E9DCA;color2=#ceeaff} ];roll=0;d=1} @projectileforward{f=0}
@@ -4608,7 +4953,7 @@ DredgeGrappleMobAbility:
   Skills:
   - setvariable{var=caster.Dredge;type=STRING;val=<global.var.Dredge>} @Self
   - delay 1
-  - pull{v=6;repeat=2;repeatInterval=3} @UUID{caster.var.Dredge}
+  - pull{v=10;repeat=2;repeatInterval=3} @UUID{caster.var.Dredge}
   - delay 1
   - variableUnset{var=global.Dredge} @self
   - delay 10
@@ -4826,7 +5171,7 @@ SRT_Dash:
   - propel{v=1.5} @targetLocation
   - effect:sound{s=entity.ender_dragon.flap;v=4;p=1} @Self
   
-SRT_ Block:
+SRT_Block:
   Skills:
   - propel{v=1} @targetLocation
   - effect:sound{s=entity.ender_dragon.flap;v=4;p=1} @Self
@@ -5278,10 +5623,11 @@ MercShift3:
       ];i=1} @self
 
 
-Mercground:
+MercRightClick:
+  Cooldown: 4
   Skills:
   - sound{s=custom.mercsword;sc=master;v=4;p=<random.float.0.9to1.1>} @self
-  - lunge{velocity=1.6;vy=0.1} @self
+  - propel{v=1.5} @targetlocation
   - slash{p=64;fo=1.6;y=1.8;w=3.5;h=3.5;onHitEntity=[
       - damage{a=5;pkb=false}
       - setNoDamageTicks{ticks=0;delay=0}
@@ -5289,9 +5635,9 @@ Mercground:
   - slash{p=64;fo=1.6;y=1.8;w=3;h=3;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=30} @self
   - slash{p=64;fo=1.6;y=1.8;w=2.5;h=2.5;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=30} @self
   - slash{p=64;fo=1.6;y=1.8;w=2;h=2;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=30} @self
-  - delay 5
+  - delay 3
   - sound{s=custom.mercsword;sc=master;v=4;p=<random.float.0.9to1.1>} @self
-  - lunge{velocity=1.6;vy=0.1} @self
+  - propel{v=1.5} @targetlocation
   - slash{p=64;fo=1.6;y=1.8;w=3.5;h=3.5;onHitEntity=[
       - damage{a=5;pkb=false}
       - setNoDamageTicks{ticks=0;delay=0}
@@ -5299,9 +5645,30 @@ Mercground:
   - slash{p=64;fo=1.6;y=1.8;w=3;h=3;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=-30} @self
   - slash{p=64;fo=1.6;y=1.8;w=2.5;h=2.5;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=-30} @self
   - slash{p=64;fo=1.6;y=1.8;w=2;h=2;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=-30} @self
-  - setSkillCooldown{skill=MercRightClick;seconds=5} @self
+  - delay 3
+  - sound{s=custom.mercsword;sc=master;v=4;p=<random.float.0.9to1.1>} @self
+  - propel{v=1.5} @targetlocation
+  - slash{p=64;fo=1.6;y=1.8;w=3.5;h=3.5;onHitEntity=[
+      - damage{a=5;pkb=false}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=30} @self
+  - slash{p=64;fo=1.6;y=1.8;w=3;h=3;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=30} @self
+  - slash{p=64;fo=1.6;y=1.8;w=2.5;h=2.5;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=30} @self
+  - slash{p=64;fo=1.6;y=1.8;w=2;h=2;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=30} @self
+  - delay 3
+  - sound{s=custom.mercsword;sc=master;v=4;p=<random.float.0.9to1.1>} @self
+  - propel{v=1.5} @targetlocation
+  - slash{p=64;fo=1.6;y=1.8;w=3.5;h=3.5;onHitEntity=[
+      - damage{a=5;pkb=false}
+      - setNoDamageTicks{ticks=0;delay=0}
+    ];mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=-30} @self
+  - slash{p=64;fo=1.6;y=1.8;w=3;h=3;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=-30} @self
+  - slash{p=64;fo=1.6;y=1.8;w=2.5;h=2.5;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=-30} @self
+  - slash{p=64;fo=1.6;y=1.8;w=2;h=2;mpd=true;a=360;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.2;color2=#C9FAFD;color1=#1D61E1} ];roll=-30} @self
+  - delay 5
+  
 
-MercRightClick:
+MercGround:
   Cooldown: 5
   Conditions:
   - altitude{a=0-1} castInstead Mercground
@@ -5328,6 +5695,7 @@ MercRightClick:
   - slash{p=64;fo=3;y=2.5;w=3;h=3;a=360;mpd=true;oP=[ e:p{p=dust_color_transition;a=2;hs=0.2;vs=0.5;color2=#C9FAFD;color1=#1D61E1} ];roll=105;yaw=180} @self
   
 MercSwordB:
+  Cooldown: 0.1
   Conditions:
   - variableInRange{var=caster.Mercenary;value=>2} castInstead MercSwordC
   Skills:
@@ -5344,6 +5712,7 @@ MercSwordB:
   - setSkillCooldown{skill=MercSword;seconds=0.3} @self
 
 MercSwordA:
+  Cooldown: 0.1
   Conditions:
   - variableInRange{var=caster.Mercenary;value=>1} castInstead MercSwordB
   Skills:
@@ -5362,8 +5731,9 @@ MercSwordA:
   - modifytargetscore{objective=Mercenary;action=set;v=1} @self
 
 MercSword:
-  Cooldown: 0
+  Cooldown: 0.1
   Skills:
+  - propel{v=0.6} @targetLocation
   - onDamaged{d=20;damageMods="FALL 0"} @self
   - setvariable{var=caster.Mercenary;type=INTEGER;val=<caster.score.Mercenary>} @self
   - delay 1
@@ -5379,6 +5749,7 @@ MercJump:
   - particlering{y=0.2;p=dust_color_transition;a=1;hs=0.1;vs=0.1;color2=#C9FAFD;color1=#1D61E1;a=2;size=1.5;r=0.75;points=12}
   - particlering{y=0.2;p=dust_color_transition;a=1;hs=0.1;vs=0.1;color2=#C9FAFD;color1=#1D61E1;size=1.5;r=1.25;points=24}
 MercSwordC:
+  Cooldown: 0.1
   Skills:
   - modifytargetscore{objective=Mercenary;action=set;v=1} @self
   - sound{s=custom.mercheavysword;v=8;p=<random.float.0.8to1.2>} @self
@@ -5468,6 +5839,7 @@ InvisibilityCloak:
   - hide{d=100} @server
   - potion{type=Invisibility;d=100;particles=false} @self
   - potion{type=STRENGTH;d=100;lvl=0;particles=false} @self
+
 
 SupplierCooldown:
   Skills:
@@ -7532,7 +7904,7 @@ NoxiousGas:
     - damage{a=<target.var.poisonstacks>/8;pkb=true} @ENO{r=5}
     - sudoskill{s=[ 
       - aura{d=200;auraname=poison;ms=10;onTick=[
-        -   skill{s=[
+        - skill{s=[
           - setvariable{var=caster.poisonstacks;type=INTEGER;val=<skill.var.aura-stacks>} @self
             ];} @self
         ];
@@ -8473,7 +8845,7 @@ Satchel:
     ];
     onEnd=[
     - summon{mob=SatchelMob;noise=0;a=1} @origin
-    - damage{a=6} @ENO{r=5.5}
+    - damage{a=5} @ENO{r=5.5}
     - particles{p=flash;hs=0;vs=0} 
     - sound{s=entity.firework_rocket.blast;v=6;p=0.5}
     - sound{s=entity.firework_rocket.blast;v=6;p=0.5}
@@ -11746,21 +12118,12 @@ KillBeam:
 
 RedstoneMissile:
   Skills:
-  - propel{v=-1.6} @Forward{f=-1}
-  - recoil{r=4;pitch=0to-5} @self
   - sound{s=entity.wither.shoot;sc=master} @self
   - particles{p=explosion_large;vs=0.1;hs=0.1;a=1} @forward{f=1;y=1}
   - sound{s=block.lava.extinguish;sc=master} @self
   - projectile{hnp=true;hp=true;v=32;i=1;hR=2;vR=2;sb=true;se=true;syo=1;mr=10000;
     onTick=[
       - effect:particles{p=smoke;amount=8;hS=0.3;vS=0.3}
-    ];
-    onhit=[
-      - damage{a="<modifier.damage>"} @entitiesnearorigin{r=3.5}        
-      - effect:particles{p=smoke;hs=0.2;vs=0.3;a=100;speed=1;y=0} @origin
-      - effect:sound{s=entity.generic.explode;v=6;p=1}
-      - throw{velocity=15;velocityY=3} @entitiesnearorigin{r=3} 
-      - particles{p=explosion_large;vs=1.5;hs=1.5;a=30}
     ];
     onEnd=[
       - damage{a="<modifier.damage>"} @entitiesnearorigin{r=3.5}        
