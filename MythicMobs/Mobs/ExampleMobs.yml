@@ -1,5 +1,89 @@
 # For more information, check out the plugin manual or join us on Discord:
 # http://www.mythicmobs.net
+NaughtyBase:
+  Type: Snowman
+  Damage: 0
+  Display: Naughty Base
+  Health: 10000
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    FollowRange: 24
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    Baby: true
+    Despawn: true
+    MovementSpeed: 0
+    KnockbackResistance: 0
+  Skills:
+  - title{title="The nice team has won";d=100} @server ~onDeath
+NiceFlag:
+  Type: Snowman
+  Damage: 0
+  Display: Nice
+  Health: 20
+  Options:
+    PreventOtherDrops: true
+    FollowRange: 24
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    Baby: true
+    Despawn: true
+    MovementSpeed: 0
+    KnockbackResistance: 0
+  Skills:
+  - mounttarget @trigger ~onInteract 
+  - dismount @self ~onDamaged
+  - heal{a=1} @self ~onTimer:40
+  - potion{type=GLOWING;d=10000;particles=false} @self ~onTimer:40
+  - damage{a=10000} @MobsInRadius{types=NiceBase;r=2} ~onTimer:20
+
+NiceBase:
+  Type: Snowman
+  Damage: 0
+  Display: Nice Base
+  Health: 10000
+  Options:
+    DigOutOfGround: true
+    PreventOtherDrops: true
+    FollowRange: 24
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    Baby: true
+    Despawn: true
+    MovementSpeed: 0
+    KnockbackResistance: 0
+  Skills:
+  - title{title="The nice team has won";d=100} @server ~onDeath
+NaughtyFlag:
+  Type: Snowman
+  Damage: 0
+  Display: Naughty Flag
+  Health: 20
+  Options:
+    PreventOtherDrops: true
+    FollowRange: 24
+    Silent: true
+    PreventRandomEquipment: true
+    PreventSunburn: true
+    PreventJockeyMounts: true
+    Baby: true
+    Despawn: true
+    MovementSpeed: 0
+    KnockbackResistance: 0
+  Skills:
+  - mounttarget @trigger ~onInteract 
+  - heal{a=1} @self ~onTimer:40
+  - dismount @self ~onDamaged
+  - potion{type=GLOWING;d=10000;particles=false} @self ~onTimer:40
+  - damage{a=10000} @MobsInRadius{types=NiceBase;r=2} ~onTimer:20
+
 HunterWolf:
   Type: WOLF
   Damage: 0
@@ -63,6 +147,7 @@ FROST_PowerUp1:
   Equipment:
   - chest HEAD
   Skills:
+  - skill{s=RandomSnowEvent;executeafterdeath=true} @self ~onSpawn 0.2
   - cancelevent ~onDamaged 
   - skill{s=FROST_PowerUpAbility} @self ~onTimer:1
   - remove{delay=1200} @self ~onSpawn

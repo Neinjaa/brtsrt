@@ -322,10 +322,10 @@ REDSTONEROCKET:
       ability1:
         type: REDSTONEMISSILE
         mode: LEFT_CLICK
-        damage: 40.0
+        damage: 12.0
         velocity: 24.0
         radius: 5.0
-        cooldown: 3.0
+        cooldown: 2.0
     perm-effects:
       WEAKNESS: 254.0
 '123457':
@@ -2568,3 +2568,153 @@ ENHANCEDSUPPORTSHOVEL:
     disable-death-drop: true
     max-health: -4.0
     movement-speed: 0.02
+TESTGAMESPEAR:
+  base:
+    material: STICK
+    item-damage: 0.0
+    custom-model-data: 123485.0
+    name: §lRedstone Rocket Launcher
+    ability:
+      ability3:
+        type: THEBIGONE
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 15.0
+      ability2:
+        type: SATCHEL
+        cooldown: 5.0
+        mode: RIGHT_CLICK
+      ability1:
+        type: REDSTONEMISSILE
+        mode: LEFT_CLICK
+        velocity: 32.0
+        damage: 14.0
+        cooldown: 2.0
+      ability4:
+        type: BLOW_BACK
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 5.0
+    perm-effects:
+      WEAKNESS: 254.0
+SPELLSONG_GUITAR:
+  base:
+    material: STICK
+    ability:
+      ability1:
+        type: WINDSONG_BOLTS
+        mode: LEFT_CLICK
+      ability2:
+        type: BARDIC_SOOTHING
+        mode: RIGHT_CLICK
+      ability3:
+        type: SONOROUS_BLAST
+        mode: SHIFT_LEFT_CLICK
+      ability4:
+        type: MEDLEY_SHIFT
+        mode: SHIFT_RIGHT_CLICK
+    name: §x§f§7§7§e§e§3Melodia
+    displayed-type: §7Guitar
+    disable-interaction: true
+    disable-attack-passive: true
+    custom-model-data: 123510.0
+    disable-crafting: true
+    perm-effects:
+      WEAKNESS: 254.0
+    crafting:
+      shaped:
+        '1':
+          input:
+          - v AIR 0 1..|v spruce_planks - 1.0..|v AIR 0 1..
+          - v AIR 0 1..|v spruce_planks - 1.0..|v AIR 0 1..
+          - v spruce_planks - 1.0..|v string - 1.0..|v spruce_planks - 1.0..
+IMPROVISEDSHOTGUN:
+  base:
+    material: STICK
+    custom-model-data: 123516.0
+    name: §f§lImprovised Shotgun
+    ability:
+      ability1:
+        type: SHOOT_SHOTGUN
+        mode: RIGHT_CLICK
+        cooldown: 0.7
+      ability4:
+        type: INVISIBILITY_CLOAK
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 20.0
+      ability3:
+        type: HYPERSONIC_SLUG
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 5.0
+      ability2:
+        type: FOLLOW_THE_WIND
+        mode: LEFT_CLICK
+        cooldown: 5.0
+LASERSWORDCOPY:
+  base:
+    material: STICK
+    name: §b§lLaser Sword
+    ability:
+      ability1:
+        type: LASER_SWORD
+        mode: LEFT_CLICK
+      ability2:
+        type: WHIRLWIND
+        mode: RIGHT_CLICK
+      ability4:
+        type: SLICING_WINDS
+        mode: SHIFT_LEFT_CLICK
+      ability3:
+        type: SUPERSONIC
+        mode: SHIFT_RIGHT_CLICK
+    disable-interaction: true
+    custom-model-data: 123530.0
+NOITAWAND:
+  base:
+    material: STICK
+    item-damage: 0.0
+    ability:
+      ability1:
+        type: RECHARGE_JETPACK
+        mode: TIMER
+        timer: 0.0
+      ability2:
+        type: USE_JETPACK
+        mode: RIGHT_CLICK
+      ability3:
+        type: MINI_FIREBALL
+        mode: LEFT_CLICK
+      ability5:
+        type: LAUNCH_HEAVY_FIREBALL
+        mode: SHIFT_LEFT_CLICK
+      ability4:
+        type: LAUNCH_BLACK_HOLE
+        mode: SHIFT_RIGHT_CLICK
+    perm-effects:
+      WEAKNESS: 254.0
+    hide-enchants: true
+    name: §lNoita Wand
+    custom-model-data: 123465.0
+BLOWFARTGUN:
+  base:
+    material: STICK
+    name: §a§lPoisonous Blow Gun
+    disable-interaction: true
+    ability:
+      ability4:
+        type: INSANITYPOTION
+        mode: SHIFT_RIGHT_CLICK
+        cooldown: 10.0
+      ability1:
+        type: POISONOUS_DART
+        mode: RIGHT_CLICK
+        cooldown: 0.18
+      ability2:
+        type: NOXIOUS_AEROSOL
+        cooldown: 10.0
+        mode: LEFT_CLICK
+      ability3:
+        type: POISON_JUMP
+        mode: SHIFT_LEFT_CLICK
+        cooldown: 10.0
+    perm-effects:
+      WEAKNESS: 255.0
+    custom-model-data: 123526.0

@@ -1,1 +1,1 @@
-{"uniqueId":"2ce19b47-1f68-4ee5-9061-558a97b1045e","name":"world","variables":{"entries":{"Dredge":{"value":"44270bac-bce0-4d62-be5d-59d16175373c","expirationTime":1,"type":"String"},"grapplepullstrength":{"value":1.2000003,"expirationTime":1,"type":"Float"},"targetedentity":{"value":"6d93d826-1d61-4b40-93b5-3eacdbb04c59","expirationTime":1,"type":"String"},"targetedentity2":{"value":"9e6dc46b-b18e-472d-a7ca-0e6be0fd61a2","expirationTime":1,"type":"String"}}}}
+{"uniqueId":"2ce19b47-1f68-4ee5-9061-558a97b1045e","name":"world","variables":{"entries":{}}}

@@ -3064,6 +3064,11 @@ BARD_FEATHERED_HAT:
     disable-crafting: true
     unstackable: true
     disable-interaction: true
+    ability:
+      ability1:
+        type: ENCHANTING_ARIA
+        mode: TIMER
+        timer: 0.1
 BARD_RAIMENT:
   base:
     material: LEATHER_CHESTPLATE
@@ -5091,3 +5096,23 @@ SNOWBOOTS:
     disable-death-drop: true
     gem-sockets:
     - Freezing
+WALLTESTARMOR:
+  base:
+    material: IRON_BOOTS
+    disable-death-drop: true
+    ability:
+      ability1:
+        type: BOOSTERS
+        mode: SNEAK
+        cooldown: 0.25
+      ability2:
+        type: WALL_RUN
+        mode: TIMER
+        timer: 1.0
+      ability3:
+        type: RECHARGE_BOOSTER
+        mode: TIMER
+        timer: 1.0
+        cooldown: 0.0
+    unbreakable: true
+    fall-damage-reduction: 100.0
