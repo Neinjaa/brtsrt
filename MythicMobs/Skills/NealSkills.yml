@@ -32,7 +32,6 @@ ForceWave:
   - aura{i=1;duration=40;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&lForce Wave";n=fw} @self
   - projectile{sb=true;hr=2.5;vr=1;mr=6;v=12;i=1;onTick=[
     - skill{s=ForceWaveT} @projectileforward{f=0}
-  ];} @targetLocation
   - sound{s=entity.breeze.idle_air;v=0.5}
   - sound{s=entity.player.attack.sweep;v=0.5}
 ForceWaveT:
