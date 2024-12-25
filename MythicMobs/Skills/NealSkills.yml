@@ -34,18 +34,19 @@ ForceWave:
   - projectile{sb=false;mr=6;v=12;i=1;ontickskill=[
     - skill{s=ForceWaveTN} @projectileforward{f=0}
     ]} @targetlocation
-  - sound{s=entity.breeze.idle_air;v=0.5}
-  - sound{s=entity.player.attack.sweep;v=0.5} 
+  - sound{s=entity.breeze.idle_air;v=0.7}
+  - sound{s=entity.player.attack.sweep;v=0.7} 
 
 ForceWaveTN:
   Skills:
-  - slash{d=1;a=60;onHitEntitySkill=[
-    - baseDamage{a=3.5;useAttribute=true}
+  - slash{p=60;d=1;a=120;onHitEntitySkill=[
+    - baseDamage{m=3;useAttribute=true}
     - potion{type=slowness;d=30;l=1;particles=false}
     - throw{v=5;vy=2}
+    - sound{s=entity.player.attack.weak;v=1}
     ];
     onPoint=[
-    - particles{a=1;p=dust_color_transition;spread=0.1;color1=#FFFFFF;color2=#BCBCBC;size=1.3;d=1}
+    - particles{a=1;p=dust;color=#FFFFFF;size=1.3;d=1}
     ]}
 
 
