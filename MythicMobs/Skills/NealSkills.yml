@@ -26,6 +26,24 @@ Patriarchy:
   - sound{s=minecraft:entity.villager.ambient;v=1;p=2} @self
   - delay 1
 
+ForceWave:
+  Cooldown: 2
+  Skills:
+  - aura{i=1;duration=40;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&lForce Wave";n=fw} @self
+  - projectile{sb=true;hr=2.5;vr=1;mr=6;v=12;i=1;onTick=[
+    - skill{s=ForceWaveT} @projectileforward{f=0}
+  ]} @targetLocation
+  - sound{s=entity.breeze.idle_air;v=0.5}
+  - sound{s=entity.player.attack.sweep;v=0.5}
+ForceWaveT:
+  Skills:
+  - slash{y=1.8;d=20;a=60;onHitEntitySkill=[
+    - basedamage{a=3.5;useAttribute=true}
+    - potion{type=SLOWNESS;d=30;l=1}
+    - throw{v=5;vy=2}
+  ];oP=[
+  - particle{a=1;p=dust_color_transition;spread=0.1;color1=#FFFFFF;color2=#BCBCBC;size=1.3;d=1}
+  ]}
 MagicSurge1:
   Skills:
   - aura{i=1;duration=<skill.mcd>;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&l Magic Surge";n=mcd1} @self
@@ -47,7 +65,7 @@ RecursiveRay:
   - sound{s=block.beacon.deactivate;v=0.7;p=1.6} @self
   - sound{s=block.beacon.deactivate;v=0.7;p=0.5} @self
   - projectile{ti=5;g=0;v=300;mr=11.5;hnp=true;onHit=[
-    - damage{a=9}
+    - baseDamage{useAttribute=true;m=13;e=FIRE}
     - setnodamageticks{ticks=0}
     - skill{s=RecursiveRayChance} @self 0.25
     ];
