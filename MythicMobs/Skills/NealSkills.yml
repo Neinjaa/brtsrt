@@ -31,7 +31,7 @@ ForceWave:
   - hasaura{n=fw} false
   Skills:
   - aura{i=1;d=40;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&lForce Wave";n=fw} @self
-  - projectile{sb=true;hr=2.5;vr=1;mr=6;v=12;i=1;ontickskill=[
+  - projectile{sb=false;mr=6;v=12;i=1;ontickskill=[
     - skill{s=ForceWaveTN} @projectileforward{f=0}
     ]} @targetlocation
   - sound{s=entity.breeze.idle_air;v=0.5}
@@ -39,7 +39,7 @@ ForceWave:
 
 ForceWaveTN:
   Skills:
-  - slash{y=1.8;d=20;a=60;onHitEntitySkill=[
+  - slash{d=1;a=60;onHitEntitySkill=[
     - baseDamage{a=3.5;useAttribute=true}
     - potion{type=slowness;d=30;l=1;particles=false}
     - throw{v=5;vy=2}
