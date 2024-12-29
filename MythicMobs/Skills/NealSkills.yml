@@ -30,55 +30,88 @@ ForceWave:
   Conditions:
   - hasaura{n=fw} false
   Skills:
+  - setvariable{var=caster.wave;type=FLOAT;val=0.8} @self
   - aura{i=1;d=40;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&lForce Wave";n=fw} @self
   - projectile{sb=false;mr=6;v=12;i=1;ontickskill=[
     - skill{s=ForceWaveTN} @projectileforward{f=0}
+    - variableAdd{var=caster.wave;amount=0.5} @self
     ]} @targetlocation
-  - sound{s=entity.breeze.idle_air;v=0.7}
-  - sound{s=entity.player.attack.sweep;v=0.7} 
+  - sound{s=entity.breeze.idle_air;v=3} @self
+  - sound{s=entity.player.attack.sweep;v=3} @self
 
 ForceWaveTN:
   Skills:
-  - slash{p=60;d=1;a=120;onHitEntitySkill=[
-    - baseDamage{m=3.5;useAttribute=true}
-    - potion{type=slowness;d=30;l=1;particles=false}
+  - slash{w=<caster.var.wave>;p=60;d=1;a=120;onHitEntitySkill=[
+    - baseDamage{m=3.5;useAttribute=true;e=WIND}
+    - potion{type=slowness;d=20;l=0;particles=false}
     - throw{v=5;vy=2}
     - sound{s=entity.player.attack.weak;v=1}
     ];
     onPoint=[
-    - particles{a=1;p=reddust;color=#FFFFFF;size=1.3;d=1}
-    ]} @self
-
+    - particles{a=1;p=reddust;color=#ffffff;size=1.3;d=1}
+    ]}
+  
 
 MagicSurge1:
   Skills:
-  - aura{i=1;duration=<skill.mcd>;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&l Magic Surge";n=mcd1} @self
+  - aura{i=1;duration=<skill.mcd>;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&l Magic Surge Level 1";n=mcd1} @self
+
+MagicSurge1CD:
+  Skills:
+  - message{m="&fYour &9Level 1 Magic Surge &fis still active. <skill.text> could not be cast."} @self
+
+MagicSurge2:
+  Skills:
+  - aura{i=1;duration=<skill.mcd>;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&l Magic Surge Level 2";n=mcd2} @self
+
+MagicSurge2CD:
+  Skills:
+  - message{m="&fYour &bLevel 2 Magic Surge &fis still active. <skill.text> could not be cast."} @self
 
 Media:
-  Conditions:
-  - hasaura{n=mcd1} false
   Skills:
-  - skill{s=MagicSurge1;mcd=100}
+  - skill{s=MagicSurge1CD;text="Media"} @self ?hasaura{n=mcd1}
+  - skill{s=MH} @self ?!hasaura{n=mcd1}
+MH:
+  Skills:
+  - skill{s=MagicSurge1;mcd=220}
   - healpercent{m=0.2;oh=false} @ENO{r=5}
-  - particlesphere{p=happy_villager;a=300;r=5}
-  - sound{s=block.amethyst_block.resonate;v=0.7}
+  - healpercent{m=0.2;oh=false} @self
+  - particlesphere{p=happy_villager;a=300;r=5} @self
+  - sound{s=block.amethyst_block.resonate;v=3;p=0.5} @self
+  - sound{s=block.amethyst_block.resonate;v=3;p=1} @self
+  - sound{s=block.amethyst_block.resonate;v=3;p=2} @self
+
+Zio:
+  Skills:
+  - skill{s=MagicSurge1CD;text="Zio"} @self ?hasaura{n=mcd1}
+  - skill{s=ZD} @self ?!hasaura{n=mcd1}
+ZD:
+  Skills:
+  - skill{s=MagicSurge1;mcd=140}
+  - fakelightning @forward{f=5}
+  - basedamage{m=9.5;useAttribute=true;e=THUNDER;origin=@Forward{f=5};fromOrigin=true} @ENO{r=3}
 
 RecursiveRay:
-  Conditions:
-  - hasaura{n=mcd1} false
   Skills:
-  - skill{s=MagicSurge1;mcd=260}
+  - skill{s=MagicSurge2CD;text="Recursive Ray"} @self ?hasaura{n=mcd2}
+  - skill{s=RR} @self ?!hasaura{n=mcd2}
+
+RR:
+  Skills:
+  - skill{s=MagicSurge2;mcd=300}
   - sound{s=block.beacon.deactivate;v=0.7;p=1.6} @self
   - sound{s=block.beacon.deactivate;v=0.7;p=0.5} @self
   - projectile{ti=5;g=0;v=300;mr=11.5;hnp=true;onHit=[
-    - baseDamage{useAttribute=true;m=13;e=FIRE}
+    - baseDamage{useAttribute=true;m=13;e=LIGHT}
     - setnodamageticks{ticks=0}
+    - stun{d=10}
     - skill{s=RecursiveRayChance} @self 0.25
     ];
     } @targetLocation
-  - particleline{y=1;fromOrigin=true;db=0.1;amount=2;particle=reddust;color=#ff6430;s=1.4} @forward{f=11.5;y=1}
+  - particleline{y=1;fromOrigin=true;db=0.1;amount=2;particle=reddust;color=#ff6430;s=1.4} @forward{f=11.5;y=0.7}
 
 RecursiveRayChance:
   Skills:
-  - auraRemove{n=mcd1} @self
-  - message{m="&e&lLucky roll! &r&fYour &9Magic Surge &fhas dissipated!"} @self
+  - auraRemove{n=mcd2} @self
+  - message{m="&e&lLucky roll! &r&fYour &bLevel 2 Magic Surge &fhas dissipated!"} @self
