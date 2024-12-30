@@ -30,29 +30,33 @@ ForceWave:
   Conditions:
   - hasaura{n=fw} false
   Skills:
-  - projectile{sb=true;hr=2.5;vr=1;mr=6;v=12;i=1;onTick=[
-    - skill{s=ForceWaveT} @projectileforward{f=0}
+  - setvariable{var=caster.wave;type=FLOAT;val=0.7} @self
+  - projectile{stopatentity=false;sb=true;hr=2.5;vr=1;mr=6;v=8;i=1;onTick=[
+    - skill{s=ForceWaveT} @origin
+    - variableAdd{var=caster.wave;a=0.5} @self
     ];} @targetLocation
   - aura{i=1;duration=40;bt=true;bartimercolor=WHITE;bartimerdisplay="&f&lForce Wave";n=fw} @self
-  - sound{s=entity.breeze.idle_air;v=0.5}
-  - sound{s=entity.player.attack.sweep;v=0.5}
+  - sound{s=entity.breeze.idle_air;v=3} @self
+  - sound{s=entity.player.attack.sweep;v=3} @self
+
 ForceWaveT:
   Skills:
-  - slash{y=1.8;d=20;a=60;onHitEntitySkill=[
-    - basedamage{m=3.5;useAttribute=true}
-    - potion{type=SLOWNESS;d=30;l=1}
-    - throw{v=5;vy=2}
-  ];oP=[
-    - particles{a=1;p=dust_color_transition;spread=0.1;color1=#FFFFFF;color2=#BCBCBC;size=1.3;d=1}
-  ];}
-
+  - slash{r=0.8;fo=0.3;y=0;width=<caster.var.wave>;mpd=true;a=180;oP=ForceWaveTP;onHitEntitySkill=ForceWaveTH} @projectileforward{f=0}
+ForceWaveTP:
+  Skills:
+  - particles{a=1;p=reddust;spread=0.1;color=#FFFFFF;size=1.3;d=1}
+ForceWaveTH:
+  Skills:
+  - basedamage{m=3.5;useAttribute=true}
+  - potion{type=SLOWNESS;d=30;l=1}
+  - throw{v=5;vy=2}
 MagicSurge1:
   Skills:
   - aura{i=1;duration=<skill.mcd>;bt=true;bartimercolor=BLUE;bartimerdisplay="&f&l Magic Surge Level 1";n=mcd1} @self
 
 MagicSurge1CD:
   Skills:
-  - message{m="&fYour &9Level 1 Magic Surge &fis still active. <skill.text> could not be cast."} @self
+  - message{m="Cannot cast <skill.text>. &9Level 1 Magic Surge &fstill active."} @self
 
 MagicSurge2:
   Skills:
@@ -60,7 +64,14 @@ MagicSurge2:
 
 MagicSurge2CD:
   Skills:
-  - message{m="&fYour &bLevel 2 Magic Surge &fis still active. <skill.text> could not be cast."} @self
+  - message{m="Cannot cast <skill.text>. &bLevel 2 Magic Surge &fstill active."} @self
+SurgeClear:
+  Skills:
+  - auraRemove{aura=mcd1} @self
+  - barRemove{n=mcd1} @self
+  - auraRemove{aura=mcd2} @self
+  - barRemove{n=mcd2} @self
+
 
 Media:
   Skills:
@@ -69,22 +80,85 @@ Media:
 MH:
   Skills:
   - skill{s=MagicSurge1;mcd=220}
-  - healpercent{m=0.2;oh=false} @ENO{r=5}
+  - healpercent{m=0.2;oh=false} @ENO{r=7}
   - healpercent{m=0.2;oh=false} @self
-  - particlesphere{p=happy_villager;a=300;r=5} @self
+  - particlesphere{p=happy_villager;a=550;r=7} @self
   - sound{s=block.amethyst_block.resonate;v=3;p=0.5} @self
   - sound{s=block.amethyst_block.resonate;v=3;p=1} @self
   - sound{s=block.amethyst_block.resonate;v=3;p=2} @self
 
-Zio:
+Garu:
   Skills:
-  - skill{s=MagicSurge1CD;text="Zio"} @self ?hasaura{n=mcd1}
-  - skill{s=ZD} @self ?!hasaura{n=mcd1}
-ZD:
+  - skill{s=MagicSurge1CD;text="Garu"} @self ?hasaura{n=mcd1}
+  - skill{s=GaruD} @self ?!hasaura{n=mcd1}
+GaruD:
   Skills:
   - skill{s=MagicSurge1;mcd=140}
-  - fakelightning @forward{f=5}
-  - basedamage{m=9.5;useAttribute=true;e=THUNDER;origin=@Forward{f=5};fromOrigin=true} @ENO{r=3}
+  - totem{duration=60;interval=10;onTickSkill=GaruT} @targetLoc{maxdistance=8}
+GaruT:
+  Skills:
+    - baseDamage{m=1.8;e=WIND;useAttribute=true;pkb=true} @ENO{r=3.5}
+    - particlering{r=2.5;pts=32;particle=reddust;color=#61ba30;} @origin
+    - particlering{r=2;pts=32;particle=reddust;color=#61ba30;yOffset=1;fo=true} @origin
+    - particlering{r=2;pts=32;particle=reddust;color=#61ba30;yOffset=-1;fo=true} @origin
+    - particlesphere{r=3.5;amount=520;p=reddust;color=#a1ff6e;} @origin
+    - sound{s=entity.player.attack.sweep;v=3} @origin
+    - sound{s=entity.horse.breathe;v=3;p=2} @origin
+    - sound{s=entity.horse.breathe;v=3;p=0} @origin
+    - pull{v=8;to=true} @ENO{r=3.5}
+
+Rakukaja:
+  Skills:
+  - skill{s=MagicSurge1CD;text="Rakukaja"} @self ?hasaura{n=mcd1}
+  - skill{s=RB} @self ?!hasaura{n=mcd1}
+
+RB:
+  Skills:
+  - skill{s=MagicSurge1;mcd=360}
+  - ondamaged{aura=Rakukaja;duration=240;multiplier=0.7} @EIR{r=3.5}
+  - ondamaged{aura=Rakukaja;duration=240;multiplier=0.7} @self
+  - shield{a=4;maxabsorb=100} @EIR{r=3.5}
+  - shield{a=4;maxabsorb=100} @self
+  - particlesphere{r=3.5;p=reddust;a=300;color=#312845} @self
+  - sound{s=entity.blaze.hurt;v=3} @self
+  - sound{s=entity.wither.spawn;v=3;p=1.5} @self
+  - sound{s=entity.elder_guardian.curse;v=3;p=0.5}
+
+Precipitation:
+  Skills:
+  - skill{s=MagicSurge1CD;text="Precipitation"} @self ?hasaura{n=mcd1}
+  - skill{s=PJ} @self ?!hasaura{n=mcd1}
+
+PJ:
+  Skills:
+  - skill{s=MagicSurge1;mcd=220}
+  - particlering{r=4;points=80;p=reddust;color=#335ab5} @self
+  - delay 2
+  - particlering{r=2.5;points=56;p=reddust;color=#4669bd} @self
+  - delay 2
+  - particlering{r=1;points=32;p=reddust;color=#6c8dd9} @self
+  - baseDamage{m=4;e=WATER;useAttribute=true;pkb=true} @ENO{r=4}
+  - sound{s=block.bubble_column.upwards_inside;v=3} @self
+  - sound{s=entity.phantom.flap;v=3;p=0.5} @self
+  - sound{s=entity.phantom.flap;v=3;p=2} @self
+  - pull{v=5} @ENO{r=4}
+  - jump{v=6} @self
+  - potion{type=LEVITATION;l=254;d=30;hasparticles=false} @self
+  - delay 30
+  - onDamaged{aura=fallImmune;d=20;damagemodifiers=FALL;damagemultiplier=0.001;ondamagedskill=PJWave}
+  - jump{v=-20} @self
+  - delay 2
+  - sound{s=block.bubble_column.whirlpool_inside;v=3} @self
+
+PJWave:
+  Skills:
+  - baseDamage{m=4;e=WATER;useAttribute=true;pkb=true} @ENO{r=5}
+  - throw{v=11;vy=4.5} @ENO{r=5}
+  - particlering{r=1.5;points=32;p=reddust;color=#6c8dd9} @self
+  - delay 3
+  - particlering{r=3;points=56;p=reddust;color=#4669bd} @self
+  - delay 3
+  - particlering{r=5;points=80;p=reddust;color=#335ab5} @self
 
 RecursiveRay:
   Skills:
